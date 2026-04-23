@@ -1,0 +1,306 @@
+<!--
+╔══════════════════════════════════════════════════════════════════════╗
+║  ARAMIS WEBSITE — NAV COMPONENT                                      ║
+║  Last updated: April 2026                                            ║
+║                                                                      ║
+║  HOW TO USE                                                          ║
+║  1. Copy the CSS block into your page's <style> section              ║
+║  2. Copy the HTML block immediately after <body>                     ║
+║  3. Copy the JS block into your page's <script> section              ║
+║  4. Set class="nav-lk active" on whichever link matches the          ║
+║     current page (remove "active" from all others)                   ║
+║  5. The tokens block (--bg, --gold, etc.) must also be present       ║
+║     in the page's :root — copy from TOKENS section below             ║
+║                                                                      ║
+║  ACTIVE PAGE REFERENCE                                               ║
+║  index.html          → no left/right item is active (logo = home)   ║
+║  story.html          → Our Story                                     ║
+║  explore-our-venue   → The Venue (add .active to .nav-dd-trigger)   ║
+║  menu.html           → Our Menu                                      ║
+║  events.html         → Events                                        ║
+║  pro-shop.html       → Pro Shop                                      ║
+║  contact.html        → Find Us                                       ║
+╚══════════════════════════════════════════════════════════════════════╝
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     TOKENS — include in every page's :root {}
+     ════════════════════════════════════════════════════════════════════
+     These must live in your page CSS. The nav depends on them.
+-->
+<!--
+:root {
+  --bg:       #1a1814;
+  --bg-card:  #232019;
+  --bg-surf:  #2a2620;
+  --gold:     #c8a96e;
+  --gold-h:   #dcc48e;
+  --cream:    #f3e5d2;
+  --muted:    #c8b9a4;
+  --nav-h:    180px;
+  --gutter:   72px;
+  --max-w:    1200px;
+}
+-->
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     CSS — paste inside <style> on every page
+     ════════════════════════════════════════════════════════════════════ -->
+<style id="nav-css-reference">
+
+/* ─── NAV ────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  padding: 0 40px;
+  background: transparent;
+  transition: background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  background: rgba(26,24,20,.97);
+  border-bottom-color: rgba(200,169,110,.12);
+  backdrop-filter: blur(12px);
+}
+
+/* Left / Logo / Right columns */
+.nav-left {
+  display: flex; align-items: center; justify-content: flex-end;
+  flex: 1; gap: 2px;
+}
+.nav-right {
+  display: flex; align-items: center; justify-content: flex-start;
+  flex: 1; gap: 2px;
+}
+.nav-logo { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+
+/* Base nav link */
+.nav-lk {
+  font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px;
+  text-transform: uppercase; color: rgba(243,229,210,.65);
+  padding: 10px 22px; transition: color .2s;
+  white-space: nowrap; line-height: 1; cursor: pointer;
+  position: relative;
+}
+.nav-lk:hover,
+.nav-lk.active { color: var(--gold); }
+
+/* ── Dropdown parent ── */
+.nav-dd {
+  position: relative;
+  display: flex; align-items: center;
+}
+
+/* "The Venue" trigger */
+.nav-dd-trigger {
+  display: flex; align-items: center; gap: 5px;
+}
+.nav-dd-trigger .chevron {
+  width: 10px; height: 10px;
+  transition: transform .25s;
+  opacity: .5; flex-shrink: 0;
+}
+.nav-dd:hover .chevron,
+.nav-dd.open  .chevron { transform: rotate(180deg); opacity: 1; }
+
+/* Dropdown panel */
+.nav-dd-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  background: rgba(22,20,17,.98);
+  border: 1px solid rgba(200,169,110,.15);
+  border-top: 2px solid var(--gold);
+  backdrop-filter: blur(16px);
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  /* Open fast, close with delay so cursor can travel to panel */
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s;
+  pointer-events: none;
+}
+/* Invisible bridge between trigger and panel — prevents accidental close */
+.nav-dd-panel::before {
+  content: '';
+  position: absolute;
+  bottom: 100%; left: 0; right: 0;
+  height: 12px;
+}
+.nav-dd:hover .nav-dd-panel,
+.nav-dd.open  .nav-dd-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s;
+  pointer-events: auto;
+}
+
+/* Dropdown items */
+.nav-dd-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 20px;
+  font-size: 10px; font-weight: 500; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(243,229,210,.6);
+  transition: color .18s, background .18s;
+  white-space: nowrap;
+}
+.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
+.nav-dd-item .dd-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--gold); opacity: .4; flex-shrink: 0;
+}
+.nav-dd-divider {
+  height: 1px; background: rgba(200,169,110,.08);
+  margin: 6px 0;
+}
+
+/* ── Mobile — hide left/right, keep logo centred ── */
+@media (max-width: 960px) {
+  .nav-left, .nav-right { display: none; }
+  .nav-logo { padding: 0; }
+  .nav-logo img { width: 240px; height: auto; }
+  .nav { justify-content: center; }
+}
+
+</style>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     HTML — paste immediately after <body> on every page
+     Change "active" class to match the current page (see table above)
+     ════════════════════════════════════════════════════════════════════ -->
+
+<nav class="nav" id="nav">
+
+  <!-- LEFT -->
+  <div class="nav-left">
+
+    <!-- Our Story: add class="nav-lk active" when on story.html -->
+    <a href="story.html" class="nav-lk">Our Story</a>
+
+    <!-- The Venue dropdown -->
+    <!-- Add class="nav-lk nav-dd-trigger active" on venue pages -->
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 3.5l3 3 3-3"/>
+        </svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="explore-our-venue.html#billiards" class="nav-dd-item">
+          <span class="dd-dot"></span>Billiards
+        </a>
+        <a href="explore-our-venue.html#darts" class="nav-dd-item">
+          <span class="dd-dot"></span>Darts
+        </a>
+        <a href="explore-our-venue.html#terrace" class="nav-dd-item">
+          <span class="dd-dot"></span>The Terrace Cafe
+        </a>
+        <a href="explore-our-venue.html#kitchen" class="nav-dd-item">
+          <span class="dd-dot"></span>Kitchen &amp; Bar
+        </a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="color:var(--gold); letter-spacing:1.4px;">
+          <span class="dd-dot" style="opacity:1;"></span>Explore our Venue →
+        </a>
+      </div>
+    </div>
+
+    <!-- Our Menu: add class="nav-lk active" when on menu.html -->
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+
+  </div>
+
+  <!-- LOGO — always links to homepage -->
+  <a href="index.html" class="nav-logo">
+    <img
+      src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png"
+      alt="ARAMIS Billiard Club — Chania, Crete"
+      loading="eager">
+  </a>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+
+    <!-- Events: add class="nav-lk active" when on events.html -->
+    <a href="events.html" class="nav-lk">Events</a>
+
+    <!-- Pro Shop: add class="nav-lk active" when on pro-shop.html -->
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+
+    <!-- Find Us: add class="nav-lk active" when on contact.html -->
+    <a href="contact.html" class="nav-lk">Find Us</a>
+
+  </div>
+
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     JS — paste inside <script> on every page
+     The fade-up and zoom observers are page-specific — only this
+     nav block is required on all pages.
+     ════════════════════════════════════════════════════════════════════ -->
+<script id="nav-js-reference">
+
+// ── Nav: solid background on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ── Venue dropdown: touch/mobile click support
+const venueDd = document.getElementById('nav-venue');
+if (venueDd) {
+  venueDd.addEventListener('click', e => {
+    // On touch devices (no hover), toggle open class manually
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      venueDd.classList.toggle('open');
+    }
+  });
+  // Close if clicking anywhere outside
+  document.addEventListener('click', e => {
+    if (!venueDd.contains(e.target)) venueDd.classList.remove('open');
+  });
+}
+
+// ── Fade-up on scroll (include on every page)
+const fuObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => fuObs.observe(el));
+
+</script>
+
+
+<!--
+════════════════════════════════════════════════════════════════════
+  PAGE FILE REFERENCE
+  As pages are built, record their filename here.
+════════════════════════════════════════════════════════════════════
+
+  index.html              Home
+  story.html              ARAMIS Story          ✓ built
+  explore-our-venue.html  Explore our Venue     — pending
+  menu.html               Our Menu              — pending
+  events.html             Events                — pending
+  pro-shop.html           Pro Shop              — pending
+  contact.html            Find Us / Enquiries   — pending
+
+  LOGO URL
+  https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png
+
+  CANVAS URLS
+  https://raw.githubusercontent.com/aramis1984/aramis-website/main/canvas_aramis_%20planet_.png
+  https://raw.githubusercontent.com/aramis1984/aramis-website/main/canvas_epic_%20moments_.png
+
+════════════════════════════════════════════════════════════════════
+-->
