@@ -1,7 +1,7 @@
 // Vercel Serverless Function — Google Places Reviews proxy
 // Deployed at: /api/reviews
 
-const PLACE_ID = 'ChIJM6BkYoidfBgRwuF4o7BkhmU'; // ARAMIS Billiard Club
+const PLACE_ID = 'ChIJM6BkL4h9nBQRwuF447BkhqU'; // ARAMIS Billiard Club — verified
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
