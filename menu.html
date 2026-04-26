@@ -506,7 +506,7 @@ body.mob-open { overflow: hidden; }
 
   /* ─── MENU.HTML ─────────────────────────── */
   .group-cards { height: 160px; position: relative; top: auto; }
-  .cat-pills { top: calc(var(--nav-h) + 160px + 44px); }
+  /* cat-pills top handled per-page */
   .cocktail-grid { grid-template-columns: 1fr !important; }
   .cktl-thumb { width: 72px; height: 72px; }
   .kitchen-feature-thumb { width: 100px; }
@@ -577,6 +577,13 @@ body.mob-open { overflow: hidden; }
   .gallery-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
+
+@media (max-width: 768px) {
+  /* menu.html specific — uses its own 60px topbar, not main nav */
+  .group-tabs { position: sticky; top: 60px; z-index: 190; }
+  .cat-pills  { position: sticky; top: 104px !important; z-index: 180; }
+  .menu-hero  { padding: 80px 20px 36px; }
+}
 </style>
 </head>
 <body>

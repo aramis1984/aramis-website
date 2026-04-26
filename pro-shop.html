@@ -583,7 +583,45 @@ body.mob-open { overflow: hidden; }
     <a href="pro-shop.html" class="nav-lk active">Pro Shop</a>
     <a href="contact.html"  class="nav-lk">Find Us</a>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- ══ MOBILE MENU ════════════════════════════ -->
+<div class="mob-menu" id="mob-menu" role="dialog" aria-modal="true">
+  <div class="mob-menu-header">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="mob-logo">
+    <button class="mob-close" id="mob-close" aria-label="Close menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-nav">
+    <a href="index.html" class="mob-link-main">Home</a>
+    <div class="mob-group">
+      <div class="mob-group-label">The Venue</div>
+      <a href="billiards.html"         class="mob-link-sub">Billiards</a>
+      <a href="darts.html"             class="mob-link-sub">Darts</a>
+      <a href="terrace.html"           class="mob-link-sub">The Terrace Cafe</a>
+      <a href="kitchen.html"           class="mob-link-sub">Kitchen &amp; Bar</a>
+      <a href="explore-our-venue.html" class="mob-link-sub mob-link-explore">Explore the Venue →</a>
+    </div>
+    <a href="menu.html"        class="mob-link-main">Our Menu</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Events</div>
+      <a href="tournaments.html" class="mob-link-sub">Tournaments</a>
+      <a href="social.html"      class="mob-link-sub">Social Events</a>
+    </div>
+    <a href="pro-shop.html" class="mob-link-main">Pro Shop</a>
+    <a href="contact.html"  class="mob-link-main">Find Us</a>
+  </nav>
+  <div class="mob-footer">
+    <div class="mob-footer-hours">Open 10:00 – 01:00 · Every day</div>
+    <div class="mob-footer-location">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
+    <a href="https://instagram.com/aramischania" target="_blank" class="mob-footer-ig">@aramischania</a>
+  </div>
+</div>
+<div class="mob-overlay" id="mob-overlay"></div>
 
 
 <!-- ══ COMING SOON ════════════════════════════ -->
