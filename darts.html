@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darts | ARAMIS Billiard Club, Chania</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Two professional dart stations at ARAMIS Chania, in the same hall as the billiard tables. Drop in and play any time.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aramisbilliards.com/darts">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARAMIS Billiard Club">
+  <meta property="og:title" content="Darts | ARAMIS Billiard Club, Chania">
+  <meta property="og:description" content="Two professional dart stations at ARAMIS Chania, in the same hall as the billiard tables. Drop in and play any time.">
+  <meta property="og:url" content="https://www.aramisbilliards.com/darts">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+  <meta property="og:locale" content="en_GR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Darts | ARAMIS Billiard Club, Chania">
+  <meta name="twitter:description" content="Two professional dart stations at ARAMIS Chania, in the same hall as the billiard tables. Drop in and play any time.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ─── TOKENS ─────────────────────────────── */
+:root {
+  --bg:       #1a1814;
+  --bg-card:  #232019;
+  --bg-surf:  #2a2620;
+  --gold:     #c8a96e;
+  --gold-h:   #dcc48e;
+  --cream:    #f3e5d2;
+  --muted:    #c8b9a4;
+  --nav-h:    180px;
+  --gutter:   72px;
+  --max-w:    1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--cream);
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── NAV (canonical) ────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: var(--nav-h); display: flex; align-items: center;
+  padding: 0 40px; background: transparent;
+  transition: background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  background: rgba(26,24,20,.97);
+  border-bottom-color: rgba(200,169,110,.12);
+  backdrop-filter: blur(12px);
+}
+.nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
+.nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
+.nav-logo  { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+.nav-lk {
+  font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase;
+  color: rgba(243,229,210,.65); padding: 10px 22px; transition: color .2s;
+  white-space: nowrap; line-height: 1; cursor: pointer; position: relative;
+}
+.nav-lk:hover, .nav-lk.active { color: var(--gold); }
+.nav-dd { position: relative; display: flex; align-items: center; }
+.nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
+.nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
+.nav-dd:hover .chevron, .nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
+.nav-dd-panel {
+  position: absolute; top: calc(100% + 8px); left: 0; min-width: 220px;
+  background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15);
+  border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0;
+  opacity: 0; visibility: hidden; transform: translateY(-4px);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s; pointer-events: none;
+}
+.nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
+.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel {
+  opacity: 1; visibility: visible; transform: translateY(0);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s; pointer-events: auto;
+}
+.nav-dd-item {
+  display: flex; align-items: center; gap: 12px; padding: 12px 20px;
+  font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase;
+  color: rgba(243,229,210,.6); transition: color .18s, background .18s; white-space: nowrap;
+}
+.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
+.nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
+.nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
+@media (max-width: 960px) {
+  .nav-left, .nav-right { display: none; }
+  .nav { justify-content: center; }
+  .nav-logo img { width: 240px; height: auto; }
+}
+
+/* ─── HERO ───────────────────────────────── */
+.hero {
+  position: relative; height: 100vh; min-height: 680px;
+  display: flex; align-items: flex-end; overflow: hidden;
+}
+.hero-img {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1c1a15 0%, #141210 50%, #1f1c17 100%);
+}
+.hero-img img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+  filter: saturate(.7) brightness(.55);
+}
+.hero-img-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  border: 1px dashed rgba(200,169,110,.1); margin: 80px var(--gutter);
+}
+.hero-img-placeholder svg { color: rgba(200,169,110,.15); }
+.hero-img-placeholder span {
+  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(200,169,110,.2);
+}
+.hero-ov {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(26,24,20,.3)  0%,
+    rgba(26,24,20,.05) 25%,
+    rgba(26,24,20,.05) 50%,
+    rgba(26,24,20,.88) 100%
+  );
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 0 var(--gutter) 80px;
+  max-width: var(--max-w); margin: 0 auto; width: 100%;
+}
+.hero-eyebrow {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
+.hero-hed {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 6.5vw, 88px);
+  font-weight: 400; font-style: italic;
+  line-height: 1.07; color: var(--cream);
+  margin-bottom: 20px; letter-spacing: -1px;
+  max-width: 640px;
+}
+.hero-sub {
+  font-size: 14px; font-weight: 300; line-height: 1.7;
+  color: rgba(200,185,164,.5); max-width: 480px;
+}
+.hero-scroll {
+  position: absolute; bottom: 40px; right: var(--gutter); z-index: 3;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.hero-scroll span { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,185,164,.3); }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(200,169,110,.35), transparent); }
+
+/* ─── SHARED HELPERS ─────────────────────── */
+.stag {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+}
+.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.sec-hed {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 400; line-height: 1.13; color: var(--cream); margin-bottom: 24px;
+}
+.sec-body { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.sec-body:last-child { margin-bottom: 0; }
+
+/* ─── SECTION: THE GAME ──────────────────── */
+.game-section {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(200,169,110,.07);
+  min-height: 580px;
+}
+.game-photo {
+  position: relative; overflow: hidden; background: var(--bg-surf);
+}
+.game-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: saturate(.8) brightness(.65);
+  transition: transform 8s ease;
+}
+.game-photo:hover img { transform: scale(1.04); }
+.game-photo::after {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 80px;
+  background: linear-gradient(to right, transparent, var(--bg)); pointer-events: none;
+}
+.game-photo-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+}
+.game-photo-placeholder svg { color: rgba(200,169,110,.12); }
+.game-photo-placeholder span {
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.18); text-align: center;
+}
+.game-text {
+  background: var(--bg); padding: 80px var(--gutter);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.pull-quote {
+  font-family: 'Fraunces', serif; font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 400; font-style: italic; color: var(--gold); line-height: 1.55;
+  margin-bottom: 32px; padding-left: 20px; border-left: 2px solid rgba(200,169,110,.25);
+}
+
+/* ─── STATIONS BLOCK ─────────────────────── */
+.stations {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  padding: 100px var(--gutter);
+}
+.stations-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.stations-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 40px;
+}
+.station-card {
+  background: var(--bg-surf); padding: 40px 36px;
+  position: relative; overflow: hidden;
+  border: 1px solid rgba(200,169,110,.06);
+  transition: border-color .3s;
+}
+.station-card:hover { border-color: rgba(200,169,110,.18); }
+.station-card::before {
+  content: attr(data-num);
+  position: absolute; top: -12px; right: 12px;
+  font-family: 'Fraunces', serif; font-size: 100px; font-weight: 300;
+  color: rgba(200,169,110,.04); line-height: 1; pointer-events: none;
+  transition: color .4s;
+}
+.station-card:hover::before { color: rgba(200,169,110,.08); }
+.station-label {
+  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(200,169,110,.55); margin-bottom: 12px;
+}
+.station-title {
+  font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400;
+  color: var(--cream); margin-bottom: 12px; line-height: 1.2;
+}
+.station-desc { font-size: 13px; line-height: 1.75; color: var(--muted); }
+
+/* Photo grid right */
+.stations-photos {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.sph {
+  background: var(--bg-surf); overflow: hidden; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.sph:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
+.sph:not(:first-child) { aspect-ratio: 1; }
+.sph img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.75) brightness(.65); transition: transform .6s, filter .4s; }
+.sph:hover img { transform: scale(1.05); filter: saturate(.9) brightness(.75); }
+.sph-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+}
+.sph-placeholder svg { color: rgba(200,169,110,.12); }
+.sph-placeholder span {
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.18); text-align: center;
+}
+.sph-label {
+  position: absolute; bottom: 12px; left: 14px;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.45); pointer-events: none;
+}
+
+/* ─── HOW TO PLAY ─────────────────────────── */
+.how-section {
+  background: var(--bg);
+  border-top: 1px solid rgba(200,169,110,.07);
+  padding: 100px var(--gutter);
+}
+.how-inner { max-width: var(--max-w); margin: 0 auto; }
+.how-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px;
+}
+.how-card {
+  background: var(--bg-card); padding: 44px 36px;
+  border: 1px solid rgba(200,169,110,.06);
+  position: relative;
+}
+.how-step {
+  font-family: 'Fraunces', serif; font-size: 56px; font-weight: 300;
+  color: rgba(200,169,110,.12); line-height: 1; margin-bottom: 20px;
+  transition: color .3s;
+}
+.how-card:hover .how-step { color: rgba(200,169,110,.22); }
+.how-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cream); margin-bottom: 14px;
+}
+.how-desc { font-size: 13px; line-height: 1.75; color: var(--muted); }
+
+/* ─── TOURNAMENTS ─────────────────────────── */
+.tournaments {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+.tournaments-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+}
+.tournaments-photo {
+  position: relative; overflow: hidden; background: var(--bg-surf);
+}
+.tournaments-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: saturate(.75) brightness(.6); transition: transform 8s ease;
+}
+.tournaments-photo:hover img { transform: scale(1.04); }
+.tournaments-text {
+  padding: 80px var(--gutter);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px; margin-top: 32px;
+  background: transparent; color: var(--muted);
+  font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  border: 1px solid rgba(200,169,110,.3); transition: all .25s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn-ghost svg { transition: transform .25s; }
+.btn-ghost:hover svg { transform: translateX(4px); }
+
+/* ─── CROSSLINK TO BILLIARDS ──────────────── */
+.crosslink {
+  background: var(--bg);
+  border-top: 1px solid rgba(200,169,110,.07);
+  padding: 80px var(--gutter);
+}
+.crosslink-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 48px;
+}
+.crosslink-text {}
+.crosslink-eyebrow {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(200,169,110,.4); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.crosslink-eyebrow::before { content: ''; width: 28px; height: 1px; background: rgba(200,169,110,.3); }
+.crosslink-hed {
+  font-family: 'Fraunces', serif; font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 400; color: var(--cream); line-height: 1.2;
+}
+.crosslink-sub { font-size: 14px; color: var(--muted); line-height: 1.7; margin-top: 12px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0;
+  padding: 16px 36px;
+  background: var(--gold); color: var(--bg);
+  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  transition: background .2s;
+}
+.btn-primary:hover { background: var(--gold-h); }
+.btn-primary svg { transition: transform .25s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+/* ─── FOOTER ──────────────────────────────── */
+.footer {
+  background: #141210; padding: 72px 0 40px;
+  border-top: 1px solid rgba(200,169,110,.1);
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
+  display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px;
+}
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
+
+/* ─── FADE-UP ─────────────────────────────── */
+.fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.fu.vis { opacity: 1; transform: none; }
+.fu-d1 { transition-delay: .12s; }
+.fu-d2 { transition-delay: .22s; }
+.fu-d3 { transition-delay: .32s; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+@media (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .game-section, .stations-inner, .tournaments-inner { grid-template-columns: 1fr; }
+  .game-photo { min-height: 280px; }
+  .game-photo::after { display: none; }
+  .how-grid { grid-template-columns: 1fr; }
+  .crosslink-inner { flex-direction: column; align-items: flex-start; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+
+
+/* ─── ARAMIS CULTURE ─────────────────────── */
+.culture-section {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+.culture-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 100px var(--gutter);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+}
+.culture-intro {}
+.culture-rules { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.culture-rule {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 22px 24px; background: var(--bg-surf);
+  border-left: 2px solid transparent;
+  transition: border-color .3s;
+}
+.culture-rule:hover { border-left-color: var(--gold); }
+.culture-rule-icon { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+.culture-rule-title { font-size: 13px; font-weight: 500; color: var(--cream); margin-bottom: 4px; }
+.culture-rule-desc { font-size: 12px; line-height: 1.65; color: rgba(200,185,164,.55); }
+/* Priority rule — slightly highlighted */
+.culture-rule.priority { border-left-color: rgba(200,169,110,.2); background: rgba(200,169,110,.04); }
+.culture-rule.priority:hover { border-left-color: var(--gold); }
+/* Venue teaser — compact version */
+.culture-teaser {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  padding: 64px var(--gutter);
+  text-align: center;
+}
+.culture-teaser-inner { max-width: 680px; margin: 0 auto; }
+.culture-teaser-stag {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; gap: 14px;
+  justify-content: center; margin-bottom: 20px;
+}
+.culture-teaser-stag::before, .culture-teaser-stag::after { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
+.culture-teaser-hed {
+  font-family: 'Fraunces', serif; font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 400; font-style: italic; color: var(--cream);
+  line-height: 1.2; margin-bottom: 20px;
+}
+.culture-teaser-body { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 28px; }
+.culture-teaser-pillars {
+  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+}
+.culture-pillar {
+  font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 6px 14px; border: 1px solid rgba(200,169,110,.18);
+  color: rgba(200,169,110,.6);
+}
+/* Darts compact reference */
+.culture-ref {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  padding: 48px var(--gutter);
+  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+}
+.culture-ref-icon { color: rgba(200,169,110,.3); flex-shrink: 0; }
+.culture-ref-text {}
+.culture-ref-title {
+  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 8px;
+}
+.culture-ref-body { font-size: 14px; line-height: 1.75; color: var(--muted); }
+.culture-ref-body a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.25); transition: border-color .2s; }
+.culture-ref-body a:hover { border-color: var(--gold); }
+
+@media (max-width: 960px) {
+  .culture-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a href="story.html" class="nav-lk">Our Story</a>
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger active">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="darts.html"             class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>Darts</a>
+        <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+  <div class="nav-right">
+    <a href="events.html"   class="nav-lk">Events</a>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html"  class="nav-lk">Find Us</a>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══════════════════════════════════
+     Replace placeholder with:
+     <img src="assets/images/darts-hero.jpg" alt="ARAMIS Darts">
+     ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-img-placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="6"/>
+        <circle cx="12" cy="12" r="2.5"/>
+        <line x1="12" y1="1" x2="12" y2="4"/>
+        <line x1="12" y1="20" x2="12" y2="23"/>
+        <line x1="1" y1="12" x2="4" y2="12"/>
+        <line x1="20" y1="12" x2="23" y2="12"/>
+      </svg>
+      <span>Darts area — boards lit, player throwing</span>
+    </div>
+    <!-- <img src="assets/images/darts-hero.jpg" alt="ARAMIS Darts area"> -->
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">The Game · ARAMIS Chania</div>
+    <h1 class="hero-hed">Step up<br>to the oche.</h1>
+    <p class="hero-sub">Two dedicated stations. Four when it counts. Always set up, always ready.</p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+
+<!-- ══ THE GAME ═══════════════════════════════ -->
+<section class="game-section">
+
+  <div class="game-photo fu">
+    <div class="game-photo-placeholder">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="6"/>
+        <circle cx="12" cy="12" r="2.5"/>
+      </svg>
+      <span>Dartboard close-up — or player at the oche</span>
+    </div>
+    <!-- <img src="assets/images/darts-board.jpg" alt="ARAMIS dartboard"> -->
+  </div>
+
+  <div class="game-text fu">
+    <div class="stag">Darts at ARAMIS</div>
+    <h2 class="sec-hed">Pick up a dart.<br>The rest follows.</h2>
+    <div class="pull-quote">"Whether you're warming up between pool games or here specifically to throw — the boards are ready."</div>
+    <p class="sec-body">ARAMIS has two dedicated dart stations, set up for casual play and serious practice alike. The boards are always properly lit and maintained. When dart tournaments come around, we expand the area to four stations.</p>
+    <p class="sec-body">Darts are available at the bar — just ask. No need to bring your own unless you want to.</p>
+  </div>
+
+</section>
+
+
+<!-- ══ STATIONS ══════════════════════════════ -->
+<section class="stations">
+  <div class="stations-inner">
+
+    <div class="fu">
+      <div class="stag">The Setup</div>
+      <h2 class="sec-hed">Two stations.<br>Four for tournaments.</h2>
+      <p class="sec-body">The darts area is a permanent part of the ARAMIS layout — not an afterthought tucked in a corner. Two stations run daily for casual play and practice. When a dart tournament is on, we reconfigure the space to four full setups.</p>
+      <div class="stations-grid">
+        <div class="station-card" data-num="2">
+          <div class="station-label">Daily</div>
+          <div class="station-title">2 Stations</div>
+          <div class="station-desc">Always set up for casual play, warm-ups, and practice sessions.</div>
+        </div>
+        <div class="station-card" data-num="4">
+          <div class="station-label">Tournament days</div>
+          <div class="station-title">4 Stations</div>
+          <div class="station-desc">Expanded setup when competitions run — proper space to compete.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo grid -->
+    <div class="stations-photos fu fu-d1">
+      <div class="sph">
+        <div class="sph-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/></svg>
+          <span>Darts area — wide shot</span>
+        </div>
+        <!-- <img src="assets/images/darts-stations-wide.jpg" alt="ARAMIS darts area"> -->
+        <div class="sph-label">The Area</div>
+      </div>
+      <div class="sph">
+        <div class="sph-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Player throwing</span>
+        </div>
+        <!-- <img src="assets/images/darts-player.jpg" alt="Player at the oche"> -->
+        <div class="sph-label">In Play</div>
+      </div>
+      <div class="sph">
+        <div class="sph-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+          <span>Dart flights / detail</span>
+        </div>
+        <!-- <img src="assets/images/darts-flights.jpg" alt="Dart detail"> -->
+        <div class="sph-label">The Detail</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ HOW IT WORKS ═══════════════════════════ -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="fu">
+      <div class="stag">Getting Started</div>
+      <h2 class="sec-hed">Simple as it gets.</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card fu">
+        <div class="how-step">01</div>
+        <div class="how-title">Ask at the bar</div>
+        <div class="how-desc">Darts are available at the bar. Tell us you want to play — we'll sort you out with everything you need.</div>
+      </div>
+      <div class="how-card fu fu-d1">
+        <div class="how-step">02</div>
+        <div class="how-title">Take your station</div>
+        <div class="how-desc">Head to any free board. Both stations are always set up and ready. No waiting, no setup required on your end.</div>
+      </div>
+      <div class="how-card fu fu-d2">
+        <div class="how-step">03</div>
+        <div class="how-title">Play your game</div>
+        <div class="how-desc">Whether it's 501, Cricket, or just warming up your arm between pool games — the oche is yours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TOURNAMENTS ════════════════════════════ -->
+<section class="tournaments">
+
+  <div class="tournaments-photo fu">
+    <div class="game-photo-placeholder" style="position:absolute;inset:0;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
+        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/>
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+      </svg>
+      <span>Tournament day — boards, players, atmosphere</span>
+    </div>
+    <!-- <img src="assets/images/darts-tournament.jpg" alt="ARAMIS dart tournament"> -->
+  </div>
+
+  <div class="tournaments-text fu fu-d1">
+    <div class="stag">Tournaments</div>
+    <h2 class="sec-hed">When it gets<br>competitive.</h2>
+    <p class="sec-body">ARAMIS hosts dart tournaments regularly throughout the year — dates and formats vary by season. When a tournament is on, the area expands to four full stations and the atmosphere shifts.</p>
+    <p class="sec-body">Whether you're a regular competitor or curious about your first tournament, keep an eye on the Events page for upcoming dates, formats, and how to enter.</p>
+    <a href="events.html" class="btn-ghost">
+      View upcoming events
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</section>
+
+
+<!-- ══ CROSSLINK TO BILLIARDS ══════════════════ -->
+<div class="crosslink fu">
+  <div class="crosslink-inner">
+    <div class="crosslink-text">
+      <div class="crosslink-eyebrow">Also at ARAMIS</div>
+      <div class="crosslink-hed">Ten professional<br>billiard tables in the same hall.</div>
+      <div class="crosslink-sub">Nine American pool and one French carom — sharing the same space. Many regulars play both. It tends to be that kind of evening.</div>
+    </div>
+    <a href="billiards.html" class="btn-primary">
+      Explore Billiards
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+
+
+<!-- ══ ARAMIS CULTURE — reference ═════════ -->
+<div class="culture-ref fu">
+  <div class="culture-ref-icon">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".9"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  </div>
+  <div class="culture-ref-text">
+    <div class="culture-ref-title">ARAMIS Culture</div>
+    <p class="culture-ref-body">
+      The same spirit applies here as it does at the billiard tables — respect the players around you, keep the noise down, and give the game the attention it deserves.
+      Groups of two or more have priority when the hall is full.
+      <a href="billiards.html#culture">Read the full ARAMIS Culture</a> on the Billiards page.
+    </p>
+  </div>
+</div>
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+      </div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">Explore our Venue</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="events.html">Events</a>
+        <a href="pro-shop.html">Pro Shop</a>
+        <a href="contact.html">Find Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Visit</div>
+      <div class="footer-links">
+        <a href="#">Open 10:00 – 01:00 daily</a>
+        <a href="#">Chania, Crete</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Dropdown touch
+const venueDd = document.getElementById('nav-venue');
+if (venueDd) {
+  venueDd.addEventListener('click', e => {
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      venueDd.classList.toggle('open');
+    }
+  });
+  document.addEventListener('click', e => {
+    if (!venueDd.contains(e.target)) venueDd.classList.remove('open');
+  });
+}
+
+// Fade-up
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

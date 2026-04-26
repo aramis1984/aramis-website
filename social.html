@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Events | ARAMIS Billiard Club, Chania</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Live music, DJ nights, themed evenings and private events at ARAMIS Chania. On the best rooftop in Chania with White Mountains views.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aramisbilliards.com/social">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARAMIS Billiard Club">
+  <meta property="og:title" content="Social Events | ARAMIS Billiard Club, Chania">
+  <meta property="og:description" content="Live music, DJ nights, themed evenings and private events at ARAMIS Chania. On the best rooftop in Chania with White Mountains views.">
+  <meta property="og:url" content="https://www.aramisbilliards.com/social">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+  <meta property="og:locale" content="en_GR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Social Events | ARAMIS Billiard Club, Chania">
+  <meta name="twitter:description" content="Live music, DJ nights, themed evenings and private events at ARAMIS Chania. On the best rooftop in Chania with White Mountains views.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg:      #1a1814;
+  --bg-card: #232019;
+  --bg-surf: #2a2620;
+  --gold:    #c8a96e;
+  --gold-h:  #dcc48e;
+  --cream:   #f3e5d2;
+  --muted:   #c8b9a4;
+  --nav-h:   180px;
+  --gutter:  72px;
+  --max-w:   1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── NAV (same as tournaments) ─────────── */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: transparent; transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
+.nav.scrolled { background: rgba(26,24,20,.97); border-bottom-color: rgba(200,169,110,.12); backdrop-filter: blur(12px); }
+.nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
+.nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
+.nav-logo  { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+.nav-lk { font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(243,229,210,.65); padding: 10px 22px; transition: color .2s; white-space: nowrap; line-height: 1; cursor: pointer; position: relative; }
+.nav-lk:hover, .nav-lk.active { color: var(--gold); }
+.nav-dd { position: relative; display: flex; align-items: center; }
+.nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
+.nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
+.nav-dd:hover .chevron, .nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
+.nav-dd-panel { position: absolute; top: calc(100% + 8px); left: 0; min-width: 220px; background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15); border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s; pointer-events: none; }
+.nav-dd-panel.panel-right { left: auto; right: 0; }
+.nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
+.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s; pointer-events: auto; }
+.nav-dd-item { display: flex; align-items: center; gap: 12px; padding: 12px 20px; font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(243,229,210,.6); transition: color .18s, background .18s; white-space: nowrap; }
+.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
+.nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
+.nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
+@media (max-width: 960px) { .nav-left, .nav-right { display: none; } .nav { justify-content: center; } .nav-logo img { width: 240px; height: auto; } }
+
+/* ─── HERO ───────────────────────────────── */
+.hero { position: relative; height: 100vh; min-height: 680px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.hero-img { position: absolute; inset: 0; background: #141210; }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: saturate(.75) brightness(.45); }
+.hero-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border: 1px dashed rgba(200,169,110,.1); margin: 80px var(--gutter); }
+.hero-placeholder svg { color: rgba(200,169,110,.15); }
+.hero-placeholder span { font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,169,110,.2); }
+.hero-ov { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(26,24,20,.5) 0%, rgba(26,24,20,.1) 30%, rgba(26,24,20,.1) 55%, rgba(26,24,20,.88) 100%); }
+.hero-content { position: relative; z-index: 2; padding: calc(var(--nav-h) + 20px) var(--gutter) 40px; max-width: 860px; }
+.hero-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; justify-content: center; }
+.hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
+.hero-hed { font-family: 'Fraunces', serif; font-size: clamp(44px, 6.5vw, 88px); font-weight: 400; font-style: italic; line-height: 1.07; color: var(--cream); margin-bottom: 24px; letter-spacing: -1px; }
+.hero-rule { width: 1px; height: 52px; background: linear-gradient(to bottom, rgba(200,169,110,.45), transparent); margin: 0 auto 22px; }
+.hero-sub { font-size: 14px; line-height: 1.7; color: rgba(200,185,164,.5); }
+.hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 2; }
+.hero-scroll span { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,185,164,.3); }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(200,169,110,.4), transparent); }
+
+/* ─── SHARED ─────────────────────────────── */
+.stag { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.sec-hed { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.2vw, 46px); font-weight: 400; line-height: 1.13; color: var(--cream); margin-bottom: 24px; }
+.sec-body { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.sec-body:last-child { margin-bottom: 0; }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; background: var(--gold); color: var(--bg); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: background .2s; }
+.btn-primary:hover { background: var(--gold-h); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: transparent; color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(200,169,110,.3); transition: all .25s; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn-ghost svg, .btn-primary svg { transition: transform .25s; }
+.btn-ghost:hover svg, .btn-primary:hover svg { transform: translateX(4px); }
+
+/* ─── UPCOMING EVENTS ────────────────────── */
+.upcoming { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); }
+.upcoming-inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); }
+
+/* Event cards — horizontal layout with poster left */
+.event-list { display: flex; flex-direction: column; gap: 2px; margin-top: 52px; }
+.event-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: var(--bg-surf);
+  border: 1px solid rgba(200,169,110,.06);
+  overflow: hidden;
+  transition: border-color .3s;
+}
+.event-card:hover { border-color: rgba(200,169,110,.2); }
+
+/* Poster — the event announcement image / poster */
+.event-poster { position: relative; overflow: hidden; background: #0e0d0b; min-height: 320px; }
+.event-poster img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.85) brightness(.85); transition: transform .5s ease; }
+.event-card:hover .event-poster img { transform: scale(1.04); }
+.event-poster-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+.event-poster-placeholder svg { color: rgba(200,169,110,.1); }
+.event-poster-placeholder span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
+
+/* Event info */
+.event-body { padding: 44px 52px; display: flex; flex-direction: column; justify-content: center; border-left: 2px solid rgba(200,169,110,.08); transition: border-color .3s; }
+.event-card:hover .event-body { border-left-color: var(--gold); }
+.event-date { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.event-name { font-family: 'Fraunces', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; color: var(--cream); line-height: 1.2; margin-bottom: 12px; }
+.event-desc { font-size: 14px; line-height: 1.75; color: var(--muted); margin-bottom: 20px; }
+.event-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+.event-tag { font-size: 8.5px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(200,169,110,.18); color: rgba(200,169,110,.6); }
+
+/* Empty state */
+.event-empty { text-align: center; padding: 80px 0; }
+.event-empty-hed { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; font-style: italic; color: rgba(200,185,164,.3); margin-bottom: 16px; }
+.event-empty-sub { font-size: 14px; color: rgba(200,185,164,.25); line-height: 1.7; }
+.event-empty-sub a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.3); }
+
+/* ─── WHAT TO EXPECT ─────────────────────── */
+.expect { background: var(--bg); border-top: 1px solid rgba(200,169,110,.07); }
+.expect-inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.expect-photo { position: relative; overflow: hidden; background: var(--bg-surf); aspect-ratio: 4/3; }
+.expect-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform 8s ease; }
+.expect-photo:hover img { transform: scale(1.04); }
+.expect-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.expect-ph svg { color: rgba(200,169,110,.12); }
+.expect-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
+
+/* ─── YOUR EVENT / PRIVATE HIRE ──────────── */
+.your-event { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); }
+.your-event-inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+/* Occasion types */
+.occasions { display: flex; flex-direction: column; gap: 2px; margin-top: 32px; }
+.occasion-item { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--bg-surf); border-left: 2px solid transparent; transition: border-color .25s, background .25s; }
+.occasion-item:hover { border-left-color: var(--gold); background: var(--bg); }
+.occasion-icon { color: var(--gold); flex-shrink: 0; }
+.occasion-name { font-size: 13px; font-weight: 400; color: var(--cream); }
+
+/* Enquiry form */
+.enquiry-form { background: var(--bg-surf); padding: 48px; border: 1px solid rgba(200,169,110,.1); }
+.form-title { font-family: 'Fraunces', serif; font-size: clamp(20px, 2vw, 28px); font-weight: 400; color: var(--cream); margin-bottom: 8px; line-height: 1.2; }
+.form-sub { font-size: 13px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; }
+.form-grid { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.55); }
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: var(--bg); border: 1px solid rgba(200,169,110,.15);
+  color: var(--cream); padding: 12px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 300;
+  transition: border-color .2s; outline: none; width: 100%;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { border-color: var(--gold); }
+.form-field select { appearance: none; cursor: pointer; }
+.form-field textarea { resize: vertical; min-height: 100px; }
+.form-submit { margin-top: 8px; }
+.form-submit button {
+  width: 100%; padding: 15px 32px;
+  background: var(--gold); color: var(--bg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  border: none; cursor: pointer; transition: background .2s;
+}
+.form-submit button:hover { background: var(--gold-h); }
+.form-note { font-size: 11px; color: rgba(200,185,164,.35); margin-top: 12px; text-align: center; }
+
+/* Direct contact */
+.direct-contact { margin-top: 36px; display: flex; flex-direction: column; gap: 10px; }
+.contact-row { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); }
+.contact-row svg { color: var(--gold); flex-shrink: 0; }
+.contact-row a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.25); transition: border-color .2s; }
+.contact-row a:hover { border-color: var(--gold); }
+
+/* ─── PAST EVENTS GALLERY ────────────────── */
+.gallery-section { background: var(--bg); border-top: 1px solid rgba(200,169,110,.07); }
+.gallery-inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 52px; }
+.gallery-item { aspect-ratio: 4/3; position: relative; overflow: hidden; background: var(--bg-surf); cursor: pointer; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.75) brightness(.65); transition: transform .5s ease, filter .35s; }
+.gallery-item:hover img { transform: scale(1.06); filter: saturate(.95) brightness(.75); }
+.gallery-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.gallery-ph svg { color: rgba(200,169,110,.1); }
+.gallery-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); }
+
+/* ─── SOCIAL FOLLOW ──────────────────────── */
+.social-follow { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); padding: 80px var(--gutter); text-align: center; }
+.social-follow-inner { max-width: 580px; margin: 0 auto; }
+.social-hed { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; font-style: italic; color: var(--cream); margin-bottom: 16px; line-height: 1.15; }
+.social-sub { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
+.social-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+
+/* ─── OFF-SEASON CARD ────────────────────── */
+.event-offseason {
+  background: var(--bg-card);
+  border: 1px solid rgba(200,169,110,.1);
+  padding: 80px var(--gutter);
+  text-align: center;
+}
+.offseason-inner { max-width: 560px; margin: 0 auto; }
+.offseason-icon { color: rgba(200,169,110,.2); margin-bottom: 24px; display: flex; justify-content: center; }
+.offseason-hed {
+  font-family: 'Fraunces', serif; font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 400; font-style: italic; color: var(--cream);
+  margin-bottom: 14px; line-height: 1.2;
+}
+.offseason-sub { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
+.newsletter-form {
+  display: flex; gap: 0; max-width: 420px; margin: 0 auto 16px;
+  border: 1px solid rgba(200,169,110,.25);
+}
+.newsletter-form input[type="email"] {
+  flex: 1; background: var(--bg); border: none;
+  color: var(--cream); padding: 13px 18px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 300;
+  outline: none;
+}
+.newsletter-form input[type="email"]::placeholder { color: rgba(200,185,164,.3); }
+.newsletter-form input[type="email"]:focus { background: var(--bg-surf); }
+.newsletter-form button {
+  background: var(--gold); color: var(--bg); border: none;
+  padding: 13px 24px; font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; flex-shrink: 0; transition: background .2s;
+}
+.newsletter-form button:hover { background: var(--gold-h); }
+.newsletter-success { display: none; font-size: 13px; color: var(--gold); padding: 12px 0; font-style: italic; }
+.offseason-alt { font-size: 12px; color: rgba(200,185,164,.35); margin-top: 4px; }
+.offseason-alt a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.3); }
+
+/* ─── FOOTER ──────────────────────────────── */
+.footer { background: #141210; padding: 72px 0 40px; border-top: 1px solid rgba(200,169,110,.1); }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px; }
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0; border-top: 1px solid rgba(200,169,110,.07); display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
+
+/* ─── FADE-UP ─────────────────────────────── */
+.fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.fu.vis { opacity: 1; transform: none; }
+.fu-d1 { transition-delay: .12s; }
+.fu-d2 { transition-delay: .22s; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+@media (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .event-card { grid-template-columns: 1fr; }
+  .event-poster { min-height: 260px; }
+  .expect-inner, .your-event-inner { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a href="story.html" class="nav-lk">Our Story</a>
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+  <div class="nav-right">
+    <div class="nav-dd" id="nav-events">
+      <a href="social.html" class="nav-lk nav-dd-trigger active">
+        Events
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel panel-right">
+        <a href="tournaments.html" class="nav-dd-item"><span class="dd-dot"></span>Tournaments</a>
+        <a href="social.html"      class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>Social Events</a>
+      </div>
+    </div>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html"  class="nav-lk">Find Us</a>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══════════════════════════════════
+     Ideal: packed terrace, live music, crowd energy, warm light
+     Swap: <img src="assets/images/social-hero.jpg" alt="Social events at ARAMIS">
+     ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <span>Social event hero — terrace crowd, live music, DJ night</span>
+    </div>
+    <!-- <img src="assets/images/social-hero.jpg" alt="Social events at ARAMIS"> -->
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Social Events · ARAMIS Chania</div>
+    <h1 class="hero-hed">There's always something<br>happening at ARAMIS.</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Live music, DJ nights, themed evenings, and more — on the best rooftop in Chania.</p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+
+<!-- ══ UPCOMING EVENTS ════════════════════════ -->
+<section class="upcoming">
+  <div class="upcoming-inner">
+    <div class="fu">
+      <div class="stag">Coming Up</div>
+      <h2 class="sec-hed">What's on.</h2>
+    </div>
+
+    <div class="event-list">
+
+      <!--
+        ═══════════════════════════════════════════════════════════
+        EVENT CARD TEMPLATE
+        Copy this block for each upcoming event.
+        The .event-poster div is the hero for the event poster/image.
+        Replace content with real event details.
+        ═══════════════════════════════════════════════════════════
+      -->
+
+      <div class="event-card fu">
+        <div class="event-poster">
+          <!-- Swap with: <img src="assets/images/social-poster-01.jpg" alt="Friday Night Live"> -->
+          <div class="event-poster-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            <span>Event poster</span>
+          </div>
+        </div>
+        <div class="event-body">
+          <div class="event-date">Friday 28 March · 21:00</div>
+          <div class="event-name">Friday Night Live</div>
+          <div class="event-desc">Live acoustic music on the terrace. Mountain views, cocktails, and the kind of Friday evening that makes the week worth it.</div>
+          <div class="event-tags">
+            <span class="event-tag">Live Music</span>
+            <span class="event-tag">Terrace</span>
+            <span class="event-tag">Free Entry</span>
+          </div>
+          <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost" style="align-self:flex-start;">
+            Follow for updates
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="event-card fu">
+        <div class="event-poster">
+          <div class="event-poster-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            <span>Event poster</span>
+          </div>
+        </div>
+        <div class="event-body">
+          <div class="event-date">Saturday 5 April · 22:00</div>
+          <div class="event-name">DJ Night</div>
+          <div class="event-desc">Beats and cocktails under the stars. The terrace at its most alive — open air, mountain backdrop, the bar running all night.</div>
+          <div class="event-tags">
+            <span class="event-tag">DJ Set</span>
+            <span class="event-tag">Terrace</span>
+            <span class="event-tag">Free Entry</span>
+          </div>
+          <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost" style="align-self:flex-start;">
+            Follow for updates
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!--
+        ══════════════════════════════════════════════════════
+        QUIET PERIOD / NO UPCOMING EVENTS:
+        Remove the example cards above and uncomment this block.
+        ══════════════════════════════════════════════════════
+      -->
+      <!--
+      <div class="event-offseason">
+        <div class="offseason-inner">
+          <div class="offseason-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <div class="offseason-hed">Nothing in the calendar just yet.</div>
+          <div class="offseason-sub">Events get announced here and on Instagram first. Drop your email below and we'll let you know when something's coming up.</div>
+          <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event, 'social events')">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Keep me posted</button>
+          </form>
+          <div class="newsletter-success">You're in — we'll be in touch when something's coming up.</div>
+          <div class="offseason-alt">Or follow <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a> — we announce there first.</div>
+        </div>
+      </div>
+      -->
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ WHAT TO EXPECT ═════════════════════════ -->
+<section class="expect">
+  <div class="expect-inner">
+
+    <div class="expect-photo fu">
+      <div class="expect-ph">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <span>Terrace evening — live music or crowd</span>
+      </div>
+      <!-- <img src="assets/images/social-terrace-evening.jpg" alt="ARAMIS social evening"> -->
+    </div>
+
+    <div class="fu fu-d1">
+      <div class="stag">What to expect</div>
+      <h2 class="sec-hed">Not just billiards.<br>Not just a bar.</h2>
+      <p class="sec-body">ARAMIS hosts live music, DJ sets, dance groups, themed nights, and seasonal celebrations throughout the year. Some events are planned weeks in advance; others come together because the evening calls for it.</p>
+      <p class="sec-body">The terrace is the stage for most of it — mountain views, open air, and space for everyone. In winter, we bring the energy indoors. Whether it's a Friday acoustic set or a full Saturday DJ night, the spirit is the same: good company, good drinks, and a venue that knows how to set the mood.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ YOUR EVENT / PRIVATE HIRE ══════════════ -->
+<section class="your-event" id="your-event">
+  <div class="your-event-inner">
+
+    <div class="fu">
+      <div class="stag">Your Event</div>
+      <h2 class="sec-hed">Host your next<br>event at ARAMIS.</h2>
+      <p class="sec-body">Mountain views, pro billiard tables, a kitchen that delivers. ARAMIS gives you something most venues can't — a rooftop terrace and a professional billiard hall under one roof. Use one or both.</p>
+      <p class="sec-body">Every event is tailored to what you need. There's no fixed package — tell us what you're imagining and we'll make it work.</p>
+
+      <div class="occasions">
+        <div class="occasion-item">
+          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="occasion-name">Birthday celebrations</div>
+        </div>
+        <div class="occasion-item">
+          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <div class="occasion-name">Corporate outings &amp; team building</div>
+        </div>
+        <div class="occasion-item">
+          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
+          <div class="occasion-name">Group billiard sessions &amp; tournaments</div>
+        </div>
+        <div class="occasion-item">
+          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 9V7H2v5a6 6 0 0 0 6 6h8a6 6 0 0 0 6-6V7"/><path d="M6 7V4M18 7V4"/></svg></div>
+          <div class="occasion-name">Graduation &amp; farewell parties</div>
+        </div>
+        <div class="occasion-item">
+          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="occasion-name">Reunion gatherings</div>
+        </div>
+        <div class="occasion-item">
+          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+          <div class="occasion-name">Private tournament evenings</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enquiry form -->
+    <div class="fu fu-d1">
+      <div class="enquiry-form">
+        <div class="form-title">Let's plan it together.</div>
+        <div class="form-sub">Tell us about your event and we'll get back to you within 24 hours.</div>
+
+        <form class="form-grid" action="mailto:aramischania@gmail.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-name">Your name</label>
+              <input type="text" id="f-name" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-field">
+              <label for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="+30 000 000 0000">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-type">Type of event</label>
+              <select id="f-type" name="type">
+                <option value="">Select...</option>
+                <option>Birthday</option>
+                <option>Corporate / Team building</option>
+                <option>Group billiards</option>
+                <option>Private tournament</option>
+                <option>Graduation / Farewell</option>
+                <option>Reunion</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="f-date">Preferred date</label>
+              <input type="date" id="f-date" name="date">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="f-guests">Estimated number of guests</label>
+            <input type="number" id="f-guests" name="guests" placeholder="e.g. 20" min="2">
+          </div>
+          <div class="form-field">
+            <label for="f-msg">Anything else we should know</label>
+            <textarea id="f-msg" name="message" placeholder="Tell us about your event..."></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit">Send enquiry</button>
+            <p class="form-note">We'll respond within 24 hours · (+30) 28210 70307</p>
+          </div>
+        </form>
+
+        <div class="direct-contact" style="margin-top:28px; padding-top:24px; border-top:1px solid rgba(200,169,110,.1);">
+          <div class="contact-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.07 6.07l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>(+30) 28210 70307 &nbsp;·&nbsp; <a href="tel:+306975993307">6975 993 307</a></span>
+          </div>
+          <div class="contact-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ PAST EVENTS GALLERY ════════════════════ -->
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <div class="fu">
+      <div class="stag">Some Nights at ARAMIS</div>
+      <h2 class="sec-hed">The photos say more<br>than we could.</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item fu">
+        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Live music night</span></div>
+      </div>
+      <div class="gallery-item fu fu-d1">
+        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>DJ set terrace</span></div>
+      </div>
+      <div class="gallery-item fu fu-d2">
+        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Private event</span></div>
+      </div>
+      <div class="gallery-item fu">
+        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Crowd on terrace</span></div>
+      </div>
+      <div class="gallery-item fu fu-d1">
+        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Themed evening</span></div>
+      </div>
+      <div class="gallery-item fu fu-d2">
+        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Birthday celebration</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOLLOW US ══════════════════════════════ -->
+<div class="social-follow fu">
+  <div class="social-follow-inner">
+    <div class="social-hed">First to know.</div>
+    <p class="social-sub">We announce events on social media first. Follow us and you won't miss a thing.</p>
+    <div class="social-actions">
+      <a href="https://instagram.com/aramischania" target="_blank" class="btn-primary">
+        @aramischania on Instagram
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://facebook.com/aramischania" target="_blank" class="btn-ghost">
+        Facebook
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS"></div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">Explore our Venue</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="social.html">Social Events</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="contact.html">Find Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Plan your event</div>
+      <div class="footer-links">
+        <a href="social.html#your-event">Send an enquiry</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="tel:+302821070307">(+30) 28210 70307</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+// Dropdowns
+['nav-venue','nav-events'].forEach(id => {
+  const dd = document.getElementById(id);
+  if (!dd) return;
+  dd.addEventListener('click', e => { if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); dd.classList.toggle('open'); } });
+  document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
+});
+
+// Newsletter subscribe
+function handleNewsletterSubmit(e, list) {
+  e.preventDefault();
+  const form  = e.target;
+  const email = form.querySelector('input[type="email"]').value;
+  const suc   = form.nextElementSibling;
+  window.open('mailto:aramischania@gmail.com?subject=Newsletter signup&body=Please add me to the ' + list + ' list: ' + email);
+  form.style.display = 'none';
+  if (suc && suc.classList.contains('newsletter-success')) suc.style.display = 'block';
+}
+
+// Fade-up
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

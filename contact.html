@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Us | ARAMIS Billiard Club, Chania, Crete</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Visit ARAMIS at Kissamou & Saridantoni 1, Chania 73136. On-site parking, open daily 10:00–01:00, year-round. 10 min walk from the Old Town.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aramisbilliards.com/contact">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARAMIS Billiard Club">
+  <meta property="og:title" content="Find Us | ARAMIS Billiard Club, Chania, Crete">
+  <meta property="og:description" content="Visit ARAMIS at Kissamou & Saridantoni 1, Chania 73136. On-site parking, open daily 10:00–01:00, year-round. 10 min walk from the Old Town.">
+  <meta property="og:url" content="https://www.aramisbilliards.com/contact">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+  <meta property="og:locale" content="en_GR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Find Us | ARAMIS Billiard Club, Chania, Crete">
+  <meta name="twitter:description" content="Visit ARAMIS at Kissamou & Saridantoni 1, Chania 73136. On-site parking, open daily 10:00–01:00, year-round. 10 min walk from the Old Town.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #1a1814;
+  --bg-card: #232019;
+  --bg-surf: #2a2620;
+  --gold:    #c8a96e;
+  --gold-h:  #dcc48e;
+  --cream:   #f3e5d2;
+  --muted:   #c8b9a4;
+  --nav-h:   180px;
+  --gutter:  72px;
+  --max-w:   1200px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── NAV ────────────────────────────────── */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: transparent; transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
+.nav.scrolled { background: rgba(26,24,20,.97); border-bottom-color: rgba(200,169,110,.12); backdrop-filter: blur(12px); }
+.nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
+.nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
+.nav-logo  { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+.nav-lk { font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(243,229,210,.65); padding: 10px 22px; transition: color .2s; white-space: nowrap; line-height: 1; cursor: pointer; position: relative; }
+.nav-lk:hover, .nav-lk.active { color: var(--gold); }
+.nav-dd { position: relative; display: flex; align-items: center; }
+.nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
+.nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
+.nav-dd:hover .chevron, .nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
+.nav-dd-panel { position: absolute; top: calc(100% + 8px); left: 0; min-width: 220px; background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15); border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s; pointer-events: none; }
+.nav-dd-panel.panel-right { left: auto; right: 0; }
+.nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
+.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s; pointer-events: auto; }
+.nav-dd-item { display: flex; align-items: center; gap: 12px; padding: 12px 20px; font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(243,229,210,.6); transition: color .18s, background .18s; white-space: nowrap; }
+.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
+.nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
+.nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
+@media (max-width: 960px) { .nav-left, .nav-right { display: none; } .nav { justify-content: center; } .nav-logo img { width: 240px; height: auto; } }
+
+/* ─── SHARED ─────────────────────────────── */
+.stag { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.sec-hed { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.2vw, 46px); font-weight: 400; line-height: 1.13; color: var(--cream); margin-bottom: 24px; }
+.sec-body { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+
+/* ─── HERO + MAP ─────────────────────────── */
+.map-hero {
+  padding-top: var(--nav-h);
+  background: var(--bg-card);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+/* Google Maps embed */
+.map-embed {
+  width: 100%; height: 520px;
+  background: var(--bg-surf);
+  position: relative; overflow: hidden;
+}
+.map-embed iframe {
+  width: 100%; height: 100%; border: none;
+  filter: invert(90%) hue-rotate(180deg) saturate(.6) brightness(.85);
+}
+/* address bar below map */
+.map-address-bar {
+  background: var(--bg-card);
+  padding: 28px var(--gutter);
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(200,169,110,.07);
+}
+.map-address-main {
+  display: flex; align-items: center; gap: 16px;
+}
+.map-address-main svg { color: var(--gold); flex-shrink: 0; }
+.map-address-text {}
+.map-address-name { font-size: 13px; font-weight: 600; color: var(--cream); letter-spacing: .5px; }
+.map-address-line { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.map-directions {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(200,169,110,.3);
+  padding: 10px 20px; transition: all .25s; flex-shrink: 0;
+}
+.map-directions:hover { border-color: var(--gold); background: rgba(200,169,110,.05); }
+.map-directions svg { transition: transform .25s; }
+.map-directions:hover svg { transform: translateX(4px); }
+
+/* ─── MAIN GRID ──────────────────────────── */
+.contact-main {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 100px var(--gutter);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+
+/* ─── CONTACT DETAILS ────────────────────── */
+.contact-details {}
+.contact-rows { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
+.contact-row {
+  display: flex; align-items: flex-start; gap: 18px;
+  padding: 20px 24px; background: var(--bg-card);
+  border-left: 2px solid transparent; transition: border-color .25s;
+}
+.contact-row:hover { border-left-color: var(--gold); }
+.contact-row-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.contact-row-label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.5); margin-bottom: 5px; }
+.contact-row-val { font-size: 14px; color: var(--cream); line-height: 1.6; }
+.contact-row-val a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.25); transition: border-color .2s; }
+.contact-row-val a:hover { border-color: var(--gold); }
+.contact-row-val .dim { color: var(--muted); font-size: 13px; }
+
+/* ─── ENQUIRY FORM ───────────────────────── */
+.enquiry-form-wrap {}
+.enquiry-form-box {
+  background: var(--bg-surf); padding: 48px;
+  border: 1px solid rgba(200,169,110,.1);
+}
+.form-hed { font-family: 'Fraunces', serif; font-size: clamp(20px, 2vw, 28px); font-weight: 400; color: var(--cream); margin-bottom: 8px; line-height: 1.2; }
+.form-sub { font-size: 13px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; }
+.form-grid { display: flex; flex-direction: column; gap: 16px; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.55); }
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: var(--bg); border: 1px solid rgba(200,169,110,.15);
+  color: var(--cream); padding: 12px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 300;
+  transition: border-color .2s; outline: none; width: 100%;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(200,185,164,.3); }
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { border-color: var(--gold); }
+.form-field textarea { resize: vertical; min-height: 110px; }
+.form-submit button {
+  width: 100%; padding: 15px; margin-top: 8px;
+  background: var(--gold); color: var(--bg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  border: none; cursor: pointer; transition: background .2s;
+}
+.form-submit button:hover { background: var(--gold-h); }
+.form-note { font-size: 11px; color: rgba(200,185,164,.3); text-align: center; margin-top: 10px; }
+.form-success {
+  display: none; text-align: center; padding: 40px 20px;
+  font-family: 'Fraunces', serif; font-size: 20px; font-style: italic;
+  color: var(--gold);
+}
+
+/* ─── GETTING HERE ───────────────────────── */
+.getting-here {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+.getting-here-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 80px var(--gutter);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+}
+.gh-card {
+  background: var(--bg-surf); padding: 40px 36px;
+  border: 1px solid rgba(200,169,110,.06);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.gh-icon { color: var(--gold); }
+.gh-title { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--cream); }
+.gh-desc { font-size: 13px; line-height: 1.75; color: var(--muted); }
+.gh-desc a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.25); }
+
+/* ─── HOURS ──────────────────────────────── */
+.hours-section {
+  background: var(--bg);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  padding: 80px var(--gutter);
+}
+.hours-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.hours-grid { display: flex; flex-direction: column; gap: 2px; margin-top: 32px; }
+.hours-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background: var(--bg-card); border-left: 2px solid transparent; transition: border-color .2s; }
+.hours-row:hover { border-left-color: var(--gold); }
+.hours-day { font-size: 13px; color: var(--muted); }
+.hours-time { font-size: 13px; color: var(--cream); font-weight: 500; }
+.hours-note { font-size: 13px; line-height: 1.75; color: var(--muted); margin-top: 24px; padding: 20px 24px; background: rgba(200,169,110,.05); border: 1px solid rgba(200,169,110,.1); border-left: 3px solid var(--gold); }
+
+/* ─── SOCIAL FOLLOW ──────────────────────── */
+.social-section {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  padding: 80px var(--gutter);
+  text-align: center;
+}
+.social-inner { max-width: 600px; margin: 0 auto; }
+.social-hed { font-family: 'Fraunces', serif; font-size: clamp(26px, 3.5vw, 42px); font-weight: 400; font-style: italic; color: var(--cream); margin-bottom: 14px; line-height: 1.15; }
+.social-sub { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 36px; }
+.social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.social-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px; font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; transition: all .25s;
+}
+.social-link-primary { background: var(--gold); color: var(--bg); }
+.social-link-primary:hover { background: var(--gold-h); }
+.social-link-ghost { background: transparent; color: var(--muted); border: 1px solid rgba(200,169,110,.3); }
+.social-link-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ─── REVIEW CTA ─────────────────────────── */
+.review-cta {
+  background: var(--bg); border-top: 1px solid rgba(200,169,110,.07);
+  padding: 60px var(--gutter); text-align: center;
+}
+.review-cta-inner { max-width: 520px; margin: 0 auto; }
+.review-cta-hed { font-family: 'Fraunces', serif; font-size: clamp(20px, 2.5vw, 30px); font-weight: 400; font-style: italic; color: var(--cream); margin-bottom: 12px; }
+.review-cta-sub { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+
+/* ─── FOOTER ──────────────────────────────── */
+.footer { background: #141210; padding: 72px 0 40px; border-top: 1px solid rgba(200,169,110,.1); }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px; }
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0; border-top: 1px solid rgba(200,169,110,.07); display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
+
+/* ─── FU ─────────────────────────────────── */
+.fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.fu.vis { opacity: 1; transform: none; }
+.fu-d1 { transition-delay: .12s; }
+.fu-d2 { transition-delay: .22s; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+@media (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .contact-main { grid-template-columns: 1fr; }
+  .getting-here-inner { grid-template-columns: 1fr; }
+  .hours-inner { grid-template-columns: 1fr; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .map-address-bar { flex-direction: column; align-items: flex-start; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a href="story.html"   class="nav-lk">Our Story</a>
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+  <div class="nav-right">
+    <div class="nav-dd" id="nav-events">
+      <a href="social.html" class="nav-lk nav-dd-trigger">
+        Events
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel panel-right">
+        <a href="tournaments.html" class="nav-dd-item"><span class="dd-dot"></span>Tournaments</a>
+        <a href="social.html"      class="nav-dd-item"><span class="dd-dot"></span>Social Events</a>
+      </div>
+    </div>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html"  class="nav-lk active">Find Us</a>
+  </div>
+</nav>
+
+
+<!-- ══ MAP ═══════════════════════════════════ -->
+<div class="map-hero">
+  <div class="map-embed">
+    <!--
+      Google Maps embed — Kissamou & Saridantoni 1, Chania
+      Dark-mode filter applied via CSS (invert + hue-rotate)
+      Replace the src with your verified Google Maps embed URL from:
+      Google Maps → Share → Embed a map → Copy HTML → take the src value
+    -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.8910094819826!2d24.003072675544388!3d35.50697313952732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149c7d882f64a033%3A0xa58664b0e378e1c2!2sARAMIS%20Billiard%20Club!5e0!3m2!1sen!2sgr!4v1777143620797!5m2!1sen!2sgr"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="ARAMIS Billiard Club location">
+    </iframe>
+    <!--
+      TO GET THE CORRECT EMBED URL:
+      1. Go to Google Maps → search "ARAMIS Billiard Club Chania"
+      2. Click Share → Embed a map
+      3. Copy the full iframe src URL
+      4. Paste it as the src attribute above
+    -->
+  </div>
+
+  <div class="map-address-bar">
+    <div class="map-address-main">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div class="map-address-text">
+        <div class="map-address-name">ARAMIS Billiard Club</div>
+        <div class="map-address-line">Kissamou &amp; Saridantoni 1 · Chania 73136 · Crete, Greece</div>
+      </div>
+    </div>
+    <a href="https://maps.google.com/?q=ARAMIS+Billiard+Club+Chania" target="_blank" class="map-directions">
+      Get directions
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+
+<!-- ══ CONTACT DETAILS + FORM ════════════════ -->
+<div class="contact-main">
+
+  <!-- Left: contact details -->
+  <div class="contact-details fu">
+    <div class="stag">Contact</div>
+    <h2 class="sec-hed">Get in touch.</h2>
+    <p class="sec-body">Whether you want to reserve a table, ask about events, enquire about private hire, or just have a question — we're here.</p>
+
+    <div class="contact-rows">
+
+      <div class="contact-row">
+        <div class="contact-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.07 6.07l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">Phone</div>
+          <div class="contact-row-val">
+            <a href="tel:+302821070307">(+30) 28210 70307</a><br>
+            <a href="tel:+306975993307">(+30) 6975 993 307</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">Email</div>
+          <div class="contact-row-val"><a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a></div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">Address</div>
+          <div class="contact-row-val">
+            Kissamou &amp; Saridantoni 1<br>
+            <span class="dim">Chania 73136 · Crete, Greece</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">Hours</div>
+          <div class="contact-row-val">
+            Open daily · 10:00 – 01:00<br>
+            <span class="dim">Open year-round · Every day of the week</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">Instagram</div>
+          <div class="contact-row-val"><a href="https://instagram.com/aramischania" target="_blank">@aramischania</a></div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">Facebook</div>
+          <div class="contact-row-val"><a href="https://facebook.com/aramischania" target="_blank">/aramischania</a></div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-label">CueScore</div>
+          <div class="contact-row-val"><a href="https://cuescore.com/aramischania" target="_blank">cuescore.com/aramischania</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Right: enquiry form -->
+  <div class="enquiry-form-wrap fu fu-d1">
+    <div class="enquiry-form-box">
+      <div class="form-hed">Send us a message.</div>
+      <div class="form-sub">We respond within 24 hours. For urgent matters, call us directly.</div>
+
+      <div id="form-wrap">
+        <form class="form-grid" id="contact-form" onsubmit="handleContactForm(event)">
+          <div class="form-row-2">
+            <div class="form-field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label for="cf-phone">Phone</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+30 000 000 0000">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-subject">Subject</label>
+            <select id="cf-subject" name="subject">
+              <option value="">Select a topic...</option>
+              <option>Table reservation</option>
+              <option>Private event enquiry</option>
+              <option>Tournament question</option>
+              <option>Pro Shop</option>
+              <option>General question</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" placeholder="How can we help?" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit">Send message</button>
+            <p class="form-note">We'll respond within 24 hours · (+30) 6975 993 307</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-success" id="form-success">
+        Message received — we'll be in touch within 24 hours.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══ GETTING HERE ═══════════════════════════ -->
+<section class="getting-here">
+  <div class="getting-here-inner">
+
+    <div class="gh-card fu">
+      <div class="gh-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h5l3 3v5h-8V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div class="gh-title">On-site Parking</div>
+      <div class="gh-desc">We have parking directly beneath the venue — first floor level, right below the club. Free and convenient.</div>
+    </div>
+
+    <div class="gh-card fu fu-d1">
+      <div class="gh-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="gh-title">Kladissos Parking</div>
+      <div class="gh-desc">The Kladissos bridge municipal car park is free and approximately a 5-minute walk from the club. A good option when on-site is full.</div>
+    </div>
+
+    <div class="gh-card fu fu-d2">
+      <div class="gh-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="gh-title">From the Old Town</div>
+      <div class="gh-desc">About 10–15 minutes on foot from Chania's Old Town. Frequent electric buses also connect central Chania to the area — a car-free option.</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ HOURS ══════════════════════════════════ -->
+<section class="hours-section">
+  <div class="hours-inner">
+    <div class="fu">
+      <div class="stag">Opening Hours</div>
+      <h2 class="sec-hed">When we're open.</h2>
+      <p class="sec-body">ARAMIS is open every day of the week, year-round. While many places in Chania close for the off-season, we don't — we're here every day, every month, every season.</p>
+    </div>
+    <div class="fu fu-d1">
+      <div class="hours-grid">
+        <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">10:00 – 01:00</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 – 01:00</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">10:00 – 01:00</span></div>
+        <div class="hours-row" style="border-left-color:var(--gold);"><span class="hours-day" style="color:var(--gold);">Open year-round</span><span class="hours-time" style="color:var(--gold);">Every day</span></div>
+      </div>
+      <p style="font-size:12px; color:rgba(200,185,164,.4); line-height:1.7; margin-top:20px; padding-left:4px;">
+        * Hours may change during summer season (approximately June onwards). We will update this page, our Google Business profile, and our social media channels when any changes take effect.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SOCIAL FOLLOW ══════════════════════════ -->
+<div class="social-section fu">
+  <div class="social-inner">
+    <div class="social-hed">Stay connected.</div>
+    <p class="social-sub">Follow us for event announcements, tournament news, and what's happening at ARAMIS.</p>
+    <div class="social-links">
+      <a href="https://instagram.com/aramischania" target="_blank" class="social-link social-link-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        @aramischania
+      </a>
+      <a href="https://facebook.com/aramischania" target="_blank" class="social-link social-link-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook
+      </a>
+      <a href="https://cuescore.com/aramischania" target="_blank" class="social-link social-link-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        CueScore
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ REVIEW CTA ═════════════════════════════ -->
+<div class="review-cta fu">
+  <div class="review-cta-inner">
+    <div class="review-cta-hed">Been to ARAMIS?</div>
+    <p class="review-cta-sub">We'd love to hear about it. Honest reviews help us grow and help others discover us.</p>
+    <a href="https://g.page/r/ARAMIS-GOOGLE-REVIEW-LINK/review" target="_blank" class="social-link social-link-primary">
+      Leave us a review on Google
+    </a>
+  </div>
+</div>
+
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS"></div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">Explore our Venue</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="social.html">Social Events</a>
+        <a href="pro-shop.html">Pro Shop</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Visit</div>
+      <div class="footer-links">
+        <a href="#">Open 10:00 – 01:00 daily</a>
+        <a href="https://maps.google.com/?q=ARAMIS+Billiard+Club+Chania" target="_blank">Kissamou &amp; Saridantoni 1, Chania</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="tel:+306975993307">(+30) 6975 993 307</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+['nav-venue','nav-events'].forEach(id => {
+  const dd = document.getElementById(id);
+  if (!dd) return;
+  dd.addEventListener('click', e => { if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); dd.classList.toggle('open'); } });
+  document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
+});
+
+// Fade-up
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+// Contact form — mailto fallback (upgrade to Formspree/Netlify when ready)
+function handleContactForm(e) {
+  e.preventDefault();
+  const f = e.target;
+  const name    = f.querySelector('#cf-name').value;
+  const email   = f.querySelector('#cf-email').value;
+  const phone   = f.querySelector('#cf-phone').value;
+  const subject = f.querySelector('#cf-subject').value;
+  const msg     = f.querySelector('#cf-msg').value;
+  const body    = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\n\n${msg}`;
+  window.open(`mailto:aramischania@gmail.com?subject=${encodeURIComponent('Website enquiry: ' + subject)}&body=${encodeURIComponent(body)}`);
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+</body>
+</html>

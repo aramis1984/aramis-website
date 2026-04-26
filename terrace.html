@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Terrace Cafe | ARAMIS Billiard Club, Chania</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Rooftop terrace with White Mountains views, all-day coffee and drinks, sports TV, and a kitchen that delivers. The social heart of ARAMIS Chania.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aramisbilliards.com/terrace">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARAMIS Billiard Club">
+  <meta property="og:title" content="The Terrace Cafe | ARAMIS Billiard Club, Chania">
+  <meta property="og:description" content="Rooftop terrace with White Mountains views, all-day coffee and drinks, sports TV, and a kitchen that delivers. The social heart of ARAMIS Chania.">
+  <meta property="og:url" content="https://www.aramisbilliards.com/terrace">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+  <meta property="og:locale" content="en_GR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Terrace Cafe | ARAMIS Billiard Club, Chania">
+  <meta name="twitter:description" content="Rooftop terrace with White Mountains views, all-day coffee and drinks, sports TV, and a kitchen that delivers. The social heart of ARAMIS Chania.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ─── TOKENS ─────────────────────────────── */
+:root {
+  --bg:       #1a1814;
+  --bg-card:  #232019;
+  --bg-surf:  #2a2620;
+  --gold:     #c8a96e;
+  --gold-h:   #dcc48e;
+  --cream:    #f3e5d2;
+  --muted:    #c8b9a4;
+  --nav-h:    180px;
+  --gutter:   72px;
+  --max-w:    1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--cream);
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── NAV (canonical) ────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: var(--nav-h); display: flex; align-items: center;
+  padding: 0 40px; background: transparent;
+  transition: background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  background: rgba(26,24,20,.97);
+  border-bottom-color: rgba(200,169,110,.12);
+  backdrop-filter: blur(12px);
+}
+.nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
+.nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
+.nav-logo  { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+.nav-lk {
+  font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase;
+  color: rgba(243,229,210,.65); padding: 10px 22px; transition: color .2s;
+  white-space: nowrap; line-height: 1; cursor: pointer; position: relative;
+}
+.nav-lk:hover, .nav-lk.active { color: var(--gold); }
+.nav-dd { position: relative; display: flex; align-items: center; }
+.nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
+.nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
+.nav-dd:hover .chevron, .nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
+.nav-dd-panel {
+  position: absolute; top: calc(100% + 8px); left: 0; min-width: 220px;
+  background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15);
+  border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0;
+  opacity: 0; visibility: hidden; transform: translateY(-4px);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s; pointer-events: none;
+}
+.nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
+.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel {
+  opacity: 1; visibility: visible; transform: translateY(0);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s; pointer-events: auto;
+}
+.nav-dd-item {
+  display: flex; align-items: center; gap: 12px; padding: 12px 20px;
+  font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase;
+  color: rgba(243,229,210,.6); transition: color .18s, background .18s; white-space: nowrap;
+}
+.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
+.nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
+.nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
+@media (max-width: 960px) {
+  .nav-left, .nav-right { display: none; }
+  .nav { justify-content: center; }
+  .nav-logo img { width: 240px; height: auto; }
+}
+
+/* ─── HERO ───────────────────────────────── */
+/* Full bleed, text centred — terrace hero leads with the view */
+.hero {
+  position: relative; height: 100vh; min-height: 720px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.hero-img {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #1e1b16 0%, #141210 60%, #1a1814 100%);
+}
+.hero-img img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+  filter: saturate(.75) brightness(.5);
+}
+.hero-img-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  border: 1px dashed rgba(200,169,110,.1); margin: 80px var(--gutter);
+}
+.hero-img-placeholder svg { color: rgba(200,169,110,.15); }
+.hero-img-placeholder span {
+  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(200,169,110,.2);
+}
+.hero-ov {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(26,24,20,.55)  0%,
+    rgba(26,24,20,.1)   30%,
+    rgba(26,24,20,.1)   55%,
+    rgba(26,24,20,.88)  100%
+  );
+}
+.hero-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0 var(--gutter); max-width: 860px;
+}
+.hero-eyebrow {
+  font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+  display: flex; align-items: center; gap: 16px;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
+.hero-hed {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 6.5vw, 90px);
+  font-weight: 400; font-style: italic;
+  line-height: 1.07; color: var(--cream);
+  margin-bottom: 28px; letter-spacing: -1px;
+}
+.hero-rule {
+  width: 1px; height: 52px;
+  background: linear-gradient(to bottom, rgba(200,169,110,.45), transparent);
+  margin: 0 auto 22px;
+}
+.hero-sub {
+  font-size: 13px; font-weight: 300; letter-spacing: 1px;
+  color: rgba(200,185,164,.5); line-height: 1.8;
+}
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 2;
+}
+.hero-scroll span { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,185,164,.3); }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(200,169,110,.4), transparent); }
+
+/* ─── SHARED HELPERS ─────────────────────── */
+.stag {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+}
+.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.sec-hed {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 400; line-height: 1.13; color: var(--cream); margin-bottom: 24px;
+}
+.sec-body { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.sec-body:last-child { margin-bottom: 0; }
+
+/* Photo placeholder — reusable */
+.ph {
+  background: var(--bg-surf);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; position: relative; overflow: hidden;
+}
+.ph svg { color: rgba(200,169,110,.12); }
+.ph span {
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.18); text-align: center; padding: 0 16px;
+}
+.ph img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: saturate(.8) brightness(.65);
+  transition: transform .7s ease, filter .4s;
+}
+.ph:hover img { transform: scale(1.04); filter: saturate(.95) brightness(.72); }
+.ph-label {
+  position: absolute; bottom: 14px; left: 16px; z-index: 2;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.5); pointer-events: none;
+}
+
+/* ─── SECTION: THE SPACE ─────────────────── */
+/* Full-width photo, then key attributes in a strip */
+.space-photo {
+  width: 100%; height: 65vh; min-height: 480px;
+  position: relative; overflow: hidden; background: var(--bg-surf);
+  border-top: 1px solid rgba(200,169,110,.07);
+}
+.space-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 35%;
+  filter: saturate(.8) brightness(.65);
+  transition: transform 10s ease;
+}
+.space-photo:hover img { transform: scale(1.03); }
+.space-photo-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(26,24,20,.7) 100%);
+}
+.space-photo-caption {
+  position: absolute; bottom: 32px; left: var(--gutter);
+  font-family: 'Fraunces', serif; font-size: clamp(18px, 2vw, 26px);
+  font-weight: 400; font-style: italic; color: rgba(243,229,210,.7);
+  max-width: 480px; line-height: 1.4;
+}
+
+/* Attributes strip */
+.attr-strip {
+  background: var(--bg-card);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.attr-item {
+  padding: 48px 36px;
+  border-left: 1px solid rgba(200,169,110,.08);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.attr-item:first-child { border-left: none; }
+.attr-icon { color: var(--gold); }
+.attr-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--cream);
+}
+.attr-desc { font-size: 13px; line-height: 1.7; color: var(--muted); }
+
+/* ─── SECTION: TERRACE DETAIL ────────────── */
+/* Split: enclosed / open-air — two photos with text overlay */
+.terrace-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(200,169,110,.07);
+  min-height: 560px;
+}
+.terrace-half {
+  position: relative; overflow: hidden; background: var(--bg-surf);
+}
+.terrace-half img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(.75) brightness(.55);
+  transition: transform 8s ease, filter .5s;
+}
+.terrace-half:hover img { transform: scale(1.05); filter: saturate(.9) brightness(.62); }
+.terrace-half-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,24,20,.92) 0%, rgba(26,24,20,.3) 55%, transparent 100%);
+}
+.terrace-half-content {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  padding: 40px;
+}
+.terrace-half-tag {
+  font-size: 8px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px; opacity: .8;
+}
+.terrace-half-hed {
+  font-family: 'Fraunces', serif; font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 400; color: var(--cream); margin-bottom: 14px; line-height: 1.2;
+}
+.terrace-half-desc { font-size: 13px; line-height: 1.7; color: rgba(200,185,164,.7); max-width: 340px; }
+
+/* ─── SECTION: THE KITCHEN ───────────────── */
+.kitchen {
+  background: var(--bg);
+  border-top: 1px solid rgba(200,169,110,.07);
+}
+.kitchen-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 580px;
+}
+.kitchen-text {
+  padding: 80px var(--gutter);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.pull-quote {
+  font-family: 'Fraunces', serif; font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 400; font-style: italic; color: var(--gold); line-height: 1.55;
+  margin-bottom: 32px; padding-left: 20px; border-left: 2px solid rgba(200,169,110,.25);
+}
+.kitchen-photo {
+  position: relative; overflow: hidden; background: var(--bg-surf);
+}
+.kitchen-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform 8s ease;
+}
+.kitchen-photo:hover img { transform: scale(1.04); }
+
+/* Food highlights row */
+.food-highlights {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  padding: 72px var(--gutter);
+}
+.food-highlights-inner { max-width: var(--max-w); margin: 0 auto; }
+.food-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin-top: 48px;
+}
+.food-card {
+  background: var(--bg-surf); padding: 32px 24px;
+  border: 1px solid rgba(200,169,110,.06);
+  display: flex; flex-direction: column; gap: 10px;
+  transition: border-color .3s;
+}
+.food-card:hover { border-color: rgba(200,169,110,.18); }
+.food-card-icon { font-size: 22px; line-height: 1; }
+.food-card-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--cream);
+}
+.food-card-desc { font-size: 12px; line-height: 1.65; color: var(--muted); }
+
+/* Photo strip */
+.food-photo-strip {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2px;
+  margin-top: 2px;
+}
+.food-photo-strip-item {
+  position: relative; overflow: hidden; background: var(--bg-surf);
+}
+.food-photo-strip-item:first-child { aspect-ratio: 16/9; }
+.food-photo-strip-item:not(:first-child) { aspect-ratio: 4/5; }
+.food-photo-strip-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(.8) brightness(.65); transition: transform .6s ease, filter .4s;
+}
+.food-photo-strip-item:hover img { transform: scale(1.05); filter: saturate(.95) brightness(.75); }
+.food-photo-label {
+  position: absolute; bottom: 14px; left: 16px;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.5); pointer-events: none;
+}
+.food-photo-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+}
+.food-photo-placeholder svg { color: rgba(200,169,110,.12); }
+.food-photo-placeholder span {
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.18); text-align: center; padding: 0 12px;
+}
+
+/* ─── SECTION: THE BAR ───────────────────── */
+.bar {
+  background: var(--bg);
+  border-top: 1px solid rgba(200,169,110,.07);
+}
+.bar-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+}
+.bar-photo {
+  position: relative; overflow: hidden; background: var(--bg-surf);
+}
+.bar-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: saturate(.8) brightness(.6); transition: transform 8s ease;
+}
+.bar-photo:hover img { transform: scale(1.04); }
+.bar-photo::after {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 80px;
+  background: linear-gradient(to right, transparent, var(--bg)); pointer-events: none;
+}
+.bar-text {
+  padding: 80px var(--gutter);
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+/* Cocktail names teaser */
+.cocktail-names {
+  margin-top: 32px; display: flex; flex-direction: column; gap: 2px;
+}
+.cocktail-name-item {
+  padding: 16px 20px; background: var(--bg-card);
+  border-left: 2px solid transparent;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: border-color .25s, background .25s;
+}
+.cocktail-name-item:hover { border-left-color: var(--gold); background: var(--bg-surf); }
+.cocktail-name {
+  font-family: 'Fraunces', serif; font-size: 16px; font-style: italic;
+  font-weight: 400; color: var(--cream);
+}
+.cocktail-type {
+  font-size: 8.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.4);
+}
+
+/* Bar menu CTA */
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px; margin-top: 32px;
+  background: transparent; color: var(--muted);
+  font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  border: 1px solid rgba(200,169,110,.3); transition: all .25s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn-ghost svg { transition: transform .25s; }
+.btn-ghost:hover svg { transform: translateX(4px); }
+
+/* ─── SECTION: SPORTS VIEWING ────────────── */
+/* This is the primary home for sports viewing on the site — expanded treatment */
+.sports {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+.sports-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+.sports-text {
+  padding: 80px var(--gutter);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.sports-photo {
+  position: relative; overflow: hidden; background: var(--bg-surf);
+}
+.sports-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: saturate(.75) brightness(.6); transition: transform 8s ease;
+}
+.sports-photo:hover img { transform: scale(1.04); }
+.sports-photo::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 80px; z-index: 1;
+  background: linear-gradient(to left, transparent, var(--bg-card)); pointer-events: none;
+}
+.screens-row {
+  display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap;
+}
+.screen-badge {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 18px; background: var(--bg-surf);
+  border: 1px solid rgba(200,169,110,.1);
+}
+.screen-badge svg { color: var(--gold); flex-shrink: 0; }
+.screen-badge span {
+  font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: .5px;
+}
+
+/* ─── SECTION: SEASONS ───────────────────── */
+.seasons {
+  background: var(--bg);
+  border-top: 1px solid rgba(200,169,110,.07);
+  padding: 100px var(--gutter);
+}
+.seasons-inner { max-width: var(--max-w); margin: 0 auto; }
+.seasons-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 56px;
+}
+.season-card {
+  background: var(--bg-card); padding: 52px 44px;
+  border: 1px solid rgba(200,169,110,.06); position: relative; overflow: hidden;
+}
+.season-name {
+  font-family: 'Fraunces', serif; font-size: clamp(26px, 2.6vw, 36px);
+  font-weight: 400; color: var(--cream); margin-bottom: 16px;
+}
+.season-desc { font-size: 14px; line-height: 1.8; color: var(--muted); }
+.season-watermark {
+  position: absolute; top: -10px; right: 20px;
+  font-family: 'Fraunces', serif; font-size: 120px; font-weight: 300;
+  color: rgba(200,169,110,.04); line-height: 1; pointer-events: none;
+}
+
+/* ─── FOOTER ──────────────────────────────── */
+.footer {
+  background: #141210; padding: 72px 0 40px;
+  border-top: 1px solid rgba(200,169,110,.1);
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
+  display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px;
+}
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
+
+/* ─── FADE-UP ─────────────────────────────── */
+.fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.fu.vis { opacity: 1; transform: none; }
+.fu-d1 { transition-delay: .12s; }
+.fu-d2 { transition-delay: .22s; }
+.fu-d3 { transition-delay: .32s; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+@media (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .attr-strip { grid-template-columns: 1fr 1fr; }
+  .terrace-split { grid-template-columns: 1fr; }
+  .kitchen-inner, .bar-inner, .sports-inner { grid-template-columns: 1fr; }
+  .kitchen-photo, .bar-photo, .sports-photo { min-height: 280px; }
+  .kitchen-photo::after, .bar-photo::after { display: none; }
+  .food-grid { grid-template-columns: repeat(2, 1fr); }
+  .food-photo-strip { grid-template-columns: 1fr; }
+  .seasons-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a href="story.html" class="nav-lk">Our Story</a>
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger active">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="terrace.html"           class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+  <div class="nav-right">
+    <a href="events.html"   class="nav-lk">Events</a>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html"  class="nav-lk">Find Us</a>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══════════════════════════════════
+     Ideal: terrace at golden hour — tables set, mountains behind, warm light
+     Replace placeholder: <img src="assets/images/terrace-hero.jpg" alt="ARAMIS Terrace Cafe">
+     ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-img-placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9,22 9,12 15,12 15,22"/>
+        <path d="M7 3.5C8.5 1.5 10.5 1 12 1s3.5.5 5 2.5"/>
+      </svg>
+      <span>Terrace at golden hour — tables set, White Mountains in background</span>
+    </div>
+    <!-- <img src="assets/images/terrace-hero.jpg" alt="ARAMIS Terrace Cafe"> -->
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">The Terrace Cafe · ARAMIS Chania</div>
+    <h1 class="hero-hed">Where the mountains<br>meet your cocktail.</h1>
+    <div class="hero-rule"></div>
+    <div class="hero-sub">
+      The social heart of ARAMIS.<br>
+      All-day kitchen &amp; bar · White Mountains views · Open every season.
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+
+<!-- ══ FULL-WIDTH PHOTO + ATTR STRIP ══════════
+     Show the terrace space — wide, atmospheric
+     ════════════════════════════════════════ -->
+<div class="space-photo fu">
+  <!-- <img src="assets/images/terrace-wide.jpg" alt="ARAMIS terrace wide view"> -->
+  <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--bg-surf);">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.15)" stroke-width=".7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+    <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Terrace wide shot — the full space</span>
+  </div>
+  <div class="space-photo-ov"></div>
+  <div class="space-photo-caption">"This is where ARAMIS lives — in every season."</div>
+</div>
+
+<div class="attr-strip fu">
+  <div class="attr-item">
+    <div class="attr-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+    </div>
+    <div class="attr-title">The Main Seating</div>
+    <div class="attr-desc">The terrace is the primary gathering space at ARAMIS — for groups, meals, drinks, and everything in between.</div>
+  </div>
+  <div class="attr-item">
+    <div class="attr-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </div>
+    <div class="attr-title">Half Enclosed</div>
+    <div class="attr-desc">Sliding glass windows, solid roof, and heating on one side — comfortable in any weather, any month of the year.</div>
+  </div>
+  <div class="attr-item">
+    <div class="attr-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </div>
+    <div class="attr-title">White Mountains Views</div>
+    <div class="attr-desc">Crete's famous White Mountains stretch across the horizon from the open side of the terrace — unchanged in any season.</div>
+  </div>
+  <div class="attr-item">
+    <div class="attr-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    </div>
+    <div class="attr-title">2 Large Screens</div>
+    <div class="attr-desc">Football, basketball, all major sports on demand. The match comes with the mountain view.</div>
+  </div>
+</div>
+
+
+<!-- ══ TERRACE SPLIT — ENCLOSED / OPEN ════════
+     Two halves, each with photo placeholder and description overlay
+     ════════════════════════════════════════ -->
+<div class="terrace-split">
+
+  <div class="terrace-half fu">
+    <!-- <img src="assets/images/terrace-enclosed.jpg" alt="ARAMIS enclosed terrace"> -->
+    <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg-surf);">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Enclosed side — sliding glass, winter scene</span>
+    </div>
+    <div class="terrace-half-ov"></div>
+    <div class="terrace-half-content">
+      <div class="terrace-half-tag">Year-round</div>
+      <div class="terrace-half-hed">The enclosed side.</div>
+      <div class="terrace-half-desc">Sliding glass windows, a solid roof, and heating. Whatever the weather, this side stays comfortable — and the view through the glass stays exactly as good.</div>
+    </div>
+  </div>
+
+  <div class="terrace-half fu fu-d1">
+    <!-- <img src="assets/images/terrace-open.jpg" alt="ARAMIS open terrace with mountain view"> -->
+    <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#1e1c18;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg>
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Open side — mountain view, summer/fair weather</span>
+    </div>
+    <div class="terrace-half-ov"></div>
+    <div class="terrace-half-content">
+      <div class="terrace-half-tag">Open air</div>
+      <div class="terrace-half-hed">The open side.</div>
+      <div class="terrace-half-desc">White Mountains across the horizon, open sky above. In summer, the glass walls slide fully open and the two halves become one expansive terrace.</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══ THE KITCHEN ════════════════════════════ -->
+<section class="kitchen">
+  <div class="kitchen-inner">
+
+    <div class="kitchen-text fu">
+      <div class="stag">The Kitchen</div>
+      <h2 class="sec-hed">From our kitchen<br>to your table.</h2>
+      <div class="pull-quote">"Food with soul, by the hands of Sissi and Dimitra."</div>
+      <p class="sec-body">Pizza made fresh, burgers built properly, ζυμαρικά prepared when you order — not before. Everything on the menu is cooked to order. This isn't bar food.</p>
+      <a href="menu.html" class="btn-ghost" style="margin-top:32px;">
+        See the full menu
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="kitchen-photo fu fu-d1">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+        <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Food photo — pizza close-up or plate being served</span>
+      </div>
+      <!-- <img src="assets/images/terrace-kitchen.jpg" alt="ARAMIS kitchen — fresh pizza"> -->
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ THE BAR ════════════════════════════════ -->
+<section class="bar">
+  <div class="bar-inner">
+
+    <div class="bar-photo fu">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Bar photo — cocktail being prepared or presented</span>
+      </div>
+      <!-- <img src="assets/images/bar-cocktail.jpg" alt="ARAMIS bar cocktail"> -->
+    </div>
+
+    <div class="bar-text fu fu-d1">
+      <div class="stag">The Bar</div>
+      <h2 class="sec-hed">From the bar<br>to your table.</h2>
+      <p class="sec-body">Morning espresso to late-night cocktails — the bar runs all day. Coffee, cold brews, fresh juices, a full spirits shelf, beers, wine, and a cocktail menu with personality. Whatever your pace, we'll match it.</p>
+      <a href="menu.html" class="btn-ghost">
+        See the drink menu
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ SPORTS VIEWING ════════════════════════
+     Primary home for sports viewing on the site.
+     Also briefly referenced in billiards.html.
+     ════════════════════════════════════════ -->
+<section class="sports">
+  <div class="sports-inner">
+
+    <div class="sports-text fu">
+      <div class="stag">Sports on the Terrace</div>
+      <h2 class="sec-hed">The match, the mountains,<br>your drink.</h2>
+      <p class="sec-body">Two large screens on the terrace show all major sports on demand — football, basketball, tennis, and whatever else is worth watching. When there's an international billiards tournament, we put that up too.</p>
+      <p class="sec-body">The White Mountains stay in the background regardless. Settle in, order something good, and watch from one of the best rooftops in Chania.</p>
+      <div class="screens-row">
+        <div class="screen-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span>2 large screens</span>
+        </div>
+        <div class="screen-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          <span>All major sports</span>
+        </div>
+        <div class="screen-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>On demand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sports-photo fu fu-d1">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Terrace screens — match on, drinks on table</span>
+      </div>
+      <!-- <img src="assets/images/terrace-screens.jpg" alt="Sports viewing on the ARAMIS terrace"> -->
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ SEASONS ════════════════════════════════ -->
+<section class="seasons">
+  <div class="seasons-inner">
+    <div class="fu">
+      <div class="stag">Year-round</div>
+      <h2 class="sec-hed">The view doesn't change.<br>Neither does the welcome.</h2>
+      <p class="sec-body" style="max-width:640px;">The terrace was renovated to work in every season — not just the ones with good weather. Here's how it looks across the year.</p>
+    </div>
+    <div class="seasons-grid">
+      <div class="season-card fu">
+        <div class="season-watermark">☀</div>
+        <div class="season-name">Summer</div>
+        <div class="season-desc">The sliding glass walls open fully — both halves of the terrace become one expansive space. Open sky, mountain view, warm evenings. The terrace at its most alive.</div>
+      </div>
+      <div class="season-card fu fu-d1">
+        <div class="season-watermark">❄</div>
+        <div class="season-name">Winter</div>
+        <div class="season-desc">The enclosed side comes into its own. Heated, glass-walled, solid roof — the White Mountains look exactly the same through the glass as they do in open air. Warm inside, spectacular outside.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+      </div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">Explore our Venue</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="events.html">Events</a>
+        <a href="pro-shop.html">Pro Shop</a>
+        <a href="contact.html">Find Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Visit</div>
+      <div class="footer-links">
+        <a href="#">Open 10:00 – 01:00 daily</a>
+        <a href="#">Chania, Crete</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Dropdown touch
+const venueDd = document.getElementById('nav-venue');
+if (venueDd) {
+  venueDd.addEventListener('click', e => {
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      venueDd.classList.toggle('open');
+    }
+  });
+  document.addEventListener('click', e => {
+    if (!venueDd.contains(e.target)) venueDd.classList.remove('open');
+  });
+}
+
+// Fade-up
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

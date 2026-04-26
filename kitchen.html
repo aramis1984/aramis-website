@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitchen & Bar | ARAMIS Billiard Club, Chania</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="All-day kitchen and bar at ARAMIS Chania. Fresh pizza, signature burgers, pasta, salads, signature cocktails, and coffee — prepared when you order.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aramisbilliards.com/kitchen">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARAMIS Billiard Club">
+  <meta property="og:title" content="Kitchen & Bar | ARAMIS Billiard Club, Chania">
+  <meta property="og:description" content="All-day kitchen and bar at ARAMIS Chania. Fresh pizza, signature burgers, pasta, salads, signature cocktails, and coffee — prepared when you order.">
+  <meta property="og:url" content="https://www.aramisbilliards.com/kitchen">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+  <meta property="og:locale" content="en_GR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kitchen & Bar | ARAMIS Billiard Club, Chania">
+  <meta name="twitter:description" content="All-day kitchen and bar at ARAMIS Chania. Fresh pizza, signature burgers, pasta, salads, signature cocktails, and coffee — prepared when you order.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg:       #1a1814;
+  --bg-card:  #232019;
+  --bg-surf:  #2a2620;
+  --gold:     #c8a96e;
+  --gold-h:   #dcc48e;
+  --cream:    #f3e5d2;
+  --muted:    #c8b9a4;
+  --nav-h:    180px;
+  --gutter:   72px;
+  --max-w:    1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── NAV ────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: var(--nav-h); display: flex; align-items: center;
+  padding: 0 40px; background: transparent;
+  transition: background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled { background: rgba(26,24,20,.97); border-bottom-color: rgba(200,169,110,.12); backdrop-filter: blur(12px); }
+.nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
+.nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
+.nav-logo  { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+.nav-lk { font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(243,229,210,.65); padding: 10px 22px; transition: color .2s; white-space: nowrap; line-height: 1; cursor: pointer; position: relative; }
+.nav-lk:hover, .nav-lk.active { color: var(--gold); }
+.nav-dd { position: relative; display: flex; align-items: center; }
+.nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
+.nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
+.nav-dd:hover .chevron, .nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
+.nav-dd-panel { position: absolute; top: calc(100% + 8px); left: 0; min-width: 220px; background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15); border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s; pointer-events: none; }
+.nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
+.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s; pointer-events: auto; }
+.nav-dd-item { display: flex; align-items: center; gap: 12px; padding: 12px 20px; font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(243,229,210,.6); transition: color .18s, background .18s; white-space: nowrap; }
+.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
+.nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
+.nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
+@media (max-width: 960px) { .nav-left, .nav-right { display: none; } .nav { justify-content: center; } .nav-logo img { width: 240px; height: auto; } }
+
+/* ─── HERO ───────────────────────────────── */
+.hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-img { position: absolute; inset: 0; background: #141210; }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; filter: saturate(.8) brightness(.5); }
+.hero-img-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border: 1px dashed rgba(200,169,110,.1); margin: 80px var(--gutter); }
+.hero-img-placeholder svg { color: rgba(200,169,110,.15); }
+.hero-img-placeholder span { font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,169,110,.2); }
+.hero-ov { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(26,24,20,.3) 0%, rgba(26,24,20,.05) 25%, rgba(26,24,20,.05) 50%, rgba(26,24,20,.88) 100%); }
+.hero-content { position: relative; z-index: 2; padding: 0 var(--gutter) 80px; max-width: var(--max-w); margin: 0 auto; width: 100%; }
+.hero-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
+.hero-hed { font-family: 'Fraunces', serif; font-size: clamp(44px, 6.5vw, 88px); font-weight: 400; font-style: italic; line-height: 1.07; color: var(--cream); margin-bottom: 20px; letter-spacing: -1px; max-width: 680px; }
+.hero-sub { font-size: 14px; font-weight: 300; line-height: 1.7; color: rgba(200,185,164,.5); max-width: 500px; }
+.hero-scroll { position: absolute; bottom: 40px; right: var(--gutter); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.hero-scroll span { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,185,164,.3); }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(200,169,110,.35), transparent); }
+
+/* ─── SHARED ─────────────────────────────── */
+.stag { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.sec-hed { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.2vw, 46px); font-weight: 400; line-height: 1.13; color: var(--cream); margin-bottom: 24px; }
+.sec-body { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.sec-body:last-child { margin-bottom: 0; }
+.pull-quote { font-family: 'Fraunces', serif; font-size: clamp(16px, 1.6vw, 20px); font-weight: 400; font-style: italic; color: var(--gold); line-height: 1.55; margin-bottom: 32px; padding-left: 20px; border-left: 2px solid rgba(200,169,110,.25); }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; background: var(--gold); color: var(--bg); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: background .2s; }
+.btn-primary:hover { background: var(--gold-h); }
+.btn-primary svg { transition: transform .25s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: transparent; color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(200,169,110,.3); transition: all .25s; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn-ghost svg { transition: transform .25s; }
+.btn-ghost:hover svg { transform: translateX(4px); }
+
+/* ─── KITCHEN INTRO — split ──────────────── */
+.kitchen-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; border-top: 1px solid rgba(200,169,110,.07); }
+.kitchen-photo { position: relative; overflow: hidden; background: var(--bg-surf); }
+.kitchen-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform 8s ease; }
+.kitchen-photo:hover img { transform: scale(1.04); }
+.kitchen-photo::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 80px; background: linear-gradient(to right, transparent, var(--bg)); pointer-events: none; }
+.kitchen-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+.kitchen-ph svg { color: rgba(200,169,110,.12); }
+.kitchen-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
+.kitchen-text { background: var(--bg); padding: 80px var(--gutter); display: flex; flex-direction: column; justify-content: center; }
+
+/* ─── FOOD CATEGORY GRID ─────────────────── */
+.food-grid-section { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); padding: 80px var(--gutter); }
+.food-grid-inner { max-width: var(--max-w); margin: 0 auto; }
+.food-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+.food-cat {
+  background: var(--bg-surf); padding: 32px 28px;
+  border: 1px solid rgba(200,169,110,.06);
+  display: flex; flex-direction: column; gap: 8px;
+  position: relative; overflow: hidden;
+  transition: border-color .3s;
+}
+.food-cat:hover { border-color: rgba(200,169,110,.2); }
+/* Ghost watermark number */
+.food-cat::before { content: attr(data-n); position: absolute; bottom: -8px; right: 12px; font-family: 'Fraunces', serif; font-size: 80px; font-weight: 300; color: rgba(200,169,110,.04); line-height: 1; pointer-events: none; transition: color .3s; }
+.food-cat:hover::before { color: rgba(200,169,110,.08); }
+.food-cat-name { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+.food-cat-hint { font-size: 12px; line-height: 1.65; color: var(--muted); }
+
+/* ─── PHOTO STRIP ────────────────────────── */
+.photo-strip { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2px; }
+.ps-item { position: relative; overflow: hidden; background: var(--bg-surf); }
+.ps-item:first-child { aspect-ratio: 16/8; }
+.ps-item:not(:first-child) { aspect-ratio: 3/4; }
+.ps-item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform .6s ease, filter .4s; }
+.ps-item:hover img { transform: scale(1.05); filter: saturate(.95) brightness(.75); }
+.ps-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.ps-ph svg { color: rgba(200,169,110,.12); }
+.ps-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; padding: 0 12px; }
+.ps-label { position: absolute; bottom: 14px; left: 16px; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.5); pointer-events: none; }
+
+/* ─── BAR INTRO — split (reversed) ──────── */
+.bar-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; border-top: 1px solid rgba(200,169,110,.07); }
+.bar-text { background: var(--bg); padding: 80px var(--gutter); display: flex; flex-direction: column; justify-content: center; }
+.bar-photo { position: relative; overflow: hidden; background: var(--bg-surf); }
+.bar-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.6); transition: transform 8s ease; }
+.bar-photo:hover img { transform: scale(1.04); }
+.bar-photo::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 80px; z-index: 1; background: linear-gradient(to left, transparent, var(--bg)); pointer-events: none; }
+.bar-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; z-index: 2; }
+.bar-ph svg { color: rgba(200,169,110,.12); }
+.bar-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
+
+/* ─── COCKTAIL SPOTLIGHT ─────────────────── */
+.cocktails-section { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); padding: 100px var(--gutter); }
+.cocktails-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.cocktail-list { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
+.cocktail-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 22px 24px; background: var(--bg-surf); border-left: 2px solid transparent; transition: border-color .25s, background .25s; cursor: default; }
+.cocktail-row:hover { border-left-color: var(--gold); background: var(--bg); }
+.cocktail-name { font-family: 'Fraunces', serif; font-size: 18px; font-style: italic; font-weight: 400; color: var(--cream); line-height: 1.2; }
+.cocktail-desc { font-size: 11px; line-height: 1.65; color: rgba(200,185,164,.5); margin-top: 5px; max-width: 280px; }
+.cocktail-price { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 300; color: var(--gold); flex-shrink: 0; padding-top: 2px; }
+.cocktail-new { font-size: 7px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: rgba(200,169,110,.1); border: 1px solid rgba(200,169,110,.2); padding: 3px 8px; display: inline-block; margin-top: 4px; }
+
+/* Cocktail photo grid */
+.cocktail-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cph { background: var(--bg-surf); overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
+.cph:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
+.cph:not(:first-child) { aspect-ratio: 1; }
+.cph img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform .6s ease; }
+.cph:hover img { transform: scale(1.05); }
+.cph-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.cph-ph svg { color: rgba(200,169,110,.12); }
+.cph-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; padding: 0 12px; }
+.cph-label { position: absolute; bottom: 12px; left: 14px; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.45); pointer-events: none; }
+
+/* ─── MENU CTA ───────────────────────────── */
+.menu-cta { background: var(--bg); border-top: 1px solid rgba(200,169,110,.07); padding: 100px var(--gutter); text-align: center; }
+.menu-cta-inner { max-width: 600px; margin: 0 auto; }
+.menu-cta-hed { font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 54px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.1; margin-bottom: 20px; }
+.menu-cta-sub { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
+.menu-cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+/* ─── FOOTER ──────────────────────────────── */
+.footer { background: #141210; padding: 72px 0 40px; border-top: 1px solid rgba(200,169,110,.1); }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px; }
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0; border-top: 1px solid rgba(200,169,110,.07); display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
+
+/* ─── FADE-UP ─────────────────────────────── */
+.fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.fu.vis { opacity: 1; transform: none; }
+.fu-d1 { transition-delay: .12s; }
+.fu-d2 { transition-delay: .22s; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+@media (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .kitchen-split, .bar-split { grid-template-columns: 1fr; }
+  .kitchen-photo, .bar-photo { min-height: 280px; }
+  .kitchen-photo::after, .bar-photo::before { display: none; }
+  .food-grid { grid-template-columns: 1fr 1fr; }
+  .photo-strip { grid-template-columns: 1fr; }
+  .cocktails-inner { grid-template-columns: 1fr; }
+  .menu-cta-actions { flex-direction: column; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a href="story.html" class="nav-lk">Our Story</a>
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger active">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+  <div class="nav-right">
+    <a href="events.html"   class="nav-lk">Events</a>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html"  class="nav-lk">Find Us</a>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══════════════════════════════════
+     Ideal shot: pizza + cocktail on the same table, warm terrace light
+     Swap: <img src="assets/images/kitchen-food.jpg" ...>
+     ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-img-placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+      <span>Pizza + cocktail on terrace table — warm light</span>
+    </div>
+    <!-- <img src="assets/images/kitchen-food.jpg" alt="ARAMIS Kitchen and Bar"> -->
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Kitchen &amp; Bar · ARAMIS Chania</div>
+    <h1 class="hero-hed">More than a game.<br>It's an experience.</h1>
+    <p class="hero-sub">All-day kitchen and bar. Coffee to cocktails. Everything prepared when you order.</p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+
+<!-- ══ THE KITCHEN ════════════════════════════ -->
+<section class="kitchen-split">
+
+  <div class="kitchen-photo fu">
+    <div class="kitchen-ph">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+      <span>Pizza close-up — or Sissi / Dimitra in the kitchen</span>
+    </div>
+    <!-- <img src="assets/images/kitchen-food.jpg" alt="ARAMIS kitchen"> -->
+  </div>
+
+  <div class="kitchen-text fu fu-d1">
+    <div class="stag">The Kitchen</div>
+    <h2 class="sec-hed">From our kitchen<br>to your table.</h2>
+    <div class="pull-quote">"Food with soul, by the hands of Sissi and Dimitra."</div>
+    <p class="sec-body">The pizza is the reason people come back. Made fresh every time. The menu runs from early bites through sandwiches, burgers, pasta, and salads — all the way to sweet treats worth saving room for. Nine categories, everything prepared when you order.</p>
+    <p class="sec-body">This isn't bar food. Come for a game, stay for a meal — or the other way around.</p>
+  </div>
+
+</section>
+
+
+<!-- ══ FOOD CATEGORIES ════════════════════════ -->
+<div class="food-grid-section fu">
+  <div class="food-grid-inner">
+    <div class="stag">What's on</div>
+    <div class="food-grid">
+      <div class="food-cat" data-n="01">
+        <div class="food-cat-name">Early Bites</div>
+        <div class="food-cat-hint">Morning starters, 10:00–14:00. Omelettes, open toast, a proper start.</div>
+      </div>
+      <div class="food-cat" data-n="02">
+        <div class="food-cat-name">Sandwiches</div>
+        <div class="food-cat-hint">Toast, baguettes, focaccia, ciabatta — served with crisps.</div>
+      </div>
+      <div class="food-cat" data-n="03">
+        <div class="food-cat-name">Club Sandwich</div>
+        <div class="food-cat-hint">Three options, served with fries and cocktail sauce.</div>
+      </div>
+      <div class="food-cat" data-n="04">
+        <div class="food-cat-name">Dip &amp; Bite</div>
+        <div class="food-cat-hint">Fries, sweet potato fries, mozzarella sticks, chicken bites, nachos.</div>
+      </div>
+      <div class="food-cat" data-n="05">
+        <div class="food-cat-name">Burgers</div>
+        <div class="food-cat-hint">Signature builds — not the kind you forget.</div>
+      </div>
+      <div class="food-cat" data-n="06">
+        <div class="food-cat-name">Pizza</div>
+        <div class="food-cat-hint">The reason Chania keeps coming back. Made fresh, every time.</div>
+      </div>
+      <div class="food-cat" data-n="07">
+        <div class="food-cat-name">Salads</div>
+        <div class="food-cat-hint">Fresh, generous, worth ordering as a meal in themselves.</div>
+      </div>
+      <div class="food-cat" data-n="08">
+        <div class="food-cat-name">Pasta</div>
+        <div class="food-cat-hint">Cooked when you order — not before.</div>
+      </div>
+      <div class="food-cat" data-n="09">
+        <div class="food-cat-name">Sweet Treats</div>
+        <div class="food-cat-hint">Save room. You'll want to order one before you've finished your main.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ FOOD PHOTO STRIP ═══════════════════════ -->
+<div class="photo-strip">
+  <div class="ps-item">
+    <div class="ps-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="10"/></svg><span>Hero food — pizza or full table spread</span></div>
+    <!-- <img src="assets/images/kitchen-strip-pizza.jpg" alt="ARAMIS pizza"> -->
+    <div class="ps-label">From the kitchen</div>
+  </div>
+  <div class="ps-item">
+    <div class="ps-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg><span>Burger or club sandwich</span></div>
+    <!-- <img src="assets/images/kitchen-strip-burger.jpg" alt="ARAMIS burger"> -->
+    <div class="ps-label">Burgers</div>
+  </div>
+  <div class="ps-item">
+    <div class="ps-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12z"/></svg><span>Sweet treat or salad detail</span></div>
+    <!-- <img src="assets/images/kitchen-strip-sweet.jpg" alt="ARAMIS sweet treats"> -->
+    <div class="ps-label">Sweet treats</div>
+  </div>
+</div>
+
+
+<!-- ══ THE BAR ════════════════════════════════ -->
+<section class="bar-split">
+
+  <div class="bar-text fu">
+    <div class="stag">The Bar</div>
+    <h2 class="sec-hed">Coffee at ten.<br>Cocktails at ten.</h2>
+    <div class="pull-quote">"The bar opens when we do and doesn't slow down."</div>
+    <p class="sec-body">Morning espresso through to late-night cocktails — every hour of the day has something. Coffee, cold brews, fresh juices, milkshakes, soft drinks, beers on tap and by the bottle, a considered wine list, and a spirits shelf that earns its space.</p>
+    <p class="sec-body">The cocktail programme is where the bar really shows its character. Each drink is built with intention — and the names give you a hint before you've taken the first sip.</p>
+  </div>
+
+  <div class="bar-photo fu fu-d1">
+    <div class="bar-ph">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      <span>Bar — cocktail being prepared or bar counter shot</span>
+    </div>
+    <!-- <img src="assets/images/kitchen-bar.jpg" alt="ARAMIS bar"> -->
+  </div>
+
+</section>
+
+
+<!-- ══ COCKTAIL SPOTLIGHT ═════════════════════ -->
+<section class="cocktails-section">
+  <div class="cocktails-inner">
+
+    <div class="fu">
+      <div class="stag">Signature Cocktails</div>
+      <h2 class="sec-hed">Drinks worth<br>ordering twice.</h2>
+      <p class="sec-body">The cocktail menu at ARAMIS is built around flavour and personality in equal measure. House originals sit alongside well-executed classics — the kind of list that rewards curiosity.</p>
+      <p class="sec-body" style="font-size:13px; color:rgba(200,185,164,.45);">A selection below. The full list is on the menu.</p>
+      <div class="cocktail-list">
+
+        <div class="cocktail-row">
+          <div>
+            <div class="cocktail-name">Spicy Nectar</div>
+            <div class="cocktail-desc">Tequila blanco · vanilla &amp; ginger syrup · raspberry · lime · cranberry bitters</div>
+          </div>
+          <div class="cocktail-price">€10</div>
+        </div>
+
+        <div class="cocktail-row">
+          <div>
+            <div class="cocktail-name">Pink Blossom</div>
+            <div class="cocktail-desc">Gin · elderflower · passion fruit · pink grapefruit soda</div>
+          </div>
+          <div class="cocktail-price">€11</div>
+        </div>
+
+        <div class="cocktail-row">
+          <div>
+            <div class="cocktail-name">Aris Tiki Wall Banker</div>
+            <div class="cocktail-desc">Blend of Rum · almond syrup · Aperol · pineapple · lime · banana blossom</div>
+          </div>
+          <div class="cocktail-price">€12</div>
+        </div>
+
+        <div class="cocktail-row">
+          <div>
+            <div class="cocktail-name">ARAMIS Zombie</div>
+            <div class="cocktail-desc">Aged Rum · Golden Falernum · passion fruit · anise liquor · pomegranate · lime</div>
+            <div class="cocktail-new">New</div>
+          </div>
+          <div class="cocktail-price">€13</div>
+        </div>
+
+        <div class="cocktail-row" style="opacity:.5; pointer-events:none;">
+          <div><div class="cocktail-name" style="font-size:14px;">+ more on the full menu</div></div>
+          <a href="menu.html" style="color:var(--gold); font-size:9px; font-weight:600; letter-spacing:2px; text-transform:uppercase; pointer-events:auto; opacity:2;">See all →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Cocktail photo grid -->
+    <div class="cocktail-photos fu fu-d1">
+      <div class="cph">
+        <div class="cph-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg><span>Cocktail — presented, lit well</span></div>
+        <!-- <img src="assets/images/kitchen-cocktail-main.jpg" alt="ARAMIS signature cocktail"> -->
+        <div class="cph-label">House cocktail</div>
+      </div>
+      <div class="cph">
+        <div class="cph-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M5 3h14l-7 9-7-9z"/><path d="M12 12v9"/></svg><span>Spirits shelf or bar detail</span></div>
+        <!-- <img src="assets/images/kitchen-spirits.jpg" alt="ARAMIS spirits"> -->
+        <div class="cph-label">Spirits</div>
+      </div>
+      <div class="cph">
+        <div class="cph-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg><span>Coffee — morning service</span></div>
+        <!-- <img src="assets/images/kitchen-coffee.jpg" alt="ARAMIS coffee"> -->
+        <div class="cph-label">Coffee</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ MENU CTA ════════════════════════════════ -->
+<div class="menu-cta fu">
+  <div class="menu-cta-inner">
+    <div class="stag" style="justify-content:center;">The Full Menu</div>
+    <div class="menu-cta-hed">130+ items.<br>All prepared to order.</div>
+    <div class="menu-cta-sub">Browse the complete kitchen and bar menu — 19 categories, everything from morning coffee to late-night cocktails. Available at your table, at the bar, or on the terrace.</div>
+    <div class="menu-cta-actions">
+      <a href="menu.html" class="btn-primary">
+        See the full menu
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="terrace.html" class="btn-ghost">
+        Visit the Terrace Cafe
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS"></div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">Explore our Venue</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="events.html">Events</a>
+        <a href="pro-shop.html">Pro Shop</a>
+        <a href="contact.html">Find Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Visit</div>
+      <div class="footer-links">
+        <a href="#">Open 10:00 – 01:00 daily</a>
+        <a href="#">Chania, Crete</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const venueDd = document.getElementById('nav-venue');
+if (venueDd) {
+  venueDd.addEventListener('click', e => { if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); venueDd.classList.toggle('open'); } });
+  document.addEventListener('click', e => { if (!venueDd.contains(e.target)) venueDd.classList.remove('open'); });
+}
+const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }); }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

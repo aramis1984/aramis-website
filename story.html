@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story | ARAMIS Billiard Club, Chania</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Forty years of billiards in Chania. The story of ARAMIS — founded by Aris Damoulakis in 1984, carried forward by family, built on respect for the game.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aramisbilliards.com/story">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARAMIS Billiard Club">
+  <meta property="og:title" content="Our Story | ARAMIS Billiard Club, Chania">
+  <meta property="og:description" content="Forty years of billiards in Chania. The story of ARAMIS — founded by Aris Damoulakis in 1984, carried forward by family, built on respect for the game.">
+  <meta property="og:url" content="https://www.aramisbilliards.com/story">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+  <meta property="og:locale" content="en_GR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Story | ARAMIS Billiard Club, Chania">
+  <meta name="twitter:description" content="Forty years of billiards in Chania. The story of ARAMIS — founded by Aris Damoulakis in 1984, carried forward by family, built on respect for the game.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ─── TOKENS ─────────────────────────────── */
+:root {
+  --bg:       #1a1814;
+  --bg-card:  #232019;
+  --bg-surf:  #2a2620;
+  --gold:     #c8a96e;
+  --gold-h:   #dcc48e;
+  --cream:    #f3e5d2;
+  --muted:    #c8b9a4;
+  --olive:    #6b7a5a;
+  --nav-h:    180px;
+  --gutter:   72px;
+  --max-w:    1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── NAV ────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  padding: 0 40px;
+  background: transparent;
+  transition: background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  background: rgba(26,24,20,.97);
+  border-bottom-color: rgba(200,169,110,.12);
+  backdrop-filter: blur(12px);
+}
+
+/* Left / Logo / Right columns */
+.nav-left  {
+  display: flex; align-items: center; justify-content: flex-end;
+  flex: 1; gap: 2px;
+}
+.nav-right {
+  display: flex; align-items: center; justify-content: flex-start;
+  flex: 1; gap: 2px;
+}
+.nav-logo  { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+
+/* Base nav link */
+.nav-lk {
+  font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px;
+  text-transform: uppercase; color: rgba(243,229,210,.65);
+  padding: 10px 22px; transition: color .2s;
+  white-space: nowrap; line-height: 1; cursor: pointer;
+  position: relative;
+}
+.nav-lk:hover,
+.nav-lk.active { color: var(--gold); }
+
+/* ── Dropdown parent ── */
+.nav-dd {
+  position: relative;
+  display: flex; align-items: center;
+}
+
+/* The "The Venue" trigger link */
+.nav-dd-trigger {
+  display: flex; align-items: center; gap: 5px;
+}
+.nav-dd-trigger .chevron {
+  width: 10px; height: 10px;
+  transition: transform .25s;
+  opacity: .5;
+  flex-shrink: 0;
+}
+.nav-dd:hover .chevron,
+.nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
+
+/* Dropdown panel */
+.nav-dd-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  background: rgba(22,20,17,.98);
+  border: 1px solid rgba(200,169,110,.15);
+  border-top: 2px solid var(--gold);
+  backdrop-filter: blur(16px);
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  /* open fast, close slow — gives cursor time to travel */
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s;
+  pointer-events: none;
+}
+/* Invisible bridge fills the gap between trigger and panel */
+.nav-dd-panel::before {
+  content: '';
+  position: absolute;
+  bottom: 100%; left: 0; right: 0;
+  height: 12px;
+}
+.nav-dd:hover .nav-dd-panel,
+.nav-dd.open .nav-dd-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s;
+  pointer-events: auto;
+}
+
+/* Dropdown items */
+.nav-dd-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 20px;
+  font-size: 10px; font-weight: 500; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(243,229,210,.6);
+  transition: color .18s, background .18s;
+  white-space: nowrap;
+}
+.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
+.nav-dd-item .dd-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--gold); opacity: .4; flex-shrink: 0;
+}
+.nav-dd-divider {
+  height: 1px; background: rgba(200,169,110,.08);
+  margin: 6px 0;
+}
+
+/* ─── HERO ───────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0 var(--gutter);
+  /* Layered background: noise texture feel via radial gradients */
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(200,169,110,.07) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 100%,  rgba(200,169,110,.05) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 80% at 20% 50%,  rgba(26,22,18,1) 0%, transparent 100%),
+    var(--bg);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg,   transparent, transparent 79px, rgba(200,169,110,.025) 80px),
+    repeating-linear-gradient(90deg,  transparent, transparent 79px, rgba(200,169,110,.025) 80px);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0;
+  max-width: 880px;
+}
+.hero-eyebrow {
+  font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 32px;
+  display: flex; align-items: center; gap: 16px;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: .5; }
+.hero-hed {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 6vw, 86px);
+  font-weight: 400; font-style: italic;
+  line-height: 1.1; color: var(--cream);
+  margin-bottom: 32px;
+  letter-spacing: -1px;
+}
+.hero-hed em { font-style: normal; color: var(--gold); }
+.hero-rule { width: 1px; height: 64px; background: linear-gradient(to bottom, rgba(200,169,110,.5), transparent); margin: 0 auto 32px; }
+.hero-sub {
+  font-size: 12px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(200,185,164,.45);
+}
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.hero-scroll span { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,185,164,.35); }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(200,169,110,.4), transparent); }
+
+/* ─── SHARED SECTION HELPERS ─────────────── */
+.stag {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+}
+.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+.sec-hed {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(30px, 3.5vw, 52px);
+  font-weight: 400; line-height: 1.13;
+  color: var(--cream); margin-bottom: 24px;
+}
+.sec-body {
+  font-size: 15px; line-height: 1.85;
+  color: var(--muted); margin-bottom: 20px;
+}
+.sec-body:last-of-type { margin-bottom: 0; }
+
+/* Full-width section wrapper */
+.section {
+  padding: 100px var(--gutter);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.section-full {
+  padding: 100px var(--gutter);
+  width: 100%;
+}
+
+/* Divider line */
+.divider {
+  width: 100%; height: 1px;
+  background: rgba(200,169,110,.07);
+}
+
+/* ─── FOUNDING ────────────────────────────── */
+.founding {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 580px;
+  border-top: 1px solid rgba(200,169,110,.07);
+}
+.founding-image {
+  position: relative; overflow: hidden;
+  background: var(--bg-surf);
+  /* Uses a cropped slice of the Epic canvas */
+}
+.founding-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 8% 35%;
+  filter: saturate(.75) brightness(.85);
+  transition: transform 8s ease;
+}
+.founding-image:hover img { transform: scale(1.04); }
+.founding-image::after {
+  content: '';
+  position: absolute; top: 0; right: 0; bottom: 0; width: 80px;
+  background: linear-gradient(to right, transparent, var(--bg));
+  pointer-events: none;
+}
+.founding-text {
+  background: var(--bg);
+  padding: 80px var(--gutter);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.founding-pull {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(17px, 1.8vw, 23px);
+  font-weight: 400; font-style: italic;
+  color: var(--gold); line-height: 1.55;
+  margin-bottom: 32px;
+  padding-left: 22px;
+  border-left: 2px solid rgba(200,169,110,.25);
+}
+
+/* ─── FAMILY ──────────────────────────────── */
+.family {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+.family-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 100px var(--gutter);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.family-pull {
+  font-family: 'Fraunces', serif;
+  font-size: 15px; font-style: italic;
+  color: rgba(200,185,164,.5); line-height: 1.7;
+  margin-top: 28px;
+}
+/* Photo grid */
+.family-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 260px 260px;
+  gap: 10px;
+}
+.fph {
+  background: var(--bg-surf);
+  overflow: hidden;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.fph:first-child {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+.fph-label {
+  position: absolute; bottom: 14px; left: 16px;
+  font-size: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.6);
+}
+.fph-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: rgba(200,169,110,.18);
+}
+.fph-placeholder svg { opacity: .5; }
+.fph-placeholder span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
+
+/* ─── VENUE ───────────────────────────────── */
+.venue {
+  background: var(--bg);
+  border-top: 1px solid rgba(200,169,110,.07);
+}
+.venue-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 100px var(--gutter);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.venue-year {
+  font-family: 'Fraunces', serif;
+  font-size: 120px; font-weight: 300;
+  color: rgba(200,169,110,.07);
+  line-height: 1; margin-bottom: -20px;
+  letter-spacing: -4px;
+}
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px;
+  background: transparent; color: var(--muted);
+  font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  border: 1px solid rgba(200,169,110,.3); transition: all .25s;
+  margin-top: 32px;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.venue-timeline {
+  display: flex; flex-direction: column; gap: 0;
+}
+.vtl-item {
+  display: flex; gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+.vtl-item:first-child { padding-top: 0; }
+.vtl-item:last-child { border-bottom: none; }
+.vtl-year {
+  font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400;
+  color: var(--gold); flex-shrink: 0; width: 72px; line-height: 1.2;
+}
+.vtl-desc { font-size: 14px; line-height: 1.75; color: var(--muted); padding-top: 4px; }
+
+/* ─── MEMORY LANE INTRO ───────────────────── */
+.ml-intro {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  text-align: center;
+  padding: 100px var(--gutter) 64px;
+}
+.ml-intro-inner { max-width: 680px; margin: 0 auto; }
+.ml-intro .stag { justify-content: center; }
+.ml-intro .stag::before { display: none; }
+
+/* ─── CANVAS GALLERY ──────────────────────── */
+.canvas-gallery { background: var(--bg-card); }
+
+.canvas-block { position: relative; }
+.canvas-block + .canvas-block { margin-top: 4px; }
+
+.canvas-bar {
+  padding: 20px var(--gutter);
+  display: flex; align-items: center; gap: 20px;
+  background: var(--bg-card);
+}
+.canvas-bar-title {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); white-space: nowrap;
+}
+.canvas-bar-line { flex: 1; height: 1px; background: rgba(200,169,110,.1); }
+.canvas-bar-hint { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.3); white-space: nowrap; }
+
+.canvas-wrap {
+  overflow: hidden; position: relative; cursor: zoom-in;
+}
+.canvas-wrap img {
+  width: 100%; display: block;
+  transition: transform 6s ease;
+  transform-origin: center center;
+}
+.canvas-wrap:hover img { transform: scale(1.03); }
+.canvas-ov {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(26,24,20,.3) 0%,
+    transparent 15%,
+    transparent 80%,
+    rgba(26,24,20,.5) 100%
+  );
+}
+
+/* ─── ZOOM MODAL ──────────────────────────── */
+.zoom-modal {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(8,7,6,.95); backdrop-filter: blur(12px);
+  align-items: center; justify-content: center;
+  padding: 48px; cursor: zoom-out;
+}
+.zoom-modal.open { display: flex; }
+.zoom-modal img {
+  max-width: 100%; max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 40px 120px rgba(0,0,0,.6);
+}
+.zoom-close {
+  position: absolute; top: 24px; right: 32px;
+  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(200,169,110,.6);
+  background: none; border: 1px solid rgba(200,169,110,.2);
+  padding: 10px 18px; cursor: pointer; transition: all .2s;
+}
+.zoom-close:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ─── SHARE YOUR STORY ────────────────────── */
+.share {
+  background: var(--bg);
+  border-top: 1px solid rgba(200,169,110,.07);
+}
+.share-inner {
+  padding: 100px var(--gutter);
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.share-cta-block {
+  background: var(--bg-card);
+  border: 1px solid rgba(200,169,110,.1);
+  padding: 52px;
+  display: flex; flex-direction: column; gap: 28px;
+}
+.share-cta-hed {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 400; color: var(--cream); line-height: 1.2;
+}
+.share-cta-body {
+  font-size: 14px; line-height: 1.75; color: var(--muted);
+}
+.share-cta-body a {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(200,169,110,.25);
+  transition: border-color .2s;
+}
+.share-cta-body a:hover { border-color: var(--gold); }
+.share-italic {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 14px; color: rgba(200,185,164,.4); line-height: 1.6;
+}
+.share-actions { display: flex; flex-direction: column; gap: 10px; }
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 32px;
+  background: var(--gold); color: var(--bg);
+  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  transition: background .2s;
+}
+.btn-primary:hover { background: var(--gold-h); }
+
+/* ─── FOOTER ──────────────────────────────── */
+.footer {
+  background: #141210;
+  padding: 72px 0 40px;
+  border-top: 1px solid rgba(200,169,110,.1);
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
+  display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px;
+}
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed {
+  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 40px auto 0;
+  padding: 24px var(--gutter) 0;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
+
+/* ─── FADE-UP ─────────────────────────────── */
+.fu { opacity: 0; transform: translateY(30px); transition: opacity .75s ease, transform .75s ease; }
+.fu.vis { opacity: 1; transform: none; }
+.fu-d1 { transition-delay: .1s; }
+.fu-d2 { transition-delay: .2s; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+@media (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .founding, .family-inner, .venue-inner, .share-inner { grid-template-columns: 1fr; }
+  .founding-image { min-height: 320px; }
+  .founding-image::after { display: none; }
+  .nav-left, .nav-right { display: none; }
+  .nav-logo img { width: 260px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+
+  <!-- LEFT -->
+  <div class="nav-left">
+    <a href="story.html" class="nav-lk active">Our Story</a>
+
+    <!-- The Venue dropdown -->
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 3.5l3 3 3-3"/>
+        </svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="explore-our-venue.html#billiards"   class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="explore-our-venue.html#darts"       class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="explore-our-venue.html#terrace"     class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="explore-our-venue.html#kitchen"     class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html"             class="nav-dd-item" style="color:var(--gold); letter-spacing:1.4px;">
+          <span class="dd-dot" style="opacity:1;"></span>Explore our Venue →
+        </a>
+      </div>
+    </div>
+
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+
+  <!-- LOGO -->
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png"
+         alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+    <a href="events.html"  class="nav-lk">Events</a>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html" class="nav-lk">Find Us</a>
+  </div>
+
+</nav>
+
+
+<!-- ══ HERO ══════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Chania, Crete</div>
+    <h1 class="hero-hed">
+      A family, a game,<br>and <em>42 years</em><br>of bringing people together.
+    </h1>
+    <div class="hero-rule"></div>
+    <div class="hero-sub">Est. 1984</div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ══ FOUNDING ══════════════════════════════ -->
+<section class="founding">
+  <div class="founding-image">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/canvas_epic_%20moments_.png"
+         alt="Aris Damoulakis — ARAMIS founder" loading="lazy">
+  </div>
+  <div class="founding-text fu">
+    <div class="stag">The Founding</div>
+    <h2 class="sec-hed">It started<br>with Aris.</h2>
+    <div class="founding-pull">
+      "He didn't just open a venue —<br>he created a culture."
+    </div>
+    <p class="sec-body">In 1984, Aris Damoulakis opened a billiard hall in Chania. Not because it was a business opportunity — because it was what he loved.</p>
+    <p class="sec-body">Aris didn't just play billiards. He lived it. Over the decades, he competed in international and national tournaments, earning the respect of players across the world. But his biggest achievement wasn't on any scoreboard. It was building a community. Most billiard players in Chania today will tell you the same thing: they learned the game because of Aris.</p>
+    <p class="sec-body" style="font-size:13px; color:rgba(200,185,164,.45);">That culture is still the foundation of everything ARAMIS is today.</p>
+  </div>
+</section>
+
+
+<!-- ══ FAMILY ════════════════════════════════ -->
+<section class="family">
+  <div class="family-inner">
+    <div class="fu">
+      <div class="stag">The Family</div>
+      <h2 class="sec-hed">Two generations.<br>One table.</h2>
+      <p class="sec-body">ARAMIS has always been a family affair.</p>
+      <p class="sec-body">Aris and Dimitra built this place together. Dimitra is the silent force of ARAMIS — her presence runs through everything, from the immaculate state of the hall to the drinks behind the bar, the food from the kitchen, and the welcome at the door. She's also an accomplished billiard player herself, though she never made it her profession. She simply loves the game, the same way she loves this place.</p>
+      <p class="sec-body">Sissi — their daughter — now leads ARAMIS into its next chapter. She grew up in this club. She knows every table, every regular, every detail of what makes this place what it is. Under her direction the venue has evolved — the terrace, the bar programme, the events calendar — while staying true to what Aris and Dimitra built.</p>
+      <p class="family-pull">You'll still find Aris at the club. And you'll still find Dimitra everywhere.<br>That's not nostalgia — that's how a family business works.</p>
+    </div>
+    <div class="family-photos fu fu-d1">
+      <div class="fph">
+        <div class="fph-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Family photo</span>
+        </div>
+        <div class="fph-label">Aris · Dimitra · Sissi</div>
+      </div>
+      <div class="fph">
+        <div class="fph-placeholder">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Sissi</span>
+        </div>
+        <div class="fph-label">Sissi</div>
+      </div>
+      <div class="fph">
+        <div class="fph-placeholder">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Dimitra</span>
+        </div>
+        <div class="fph-label">Dimitra</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ VENUE ══════════════════════════════════ -->
+<section class="venue">
+  <div class="venue-inner">
+    <div class="fu">
+      <div class="stag">The Venue</div>
+      <h2 class="sec-hed">A home that has moved<br>— but never changed.</h2>
+      <p class="sec-body">Since 1984, ARAMIS has called different addresses in Chania home. Each move brought more space, better equipment, a bigger community. The current venue — open since 2021 — is the fullest expression of what Aris originally imagined: a proper billiard hall with a kitchen, a bar, and a terrace worthy of the White Mountains behind it.</p>
+      <a href="explore-the-venue.html" class="btn-ghost">
+        Explore the Venue
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="venue-timeline fu fu-d1">
+      <div class="vtl-item">
+        <div class="vtl-year">1984</div>
+        <div class="vtl-desc"><strong style="color:var(--cream); font-weight:500;">Peridou Street, 4th floor.</strong> The legendary original ARAMIS. Ten tables, one staircase, and a community that would define billiards in Chania for a generation. This is where it all began — and where most of the city's players first picked up a cue.</div>
+      </div>
+      <div class="vtl-item">
+        <div class="vtl-year">2000</div>
+        <div class="vtl-desc">After sixteen years on Peridou, ARAMIS moves on. The club finds new addresses over the following two decades, each chapter keeping the community together while the game — and the family — keeps growing.</div>
+      </div>
+      <div class="vtl-item">
+        <div class="vtl-year">2021</div>
+        <div class="vtl-desc"><strong style="color:var(--cream); font-weight:500;">The current venue opens.</strong> Ten professional tables, a rooftop terrace with White Mountains views, a full kitchen and bar. The fullest version of ARAMIS yet — and the one still running today.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MEMORY LANE INTRO ══════════════════════ -->
+<div class="ml-intro fu">
+  <div class="ml-intro-inner">
+    <div class="stag">Memory Lane</div>
+    <h2 class="sec-hed">Forty years of ARAMIS<br>means forty years of stories.</h2>
+    <p class="sec-body">Some are on the scoreboard. Most are in the memories of the people who were here.<br>This is where we keep them.</p>
+  </div>
+</div>
+
+
+<!-- ══ CANVAS GALLERY ════════════════════════ -->
+<div class="canvas-gallery">
+
+  <div class="canvas-block">
+    <div class="canvas-bar">
+      <span class="canvas-bar-title">Planet ARAMIS — The Early Years</span>
+      <span class="canvas-bar-line"></span>
+      <span class="canvas-bar-hint">Click to explore</span>
+    </div>
+    <div class="canvas-wrap" onclick="openZoom(this)">
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/canvas_aramis_%20planet_.png"
+           alt="ARAMIS through the years — Planet Aramis archive" loading="lazy">
+      <div class="canvas-ov"></div>
+    </div>
+  </div>
+
+  <div class="canvas-block" style="margin-top:3px;">
+    <div class="canvas-bar">
+      <span class="canvas-bar-title">Epic Moments — Tournaments &amp; Champions</span>
+      <span class="canvas-bar-line"></span>
+      <span class="canvas-bar-hint">Click to explore</span>
+    </div>
+    <div class="canvas-wrap" onclick="openZoom(this)">
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/canvas_epic_%20moments_.png"
+           alt="ARAMIS epic moments — tournaments and champions" loading="lazy">
+      <div class="canvas-ov"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Zoom Modal -->
+<div class="zoom-modal" id="zoom-modal" onclick="closeZoom()">
+  <button class="zoom-close" onclick="event.stopPropagation(); closeZoom()">Close &times;</button>
+  <img id="zoom-target" src="" alt="ARAMIS archive — full view">
+</div>
+
+
+<!-- ══ SHARE YOUR STORY ═══════════════════════ -->
+<section class="share">
+  <div class="share-inner">
+    <div class="fu">
+      <div class="stag">Share Your Story</div>
+      <h2 class="sec-hed">Got an ARAMIS<br>memory?</h2>
+      <p class="sec-body">Forty years means thousands of stories we don't know yet. A photo from a tournament in the nineties. A regular who played every Tuesday for fifteen years. A summer night that turned into a two-week stay.</p>
+      <p class="sec-body">Share your photos, moments, or memories with us — we'd love to add them to the wall.</p>
+    </div>
+    <div class="share-cta-block fu fu-d1">
+      <div class="share-cta-hed">Help us build the archive.</div>
+      <div class="share-cta-body">
+        Email us at <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a><br>
+        Instagram DM at <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+      </div>
+      <div class="share-italic">Or just show us at the bar.<br>We'll take it from there.</div>
+      <div class="share-actions">
+        <a href="mailto:aramischania@gmail.com" class="btn-primary">Send us your memory</a>
+        <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost" style="justify-content:center;">@aramischania on Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+      </div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="#">Our Story</a>
+        <a href="#">Billiards &amp; Darts</a>
+        <a href="#">Kitchen &amp; Bar</a>
+        <a href="#">Terrace</a>
+        <a href="#">Events</a>
+        <a href="#">Pro Shop</a>
+        <a href="#">Find Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Visit</div>
+      <div class="footer-links">
+        <a href="#">Open 10:00 – 01:00 daily</a>
+        <a href="#">Chania, Crete</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+        <a href="#">Book a Table →</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+// ── Nav scroll state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ── Venue dropdown: touch/click support
+const venueDd = document.getElementById('nav-venue');
+if (venueDd) {
+  venueDd.addEventListener('click', e => {
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      venueDd.classList.toggle('open');
+    }
+  });
+  document.addEventListener('click', e => {
+    if (!venueDd.contains(e.target)) venueDd.classList.remove('open');
+  });
+}
+
+// ── Fade-up on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+// ── Canvas zoom
+function openZoom(wrap) {
+  const src = wrap.querySelector('img').src;
+  document.getElementById('zoom-target').src = src;
+  document.getElementById('zoom-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeZoom() {
+  document.getElementById('zoom-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeZoom(); });
+</script>
+
+</body>
+</html>

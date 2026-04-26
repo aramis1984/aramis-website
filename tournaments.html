@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tournaments | ARAMIS Billiard Club, Chania</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="9-ball billiard tournaments in Chania. Five divisions, handicap format, season runs September to March. Managed via CueScore. All levels welcome.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aramisbilliards.com/tournaments">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARAMIS Billiard Club">
+  <meta property="og:title" content="Tournaments | ARAMIS Billiard Club, Chania">
+  <meta property="og:description" content="9-ball billiard tournaments in Chania. Five divisions, handicap format, season runs September to March. Managed via CueScore. All levels welcome.">
+  <meta property="og:url" content="https://www.aramisbilliards.com/tournaments">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+  <meta property="og:locale" content="en_GR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tournaments | ARAMIS Billiard Club, Chania">
+  <meta name="twitter:description" content="9-ball billiard tournaments in Chania. Five divisions, handicap format, season runs September to March. Managed via CueScore. All levels welcome.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg:      #1a1814;
+  --bg-card: #232019;
+  --bg-surf: #2a2620;
+  --gold:    #c8a96e;
+  --gold-h:  #dcc48e;
+  --cream:   #f3e5d2;
+  --muted:   #c8b9a4;
+  --nav-h:   180px;
+  --gutter:  72px;
+  --max-w:   1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── NAV ────────────────────────────────── */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: transparent; transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
+.nav.scrolled { background: rgba(26,24,20,.97); border-bottom-color: rgba(200,169,110,.12); backdrop-filter: blur(12px); }
+.nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
+.nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
+.nav-logo  { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+.nav-lk { font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(243,229,210,.65); padding: 10px 22px; transition: color .2s; white-space: nowrap; line-height: 1; cursor: pointer; position: relative; }
+.nav-lk:hover, .nav-lk.active { color: var(--gold); }
+.nav-dd { position: relative; display: flex; align-items: center; }
+.nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
+.nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
+.nav-dd:hover .chevron, .nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
+.nav-dd-panel { position: absolute; top: calc(100% + 8px); left: 0; min-width: 220px; background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15); border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s; pointer-events: none; }
+.nav-dd-panel.panel-right { left: auto; right: 0; }
+.nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
+.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s; pointer-events: auto; }
+.nav-dd-item { display: flex; align-items: center; gap: 12px; padding: 12px 20px; font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(243,229,210,.6); transition: color .18s, background .18s; white-space: nowrap; }
+.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
+.nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
+.nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
+@media (max-width: 960px) { .nav-left, .nav-right { display: none; } .nav { justify-content: center; } .nav-logo img { width: 240px; height: auto; } }
+
+/* ─── HERO ───────────────────────────────── */
+.hero { position: relative; height: 100vh; min-height: 680px; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-img { position: absolute; inset: 0; background: #141210; }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: saturate(.7) brightness(.5); }
+.hero-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border: 1px dashed rgba(200,169,110,.1); margin: 80px var(--gutter); }
+.hero-placeholder svg { color: rgba(200,169,110,.15); }
+.hero-placeholder span { font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,169,110,.2); }
+.hero-ov { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(26,24,20,.3) 0%, rgba(26,24,20,.05) 25%, rgba(26,24,20,.05) 50%, rgba(26,24,20,.88) 100%); }
+.hero-content { position: relative; z-index: 2; padding: var(--nav-h) var(--gutter) 80px; max-width: var(--max-w); margin: 0 auto; width: 100%; }
+.hero-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
+.hero-hed { font-family: 'Fraunces', serif; font-size: clamp(44px, 6.5vw, 88px); font-weight: 400; font-style: italic; line-height: 1.07; color: var(--cream); margin-bottom: 20px; letter-spacing: -1px; max-width: 700px; }
+.hero-sub { font-size: 14px; line-height: 1.7; color: rgba(200,185,164,.5); max-width: 520px; }
+.hero-scroll { position: absolute; bottom: 40px; right: var(--gutter); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.hero-scroll span { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,185,164,.3); }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(200,169,110,.35), transparent); }
+
+/* ─── SHARED ─────────────────────────────── */
+.stag { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.sec-hed { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.2vw, 46px); font-weight: 400; line-height: 1.13; color: var(--cream); margin-bottom: 24px; }
+.sec-body { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.sec-body:last-child { margin-bottom: 0; }
+.inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; background: var(--gold); color: var(--bg); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: background .2s; }
+.btn-primary:hover { background: var(--gold-h); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: transparent; color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(200,169,110,.3); transition: all .25s; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn-ghost svg, .btn-primary svg { transition: transform .25s; }
+.btn-ghost:hover svg, .btn-primary:hover svg { transform: translateX(4px); }
+
+/* ─── LIVE BANNER ────────────────────────── */
+/* Shown when a live YouTube stream is active — staff toggle via data-live attr */
+.live-banner { display: none; background: rgba(200,0,0,.1); border: 1px solid rgba(200,0,0,.3); border-top: 2px solid #e00; padding: 0; }
+.live-banner.active { display: block; }
+.live-banner-inner { max-width: var(--max-w); margin: 0 auto; padding: 32px var(--gutter); display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.live-indicator { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: #e00; animation: pulse 1.4s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+.live-label { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: #e00; }
+.live-title { font-family: 'Fraunces', serif; font-size: clamp(18px, 2vw, 26px); font-weight: 400; color: var(--cream); margin-bottom: 8px; }
+.live-desc { font-size: 13px; color: var(--muted); }
+.youtube-embed { aspect-ratio: 16/9; background: #000; overflow: hidden; }
+.youtube-embed iframe { width: 100%; height: 100%; border: none; }
+
+/* ─── UPCOMING TOURNAMENT CARDS ──────────── */
+.upcoming { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); }
+.upcoming-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 52px; }
+
+.tourn-card { background: var(--bg-surf); display: flex; flex-direction: column; position: relative; overflow: hidden; border: 1px solid rgba(200,169,110,.06); transition: border-color .3s; }
+.tourn-card:hover { border-color: rgba(200,169,110,.2); }
+
+/* Poster area — poster image or fallback graphic */
+.tourn-poster { aspect-ratio: 3/4; position: relative; overflow: hidden; flex-shrink: 0; background: #0e0d0b; }
+.tourn-poster img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .5s ease; }
+.tourn-card:hover .tourn-poster img { transform: scale(1.04); }
+.tourn-poster-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.tourn-poster-placeholder svg { color: rgba(200,169,110,.1); }
+.tourn-poster-placeholder span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
+
+/* Event info below poster */
+.tourn-body { padding: 28px 24px 32px; display: flex; flex-direction: column; flex: 1; }
+.tourn-date { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.tourn-name { font-family: 'Fraunces', serif; font-size: clamp(18px, 2vw, 24px); font-weight: 400; color: var(--cream); line-height: 1.2; margin-bottom: 10px; }
+.tourn-meta { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+.tourn-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.tourn-tag { font-size: 8.5px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(200,169,110,.18); color: rgba(200,169,110,.6); }
+.tourn-cta { margin-top: auto; }
+
+/* Empty state */
+.tourn-empty { grid-column: 1 / -1; text-align: center; padding: 80px 0; }
+.tourn-empty-hed { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; font-style: italic; color: rgba(200,185,164,.35); margin-bottom: 12px; }
+.tourn-empty-sub { font-size: 13px; color: rgba(200,185,164,.25); }
+
+/* CueScore integration note */
+.cuescore-note { margin-top: 48px; padding: 24px 32px; background: rgba(200,169,110,.05); border: 1px solid rgba(200,169,110,.12); display: flex; align-items: flex-start; gap: 16px; }
+.cuescore-note svg { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.cuescore-note-text { font-size: 13px; line-height: 1.7; color: var(--muted); }
+.cuescore-note-text a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.3); }
+
+/* ─── CUESCORE JS EMBED ───────────────────── */
+.cuescore-embed-section { background: var(--bg); border-top: 1px solid rgba(200,169,110,.07); }
+.cuescore-embed-section .inner { padding: 80px var(--gutter); }
+/* The CueScore JS widget renders into this div */
+#cuescore-widget { min-height: 200px; background: var(--bg-card); border: 1px solid rgba(200,169,110,.08); padding: 32px; display: flex; align-items: center; justify-content: center; }
+.cuescore-widget-placeholder { text-align: center; }
+.cuescore-widget-placeholder svg { color: rgba(200,169,110,.15); margin: 0 auto 16px; }
+.cuescore-widget-placeholder p { font-size: 12px; color: rgba(200,185,164,.3); line-height: 1.7; }
+.cuescore-widget-placeholder code { font-size: 11px; background: rgba(200,169,110,.06); padding: 2px 8px; color: rgba(200,169,110,.6); }
+
+/* ─── DIVISIONS ──────────────────────────── */
+.divisions { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); }
+.divisions-inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.division-list { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
+.division-row { display: flex; align-items: center; gap: 20px; background: var(--bg-surf); padding: 20px 24px; border-left: 2px solid transparent; transition: border-color .25s; }
+.division-row:hover { border-left-color: var(--gold); }
+.division-letter { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; color: var(--gold); line-height: 1; flex-shrink: 0; width: 36px; }
+.division-label { font-size: 12px; font-weight: 500; color: var(--cream); letter-spacing: .5px; }
+.division-desc { font-size: 12px; color: var(--muted); margin-top: 3px; }
+.sponsor-block { background: var(--bg); border: 1px solid rgba(200,169,110,.1); padding: 40px; margin-top: 32px; }
+.sponsor-label { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,169,110,.4); margin-bottom: 14px; }
+.sponsor-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--cream); margin-bottom: 8px; }
+.sponsor-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* ─── GALLERY ────────────────────────────── */
+.gallery-section { background: var(--bg); border-top: 1px solid rgba(200,169,110,.07); }
+.gallery-inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 52px; }
+.gallery-item { aspect-ratio: 4/3; position: relative; overflow: hidden; background: var(--bg-surf); cursor: pointer; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.75) brightness(.65); transition: transform .5s ease, filter .35s; }
+.gallery-item:hover img { transform: scale(1.06); filter: saturate(.95) brightness(.75); }
+.gallery-item-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.gallery-item-placeholder svg { color: rgba(200,169,110,.1); }
+.gallery-item-placeholder span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); }
+
+
+/* ─── OFF-SEASON CARD ────────────────────── */
+.tourn-offseason {
+  grid-column: 1 / -1;
+  background: var(--bg-card);
+  border: 1px solid rgba(200,169,110,.1);
+  padding: 80px var(--gutter);
+  text-align: center;
+}
+.offseason-inner { max-width: 560px; margin: 0 auto; }
+.offseason-icon { color: rgba(200,169,110,.2); margin-bottom: 24px; display: flex; justify-content: center; }
+.offseason-hed {
+  font-family: 'Fraunces', serif; font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 400; font-style: italic; color: var(--cream);
+  margin-bottom: 14px; line-height: 1.2;
+}
+.offseason-sub { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
+.newsletter-form {
+  display: flex; gap: 0; max-width: 420px; margin: 0 auto 16px;
+  border: 1px solid rgba(200,169,110,.25);
+}
+.newsletter-form input[type="email"] {
+  flex: 1; background: var(--bg); border: none;
+  color: var(--cream); padding: 13px 18px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 300;
+  outline: none;
+}
+.newsletter-form input[type="email"]::placeholder { color: rgba(200,185,164,.3); }
+.newsletter-form input[type="email"]:focus { background: var(--bg-surf); }
+.newsletter-form button {
+  background: var(--gold); color: var(--bg); border: none;
+  padding: 13px 24px; font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; flex-shrink: 0; transition: background .2s;
+}
+.newsletter-form button:hover { background: var(--gold-h); }
+.newsletter-success {
+  display: none; font-size: 13px; color: var(--gold);
+  padding: 12px 0; font-style: italic;
+}
+.offseason-alt { font-size: 12px; color: rgba(200,185,164,.35); margin-top: 4px; }
+.offseason-alt a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.3); }
+
+/* ─── FOOTER ──────────────────────────────── */
+.footer { background: #141210; padding: 72px 0 40px; border-top: 1px solid rgba(200,169,110,.1); }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px; }
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0; border-top: 1px solid rgba(200,169,110,.07); display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
+
+/* ─── FADE-UP ─────────────────────────────── */
+.fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.fu.vis { opacity: 1; transform: none; }
+.fu-d1 { transition-delay: .12s; }
+.fu-d2 { transition-delay: .22s; }
+.fu-d3 { transition-delay: .32s; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+@media (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .upcoming-grid { grid-template-columns: 1fr; }
+  .divisions-inner { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .live-banner-inner { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a href="story.html" class="nav-lk">Our Story</a>
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+  <div class="nav-right">
+    <div class="nav-dd" id="nav-events">
+      <a href="tournaments.html" class="nav-lk nav-dd-trigger active">
+        Events
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel panel-right">
+        <a href="tournaments.html" class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>Tournaments</a>
+        <a href="social.html"      class="nav-dd-item"><span class="dd-dot"></span>Social Events</a>
+      </div>
+    </div>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html"  class="nav-lk">Find Us</a>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══════════════════════════════════
+     Ideal: tournament action — players competing, crowd watching
+     Or: the latest tournament poster at full bleed
+     Swap: <img src="assets/images/tournaments-hero.jpg" alt="ARAMIS Tournaments">
+     ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <span>Tournament hero — action shot or latest poster</span>
+    </div>
+    <!-- <img src="assets/images/tournaments-hero.jpg" alt="ARAMIS Tournaments"> -->
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Tournaments · ARAMIS Chania</div>
+    <h1 class="hero-hed">Where Chania<br>competes.</h1>
+    <p class="hero-sub">9-ball · Five divisions · Handicap format · September – March<br>Managed via CueScore</p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+
+<!-- ══ LIVE BANNER ════════════════════════════
+     Add class "active" to .live-banner to show the live stream.
+     Update the YouTube embed src with the current live stream URL.
+     Remove "active" when the tournament ends.
+     ════════════════════════════════════════ -->
+<div class="live-banner" id="live-banner">
+  <div class="live-banner-inner">
+    <div>
+      <div class="live-indicator">
+        <div class="live-dot"></div>
+        <span class="live-label">Live now</span>
+      </div>
+      <div class="live-title" id="live-title">ARAMIS 9-Ball Open — Finals</div>
+      <div class="live-desc" id="live-desc">Watch the live coverage on YouTube. Updated in real time.</div>
+    </div>
+    <div class="youtube-embed">
+      <!--
+        Replace VIDEO_ID with the YouTube live stream ID.
+        Example: https://www.youtube.com/embed/LIVE_STREAM_ID?autoplay=1
+      -->
+      <iframe
+        id="youtube-player"
+        src=""
+        title="ARAMIS Live Tournament Coverage"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ DIVISIONS ══════════════════════════════ -->
+<section class="divisions">
+  <div class="divisions-inner">
+
+    <div class="fu">
+      <div class="stag">Format</div>
+      <h2 class="sec-hed">9-ball. Five divisions.<br>Every level welcome.</h2>
+      <p class="sec-body">All tournaments run under a handicap system — meaning competition is balanced across skill levels. Whether you're entering your first tournament or you've been competing for years, there's a division that fits.</p>
+      <p class="sec-body">The season runs September through March, with events most weeks. Registration opens via CueScore.</p>
+
+      <div class="division-list">
+        <div class="division-row"><div class="division-letter">A</div><div><div class="division-label">Elite</div><div class="division-desc">Advanced competitive players</div></div></div>
+        <div class="division-row"><div class="division-letter">B</div><div><div class="division-label">Advanced</div><div class="division-desc">Experienced players, regular competitors</div></div></div>
+        <div class="division-row"><div class="division-letter">C</div><div><div class="division-label">Intermediate</div><div class="division-desc">Developing game, tournament-ready</div></div></div>
+        <div class="division-row"><div class="division-letter">D</div><div><div class="division-label">Developing</div><div class="division-desc">Building competitive experience</div></div></div>
+        <div class="division-row"><div class="division-letter">E</div><div><div class="division-label">Entry</div><div class="division-desc">First tournaments, any level welcome</div></div></div>
+      </div>
+    </div>
+
+    <div class="fu fu-d1">
+      <div class="stag">Season</div>
+      <h2 class="sec-hed">September<br>to March.</h2>
+      <p class="sec-body">The ARAMIS tournament programme runs through the billiards season — roughly September to March, with events most weeks. Summer months shift to casual play and social events.</p>
+      <p class="sec-body">Keep an eye on CueScore and our Instagram for scheduling announcements.</p>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
+        <a href="https://cuescore.com/aramischania" target="_blank" class="btn-primary">
+          CueScore Page
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost">@aramischania</a>
+      </div>
+
+      <div class="sponsor-block" style="margin-top:40px;">
+        <div class="sponsor-label">Tournament Sponsor</div>
+        <div class="sponsor-name">CHANIA CAR &amp; TRUCKS</div>
+        <div class="sponsor-desc">Our tournament programme is proudly supported by CHANIA CAR &amp; TRUCKS — making competitive billiards in Chania possible.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ UPCOMING TOURNAMENTS ══════════════════ -->
+<section class="upcoming">
+  <div class="inner">
+    <div class="fu">
+      <div class="stag">Coming Up</div>
+      <h2 class="sec-hed">Upcoming tournaments.</h2>
+    </div>
+
+    <div class="upcoming-grid">
+
+      <!--
+        ═══════════════════════════════════════════════════════════
+        TOURNAMENT CARD TEMPLATE
+        Copy this block for each upcoming tournament.
+        Replace placeholder content with real event details.
+        The poster image slot (tourn-poster) is the hero visual.
+        ═══════════════════════════════════════════════════════════
+      -->
+
+      <!-- EXAMPLE CARD 1 -->
+      <div class="tourn-card fu">
+        <div class="tourn-poster">
+          <!-- Swap with: <img src="assets/images/tournaments-poster-01.jpg" alt="Tournament poster"> -->
+          <div class="tourn-poster-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>Tournament poster</span>
+          </div>
+        </div>
+        <div class="tourn-body">
+          <div class="tourn-date">Saturday 15 March · 18:00</div>
+          <div class="tourn-name">ARAMIS 9-Ball Weekly</div>
+          <div class="tourn-meta">9-ball · Handicap format · All divisions welcome<br>Register at the bar or via CueScore</div>
+          <div class="tourn-tags">
+            <span class="tourn-tag">9-Ball</span>
+            <span class="tourn-tag">All Divisions</span>
+            <span class="tourn-tag">Free Entry</span>
+          </div>
+          <div class="tourn-cta">
+            <a href="https://cuescore.com/aramischania" target="_blank" class="btn-ghost">
+              Register on CueScore
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXAMPLE CARD 2 -->
+      <div class="tourn-card fu fu-d1">
+        <div class="tourn-poster">
+          <div class="tourn-poster-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>Tournament poster</span>
+          </div>
+        </div>
+        <div class="tourn-body">
+          <div class="tourn-date">Saturday 22 March · 18:00</div>
+          <div class="tourn-name">ARAMIS 9-Ball Weekly</div>
+          <div class="tourn-meta">9-ball · Handicap format · Divisions A/B<br>Register at the bar or via CueScore</div>
+          <div class="tourn-tags">
+            <span class="tourn-tag">9-Ball</span>
+            <span class="tourn-tag">Division A/B</span>
+          </div>
+          <div class="tourn-cta">
+            <a href="https://cuescore.com/aramischania" target="_blank" class="btn-ghost">
+              Register on CueScore
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMPTY STATE — show when no upcoming tournaments scheduled
+      <div class="tourn-empty">
+        <div class="tourn-empty-hed">No tournaments scheduled right now.</div>
+        <div class="tourn-empty-sub">Follow us on Instagram @aramischania for announcements.</div>
+      </div>
+      -->
+
+    </div>
+
+    <!-- CueScore integration note -->
+    <div class="cuescore-note fu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <div class="cuescore-note-text">
+        Full tournament schedule, registration, and live results are managed through
+        <a href="https://cuescore.com/aramischania" target="_blank">CueScore</a>.
+        This page will be updated with the CueScore JS API when the PRO widget is activated —
+        pulling tournament data automatically from your CueScore account.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CUESCORE JS EMBED ══════════════════════
+     CueScore PRO JavaScript API widget.
+     Activate this by:
+     1. Logging into CueScore PRO dashboard → API section
+     2. Copy the JS snippet provided
+     3. Replace the placeholder below with the actual snippet
+     4. Customise CSS via the CueScore PRO dashboard to match ARAMIS brand
+     ════════════════════════════════════════ -->
+<section class="cuescore-embed-section">
+  <div class="inner">
+    <div class="fu">
+      <div class="stag">Live Results</div>
+      <h2 class="sec-hed">Current standings<br>&amp; results.</h2>
+      <p class="sec-body">Live tournament data powered by CueScore — updated in real time during events.</p>
+    </div>
+
+    <div id="cuescore-widget">
+      <!-- ══════════════════════════════════════════════════
+           REPLACE THIS PLACEHOLDER with the CueScore JS snippet.
+           From CueScore PRO dashboard → API → copy embed code.
+           Example format:
+           <script src="https://cuescore.com/api/js/?id=YOUR_TOURNAMENT_ID"></script>
+           ══════════════════════════════════════════════════ -->
+      <div class="cuescore-widget-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <p>
+          CueScore PRO widget will display here.<br>
+          Activate via CueScore PRO dashboard → API section.<br>
+          <code>src="https://cuescore.com/api/js/?id=YOUR_TOURNAMENT_ID"</code>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PAST TOURNAMENT GALLERY ════════════════ -->
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <div class="fu">
+      <div class="stag">Past Tournaments</div>
+      <h2 class="sec-hed">Moments from<br>the tables.</h2>
+      <p class="sec-body" style="max-width:580px;">Tournament nights at ARAMIS. Players, frames, finals — the moments that keep competitors coming back season after season.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Add real tournament photos — swap placeholders for <img> tags -->
+      <div class="gallery-item fu">
+        <div class="gallery-item-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Tournament action</span></div>
+      </div>
+      <div class="gallery-item fu fu-d1">
+        <div class="gallery-item-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Players competing</span></div>
+      </div>
+      <div class="gallery-item fu fu-d2">
+        <div class="gallery-item-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Trophy presentation</span></div>
+      </div>
+      <div class="gallery-item fu">
+        <div class="gallery-item-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Crowd watching</span></div>
+      </div>
+      <div class="gallery-item fu fu-d1">
+        <div class="gallery-item-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Finals moment</span></div>
+      </div>
+      <div class="gallery-item fu fu-d2">
+        <div class="gallery-item-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Players + tables</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS"></div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">Explore our Venue</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="social.html">Social Events</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="contact.html">Find Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Visit</div>
+      <div class="footer-links">
+        <a href="#">Open 10:00 – 01:00 daily</a>
+        <a href="#">Chania, Crete</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+        <a href="https://cuescore.com/aramischania" target="_blank">CueScore</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+// Dropdowns touch
+['nav-venue','nav-events'].forEach(id => {
+  const dd = document.getElementById(id);
+  if (!dd) return;
+  dd.addEventListener('click', e => { if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); dd.classList.toggle('open'); } });
+  document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
+});
+
+// Newsletter subscribe (simple — swap for Mailchimp API endpoint later)
+function handleNewsletterSubmit(e, list) {
+  e.preventDefault();
+  const form   = e.target;
+  const email  = form.querySelector('input[type="email"]').value;
+  const suc    = form.nextElementSibling;
+  // TODO: POST email to Mailchimp / Brevo / any email service API
+  // For now, open mailto as fallback
+  window.open('mailto:aramischania@gmail.com?subject=Newsletter signup&body=Please add me to the ' + list + ' list: ' + email);
+  form.style.display = 'none';
+  if (suc && suc.classList.contains('newsletter-success')) suc.style.display = 'block';
+}
+
+// Fade-up
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+// ══ LIVE STREAM CONTROL ══════════════════════
+// To activate the live stream banner:
+// 1. Set the YouTube live stream ID below
+// 2. Call activateLiveStream('YOUTUBE_VIDEO_ID', 'Tournament Name', 'Match description')
+// 3. Call deactivateLiveStream() when tournament ends
+//
+// Example: activateLiveStream('dQw4w9WgXcQ', 'ARAMIS 9-Ball Finals', 'A Division — Final Frame')
+
+function activateLiveStream(videoId, title, desc) {
+  const banner = document.getElementById('live-banner');
+  const player = document.getElementById('youtube-player');
+  const titleEl = document.getElementById('live-title');
+  const descEl  = document.getElementById('live-desc');
+  if (videoId) player.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=0&rel=0';
+  if (title)   titleEl.textContent = title;
+  if (desc)    descEl.textContent  = desc;
+  banner.classList.add('active');
+  banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function deactivateLiveStream() {
+  document.getElementById('live-banner').classList.remove('active');
+  document.getElementById('youtube-player').src = '';
+}
+</script>
+
+</body>
+</html>

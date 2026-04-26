@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Our Menu | ARAMIS Billiard Club, Chania</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Full menu at ARAMIS Chania — coffee, cocktails, beers, wine, spirits, pizza, burgers, pasta, and more. Available at your table, bar, or terrace.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aramisbilliards.com/menu">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARAMIS Billiard Club">
+  <meta property="og:title" content="Our Menu | ARAMIS Billiard Club, Chania">
+  <meta property="og:description" content="Full menu at ARAMIS Chania — coffee, cocktails, beers, wine, spirits, pizza, burgers, pasta, and more. Available at your table, bar, or terrace.">
+  <meta property="og:url" content="https://www.aramisbilliards.com/menu">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+  <meta property="og:locale" content="en_GR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Menu | ARAMIS Billiard Club, Chania">
+  <meta name="twitter:description" content="Full menu at ARAMIS Chania — coffee, cocktails, beers, wine, spirits, pizza, burgers, pasta, and more. Available at your table, bar, or terrace.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #1a1814;
+  --bg-card: #232019;
+  --bg-surf: #2a2620;
+  --gold:    #c8a96e;
+  --gold-h:  #dcc48e;
+  --cream:   #f3e5d2;
+  --muted:   #c8b9a4;
+  --dim:     rgba(200,185,164,.45);
+  --border:  rgba(200,169,110,.1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── TOP BAR ────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(26,24,20,.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; height: 60px; gap: 12px;
+}
+.topbar-logo img { height: 36px; width: auto; object-fit: contain; display: block; }
+.topbar-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.lang-toggle { display: flex; border: 1px solid var(--border); overflow: hidden; }
+.lang-btn { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 12px; cursor: pointer; transition: all .2s; background: transparent; color: rgba(200,185,164,.5); border: none; }
+.lang-btn.active { background: var(--gold); color: var(--bg); }
+.back-link { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: rgba(200,185,164,.4); padding: 6px 0; transition: color .2s; display: flex; align-items: center; gap: 6px; }
+.back-link:hover { color: var(--gold); }
+
+/* ─── MENU HERO ──────────────────────────── */
+.menu-hero { padding: 48px 24px 36px; text-align: center; border-bottom: 1px solid var(--border); }
+.menu-hero-hed { font-family: 'Fraunces', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 400; font-style: italic; color: var(--cream); margin-bottom: 10px; line-height: 1.15; }
+.menu-hero-sub { font-size: 12px; color: var(--dim); letter-spacing: .5px; line-height: 1.7; }
+.menu-hero-note { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 9px 14px; background: rgba(200,169,110,.06); border: 1px solid rgba(200,169,110,.15); font-size: 11px; color: rgba(200,185,164,.6); line-height: 1.5; }
+
+/* ─── GROUP VISUAL CARDS ─────────────────── */
+/* Replace plain tabs with full visual cards */
+.group-cards {
+  display: grid; grid-template-columns: 1fr 1fr;
+  height: 220px;
+  position: sticky; top: 60px; z-index: 190;
+}
+.group-card {
+  position: relative; overflow: hidden; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: none; padding: 0;
+}
+.group-card-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transition: transform .6s ease, filter .4s;
+  filter: saturate(.7) brightness(.45);
+}
+.group-card.active .group-card-img { filter: saturate(.85) brightness(.55); }
+.group-card:hover .group-card-img { transform: scale(1.05); filter: saturate(.85) brightness(.55); }
+.group-card-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(26,24,20,.2), rgba(26,24,20,.55));
+}
+.group-card.active .group-card-ov { background: linear-gradient(to bottom, rgba(26,24,20,.1), rgba(26,24,20,.45)); }
+.group-card-body {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  pointer-events: none;
+}
+.group-card-label {
+  font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(243,229,210,.7); transition: color .3s;
+}
+.group-card.active .group-card-label { color: var(--gold); }
+.group-card-sub {
+  font-size: 10px; letter-spacing: 1px;
+  color: rgba(200,185,164,.4); transition: color .3s;
+}
+.group-card-indicator {
+  width: 32px; height: 2px; background: transparent;
+  transition: background .3s; margin-top: 4px;
+}
+.group-card.active .group-card-indicator { background: var(--gold); }
+/* Divider between cards */
+.group-card:first-child::after {
+  content: ''; position: absolute; right: 0; top: 20%; bottom: 20%; width: 1px;
+  background: rgba(200,169,110,.15); z-index: 3;
+}
+
+/* ─── CATEGORY PILLS ─────────────────────── */
+.cat-pills {
+  position: sticky; top: 280px; z-index: 180;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  overflow-x: auto; display: flex; gap: 0;
+  -ms-overflow-style: none; scrollbar-width: none; padding: 0 16px;
+}
+.cat-pills::-webkit-scrollbar { display: none; }
+.cat-pill { flex-shrink: 0; padding: 12px 16px; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,185,164,.45); cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; background: none; border-left: none; border-right: none; border-top: none; }
+.cat-pill.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ─── MENU CONTENT ───────────────────────── */
+.menu-content { padding-bottom: 80px; }
+.cat-section { display: none; }
+.cat-section.visible { display: block; }
+.cat-header { padding: 32px 20px 16px; border-bottom: 1px solid var(--border); }
+.cat-title { font-family: 'Fraunces', serif; font-size: clamp(22px, 4vw, 32px); font-weight: 400; color: var(--cream); line-height: 1.1; }
+.cat-subtitle { font-size: 11px; color: var(--dim); margin-top: 6px; line-height: 1.6; }
+.cat-note { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; padding: 7px 12px; background: rgba(200,169,110,.05); border: 1px solid rgba(200,169,110,.12); font-size: 11px; color: rgba(200,169,110,.7); }
+.sub-section { border-top: 1px solid rgba(200,169,110,.06); }
+.sub-header { padding: 20px 20px 12px; font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(200,169,110,.5); display: flex; align-items: center; gap: 12px; }
+.sub-header::after { content: ''; flex: 1; height: 1px; background: rgba(200,169,110,.08); }
+.item-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 14px 20px; border-bottom: 1px solid rgba(200,169,110,.04); transition: background .15s; }
+.item-row:last-child { border-bottom: none; }
+.item-row:active { background: rgba(200,169,110,.03); }
+.item-row.is-new .item-name::after { content: 'NEW'; font-size: 7px; font-weight: 600; letter-spacing: 1.5px; color: var(--gold); background: rgba(200,169,110,.1); border: 1px solid rgba(200,169,110,.2); padding: 2px 5px; margin-left: 8px; vertical-align: middle; display: inline-block; }
+.item-info { flex: 1; min-width: 0; }
+.item-name { font-size: 14px; font-weight: 400; color: var(--cream); line-height: 1.3; }
+.item-desc { font-size: 11px; color: var(--dim); line-height: 1.55; margin-top: 3px; }
+.item-note { font-size: 10px; color: rgba(200,185,164,.35); margin-top: 2px; font-style: italic; }
+.item-price { font-size: 14px; font-weight: 500; color: var(--gold); white-space: nowrap; flex-shrink: 0; padding-top: 1px; text-align: right; }
+.item-price-multi { font-size: 14px; font-weight: 500; color: var(--gold); white-space: nowrap; text-align: right; line-height: 1.6; }
+.item-extra { padding: 8px 20px 8px 36px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(200,169,110,.03); }
+.item-extra-name { font-size: 12px; color: rgba(200,185,164,.5); }
+.item-extra-price { font-size: 12px; color: rgba(200,169,110,.5); }
+.spirits-tiers { margin: 0 20px 4px; padding: 20px; background: var(--bg-card); border: 1px solid var(--border); }
+.spirits-tier-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(200,169,110,.06); }
+.spirits-tier-row:last-child { border-bottom: none; }
+.spirits-tier-name { font-size: 13px; color: var(--cream); }
+.spirits-tier-prices { font-size: 12px; color: var(--dim); }
+.spirits-tier-prices strong { color: var(--gold); font-weight: 400; font-size: 15px; margin-left: 8px; }
+
+/* ─── COCKTAIL HORIZONTAL LIST ───────────── */
+/* Thumbnail left, name + ingredients right — much more readable */
+.cocktail-list { display: flex; flex-direction: column; }
+.cktl-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(200,169,110,.06);
+  transition: background .15s;
+}
+.cktl-row:last-child { border-bottom: none; }
+.cktl-row:active { background: rgba(200,169,110,.03); }
+.cktl-thumb {
+  width: 80px; height: 80px; flex-shrink: 0;
+  overflow: hidden; position: relative;
+}
+.cktl-thumb img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  filter: saturate(.85) brightness(.8);
+  transition: transform .4s ease;
+}
+.cktl-row:hover .cktl-thumb img { transform: scale(1.08); }
+.cktl-info { flex: 1; min-width: 0; }
+.cktl-name {
+  font-family: 'Fraunces', serif; font-size: 16px;
+  font-style: italic; font-weight: 400; color: var(--cream);
+  line-height: 1.2; margin-bottom: 5px;
+}
+.cktl-ingredients { font-size: 11px; line-height: 1.55; color: var(--dim); }
+.cktl-footer { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.cktl-price { font-size: 14px; font-weight: 500; color: var(--gold); }
+.cktl-new {
+  font-size: 7px; font-weight: 600; letter-spacing: 1.5px;
+  color: var(--gold); border: 1px solid rgba(200,169,110,.3);
+  padding: 2px 6px;
+}
+
+/* Classics below the list */
+.cocktail-classics { border-top: 1px solid rgba(200,169,110,.07); }
+
+/* ─── KITCHEN FEATURE ROW ────────────────── */
+/* Horizontal card: thumbnail left, name + tagline right */
+.kitchen-feature {
+  display: flex; align-items: stretch; gap: 0;
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  background: var(--bg-card);
+}
+.kitchen-feature-thumb {
+  width: 140px; flex-shrink: 0; overflow: hidden; position: relative;
+}
+.kitchen-feature-thumb img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  filter: saturate(.85) brightness(.75);
+  transition: transform .5s ease;
+}
+.kitchen-feature:hover .kitchen-feature-thumb img { transform: scale(1.06); }
+.kitchen-feature-body {
+  flex: 1; padding: 24px 20px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-left: 2px solid rgba(200,169,110,.12);
+}
+.kitchen-feature-tag { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,169,110,.55); margin-bottom: 8px; }
+.kitchen-feature-title { font-family: 'Fraunces', serif; font-size: clamp(18px, 2.5vw, 24px); font-style: italic; font-weight: 400; color: var(--cream); line-height: 1.2; margin-bottom: 6px; }
+.kitchen-feature-desc { font-size: 12px; color: var(--dim); line-height: 1.5; }
+
+/* ─── FOOTER ──────────────────────────────── */
+.menu-footer { padding: 40px 20px; border-top: 1px solid var(--border); text-align: center; background: var(--bg-card); }
+.menu-footer-logo img { height: 40px; width: auto; margin: 0 auto 16px; }
+.menu-footer-note { font-size: 11px; color: rgba(200,185,164,.3); line-height: 1.7; }
+.menu-footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 16px; flex-wrap: wrap; }
+.menu-footer-links a { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,185,164,.4); transition: color .2s; }
+.menu-footer-links a:hover { color: var(--gold); }
+
+/* ─── LANGUAGE ───────────────────────────── */
+.gr { display: none; }
+body.lang-gr .en { display: none; }
+body.lang-gr .gr { display: inline; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+@media (min-width: 640px) {
+  .topbar { padding: 0 32px; }
+  .cat-pills { padding: 0 24px; }
+  .cat-header, .item-row, .item-extra, .sub-header { padding-left: 32px; padding-right: 32px; }
+  .spirits-tiers { margin-left: 32px; margin-right: 32px; }
+  .cocktail-grid { grid-template-columns: repeat(3, 1fr); }
+  .group-cards { height: 260px; }
+  .kitchen-feature { height: 300px; }
+}
+@media (min-width: 960px) {
+  .group-cards { height: 300px; position: relative; top: auto; }
+  .cat-pills { top: 60px; }
+  .cocktail-grid { grid-template-columns: repeat(4, 1fr); }
+  .menu-content .cat-section.visible { display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); align-items: start; }
+  .cat-header { grid-column: 1 / -1; }
+  .cocktail-grid { grid-column: 1 / -1; }
+  .kitchen-feature { grid-column: 1 / -1; }
+  .cocktail-classics { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TOP BAR ═══════════════════════════════ -->
+<header class="topbar">
+  <a href="index.html" class="topbar-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+  </a>
+  <div class="topbar-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('gr')">ΕΛ</button>
+    </div>
+    <a href="index.html" class="back-link">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <span class="en">Back</span><span class="gr">Πίσω</span>
+    </a>
+  </div>
+</header>
+
+<!-- ══ HERO ══════════════════════════════════ -->
+<div class="menu-hero">
+  <h1 class="menu-hero-hed"><span class="en">Our Menu</span><span class="gr">Το Μενού μας</span></h1>
+  <p class="menu-hero-sub">
+    <span class="en">Everything prepared when you order · Table, bar, or terrace</span>
+    <span class="gr">Όλα φτιάχνονται φρέσκα · Τραπέζι, μπαρ ή βεράντα</span>
+  </p>
+  <div class="menu-hero-note">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span class="en">Prices include VAT · Menu changes seasonally</span>
+    <span class="gr">Οι τιμές συμπεριλαμβάνουν ΦΠΑ</span>
+  </div>
+</div>
+
+
+<!-- ══ GROUP VISUAL CARDS ════════════════════ -->
+<div class="group-cards">
+
+  <button class="group-card active" onclick="setGroup('drinks')" id="tab-drinks">
+    <img class="group-card-img"
+         src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80&auto=format&fit=crop"
+         alt="Drinks">
+    <div class="group-card-ov"></div>
+    <div class="group-card-body">
+      <div class="group-card-label"><span class="en">☕ Drinks</span><span class="gr">☕ Ποτά</span></div>
+      <div class="group-card-sub"><span class="en">Coffee · Cocktails · Beer · Wine</span><span class="gr">Καφές · Cocktails · Μπύρα · Κρασί</span></div>
+      <div class="group-card-indicator"></div>
+    </div>
+  </button>
+
+  <button class="group-card" onclick="setGroup('kitchen')" id="tab-kitchen">
+    <img class="group-card-img"
+         src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80&auto=format&fit=crop"
+         alt="Kitchen">
+    <div class="group-card-ov"></div>
+    <div class="group-card-body">
+      <div class="group-card-label"><span class="en">🍕 Kitchen</span><span class="gr">🍕 Κουζίνα</span></div>
+      <div class="group-card-sub"><span class="en">Pizza · Burgers · Pasta · Sweets</span><span class="gr">Πίτσα · Burger · Pasta · Γλυκά</span></div>
+      <div class="group-card-indicator"></div>
+    </div>
+  </button>
+
+</div>
+
+
+<!-- ══ CATEGORY PILLS ═════════════════════════ -->
+<div class="cat-pills" id="cat-pills"></div>
+
+
+<!-- ══ MENU CONTENT ═══════════════════════════ -->
+<div class="menu-content" id="menu-content">
+
+
+<!-- COFFEE -->
+<section class="cat-section" data-group="drinks" data-cat="coffee" id="cat-coffee">
+  <div class="cat-header"><div class="cat-title"><span class="en">Coffee</span><span class="gr">Καφές</span></div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Espresso</div></div><div class="item-price-multi">single 2.80€ · x2 3.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Freddo Espresso</div></div><div class="item-price-multi">single 3.00€ · x2 3.80€ · x4 5.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Freddo Espresso Decaf</div></div><div class="item-price">3.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Freddo Cappuccino</div></div><div class="item-price">4.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Cappuccino</div></div><div class="item-price-multi">single 3.80€ · x2 4.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Espresso Macchiato</div></div><div class="item-price">3.20€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Mochaccino</div></div><div class="item-price-multi">hot / cold 6.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Affogato</div></div><div class="item-price">5.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Latte</div></div><div class="item-price-multi">hot 4.00€ · cold 4.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Vanilla Latte</div></div><div class="item-price-multi">hot 5.00€ · cold 5.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Caramel Latte</div></div><div class="item-price-multi">hot 5.00€ · cold 5.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Greek Coffee</span><span class="gr">Ελληνικός</span></div></div><div class="item-price-multi">single 2.50€ · x2 3.20€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Instant</div></div><div class="item-price-multi">hot / cold 3.20€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Instant <span class="en">cold with ice cream</span><span class="gr">κρύο με παγωτό</span></div></div><div class="item-price">5.20€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Filter / Flavoured</div></div><div class="item-price-multi">3.50€ / 4.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Irish Coffee</div></div><div class="item-price">8.00€</div></div>
+</section>
+
+<!-- JUICES -->
+<section class="cat-section" data-group="drinks" data-cat="juices" id="cat-juices">
+  <div class="cat-header"><div class="cat-title"><span class="en">Juices</span><span class="gr">Χυμοί</span></div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Amita motion</div></div><div class="item-price">3.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Fresh Orange</span><span class="gr">Φρέσκος Πορτοκάλι</span></div></div><div class="item-price">4.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Fresh banana-milk-honey</span><span class="gr">Φρέσκος μπανάνα-γάλα-μέλι</span></div></div><div class="item-price">5.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Fresh mix of your choice</span><span class="gr">Φρέσκος mix επιλογής</span></div><div class="item-note"><span class="en">Ask for available fruits today</span><span class="gr">Ρωτήστε για τα φρούτα της ημέρας</span></div></div><div class="item-price">6.00€</div></div>
+</section>
+
+<!-- TEA -->
+<section class="cat-section" data-group="drinks" data-cat="tea" id="cat-tea">
+  <div class="cat-header"><div class="cat-title"><span class="en">Tea</span><span class="gr">Τσάι</span></div><div class="cat-subtitle">4.50€</div></div>
+  <div class="sub-section"><div class="sub-header"><span class="en">Green</span><span class="gr">Πράσινο</span></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Peach</div></div><div class="item-price">4.50€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Caramel</div></div><div class="item-price">4.50€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Vanilla – Strawberry</div></div><div class="item-price">4.50€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header"><span class="en">Black</span><span class="gr">Μαύρο</span></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Cinnamon – Orange</div></div><div class="item-price">4.50€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Lemon – Ginger</div></div><div class="item-price">4.50€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header"><span class="en">Herbal</span><span class="gr">Βοτάνων</span></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Forest Fruits</div></div><div class="item-price">4.50€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Rooibos – Honey</div></div><div class="item-price">4.50€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Menthol – Lemon Verbena</div></div><div class="item-price">4.50€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Mountain Tea</div></div><div class="item-price">4.50€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Chamomile</div></div><div class="item-price">4.50€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header">Iced</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Iced Tea <span class="en">lemon / peach / zero sugar</span><span class="gr">λεμόνι / ροδάκινο / zero</span></div></div><div class="item-price">3.50€</div></div>
+  </div>
+</section>
+
+<!-- CHOCOLATE -->
+<section class="cat-section" data-group="drinks" data-cat="chocolate" id="cat-chocolate">
+  <div class="cat-header"><div class="cat-title"><span class="en">Chocolates</span><span class="gr">Σοκολάτες</span></div>
+    <div class="cat-note"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg><span class="en">Add Viennese cream +0.50€</span><span class="gr">Βιεννέζικη κρέμα +0.50€</span></div>
+  </div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Caramel &amp; Himalayan Salt</div></div><div class="item-price">4.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">White with Vanilla &amp; Oreo</div></div><div class="item-price">4.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Ginger – Cinnamon</div></div><div class="item-price">4.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Bueno</div></div><div class="item-price">4.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Bitter</div></div><div class="item-price">4.80€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">White</div></div><div class="item-price">4.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Milk</div></div><div class="item-price">4.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Cocoa</div></div><div class="item-price">3.50€</div></div>
+</section>
+
+<!-- MILKSHAKE -->
+<section class="cat-section" data-group="drinks" data-cat="milkshake" id="cat-milkshake">
+  <div class="cat-header"><div class="cat-title"><span class="en">Milkshake &amp; Ice Cream</span><span class="gr">Milkshake &amp; Παγωτό</span></div>
+    <div class="cat-note"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg><span class="en">Add Viennese cream +0.50€</span><span class="gr">Βιεννέζικη κρέμα +0.50€</span></div>
+  </div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Milkshake Espresso</div></div><div class="item-price">8.00€</div></div>
+  <div class="item-row is-new"><div class="item-info"><div class="item-name">Milkshake Oreo</div></div><div class="item-price">7.50€</div></div>
+  <div class="item-row is-new"><div class="item-info"><div class="item-name">Banoffee ARAMIS</div></div><div class="item-price">8.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Vanilla / Choco / Strawberry</div></div><div class="item-price">6.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Ice cream scoop</span><span class="gr">Μπάλα παγωτό</span></div></div><div class="item-price">2.50€</div></div>
+</section>
+
+<!-- SOFT DRINKS -->
+<section class="cat-section" data-group="drinks" data-cat="softdrinks" id="cat-softdrinks">
+  <div class="cat-header"><div class="cat-title"><span class="en">Soft Drinks</span><span class="gr">Αναψυκτικά</span></div></div>
+  <div class="sub-section"><div class="sub-header">3.00€</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Coca Cola</div></div><div class="item-price">3.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Lemonade / Orangeade</div></div><div class="item-price">3.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Sprite · Soda · Tonic</div></div><div class="item-price">3.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Gazoza · Biral · Fanta Blue</div></div><div class="item-price">3.00€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header">Premium</div>
+    <div class="item-row is-new"><div class="item-info"><div class="item-name">Crodino <span class="en">(non-alcoholic Spritz)</span><span class="gr">(μη αλκοολικό Spritz)</span></div></div><div class="item-price">6.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Schweppes</div></div><div class="item-price">4.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Three Cents Ginger Beer</div></div><div class="item-price">5.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Red Bull</div></div><div class="item-price">5.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Monster</div></div><div class="item-price">5.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Sparkling Water / Small Water</div></div><div class="item-price-multi">3.30€ / 0.50€</div></div>
+  </div>
+</section>
+
+<!-- BEERS -->
+<section class="cat-section" data-group="drinks" data-cat="beer" id="cat-beer">
+  <div class="cat-header"><div class="cat-title"><span class="en">Beers &amp; Cider</span><span class="gr">Μπύρες &amp; Cider</span></div></div>
+  <div class="sub-section"><div class="sub-header"><span class="en">Draft</span><span class="gr">Βαρελίσια</span></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Charma Draft</div><div class="item-note">250ml · 400ml · 500ml</div></div><div class="item-price-multi">4.50€ · 6.00€ · 8.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Charma 1 litre + <span class="en">small pizza</span><span class="gr">μικρή πίτσα</span></div></div><div class="item-price">17.00€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header"><span class="en">Bottle</span><span class="gr">Φιάλη</span></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Heineken · Mamos</div></div><div class="item-price">4.50€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Kaiser · Fix · Fix 0% · Amstel Radler</div></div><div class="item-price-multi">4.50€ – 5.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Corona</div></div><div class="item-price">5.30€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">VOREIA Pilsner</div></div><div class="item-price">6.30€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">CHIOS Black</div></div><div class="item-price">7.00€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header">Craft IPA</div>
+    <div class="item-row is-new"><div class="item-info"><div class="item-name">Drama Queen Red Ale</div></div><div class="item-price">7.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Mrs Toula IPA · Jasmine IPA</div></div><div class="item-price">7.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Milokleftos (cider)</div></div><div class="item-price">5.00€</div></div>
+  </div>
+</section>
+
+<!-- SPIRITS — full bar list -->
+<section class="cat-section" data-group="drinks" data-cat="spirits" id="cat-spirits">
+  <div class="cat-header">
+    <div class="cat-title"><span class="en">Classic Spirits</span><span class="gr">Ποτά</span></div>
+  </div>
+  <div class="spirits-tiers">
+    <div class="spirits-tier-row"><div class="spirits-tier-name">Regular</div><div class="spirits-tier-prices"><span class="en">Glass</span><span class="gr">Ποτήρι</span><strong>8€</strong> · Shot <strong>3€</strong> · <span class="en">Bottle</span><span class="gr">Φιάλη</span><strong>90€</strong></div></div>
+    <div class="spirits-tier-row"><div class="spirits-tier-name">Special</div><div class="spirits-tier-prices"><span class="en">Glass</span><span class="gr">Ποτήρι</span><strong>9€</strong> · Shot <strong>4€</strong> · <span class="en">Bottle</span><span class="gr">Φιάλη</span><strong>100€</strong></div></div>
+    <div class="spirits-tier-row"><div class="spirits-tier-name">Premium</div><div class="spirits-tier-prices"><span class="en">Glass</span><span class="gr">Ποτήρι</span><strong>10€</strong> · Shot <strong>5€</strong> · <span class="en">Bottle</span><span class="gr">Φιάλη</span><strong>120€</strong></div></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-header">Gin — <em style="opacity:.55;font-style:italic;">gin-yang club</em></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Beefeater</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Bombay</div></div><div class="item-price">9€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Gordon's</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Hendrick's</div></div><div class="item-price">10€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Monkey 47</div></div><div class="item-price">14€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Tanqueray</div></div><div class="item-price">9€</div></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-header">Vodka — <em style="opacity:.55;font-style:italic;">oh. my. vodka club</em></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Absolut</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Grey Goose</div></div><div class="item-price">10€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Smirnoff North</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Standard</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Stoli</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Ursus</div></div><div class="item-price">8€</div></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-header">Whiskey — Blended Scotch</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Chivas Regal</div></div><div class="item-price">9€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Cutty Sark</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Dewar's</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Dimple</div></div><div class="item-price">9€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Famous Grouse</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Haig</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">J&amp;B</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Johnnie Walker Red Label</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Johnnie Walker Black Label</div></div><div class="item-price">9€</div></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-header">Whiskey — Single Malt</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Cardhu</div></div><div class="item-price">9€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Glenfiddich</div></div><div class="item-price">11€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Lagavulin (smoked)</div></div><div class="item-price">14€</div></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-header">Whiskey — Irish</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Jameson</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Jameson Black Barrel</div></div><div class="item-price">10€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Tullamore</div></div><div class="item-price">8€</div></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-header">Whiskey — American</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Four Roses Bourbon</div></div><div class="item-price">9€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Jack Daniel's Tennessee</div></div><div class="item-price">9€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Jim Beam Bourbon</div></div><div class="item-price">8€</div></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-header">Rum</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Bacardi Black</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Bacardi White</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Captain Morgan Dark</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Diplomatico</div></div><div class="item-price">10€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Havana Original</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Havana Especial</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Havana Dark 7</div></div><div class="item-price">9€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Kraken Black Spiced</div></div><div class="item-price">10€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Pitu Cachaça</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Ron Zacapa</div></div><div class="item-price">14€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Sailor Jerry Spiced</div></div><div class="item-price">9€</div></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-header">Tequila</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Don Julio Blanco</div></div><div class="item-price">13€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Jose Cuervo Especial Reposado</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Jose Cuervo Especial Silver</div></div><div class="item-price">8€</div></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-header">Brandy &amp; Cognac</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Hennessy</div></div><div class="item-price">10€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Metaxa 3★</div></div><div class="item-price">7€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Metaxa 5★</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Metaxa 7★</div></div><div class="item-price">9€</div></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-header">Liqueur</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Archers</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Baileys</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Batida de Coco</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Blue Curacao</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Cointreau</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Disaronno</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Drambuie</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Frangelico</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Jägermeister</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Kahlua</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Malibu</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Molinari Sambuca</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Olmeca Dark Chocolate</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Ramazzotti Black</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Skinos Mastiha</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Sourz Apple</div></div><div class="item-price">8€</div></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-header">Aperitivo</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Aperol</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Campari</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Martini Bianco</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Martini Extra Dry</div></div><div class="item-price">8€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Martini Rosso</div></div><div class="item-price">8€</div></div>
+  </div>
+
+</section>
+
+<!-- WINE -->
+<section class="cat-section" data-group="drinks" data-cat="wine" id="cat-wine">
+  <div class="cat-header"><div class="cat-title"><span class="en">Wine</span><span class="gr">Κρασί</span></div></div>
+  <div class="sub-section"><div class="sub-header"><span class="en">White</span><span class="gr">Λευκό</span></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Magic Van</div><div class="item-desc">Barafakas · Moschoudi–Chardonnay</div></div><div class="item-price-multi">7€ / 28€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Voltes</div><div class="item-desc">Manemvassia · Moschofilero–Rhoditis</div></div><div class="item-price-multi">7€ / 28€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header">Rosé</div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Amygdalies</div><div class="item-desc">Avantis · 100% Syrah</div></div><div class="item-price-multi">7€ / 28€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">3 Witches</div><div class="item-desc">Barafakas · Agiorgitiko–Syrah–Moschofilero</div></div><div class="item-price-multi">8€ / 32€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header"><span class="en">Red</span><span class="gr">Κόκκινο</span></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Historia</div><div class="item-desc">Avantis · Viognier–Assyrtiko</div></div><div class="item-price-multi">7€ / 28€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Mikros Vorias</div><div class="item-desc">Koukulis · Merlot–Cabernet Sauvignon</div></div><div class="item-price-multi">7€ / 28€</div></div>
+  </div>
+  <div class="sub-section"><div class="sub-header">Sparkling &amp; <span class="en">Other</span><span class="gr">Άλλα</span></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Moscato d'Asti · Prosecco</div></div><div class="item-price">8.00€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Mavrodafni</div></div><div class="item-price-multi">6€ / 24€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Sangria <span class="en">red / white · hot / cold</span><span class="gr">κόκκινη / λευκή</span></div></div><div class="item-price">6.00€</div></div>
+  </div>
+</section>
+
+<!-- COCKTAILS — horizontal thumbnail list -->
+<section class="cat-section" data-group="drinks" data-cat="cocktails" id="cat-cocktails">
+  <div class="cat-header">
+    <div class="cat-title"><span class="en">Signature Cocktails</span><span class="gr">Signature Cocktails</span></div>
+  </div>
+
+  <div class="cocktail-list">
+
+    <div class="cktl-row">
+      <div class="cktl-thumb"><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=160&q=80&auto=format&fit=crop" alt="Spicy Nectar"></div>
+      <div class="cktl-info">
+        <div class="cktl-name">Spicy Nectar</div>
+        <div class="cktl-ingredients">Vodka · vanilla &amp; ginger syrup · raspberry · lime · cranberry bitters</div>
+        <div class="cktl-footer"><span class="cktl-price">10€</span></div>
+      </div>
+    </div>
+
+    <div class="cktl-row">
+      <div class="cktl-thumb"><img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=160&q=80&auto=format&fit=crop" alt="El Camino"></div>
+      <div class="cktl-info">
+        <div class="cktl-name">El Camino</div>
+        <div class="cktl-ingredients">Tequila blanco · nectar agave · cucumber &amp; jalapeño · lime · celery bitters</div>
+        <div class="cktl-footer"><span class="cktl-price">10€</span></div>
+      </div>
+    </div>
+
+    <div class="cktl-row">
+      <div class="cktl-thumb"><img src="https://images.unsplash.com/photo-1570598912132-0ba1dc952b7d?w=160&q=80&auto=format&fit=crop" alt="The Bright Side of the Moon"></div>
+      <div class="cktl-info">
+        <div class="cktl-name">The Bright Side of the Moon</div>
+        <div class="cktl-ingredients">Gin · violet liqueur · lime · almond syrup · coarsed pepper</div>
+        <div class="cktl-footer"><span class="cktl-price">10€</span></div>
+      </div>
+    </div>
+
+    <div class="cktl-row">
+      <div class="cktl-thumb"><img src="https://images.unsplash.com/photo-1541258565-aa5e01ae5c3f?w=160&q=80&auto=format&fit=crop" alt="Azteca Punch"></div>
+      <div class="cktl-info">
+        <div class="cktl-name">Azteca Punch</div>
+        <div class="cktl-ingredients">Tequila chocolate · Frangelico · strawberry purée · chili · lime</div>
+        <div class="cktl-footer"><span class="cktl-price">10€</span><span class="cktl-new">NEW</span></div>
+      </div>
+    </div>
+
+    <div class="cktl-row">
+      <div class="cktl-thumb"><img src="https://images.unsplash.com/photo-1560512823-829485b8bf24?w=160&q=80&auto=format&fit=crop" alt="Pink Blossom"></div>
+      <div class="cktl-info">
+        <div class="cktl-name">Pink Blossom</div>
+        <div class="cktl-ingredients">Gin · elderflower · passion fruit · pink grapefruit soda</div>
+        <div class="cktl-footer"><span class="cktl-price">11€</span></div>
+      </div>
+    </div>
+
+    <div class="cktl-row">
+      <div class="cktl-thumb"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=160&q=80&auto=format&fit=crop" alt="Tangerine Mist"></div>
+      <div class="cktl-info">
+        <div class="cktl-name">Tangerine Mist</div>
+        <div class="cktl-ingredients">Bourbon · local orange marmalade · aromatic bitters · fresh lime</div>
+        <div class="cktl-footer"><span class="cktl-price">11€</span><span class="cktl-new">NEW</span></div>
+      </div>
+    </div>
+
+    <div class="cktl-row">
+      <div class="cktl-thumb"><img src="https://images.unsplash.com/photo-1509461399763-ae67a981b254?w=160&q=80&auto=format&fit=crop" alt="Aris Tiki Wall Banker"></div>
+      <div class="cktl-info">
+        <div class="cktl-name">Aris Tiki Wall Banker</div>
+        <div class="cktl-ingredients">Blend of Rum · almond syrup · Aperol · pineapple · lime · banana blossom</div>
+        <div class="cktl-footer"><span class="cktl-price">12€</span></div>
+      </div>
+    </div>
+
+    <div class="cktl-row">
+      <div class="cktl-thumb"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=160&q=80&auto=format&fit=crop" alt="ARAMIS Zombie"></div>
+      <div class="cktl-info">
+        <div class="cktl-name">ARAMIS Zombie</div>
+        <div class="cktl-ingredients">Aged Rum · Golden Falernum · passion fruit · anise liquor · pomegranate · lime</div>
+        <div class="cktl-footer"><span class="cktl-price">13€</span><span class="cktl-new">NEW</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cocktail-classics">
+    <div class="sub-header">Classics</div>
+    <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Classic cocktail</span><span class="gr">Classic cocktail</span></div><div class="item-note"><span class="en">Ask our staff</span><span class="gr">Ρωτήστε το προσωπικό</span></div></div><div class="item-price">10€</div></div>
+    <div class="item-row"><div class="item-info"><div class="item-name">Premium Classic</div><div class="item-note"><span class="en">Ask our staff</span><span class="gr">Ρωτήστε το προσωπικό</span></div></div><div class="item-price">13€</div></div>
+  </div>
+</section>
+
+
+<!-- ── KITCHEN ──────────────────────────────── -->
+
+<!-- EARLY BITES -->
+<section class="cat-section" data-group="kitchen" data-cat="early" id="cat-early">
+  <div class="cat-header"><div class="cat-title"><span class="en">Early Bites</span><span class="gr">Πρωινά</span></div><div class="cat-subtitle"><span class="en">10:00 – 14:00</span></div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Omelette (3 eggs)</span><span class="gr">Ομελέτα (3 αυγά)</span></div></div><div class="item-price">5.50€</div></div>
+  <div class="item-extra"><div class="item-extra-name"><span class="en">+ cheese / bacon / ham / turkey / tomato / pepper</span><span class="gr">+ τυρί / μπέικον / ζαμπόν / γαλοπούλα / ντομάτα / πιπεριά</span></div><div class="item-extra-price">+0.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Open Toast</div><div class="item-desc"><span class="en">Sourdough wholemeal, fresh tomato, fried eggs, avocado, olive oil, oregano</span><span class="gr">Ψωμί προζύμι ολικής, φρεσκοτριμμένη ντομάτα, αυγά μάτια, αβοκάντο, ελαιόλαδο, ρίγανη</span></div></div><div class="item-price">8.50€</div></div>
+</section>
+
+<!-- SANDWICHES -->
+<section class="cat-section" data-group="kitchen" data-cat="sandwiches" id="cat-sandwiches">
+  <div class="cat-header"><div class="cat-title"><span class="en">Sandwiches</span><span class="gr">Σάντουιτς</span></div><div class="cat-subtitle"><span class="en">Served with crisps</span><span class="gr">Με πατατάκια</span></div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Toast</span><span class="gr">Τοστ</span></div><div class="item-desc"><span class="en">Double cheese, ham or turkey</span><span class="gr">Διπλό τυρί, ζαμπόν ή γαλοπούλα</span></div></div><div class="item-price">3.80€</div></div>
+  <div class="item-extra"><div class="item-extra-name">+ pepper / tomato / mayo / caesar / cocktail sauce</div><div class="item-extra-price">+0.30€</div></div>
+  <div class="item-extra"><div class="item-extra-name">+ extra cheese / bacon / ham / turkey</div><div class="item-extra-price">+0.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">ARAMIS Baguette</div><div class="item-desc"><span class="en">Egg, cheese, turkey, tomato, mayo, green salad</span><span class="gr">Αυγό, τυρί, γαλοπούλα, ντομάτα, μαγιονέζα, πράσινη σαλάτα</span></div></div><div class="item-price">6.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Chicken Focaccia</span><span class="gr">Φοκάτσια Κοτόπουλο</span></div><div class="item-desc"><span class="en">Breaded chicken, cheese, corn, bacon, secret sauce, green salad</span><span class="gr">Παναρισμένο κοτόπουλο, τυρί, καλαμπόκι, μπέικον, secret sauce, πράσινη σαλάτα</span></div></div><div class="item-price">8.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Prosciutto Focaccia</span><span class="gr">Φοκάτσια Προσούτο</span></div><div class="item-desc"><span class="en">Mozzarella, cherry tomatoes, rocket, olive oil</span><span class="gr">Μοτσαρέλα, ντοματίνι, ρόκα, ελαιόλαδο</span></div></div><div class="item-price">7.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Smoked Salmon Ciabatta</span><span class="gr">Τσιαπάτα Σολωμός</span></div><div class="item-desc"><span class="en">Lemon-dill cream, avocado, cucumber, spring onion</span><span class="gr">Κρέμα λεμονιού-άνηθου, αβοκάντο, αγγούρι, φρέσκο κρεμμύδι</span></div></div><div class="item-price">8.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Village Ciabatta</span><span class="gr">Τσιαπάτα Χωριάτικη</span></div><div class="item-desc"><span class="en">Feta, cucumber, pepper, spring onion, tomato, olive paste, olive oil, oregano</span><span class="gr">Φέτα, αγγούρι, πιπεριά, κρεμμύδι, ντομάτα, πάστα ελιάς, ελαιόλαδο, ρίγανη</span></div></div><div class="item-price">6.50€</div></div>
+</section>
+
+<!-- CLUB SANDWICH -->
+<section class="cat-section" data-group="kitchen" data-cat="club" id="cat-club">
+  <div class="cat-header"><div class="cat-title">Club Sandwich</div><div class="cat-subtitle"><span class="en">Served with fries &amp; cocktail sauce</span><span class="gr">Με τηγανητές πατάτες &amp; cocktail sauce</span></div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">ARAMIS Club</div><div class="item-desc"><span class="en">Omelette, cheese, mayo, tomato, green salad</span><span class="gr">Ομελέτα, τυρί, μαγιονέζα, ντομάτα, πράσινη σαλάτα</span></div></div><div class="item-price">8.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Club Cold Cuts</span><span class="gr">Club Αλλαντικών</span></div><div class="item-desc"><span class="en">Cheese, ham / turkey, tomato, green salad</span><span class="gr">Τυρί, ζαμπόν / γαλοπούλα, ντομάτα, πράσινη σαλάτα</span></div></div><div class="item-price">8.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Chicken Club</span><span class="gr">Club Κοτόπουλο</span></div><div class="item-desc"><span class="en">Grilled chicken, cheese, bacon, tomato, green salad</span><span class="gr">Ψητό κοτόπουλο, τυρί, μπέικον, ντομάτα, πράσινη σαλάτα</span></div></div><div class="item-price">9.00€</div></div>
+</section>
+
+<!-- DIP & BITE -->
+<section class="cat-section" data-group="kitchen" data-cat="dipbite" id="cat-dipbite">
+  <div class="cat-header"><div class="cat-title">Dip &amp; Bite</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Fries</span><span class="gr">Πατάτες Τηγανητές</span></div></div><div class="item-price">4.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Sweet Potato Fries</span><span class="gr">Γλυκοπατάτες</span></div></div><div class="item-price">6.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Mozzarella Sticks</div></div><div class="item-price">7.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Chicken Bites</span><span class="gr">Κοτομπουκιές</span></div></div><div class="item-price">8.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Nachos</div></div><div class="item-price">7.00€</div></div>
+</section>
+
+<!-- BURGER — horizontal feature card -->
+<section class="cat-section" data-group="kitchen" data-cat="burger" id="cat-burger">
+  <div class="kitchen-feature">
+    <div class="kitchen-feature-thumb">
+      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=280&q=80&auto=format&fit=crop" alt="ARAMIS Burger">
+    </div>
+    <div class="kitchen-feature-body">
+      <div class="kitchen-feature-tag">Burger</div>
+      <div class="kitchen-feature-title">ARAMIS Signature Burger</div>
+      <div class="kitchen-feature-desc"><span class="en">The one Chania keeps coming back for.</span><span class="gr">Αυτό που όλοι ξαναπαραγγέλνουν.</span></div>
+    </div>
+  </div>
+  <div class="item-row"><div class="item-info"><div class="item-name">ARAMIS Signature Burger</div></div><div class="item-price">12.00€</div></div>
+</section>
+
+<!-- PIZZA — horizontal feature card -->
+<section class="cat-section" data-group="kitchen" data-cat="pizza" id="cat-pizza">
+  <div class="kitchen-feature">
+    <div class="kitchen-feature-thumb">
+      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=280&q=80&auto=format&fit=crop" alt="ARAMIS Pizza">
+    </div>
+    <div class="kitchen-feature-body">
+      <div class="kitchen-feature-tag">Pizza</div>
+      <div class="kitchen-feature-title"><span class="en">Made fresh. Every time.</span><span class="gr">Φτιάχνεται φρέσκα. Κάθε φορά.</span></div>
+      <div class="kitchen-feature-desc"><span class="en">The reason Chania keeps coming back.</span><span class="gr">Ο λόγος που επιστρέφετε.</span></div>
+    </div>
+  </div>
+  <div class="cat-header" style="border-top:none;padding-top:16px;"><div class="cat-subtitle"><span class="en">Small (μικρή) · Medium (μεσαία)</span></div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Margarita</div></div><div class="item-price-multi">5.50€ · 7.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Special</div></div><div class="item-price-multi">7.50€ · 11.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Caprese</div></div><div class="item-price-multi">7.50€ · 11.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Traditional</span><span class="gr">Παραδοσιακή</span></div></div><div class="item-price-multi">7.00€ · 10.00€</div></div>
+</section>
+
+<!-- SALADS -->
+<section class="cat-section" data-group="kitchen" data-cat="salads" id="cat-salads">
+  <div class="cat-header"><div class="cat-title"><span class="en">Salads</span><span class="gr">Σαλάτες</span></div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Caesar's <span class="en">Chicken</span><span class="gr">Κοτόπουλο</span></div></div><div class="item-price">9.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Prosciutto Salad</span><span class="gr">Σαλάτα Προσούτο</span></div></div><div class="item-price">9.50€</div></div>
+</section>
+
+<!-- PASTA -->
+<section class="cat-section" data-group="kitchen" data-cat="pasta" id="cat-pasta">
+  <div class="cat-header"><div class="cat-title">Pasta</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Carbonara</span><span class="gr">Καρμπονάρα</span></div></div><div class="item-price">10.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Mediterranean</span><span class="gr">Μεσογειακή</span></div></div><div class="item-price">9.50€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Chicken Penne</span><span class="gr">Κοτόπουλο Πέννες</span></div></div><div class="item-price">11.00€</div></div>
+</section>
+
+<!-- SWEET TREATS — horizontal feature card -->
+<section class="cat-section" data-group="kitchen" data-cat="sweets" id="cat-sweets">
+  <div class="kitchen-feature">
+    <div class="kitchen-feature-thumb">
+      <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=280&q=80&auto=format&fit=crop" alt="ARAMIS Sweet Treats">
+    </div>
+    <div class="kitchen-feature-body">
+      <div class="kitchen-feature-tag"><span class="en">Sweet Treats</span><span class="gr">Γλυκά</span></div>
+      <div class="kitchen-feature-title"><span class="en">Save room.</span><span class="gr">Αφήστε χώρο.</span></div>
+      <div class="kitchen-feature-desc"><span class="en">Waffle, lava, tart — worth ordering before you've finished your main.</span><span class="gr">Βάφλα, λάβα, τάρτα — αξίζει.</span></div>
+    </div>
+  </div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Chocolate Lava</span><span class="gr">Λάβα Σοκολάτας</span></div></div><div class="item-price">6.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name"><span class="en">Apple Tart</span><span class="gr">Τάρτα Μήλου</span></div></div><div class="item-price">6.00€</div></div>
+  <div class="item-row"><div class="item-info"><div class="item-name">Waffle</div><div class="item-desc"><span class="en">Choose your topping</span><span class="gr">Επιλέξτε γέμιση</span></div></div><div class="item-price">6.00€</div></div>
+  <div class="item-extra"><div class="item-extra-name">+ Praline</div><div class="item-extra-price">+0.50€</div></div>
+  <div class="item-extra"><div class="item-extra-name">+ Bueno / Honey / Banana</div><div class="item-extra-price">+1.00€</div></div>
+  <div class="item-extra"><div class="item-extra-name">+ Almond / Biscuit / Oreo / Whipped cream</div><div class="item-extra-price">+1.50€</div></div>
+  <div class="item-extra"><div class="item-extra-name">+ Ice cream</div><div class="item-extra-price">+2.50€</div></div>
+</section>
+
+
+</div><!-- /menu-content -->
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="menu-footer">
+  <div class="menu-footer-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+  </div>
+  <div class="menu-footer-note">
+    <span class="en">ARAMIS Billiard Club · Chania, Crete · Est. 1984 · Open 10:00–01:00</span>
+    <span class="gr">ARAMIS Billiard Club · Χανιά, Κρήτη · Από το 1984 · Ανοιχτά 10:00–01:00</span>
+  </div>
+  <div class="menu-footer-links">
+    <a href="index.html"><span class="en">Back to site</span><span class="gr">Στον ιστότοπο</span></a>
+    <a href="kitchen.html"><span class="en">Kitchen &amp; Bar</span><span class="gr">Κουζίνα &amp; Bar</span></a>
+  </div>
+</footer>
+
+
+<script>
+const CATS = {
+  drinks:  [
+    {id:'coffee',    en:'Coffee',         gr:'Καφές'},
+    {id:'juices',    en:'Juices',         gr:'Χυμοί'},
+    {id:'tea',       en:'Tea',            gr:'Τσάι'},
+    {id:'chocolate', en:'Chocolates',     gr:'Σοκολάτες'},
+    {id:'milkshake', en:'Milkshake',      gr:'Milkshake'},
+    {id:'softdrinks',en:'Soft Drinks',    gr:'Αναψυκτικά'},
+    {id:'beer',      en:'Beers & Cider',  gr:'Μπύρες'},
+    {id:'spirits',   en:'Spirits',        gr:'Ποτά'},
+    {id:'wine',      en:'Wine',           gr:'Κρασί'},
+    {id:'cocktails', en:'Cocktails',      gr:'Cocktails'},
+  ],
+  kitchen: [
+    {id:'early',      en:'Early Bites',   gr:'Πρωινά'},
+    {id:'sandwiches', en:'Sandwiches',    gr:'Σάντουιτς'},
+    {id:'club',       en:'Club Sandwich', gr:'Club'},
+    {id:'dipbite',    en:'Dip & Bite',    gr:'Dip & Bite'},
+    {id:'burger',     en:'Burger',        gr:'Burger'},
+    {id:'pizza',      en:'Pizza',         gr:'Pizza'},
+    {id:'salads',     en:'Salads',        gr:'Σαλάτες'},
+    {id:'pasta',      en:'Pasta',         gr:'Pasta'},
+    {id:'sweets',     en:'Sweet Treats',  gr:'Γλυκά'},
+  ]
+};
+
+let currentGroup = 'drinks';
+let currentCat   = 'coffee';
+let currentLang  = 'en';
+
+function renderPills() {
+  const pills = document.getElementById('cat-pills');
+  pills.innerHTML = '';
+  CATS[currentGroup].forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-pill' + (cat.id === currentCat ? ' active' : '');
+    btn.textContent = currentLang === 'en' ? cat.en : cat.gr;
+    btn.onclick = () => setCat(cat.id);
+    pills.appendChild(btn);
+  });
+}
+
+function setCat(catId) {
+  currentCat = catId;
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  const target = document.getElementById('cat-' + catId);
+  if (target) target.classList.add('visible');
+  document.querySelectorAll('.cat-pill').forEach((p, i) => {
+    p.classList.toggle('active', CATS[currentGroup][i]?.id === catId);
+  });
+  const activePill = document.querySelector('.cat-pill.active');
+  if (activePill) activePill.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  if (target) {
+    const offset = 340; // topbar + group cards + pills
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({top, behavior:'smooth'});
+  }
+}
+
+function setGroup(group) {
+  currentGroup = group;
+  currentCat = CATS[group][0].id;
+  // Update visual card active states
+  document.querySelectorAll('.group-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + group).classList.add('active');
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  renderPills();
+  setCat(currentCat);
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.body.classList.toggle('lang-gr', lang === 'gr');
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.trim() === (lang === 'en' ? 'EN' : 'ΕΛ'));
+  });
+  renderPills();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderPills();
+  setCat(currentCat);
+  const hash = window.location.hash.replace('#','');
+  if (hash) {
+    if (CATS.drinks.find(c=>c.id===hash))   { setGroup('drinks');  setCat(hash); }
+    if (CATS.kitchen.find(c=>c.id===hash))  { setGroup('kitchen'); setCat(hash); }
+  }
+});
+</script>
+</body>
+</html>
