@@ -882,6 +882,111 @@ body.mob-open { overflow: hidden; }
   .gallery-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
+
+/* ══════════════════════════════════════════════
+   ARAMIS MOBILE NAV — Two rows + centred logo
+   ══════════════════════════════════════════════ */
+
+/* Hide hamburger entirely — not needed */
+.nav-hamburger { display: none !important; }
+.mob-menu, .mob-overlay { display: none !important; }
+body.mob-open { overflow: auto; }
+
+@media (max-width: 960px) {
+
+  /* ─── Nav container ─────────────────────── */
+  .nav {
+    height: auto !important;
+    min-height: var(--nav-h);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px 12px !important;
+    gap: 0;
+  }
+
+  /* ─── Hide the flex left/right wrappers ─── */
+  .nav-left, .nav-right {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    width: 100%;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  /* ─── Nav links ────────────────────────── */
+  .nav-lk {
+    font-size: 8px !important;
+    letter-spacing: 1.4px !important;
+    padding: 7px 8px !important;
+    white-space: nowrap;
+    flex: 1;
+    text-align: center;
+    max-width: none;
+  }
+
+  /* ─── Logo — centred, below both rows ─── */
+  .nav-logo {
+    order: 10;
+    padding: 8px 0 0 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .nav-logo img {
+    width: 160px !important;
+    height: auto !important;
+  }
+
+  /* ─── Dropdown panels — full width ──────── */
+  .nav-dd { flex: 1; }
+  .nav-dd-trigger {
+    justify-content: center;
+  }
+  .nav-dd-panel {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(-4px) !important;
+    min-width: 200px;
+  }
+  .nav-dd:hover .nav-dd-panel,
+  .nav-dd.open .nav-dd-panel {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+  .nav-dd-panel.panel-right {
+    left: 50% !important;
+    right: auto !important;
+  }
+
+  /* ─── Hero padding to clear taller nav ─── */
+  .hero-content {
+    padding-top: calc(var(--nav-h) + 40px) !important;
+  }
+  .coming-soon {
+    padding-top: calc(var(--nav-h) + 40px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-h: 115px; }
+
+  .nav { min-height: var(--nav-h); }
+
+  .nav-lk {
+    font-size: 7.5px !important;
+    letter-spacing: 1.2px !important;
+    padding: 6px 6px !important;
+  }
+
+  /* Chevrons smaller */
+  .nav-dd-trigger .chevron {
+    width: 8px; height: 8px;
+  }
+}
+
 </style>
 </head>
 <body>

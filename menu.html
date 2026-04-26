@@ -584,6 +584,15 @@ body.mob-open { overflow: hidden; }
   .cat-pills  { position: sticky; top: 104px !important; z-index: 180; }
   .menu-hero  { padding: 80px 20px 36px; }
 }
+
+@media (max-width: 768px) {
+  /* menu.html has its own topbar not the main nav */
+  .topbar { height: 56px; padding: 0 16px; }
+  .topbar-logo img { height: 28px; }
+  .group-tabs { top: 56px; }
+  .cat-pills  { top: 100px !important; }
+}
+
 </style>
 </head>
 <body>
