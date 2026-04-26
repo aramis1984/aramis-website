@@ -846,12 +846,6 @@ a { text-decoration: none; color: inherit; }
   <div class="reviews-ctas">
     <a href="https://g.page/r/ARAMIS-GOOGLE-REVIEW-LINK/review" target="_blank" class="btn-pr">Leave us a review on Google</a>
   </div>
-  <p class="reviews-note">
-    We don't write our reviews — our guests do. Replace placeholder reviews above with real verified quotes from
-    <a href="https://business.google.com" target="_blank">Google Business</a>
-    or Facebook before publishing.
-    <!-- TO ACTIVATE LIVE REVIEWS: replace this section with an Elfsight / Trustindex widget embed code -->
-  </p>
 
 </section>
 
@@ -983,31 +977,12 @@ function buildReviewCard(review) {
 
 // ── Fetch & render ───────────────────────────────────────
 async function loadGoogleReviews() {
-  const CACHE_KEY = 'aramis_reviews_v2';
-  const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
-
-  // Check sessionStorage cache first
-  try {
-    const cached = sessionStorage.getItem(CACHE_KEY);
-    if (cached) {
-      const { data, ts } = JSON.parse(cached);
-      if (Date.now() - ts < CACHE_TTL) {
-        renderReviews(data);
-        return;
-      }
-    }
-  } catch(e) {}
-
-  // Call our own Vercel serverless endpoint — no CORS issues, key stays server-side
+  // Fetch fresh on every page load — server shuffles the order each time
   try {
     const res  = await fetch('/api/reviews');
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     if (!data.reviews) throw new Error('No reviews in response');
-
-    // Cache result
-    try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data, ts: Date.now() })); } catch(e) {}
-
     renderReviews(data);
 
   } catch(err) {
