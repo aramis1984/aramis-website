@@ -42,8 +42,8 @@ img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 
 /* ─── NAV ────────────────────────────────── */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: transparent; transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
-.nav.scrolled { background: rgba(26,24,20,.97); border-bottom-color: rgba(200,169,110,.12); backdrop-filter: blur(12px); }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: rgba(26,24,20,.85); transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
+.nav.scrolled { background: rgba(26,24,20,.99); border-bottom-color: rgba(200,169,110,.18); backdrop-filter: blur(16px); }
 .nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
 .nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
 .nav-logo  { padding: 0 28px; flex-shrink: 0; }
@@ -227,7 +227,7 @@ a { text-decoration: none; color: inherit; }
 }
 .social-link-primary { background: var(--gold); color: var(--bg); }
 .social-link-primary:hover { background: var(--gold-h); }
-.social-link-ghost { background: transparent; color: var(--muted); border: 1px solid rgba(200,169,110,.3); }
+.social-link-ghost { background: rgba(26,24,20,.85); color: var(--muted); border: 1px solid rgba(200,169,110,.3); }
 .social-link-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
 /* ─── REVIEW CTA ─────────────────────────── */
@@ -656,7 +656,7 @@ async function handleContactForm(e) {
     _subject: 'Website Enquiry — ARAMIS: ' + f.querySelector('#cf-subject').value
   };
   try {
-    const res = await fetch( + ENDPOINT + , {
+    const res = await fetch('https://formspree.io/f/xeevwqjz', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)

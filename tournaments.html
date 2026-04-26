@@ -44,8 +44,8 @@ img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 
 /* ─── NAV ────────────────────────────────── */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: transparent; transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
-.nav.scrolled { background: rgba(26,24,20,.97); border-bottom-color: rgba(200,169,110,.12); backdrop-filter: blur(12px); }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: rgba(26,24,20,.85); transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
+.nav.scrolled { background: rgba(26,24,20,.99); border-bottom-color: rgba(200,169,110,.18); backdrop-filter: blur(16px); }
 .nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
 .nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
 .nav-logo  { padding: 0 28px; flex-shrink: 0; }
@@ -92,7 +92,7 @@ a { text-decoration: none; color: inherit; }
 .inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); }
 .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; background: var(--gold); color: var(--bg); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: background .2s; }
 .btn-primary:hover { background: var(--gold-h); }
-.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: transparent; color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(200,169,110,.3); transition: all .25s; }
+.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: rgba(26,24,20,.85); color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(200,169,110,.3); transition: all .25s; }
 .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 .btn-ghost svg, .btn-primary svg { transition: transform .25s; }
 .btn-ghost:hover svg, .btn-primary:hover svg { transform: translateX(4px); }
