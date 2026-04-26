@@ -640,19 +640,38 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fu').forEach(el => obs.observe(el));
 
-// Contact form — mailto fallback (upgrade to Formspree/Netlify when ready)
-function handleContactForm(e) {
+// Contact form — Formspree
+async function handleContactForm(e) {
   e.preventDefault();
-  const f = e.target;
-  const name    = f.querySelector('#cf-name').value;
-  const email   = f.querySelector('#cf-email').value;
-  const phone   = f.querySelector('#cf-phone').value;
-  const subject = f.querySelector('#cf-subject').value;
-  const msg     = f.querySelector('#cf-msg').value;
-  const body    = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\n\n${msg}`;
-  window.open(`mailto:aramischania@gmail.com?subject=${encodeURIComponent('Website enquiry: ' + subject)}&body=${encodeURIComponent(body)}`);
-  document.getElementById('form-wrap').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
+  const f   = e.target;
+  const btn = f.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  const data = {
+    name:     f.querySelector('#cf-name').value,
+    email:    f.querySelector('#cf-email').value,
+    phone:    f.querySelector('#cf-phone').value,
+    subject:  f.querySelector('#cf-subject').value,
+    message:  f.querySelector('#cf-msg').value,
+    _subject: 'Website Enquiry — ARAMIS: ' + f.querySelector('#cf-subject').value
+  };
+  try {
+    const res = await fetch( + ENDPOINT + , {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = 'Try again';
+    btn.disabled = false;
+  }
 }
 </script>
 </body>

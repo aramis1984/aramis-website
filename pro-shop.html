@@ -410,13 +410,30 @@ window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', windo
   document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
 });
 
-function handleSignup(e) {
+async function handleSignup(e) {
   e.preventDefault();
-  const email = e.target.querySelector('input[type="email"]').value;
-  // TODO: replace with Mailchimp/Brevo API call
-  window.open('mailto:aramischania@gmail.com?subject=Pro Shop launch notification&body=Please add me to the Pro Shop launch list: ' + email);
-  document.getElementById('cs-newsletter').style.display = 'none';
-  document.getElementById('cs-success').style.display = 'block';
+  const form  = e.target;
+  const email = form.querySelector('input[type="email"]').value;
+  const btn   = form.querySelector('button');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const res = await fetch( + ENDPOINT + , {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'Pro Shop signup' })
+    });
+    if (res.ok) {
+      document.getElementById('cs-newsletter').style.display = 'none';
+      document.getElementById('cs-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = 'Try again';
+    btn.disabled = false;
+  }
 }
 </script>
 </body>
