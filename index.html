@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARAMIS — Nav Mockup A: Full-Screen Overlay</title>
+<title>ARAMIS — Nav Mockup B: Scrollable Horizontal Nav</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -15,7 +15,7 @@
   --cream:   #f3e5d2;
   --muted:   #c8b9a4;
   --nav-h:   180px;
-  --gutter:  72px;
+  --mob-nav-h: 110px; /* logo row + scroll nav row */
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -23,7 +23,7 @@ body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sa
 a { text-decoration: none; color: inherit; }
 
 /* ─── DESKTOP NAV (unchanged) ─────────────── */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: rgba(26,24,20,.85); transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: rgba(26,24,20,.85); transition: background .4s; border-bottom: 1px solid transparent; }
 .nav.scrolled { background: rgba(26,24,20,.99); border-bottom-color: rgba(200,169,110,.18); backdrop-filter: blur(16px); }
 .nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
 .nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
@@ -44,186 +44,128 @@ a { text-decoration: none; color: inherit; }
 .nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; }
 .nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
 
-/* ─── MOBILE HAMBURGER ───────────────────── */
-.nav-hamburger {
+/* ══════════════════════════════════════════════
+   MOBILE SCROLLABLE NAV
+   Two-tier: logo strip (top) + horizontal scroll nav
+   ══════════════════════════════════════════════ */
+
+/* Mobile nav wrapper — replaces standard nav on mobile */
+.mob-nav-wrap {
   display: none;
-  flex-direction: column; justify-content: center; gap: 5px;
-  width: 44px; height: 44px; padding: 10px;
-  cursor: pointer; background: none; border: none;
-  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-  z-index: 1001; -webkit-tap-highlight-color: transparent;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  flex-direction: column;
+  background: rgba(26,24,20,.92);
+  border-bottom: 1px solid rgba(200,169,110,.1);
+  backdrop-filter: blur(14px);
+  transition: background .4s;
 }
-.nav-hamburger span {
-  display: block; width: 22px; height: 1.5px;
-  background: var(--cream);
-  transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .3s;
-  transform-origin: center;
-}
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.mob-nav-wrap.scrolled { background: rgba(26,24,20,.99); border-bottom-color: rgba(200,169,110,.2); }
 
-/* ─── FULL-SCREEN OVERLAY NAV ────────────── */
-.nav-overlay {
-  position: fixed; inset: 0; z-index: 998;
-  background: var(--bg);
-  display: flex; flex-direction: column;
-  /* Clip from top, expand downward */
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path .55s cubic-bezier(.4,0,.2,1);
-  pointer-events: none;
+/* Row 1: Logo centred */
+.mob-logo-row {
+  display: flex; align-items: center; justify-content: center;
+  padding: 10px 16px 6px;
+  height: 64px;
 }
-.nav-overlay.open {
-  clip-path: inset(0 0 0% 0);
-  pointer-events: all;
-}
+.mob-logo-row img { height: 40px; width: auto; object-fit: contain; }
 
-/* Logo inside overlay */
-.ov-logo {
-  padding: 20px 24px 0;
-  display: flex; align-items: center; justify-content: space-between;
+/* Row 2: Horizontal scrollable nav */
+.mob-scroll-nav {
+  display: flex; align-items: stretch;
+  overflow-x: auto; overflow-y: hidden;
+  -ms-overflow-style: none; scrollbar-width: none;
+  /* Fade edges via mask */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 16px, black calc(100% - 16px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 16px, black calc(100% - 16px), transparent 100%);
+  padding: 0 16px;
+  border-top: 1px solid rgba(200,169,110,.07);
+  height: 46px;
+}
+.mob-scroll-nav::-webkit-scrollbar { display: none; }
+
+/* Each nav item in the scroll row */
+.mob-nav-item {
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-}
-.ov-logo img { height: 52px; width: auto; object-fit: contain; }
-
-/* Close button */
-.ov-close {
-  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
-  background: none; border: none; cursor: pointer;
+  font-size: 9px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase;
+  color: rgba(243,229,210,.5);
+  padding: 0 14px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer; user-select: none;
+  transition: color .2s, border-color .2s;
   -webkit-tap-highlight-color: transparent;
-}
-.ov-close svg { color: rgba(200,185,164,.5); transition: color .2s; }
-.ov-close:hover svg { color: var(--cream); }
-
-/* Decorative gold line */
-.ov-rule {
-  height: 1px; background: linear-gradient(to right, transparent, rgba(200,169,110,.3), transparent);
-  margin: 16px 24px;
-  flex-shrink: 0;
-}
-
-/* Main nav links */
-.ov-nav {
-  flex: 1; display: flex; flex-direction: column; justify-content: center;
-  padding: 0 32px;
-  overflow-y: auto;
-}
-.ov-link {
-  display: block;
-  font-family: 'Fraunces', serif;
-  font-size: clamp(32px, 9vw, 52px);
-  font-weight: 400; font-style: italic;
-  color: rgba(243,229,210,.55);
-  line-height: 1;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(200,169,110,.06);
-  transition: color .2s, transform .2s;
   position: relative;
-  overflow: hidden;
 }
-.ov-link:last-child { border-bottom: none; }
-.ov-link:hover, .ov-link.active { color: var(--cream); transform: translateX(8px); }
-.ov-link.active::before {
-  content: ''; position: absolute; left: -32px; top: 50%; transform: translateY(-50%);
-  width: 20px; height: 1.5px; background: var(--gold);
+.mob-nav-item:hover, .mob-nav-item.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.mob-nav-item a {
+  color: inherit; display: flex; align-items: center; gap: 4px;
+  height: 100%; white-space: nowrap;
+}
+.mob-nav-item svg { width: 7px; height: 7px; opacity: .6; flex-shrink: 0; }
+
+/* Vertical dividers between groups */
+.mob-nav-div {
+  width: 1px; flex-shrink: 0; margin: 10px 4px;
+  background: rgba(200,169,110,.12);
 }
 
-/* Sub-links (venue / events) */
-.ov-subgroup { padding: 2px 0 10px; border-bottom: 1px solid rgba(200,169,110,.06); }
-.ov-subgroup-trigger {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(32px, 9vw, 52px);
-  font-weight: 400; font-style: italic;
-  color: rgba(243,229,210,.55);
-  line-height: 1;
-  padding: 14px 0 8px;
-  display: flex; align-items: center; gap: 12px;
-  cursor: pointer; width: 100%; background: none; border: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: color .2s;
-}
-.ov-subgroup-trigger:hover { color: var(--cream); }
-.ov-subgroup-trigger .ov-arrow {
-  width: 10px; height: 10px; color: rgba(200,169,110,.4);
-  transition: transform .3s, color .2s;
-  flex-shrink: 0; margin-top: 4px;
-}
-.ov-subgroup.expanded .ov-arrow { transform: rotate(90deg); color: var(--gold); }
-.ov-sublinks {
+/* ─── DROPDOWN from scroll nav ───────────── */
+/* Tapping a parent item reveals sub-items inline
+   in a drawer that slides down below the nav */
+.mob-subnav {
+  position: fixed; left: 0; right: 0;
+  top: calc(64px + 46px); /* logo + scroll row */
+  z-index: 899;
+  background: rgba(18,16,13,.97);
+  border-bottom: 2px solid var(--gold);
+  backdrop-filter: blur(14px);
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1px;
   max-height: 0; overflow: hidden;
   transition: max-height .35s cubic-bezier(.4,0,.2,1);
-  padding-left: 20px;
 }
-.ov-subgroup.expanded .ov-sublinks { max-height: 280px; }
-.ov-sublink {
-  display: block;
-  font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(200,185,164,.4);
-  padding: 9px 0;
-  transition: color .2s;
+.mob-subnav.open { max-height: 300px; }
+.mob-subnav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 16px 20px;
+  font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(243,229,210,.55);
+  transition: color .2s, background .2s;
+  -webkit-tap-highlight-color: transparent;
 }
-.ov-sublink:hover { color: var(--gold); }
+.mob-subnav-item:hover { color: var(--gold); background: rgba(200,169,110,.04); }
+.mob-subnav-item .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .35; flex-shrink: 0; }
 
-/* Footer strip */
-.ov-footer {
-  padding: 20px 32px 32px;
-  display: flex; align-items: flex-end; justify-content: space-between;
-  flex-shrink: 0;
-  border-top: 1px solid rgba(200,169,110,.07);
-}
-.ov-footer-info { }
-.ov-footer-hours { font-size: 11px; color: rgba(200,185,164,.3); margin-bottom: 2px; }
-.ov-footer-addr  { font-size: 11px; color: rgba(200,185,164,.2); }
-.ov-footer-ig {
-  font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(200,169,110,.45); transition: color .2s;
-}
-.ov-footer-ig:hover { color: var(--gold); }
-
-/* Stagger animation for links */
-.ov-link, .ov-subgroup-trigger {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity .4s ease, transform .4s ease, color .2s;
-}
-.nav-overlay.open .ov-link,
-.nav-overlay.open .ov-subgroup-trigger {
-  opacity: 1; transform: translateY(0);
-}
-.nav-overlay.open .ov-link:nth-child(1),
-.nav-overlay.open .ov-subgroup:nth-child(1) .ov-subgroup-trigger { transition-delay: .15s; }
-.nav-overlay.open .ov-link:nth-child(2),
-.nav-overlay.open .ov-subgroup:nth-child(2) .ov-subgroup-trigger { transition-delay: .22s; }
-.nav-overlay.open .ov-link:nth-child(3)  { transition-delay: .29s; }
-.nav-overlay.open .ov-link:nth-child(4)  { transition-delay: .36s; }
-.nav-overlay.open .ov-link:nth-child(5)  { transition-delay: .43s; }
-
-/* ─── HERO (minimal mockup) ──────────────── */
+/* ─── HERO (mockup) ──────────────────────── */
 .hero {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 0 40px; flex-direction: column; gap: 24px;
+  padding-top: var(--mob-nav-h);
 }
 .hero-hed { font-family: 'Fraunces', serif; font-size: clamp(36px, 7vw, 80px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.1; }
 .hero-sub { font-size: 13px; color: rgba(200,185,164,.4); letter-spacing: .5px; }
 .hero-note { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.4); background: var(--bg-card); padding: 8px 16px; border: 1px solid rgba(200,169,110,.15); white-space: nowrap; }
 
-/* ─── SHOW HAMBURGER ON MOBILE ───────────── */
+/* ─── SHOW MOB NAV ON MOBILE ─────────────── */
 @media (max-width: 960px) {
-  .nav-left, .nav-right { display: none; }
-  .nav { justify-content: center; height: 70px !important; }
-  .nav-logo img { width: 160px !important; height: auto !important; }
-  .nav-logo { padding: 0; }
-  .nav-hamburger { display: flex; }
+  .nav { display: none; } /* hide desktop nav */
+  .mob-nav-wrap { display: flex; }
+  .hero { padding-top: 130px; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- DESKTOP NAV (hidden on mobile) -->
 <nav class="nav" id="nav">
   <div class="nav-left">
-    <a class="nav-lk" href="index.html">Our Story</a>
+    <a class="nav-lk" href="story.html">Our Story</a>
     <div class="nav-dd">
-      <a class="nav-lk nav-dd-trigger" href="#">The Venue <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <a class="nav-lk nav-dd-trigger" href="explore-our-venue.html">The Venue <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></a>
       <div class="nav-dd-panel">
         <a href="billiards.html" class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
         <a href="darts.html" class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
@@ -240,7 +182,7 @@ a { text-decoration: none; color: inherit; }
   </a>
   <div class="nav-right">
     <div class="nav-dd">
-      <a class="nav-lk nav-dd-trigger" href="#">Events <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <a class="nav-lk nav-dd-trigger" href="social.html">Events <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></a>
       <div class="nav-dd-panel panel-right">
         <a href="tournaments.html" class="nav-dd-item"><span class="dd-dot"></span>Tournaments</a>
         <a href="social.html" class="nav-dd-item"><span class="dd-dot"></span>Social Events</a>
@@ -249,107 +191,130 @@ a { text-decoration: none; color: inherit; }
     <a class="nav-lk" href="pro-shop.html">Pro Shop</a>
     <a class="nav-lk" href="contact.html">Find Us</a>
   </div>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<!-- FULL-SCREEN OVERLAY -->
-<div class="nav-overlay" id="nav-overlay">
+<!-- MOBILE SCROLLABLE NAV -->
+<div class="mob-nav-wrap" id="mob-nav-wrap">
 
-  <div class="ov-logo">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
-    <button class="ov-close" id="ov-close" aria-label="Close menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
+  <!-- Row 1: Logo -->
+  <div class="mob-logo-row">
+    <a href="index.html">
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+    </a>
   </div>
 
-  <div class="ov-rule"></div>
+  <!-- Row 2: Horizontal scroll -->
+  <div class="mob-scroll-nav" id="mob-scroll-nav">
 
-  <nav class="ov-nav">
-    <a href="story.html" class="ov-link">Our Story</a>
+    <div class="mob-nav-item">
+      <a href="story.html">Our Story</a>
+    </div>
 
-    <div class="ov-subgroup" id="sg-venue">
-      <button class="ov-subgroup-trigger" onclick="toggleSg('sg-venue')">
+    <div class="mob-nav-div"></div>
+
+    <div class="mob-nav-item" id="mob-venue" onclick="toggleSubnav('subnav-venue','mob-venue')">
+      <a href="#" onclick="return false;">
         The Venue
-        <svg class="ov-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2l4 3-4 3"/></svg>
-      </button>
-      <div class="ov-sublinks">
-        <a href="billiards.html" class="ov-sublink">Billiards</a>
-        <a href="darts.html" class="ov-sublink">Darts</a>
-        <a href="terrace.html" class="ov-sublink">The Terrace Cafe</a>
-        <a href="kitchen.html" class="ov-sublink">Kitchen &amp; Bar</a>
-        <a href="explore-our-venue.html" class="ov-sublink">Explore the Venue →</a>
-      </div>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
     </div>
 
-    <a href="menu.html" class="ov-link">Our Menu</a>
+    <div class="mob-nav-item">
+      <a href="menu.html">Our Menu</a>
+    </div>
 
-    <div class="ov-subgroup" id="sg-events">
-      <button class="ov-subgroup-trigger" onclick="toggleSg('sg-events')">
+    <div class="mob-nav-div"></div>
+
+    <div class="mob-nav-item" id="mob-events" onclick="toggleSubnav('subnav-events','mob-events')">
+      <a href="#" onclick="return false;">
         Events
-        <svg class="ov-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2l4 3-4 3"/></svg>
-      </button>
-      <div class="ov-sublinks">
-        <a href="tournaments.html" class="ov-sublink">Tournaments</a>
-        <a href="social.html" class="ov-sublink">Social Events</a>
-      </div>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
     </div>
 
-    <a href="pro-shop.html" class="ov-link">Pro Shop</a>
-    <a href="contact.html"  class="ov-link">Find Us</a>
-  </nav>
-
-  <div class="ov-footer">
-    <div class="ov-footer-info">
-      <div class="ov-footer-hours">Open 10:00 – 01:00 · Every day</div>
-      <div class="ov-footer-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
+    <div class="mob-nav-item">
+      <a href="pro-shop.html">Pro Shop</a>
     </div>
-    <a href="https://instagram.com/aramischania" target="_blank" class="ov-footer-ig">@aramischania</a>
+
+    <div class="mob-nav-div"></div>
+
+    <div class="mob-nav-item">
+      <a href="contact.html">Find Us</a>
+    </div>
+
   </div>
+</div>
 
+<!-- Sub-nav drawers (shared, swap content via JS) -->
+<div class="mob-subnav" id="subnav-venue">
+  <a href="billiards.html"         class="mob-subnav-item"><span class="dot"></span>Billiards</a>
+  <a href="darts.html"             class="mob-subnav-item"><span class="dot"></span>Darts</a>
+  <a href="terrace.html"           class="mob-subnav-item"><span class="dot"></span>The Terrace Cafe</a>
+  <a href="kitchen.html"           class="mob-subnav-item"><span class="dot"></span>Kitchen &amp; Bar</a>
+  <a href="explore-our-venue.html" class="mob-subnav-item"><span class="dot"></span>Explore the Venue →</a>
+</div>
+
+<div class="mob-subnav" id="subnav-events">
+  <a href="tournaments.html" class="mob-subnav-item"><span class="dot"></span>Tournaments</a>
+  <a href="social.html"      class="mob-subnav-item"><span class="dot"></span>Social Events</a>
 </div>
 
 <!-- HERO (mockup content) -->
 <div class="hero">
   <h1 class="hero-hed">Take your seat.<br><em>The table is ready.</em></h1>
-  <p class="hero-sub">Tap the ☰ button to test the nav overlay</p>
+  <p class="hero-sub">Scroll the nav row ← → to test · Tap The Venue or Events</p>
 </div>
 
-<div class="hero-note">MOCKUP A — Full-Screen Overlay Nav</div>
+<div class="hero-note">MOCKUP B — Scrollable Horizontal Nav</div>
 
 <script>
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+// Desktop nav scroll
+const desktopNav = document.getElementById('nav');
+const mobNav = document.getElementById('mob-nav-wrap');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY > 40;
+  if (desktopNav) desktopNav.classList.toggle('scrolled', scrolled);
+  if (mobNav) mobNav.classList.toggle('scrolled', scrolled);
+}, { passive: true });
 
-// Overlay open/close
-const hamburger = document.getElementById('nav-hamburger');
-const overlay   = document.getElementById('nav-overlay');
-const closeBtn  = document.getElementById('ov-close');
+// Scroll nav: snap active item into view on tap
+document.querySelectorAll('.mob-nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  });
+});
 
-function openOverlay() {
-  overlay.classList.add('open');
-  hamburger.classList.add('open');
-  document.body.style.overflow = 'hidden';
+// Sub-nav toggle
+let currentSubnav = null;
+let currentTrigger = null;
+
+function toggleSubnav(subnavId, triggerId) {
+  const subnav = document.getElementById(subnavId);
+  const trigger = document.getElementById(triggerId);
+  const isOpen = subnav.classList.contains('open');
+
+  // Close all first
+  document.querySelectorAll('.mob-subnav').forEach(s => s.classList.remove('open'));
+  document.querySelectorAll('.mob-nav-item').forEach(t => t.classList.remove('active'));
+
+  if (!isOpen) {
+    subnav.classList.add('open');
+    trigger.classList.add('active');
+    currentSubnav = subnav;
+    currentTrigger = trigger;
+  } else {
+    currentSubnav = null;
+    currentTrigger = null;
+  }
 }
-function closeOverlay() {
-  overlay.classList.remove('open');
-  hamburger.classList.remove('open');
-  document.body.style.overflow = '';
-}
 
-hamburger.addEventListener('click', () => overlay.classList.contains('open') ? closeOverlay() : openOverlay());
-closeBtn.addEventListener('click', closeOverlay);
-overlay.querySelectorAll('.ov-link').forEach(l => l.addEventListener('click', closeOverlay));
-document.addEventListener('keydown', e => e.key === 'Escape' && closeOverlay());
-
-// Sub-group toggle
-function toggleSg(id) {
-  document.getElementById(id).classList.toggle('expanded');
-}
+// Close subnav on outside tap
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.mob-nav-item') && !e.target.closest('.mob-subnav')) {
+    document.querySelectorAll('.mob-subnav').forEach(s => s.classList.remove('open'));
+    document.querySelectorAll('.mob-nav-item').forEach(t => t.classList.remove('active'));
+  }
+});
 </script>
 </body>
 </html>
