@@ -1021,10 +1021,23 @@ body.mob-open { overflow: hidden; }
      when the reel is ready.
 ══════════════════════════════════════ -->
 <section class="hero">
-  <!-- HERO: add class="has-media" to .hero when ready, then uncomment:
-     <img class="hero-bg" src="assets/images/home-hero.jpg" alt="ARAMIS Billiard Club">
-     OR: <video class="hero-bg" autoplay muted loop playsinline><source src="assets/video/aramis-reel.mp4" type="video/mp4"></video>
-     -->
+  <!-- ══════════════════════════════════════════════════════
+       HERO BACKGROUND
+       Ideal: wide atmospheric shot — billiard hall lit at night,
+       terrace with White Mountains, or players in action.
+       1920×1080px minimum · keep key subject bottom-centre.
+       Activate by adding class="has-media" to <section class="hero">
+       then uncomment the <img> or <video> below.
+       ══════════════════════════════════════════════════════ -->
+  <!-- Photo: <img class="hero-bg" src="assets/images/home-hero.jpg" alt="ARAMIS Billiard Club"> -->
+  <!-- Video reel: <video class="hero-bg" autoplay muted loop playsinline><source src="assets/video/aramis-reel.mp4" type="video/mp4"></video> -->
+
+  <!-- Placeholder — remove once real media is in place -->
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:1px dashed rgba(200,169,110,.1);pointer-events:none;">
+    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.15)" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+    <span style="font-size:8.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(200,169,110,.2);text-align:center;">home-hero.jpg · 1920×1080px<br>Hall lit at night · Terrace with mountains · Players in action</span>
+  </div>
+
   <div class="hero-ov"></div>
 
   <div class="hero-content">
