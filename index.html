@@ -909,9 +909,9 @@ body.mob-open { overflow: hidden; }
 /* Show hamburger on mobile */
 @media (max-width: 960px) {
   .nav-hamburger { display: flex; }
-  .nav { height: 70px !important; justify-content: center; }
+  .nav { height: 90px !important; justify-content: center; }
   .nav-logo { padding: 0; }
-  .nav-logo img { width: 220px !important; height: auto !important; }
+  .nav-logo img { width: 200px !important; height: auto !important; }
 }
 
 </style>
@@ -962,6 +962,55 @@ body.mob-open { overflow: hidden; }
   </button>
 </nav>
 
+
+<!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="ov-header">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-logo">
+    <button class="ov-close" id="ov-close" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="ov-rule"></div>
+  <nav class="ov-nav">
+    <a href="story.html"    class="ov-link">Our Story</a>
+    <div class="ov-subgroup" id="ovg-venue">
+      <button class="ov-trigger" onclick="toggleOvGroup('ovg-venue')">
+        The Venue
+        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ov-sublinks">
+        <a href="billiards.html"         class="ov-sublink"><span class="ov-dot"></span>Billiards</a>
+        <a href="darts.html"             class="ov-sublink"><span class="ov-dot"></span>Darts</a>
+        <a href="terrace.html"           class="ov-sublink"><span class="ov-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="ov-sublink"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
+        <a href="explore-our-venue.html" class="ov-sublink"><span class="ov-dot"></span>Explore the Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html"     class="ov-link">Our Menu</a>
+    <div class="ov-subgroup" id="ovg-events">
+      <button class="ov-trigger" onclick="toggleOvGroup('ovg-events')">
+        Events
+        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ov-sublinks">
+        <a href="tournaments.html" class="ov-sublink"><span class="ov-dot"></span>Tournaments</a>
+        <a href="social.html"      class="ov-sublink"><span class="ov-dot"></span>Social Events</a>
+      </div>
+    </div>
+    <a href="pro-shop.html" class="ov-link">Pro Shop</a>
+    <a href="contact.html"  class="ov-link">Find Us</a>
+  </nav>
+  <div class="ov-footer">
+    <div>
+      <div class="ov-footer-hours">Open 10:00 – 01:00 · Every day</div>
+      <div class="ov-footer-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
+    </div>
+    <a href="https://instagram.com/aramischania" target="_blank" class="ov-footer-ig">@aramischania</a>
+  </div>
+</div>
 
 
 <!-- ══════════════════════════════════════
