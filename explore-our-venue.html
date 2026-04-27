@@ -727,6 +727,69 @@ a { text-decoration: none; color: inherit; }
   .footer-body { grid-template-columns: 1fr; }
 }
 
+
+/* ── Mobile layout fixes (phone) ─────────── */
+@media (max-width: 768px) {
+  :root { --gutter: 20px; }
+
+  /* Hero — clear the 90px mobile nav */
+  .hero { min-height: 100svh; }
+  .hero-content { padding-top: calc(90px + 24px) !important; }
+  .hero-hed { font-size: clamp(36px, 10vw, 56px) !important; }
+
+  /* Common */
+  .inner { padding: 60px var(--gutter) !important; }
+  section { overflow-x: hidden; }
+
+  /* Grids → single column */
+  .strip                { grid-template-columns: 1fr 1fr !important; }
+  .exp                  { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .cards-row            { grid-template-columns: 1fr !important; }
+  .events               { grid-template-columns: 1fr !important; gap: 40px !important; padding: 60px var(--gutter) !important; }
+  .events-divider       { display: none; }
+  .reviews-section      { padding: 60px var(--gutter); }
+  .reviews-header       { flex-direction: column !important; align-items: flex-start !important; gap: 24px; }
+  .reviews-overall      { align-items: flex-start !important; }
+  .reviews-grid         { grid-template-columns: 1fr !important; }
+  .reviews-ctas         { flex-direction: column; }
+  .tables-intro,
+  .equipment-inner,
+  .divisions-inner,
+  .culture-inner,
+  .live-banner-inner    { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .upcoming-grid        { grid-template-columns: 1fr !important; }
+  .gallery-grid         { grid-template-columns: 1fr 1fr !important; }
+  .event-card           { grid-template-columns: 1fr !important; }
+  .event-body           { padding: 28px 24px !important; }
+  .expect-inner,
+  .your-event-inner     { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .enquiry-form-box     { padding: 32px 24px !important; }
+  .form-row-2,
+  .form-row             { grid-template-columns: 1fr !important; }
+  .contact-main         { grid-template-columns: 1fr !important; gap: 40px; padding: 48px var(--gutter) !important; }
+  .getting-here-inner   { grid-template-columns: 1fr !important; }
+  .hours-inner          { grid-template-columns: 1fr !important; gap: 40px; }
+  .coming-strip-grid    { grid-template-columns: 1fr 1fr !important; }
+  .coming-soon          { padding-top: calc(90px + 40px) !important; }
+  .founding,
+  .venue-inner          { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .family-photos        { grid-template-columns: 1fr 1fr !important; }
+  [class*="-inner"]     { padding-left: var(--gutter) !important; padding-right: var(--gutter) !important; }
+  .btn-primary,
+  .btn-ghost            { width: 100%; justify-content: center; }
+  .social-links         { flex-direction: column; align-items: center; }
+  .map-embed            { height: 240px; }
+  .map-address-bar      { flex-direction: column !important; gap: 16px; padding: 20px var(--gutter) !important; }
+}
+@media (min-width: 769px) and (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .strip        { grid-template-columns: repeat(2, 1fr) !important; }
+  .reviews-grid { grid-template-columns: 1fr 1fr !important; }
+  .upcoming-grid{ grid-template-columns: 1fr 1fr !important; }
+  .gallery-grid { grid-template-columns: 1fr 1fr !important; }
+  .cards-row    { grid-template-columns: 1fr 1fr !important; }
+}
+
 </style>
 </head>
 <body>

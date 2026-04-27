@@ -373,61 +373,6 @@ body.lang-gr .gr { display: inline; }
 }
 
 
-/* ── Overlay nav (shared with all pages) ─ */
-.nav-hamburger {
-  display: none;
-  flex-direction: column; justify-content: center; gap: 5px;
-  width: 48px; height: 48px; padding: 12px;
-  cursor: pointer; background: none; border: none;
-  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-  z-index: 1001; -webkit-tap-highlight-color: transparent;
-}
-.nav-hamburger span {
-  display: block; width: 22px; height: 1.5px;
-  background: rgba(243,229,210,.8);
-  transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .3s ease;
-  transform-origin: center;
-}
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-.nav-overlay { position: fixed; inset: 0; z-index: 998; background: #141210; display: flex; flex-direction: column; clip-path: inset(0 0 100% 0); transition: clip-path .5s cubic-bezier(.4,0,.2,1); pointer-events: none; overflow-y: auto; }
-.nav-overlay.open { clip-path: inset(0 0 0% 0); pointer-events: all; }
-.ov-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; flex-shrink: 0; border-bottom: 1px solid rgba(200,169,110,.1); }
-.ov-logo { height: 52px; width: auto; object-fit: contain; }
-.ov-close { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: rgba(200,185,164,.5); -webkit-tap-highlight-color: transparent; transition: color .2s; }
-.ov-close:hover { color: #f3e5d2; }
-.ov-rule { height: 1px; background: linear-gradient(to right, transparent, rgba(200,169,110,.25), transparent); margin: 0 24px; flex-shrink: 0; }
-.ov-nav { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 12px 36px 24px; }
-.ov-link { display: block; font-family: 'Fraunces', serif; font-size: clamp(36px, 10vw, 56px); font-weight: 400; font-style: italic; color: rgba(243,229,210,.5); line-height: 1; padding: 16px 0; border-bottom: 1px solid rgba(200,169,110,.07); transition: color .2s, transform .25s; -webkit-tap-highlight-color: transparent; }
-.ov-link:last-child, .ov-subgroup:last-child { border-bottom: none; }
-.ov-link:hover, .ov-link:active, .ov-link.active { color: #f3e5d2; transform: translateX(10px); }
-.ov-subgroup { border-bottom: 1px solid rgba(200,169,110,.07); }
-.ov-trigger { font-family: 'Fraunces', serif; font-size: clamp(36px, 10vw, 56px); font-weight: 400; font-style: italic; color: rgba(243,229,210,.5); line-height: 1; padding: 16px 0 12px; display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: color .2s; }
-.ov-trigger:hover { color: #f3e5d2; }
-.ov-trigger-arrow { width: 16px; height: 16px; color: rgba(200,169,110,.35); transition: transform .3s, color .2s; flex-shrink: 0; margin-top: 4px; }
-.ov-subgroup.expanded .ov-trigger-arrow { transform: rotate(90deg); color: #c8a96e; }
-.ov-subgroup.expanded .ov-trigger { color: #f3e5d2; }
-.ov-sublinks { max-height: 0; overflow: hidden; transition: max-height .35s cubic-bezier(.4,0,.2,1); padding-left: 4px; }
-.ov-subgroup.expanded .ov-sublinks { max-height: 300px; }
-.ov-sublink { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,185,164,.4); padding: 10px 0; transition: color .2s; -webkit-tap-highlight-color: transparent; }
-.ov-sublink:hover, .ov-sublink:active { color: #c8a96e; }
-.ov-dot { width: 3px; height: 3px; border-radius: 50%; background: #c8a96e; opacity: .3; flex-shrink: 0; }
-.ov-link, .ov-trigger { opacity: 0; transform: translateY(16px); transition: opacity .4s ease, transform .4s ease, color .2s; }
-.nav-overlay.open .ov-link, .nav-overlay.open .ov-trigger { opacity: 1; transform: translateY(0); }
-.nav-overlay.open .ov-nav > *:nth-child(1) .ov-trigger, .nav-overlay.open .ov-nav > *:nth-child(1).ov-link { transition-delay: .12s; }
-.nav-overlay.open .ov-nav > *:nth-child(2) .ov-trigger, .nav-overlay.open .ov-nav > *:nth-child(2).ov-link { transition-delay: .19s; }
-.nav-overlay.open .ov-nav > *:nth-child(3) .ov-trigger, .nav-overlay.open .ov-nav > *:nth-child(3).ov-link { transition-delay: .26s; }
-.nav-overlay.open .ov-nav > *:nth-child(4) .ov-trigger, .nav-overlay.open .ov-nav > *:nth-child(4).ov-link { transition-delay: .33s; }
-.nav-overlay.open .ov-nav > *:nth-child(5) .ov-trigger, .nav-overlay.open .ov-nav > *:nth-child(5).ov-link { transition-delay: .40s; }
-.nav-overlay.open .ov-nav > *:nth-child(6).ov-link { transition-delay: .47s; }
-.ov-footer { padding: 20px 36px 40px; border-top: 1px solid rgba(200,169,110,.08); flex-shrink: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
-.ov-footer-hours { font-size: 11px; color: rgba(200,185,164,.3); margin-bottom: 3px; }
-.ov-footer-addr  { font-size: 11px; color: rgba(200,185,164,.2); }
-.ov-footer-ig { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,169,110,.4); transition: color .2s; text-decoration: none; }
-.ov-footer-ig:hover { color: #c8a96e; }
-@media (max-width: 960px) {
-  .nav-hamburger { display: flex; }
   .topbar { position: relative; }
 }
 
@@ -450,21 +395,7 @@ body.lang-gr .gr { display: inline; }
       <span class="en">Back</span><span class="gr">Πίσω</span>
     </a>
   </div>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
 </header>
-
-<!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
-<div class="nav-overlay" id="nav-overlay">
-  <div class="ov-header">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-logo">
-    <button class="ov-close" id="ov-close" aria-label="Close menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-  </div>
   <div class="ov-rule"></div>
   <nav class="ov-nav">
     <a href="story.html"    class="ov-link">Our Story</a>
