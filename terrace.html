@@ -95,8 +95,7 @@ a { text-decoration: none; color: inherit; }
 .nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
 .nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
 .nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
-@media (max-width: 960px) {
-  .nav-left, .nav-right { display: none; }
+
   .nav { justify-content: center; }
   .nav-logo img { width: 240px; height: auto; }
 }
@@ -490,26 +489,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ─── FOOTER ──────────────────────────────── */
-.footer {
-  background: #141210; padding: 72px 0 40px;
-  border-top: 1px solid rgba(200,169,110,.1);
-}
-.footer-inner {
-  max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
-  display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px;
-}
-.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
-.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
-.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-.footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
-.footer-links a:hover { color: var(--cream); }
-.footer-bottom {
-  max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0;
-  border-top: 1px solid rgba(200,169,110,.07);
-  display: flex; justify-content: space-between; align-items: center;
-}
-.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
 
 /* ─── FADE-UP ─────────────────────────────── */
 .fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
@@ -529,9 +508,7 @@ a { text-decoration: none; color: inherit; }
   .food-grid { grid-template-columns: repeat(2, 1fr); }
   .food-photo-strip { grid-template-columns: 1fr; }
   .seasons-grid { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; gap: 12px; }
-}
+    }
 
 
   .nav-logo img { width: 200px; height: auto; }
@@ -542,115 +519,6 @@ a { text-decoration: none; color: inherit; }
   .gallery-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
-
-/* ══════════════════════════════════════════════
-   ARAMIS MOBILE NAV — Two rows + centred logo
-   ══════════════════════════════════════════════ */
-
-/* Hide hamburger entirely — not needed */
-.nav-hamburger { display: none !important; }
-.mob-menu, .mob-overlay { display: none !important; }
-body.mob-open { overflow: auto; }
-
-@media (max-width: 960px) {
-
-  /* ─── Nav container ─────────────────────── */
-  .nav {
-    height: auto !important;
-    min-height: var(--nav-h);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 12px 12px !important;
-    gap: 0;
-  }
-
-  /* ─── Hide the flex left/right wrappers ─── */
-  .nav-left, .nav-right {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex: none;
-    width: 100%;
-    gap: 0;
-    flex-wrap: nowrap;
-  }
-
-  /* ─── Nav links ────────────────────────── */
-  .nav-lk {
-    font-size: 8px !important;
-    letter-spacing: 1.4px !important;
-    padding: 7px 8px !important;
-    white-space: nowrap;
-    flex: 1;
-    text-align: center;
-    max-width: none;
-  }
-
-  /* ─── Logo — centred, below both rows ─── */
-  .nav-logo {
-    order: 10;
-    padding: 8px 0 0 !important;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .nav-logo img {
-    width: 160px !important;
-    height: auto !important;
-  }
-
-  /* ─── Dropdown panels — full width ──────── */
-  .nav-dd { flex: 1; }
-  .nav-dd-trigger {
-    justify-content: center;
-  }
-  .nav-dd-panel {
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) translateY(-4px) !important;
-    min-width: 200px;
-  }
-  .nav-dd:hover .nav-dd-panel,
-  .nav-dd.open .nav-dd-panel {
-    transform: translateX(-50%) translateY(0) !important;
-  }
-  .nav-dd-panel.panel-right {
-    left: 50% !important;
-    right: auto !important;
-  }
-
-  /* ─── Hero padding to clear taller nav ─── */
-  .hero-content {
-    padding-top: calc(var(--nav-h) + 40px) !important;
-  }
-  .coming-soon {
-    padding-top: calc(var(--nav-h) + 40px) !important;
-  }
-}
-
-@media (max-width: 768px) {
-  :root { --nav-h: 115px; }
-
-  .nav { min-height: var(--nav-h); }
-
-  .nav-lk {
-    font-size: 7.5px !important;
-    letter-spacing: 1.2px !important;
-    padding: 6px 6px !important;
-  }
-
-  /* Chevrons smaller */
-  .nav-dd-trigger .chevron {
-    width: 8px; height: 8px;
-  }
-}
-
-
-/* ══════════════════════════════════════════════
-   ARAMIS MOBILE — Full-Screen Overlay Nav
-   ══════════════════════════════════════════════ */
 
 /* ─── Hamburger button ───────────────────── */
 .nav-hamburger {
@@ -804,437 +672,101 @@ body.mob-open { overflow: auto; }
 .ov-footer-ig:hover { color: var(--gold); }
 
 /* Show hamburger, fix nav height & logo on mobile */
-@media (max-width: 960px) {
-  .nav-hamburger { display: flex; }
-  .nav-left, .nav-right { display: none; }
+{ display: none; }
   .nav { height: 90px !important; justify-content: center; }
-  .nav-logo { padding: 0; }
-  .nav-logo img { width: 200px !important; height: auto !important; }
+
+  .nav { height: 90px !important; justify-content: center; }
+
+
+
+/* ── CANONICAL FOOTER ────────────────────── */
+.site-footer {
+  background: #0e0c0a;
+  border-top: 1px solid rgba(200,169,110,.12);
+  padding: 0 0 0;
 }
 
-</style>
-</head>
-<body>
+/* Map strip */
+.footer-map {
+  width: 100%; height: 220px; overflow: hidden; position: relative;
+  border-bottom: 1px solid rgba(200,169,110,.1);
+}
+.footer-map iframe {
+  width: 100%; height: 100%; border: none; display: block;
+  filter: invert(90%) hue-rotate(180deg) saturate(.55) brightness(.8);
+}
+.footer-map-cta {
+  position: absolute; bottom: 16px; right: 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(20,18,16,.9); border: 1px solid rgba(200,169,110,.3);
+  color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 8px 14px;
+  backdrop-filter: blur(8px); transition: background .2s;
+  text-decoration: none;
+}
+.footer-map-cta:hover { background: rgba(200,169,110,.12); }
+.footer-map-cta svg { flex-shrink: 0; }
 
-
-<!-- ══ NAV ══════════════════════════════════ -->
-<nav class="nav" id="nav">
-  <div class="nav-left">
-    <a href="story.html" class="nav-lk">Our Story</a>
-    <div class="nav-dd" id="nav-venue">
-      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger active">
-        The Venue
-        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
-      </a>
-      <div class="nav-dd-panel">
-        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
-        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
-        <a href="terrace.html"           class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>The Terrace Cafe</a>
-        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
-        <div class="nav-dd-divider"></div>
-        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
-      </div>
-    </div>
-    <a href="menu.html" class="nav-lk">Our Menu</a>
-  </div>
-  <a href="index.html" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
-  </a>
-  <div class="nav-right">
-    <a href="events.html"   class="nav-lk">Events</a>
-    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
-    <a href="contact.html"  class="nav-lk">Find Us</a>
-  </div>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
-<div class="nav-overlay" id="nav-overlay">
-  <div class="ov-header">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-logo">
-    <button class="ov-close" id="ov-close" aria-label="Close menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-  </div>
-  <div class="ov-rule"></div>
-  <nav class="ov-nav">
-    <a href="story.html"    class="ov-link">Our Story</a>
-    <div class="ov-subgroup" id="ovg-venue">
-      <button class="ov-trigger" onclick="toggleOvGroup('ovg-venue')">
-        The Venue
-        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="ov-sublinks">
-        <a href="billiards.html"         class="ov-sublink"><span class="ov-dot"></span>Billiards</a>
-        <a href="darts.html"             class="ov-sublink"><span class="ov-dot"></span>Darts</a>
-        <a href="terrace.html"           class="ov-sublink"><span class="ov-dot"></span>The Terrace Cafe</a>
-        <a href="kitchen.html"           class="ov-sublink"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
-        <a href="explore-our-venue.html" class="ov-sublink"><span class="ov-dot"></span>Explore the Venue →</a>
-      </div>
-    </div>
-    <a href="menu.html"     class="ov-link">Our Menu</a>
-    <div class="ov-subgroup" id="ovg-events">
-      <button class="ov-trigger" onclick="toggleOvGroup('ovg-events')">
-        Events
-        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="ov-sublinks">
-        <a href="tournaments.html" class="ov-sublink"><span class="ov-dot"></span>Tournaments</a>
-        <a href="social.html"      class="ov-sublink"><span class="ov-dot"></span>Social Events</a>
-      </div>
-    </div>
-    <a href="pro-shop.html" class="ov-link">Pro Shop</a>
-    <a href="contact.html"  class="ov-link">Find Us</a>
-  </nav>
-  <div class="ov-footer">
-    <div>
-      <div class="ov-footer-hours">Open 10:00 – 01:00 · Every day</div>
-      <div class="ov-footer-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
-    </div>
-    <a href="https://instagram.com/aramischania" target="_blank" class="ov-footer-ig">@aramischania</a>
-  </div>
-</div>
-
-
-
-
-<!-- ══ HERO ══════════════════════════════════
-     Ideal: terrace at golden hour — tables set, mountains behind, warm light
-     Replace placeholder: <img src="assets/images/terrace-hero.jpg" alt="ARAMIS Terrace Cafe">
-     ════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-img">
-    <div class="hero-img-placeholder">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-        <polyline points="9,22 9,12 15,12 15,22"/>
-        <path d="M7 3.5C8.5 1.5 10.5 1 12 1s3.5.5 5 2.5"/>
-      </svg>
-      <span>Terrace at golden hour — tables set, White Mountains in background</span>
-    </div>
-    <!-- <img src="assets/images/terrace-hero.jpg" alt="ARAMIS Terrace Cafe"> -->
-  </div>
-  <div class="hero-ov"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">The Terrace Cafe · ARAMIS Chania</div>
-    <h1 class="hero-hed">Where the mountains<br>meet your cocktail.</h1>
-    <div class="hero-rule"></div>
-    <div class="hero-sub">
-      The social heart of ARAMIS.<br>
-      All-day kitchen &amp; bar · White Mountains views · Open every season.
-    </div>
-  </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
-</section>
-
-
-<!-- ══ FULL-WIDTH PHOTO + ATTR STRIP ══════════
-     Show the terrace space — wide, atmospheric
-     ════════════════════════════════════════ -->
-<div class="space-photo fu">
-  <!-- <img src="assets/images/terrace-wide.jpg" alt="ARAMIS terrace wide view"> -->
-  <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--bg-surf);">
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.15)" stroke-width=".7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-    <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Terrace wide shot — the full space</span>
-  </div>
-  <div class="space-photo-ov"></div>
-  <div class="space-photo-caption">"This is where ARAMIS lives — in every season."</div>
-</div>
-
-<div class="attr-strip fu">
-  <div class="attr-item">
-    <div class="attr-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-    </div>
-    <div class="attr-title">The Main Seating</div>
-    <div class="attr-desc">The terrace is the primary gathering space at ARAMIS — for groups, meals, drinks, and everything in between.</div>
-  </div>
-  <div class="attr-item">
-    <div class="attr-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-    </div>
-    <div class="attr-title">Half Enclosed</div>
-    <div class="attr-desc">Sliding glass windows, solid roof, and heating on one side — comfortable in any weather, any month of the year.</div>
-  </div>
-  <div class="attr-item">
-    <div class="attr-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-    </div>
-    <div class="attr-title">White Mountains Views</div>
-    <div class="attr-desc">Crete's famous White Mountains stretch across the horizon from the open side of the terrace — unchanged in any season.</div>
-  </div>
-  <div class="attr-item">
-    <div class="attr-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-    </div>
-    <div class="attr-title">2 Large Screens</div>
-    <div class="attr-desc">Football, basketball, all major sports on demand. The match comes with the mountain view.</div>
-  </div>
-</div>
-
-
-<!-- ══ TERRACE SPLIT — ENCLOSED / OPEN ════════
-     Two halves, each with photo placeholder and description overlay
-     ════════════════════════════════════════ -->
-<div class="terrace-split">
-
-  <div class="terrace-half fu">
-    <!-- <img src="assets/images/terrace-enclosed.jpg" alt="ARAMIS enclosed terrace"> -->
-    <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg-surf);">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Enclosed side — sliding glass, winter scene</span>
-    </div>
-    <div class="terrace-half-ov"></div>
-    <div class="terrace-half-content">
-      <div class="terrace-half-tag">Year-round</div>
-      <div class="terrace-half-hed">The enclosed side.</div>
-      <div class="terrace-half-desc">Sliding glass windows, a solid roof, and heating. Whatever the weather, this side stays comfortable — and the view through the glass stays exactly as good.</div>
-    </div>
-  </div>
-
-  <div class="terrace-half fu fu-d1">
-    <!-- <img src="assets/images/terrace-open.jpg" alt="ARAMIS open terrace with mountain view"> -->
-    <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#1e1c18;">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg>
-      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Open side — mountain view, summer/fair weather</span>
-    </div>
-    <div class="terrace-half-ov"></div>
-    <div class="terrace-half-content">
-      <div class="terrace-half-tag">Open air</div>
-      <div class="terrace-half-hed">The open side.</div>
-      <div class="terrace-half-desc">White Mountains across the horizon, open sky above. In summer, the glass walls slide fully open and the two halves become one expansive terrace.</div>
-    </div>
-  </div>
-
-</div>
-
-
-<!-- ══ THE KITCHEN ════════════════════════════ -->
-<section class="kitchen">
-  <div class="kitchen-inner">
-
-    <div class="kitchen-text fu">
-      <div class="stag">The Kitchen</div>
-      <h2 class="sec-hed">From our kitchen<br>to your table.</h2>
-      <div class="pull-quote">"Food with soul, by the hands of Sissi and Dimitra."</div>
-      <p class="sec-body">Pizza made fresh, burgers built properly, ζυμαρικά prepared when you order — not before. Everything on the menu is cooked to order. This isn't bar food.</p>
-      <a href="menu.html" class="btn-ghost" style="margin-top:32px;">
-        See the full menu
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <div class="kitchen-photo fu fu-d1">
-      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-        <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Food photo — pizza close-up or plate being served</span>
-      </div>
-      <!-- <img src="assets/images/terrace-kitchen.jpg" alt="ARAMIS kitchen — fresh pizza"> -->
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ THE BAR ════════════════════════════════ -->
-<section class="bar">
-  <div class="bar-inner">
-
-    <div class="bar-photo fu">
-      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-        <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Bar photo — cocktail being prepared or presented</span>
-      </div>
-      <!-- <img src="assets/images/bar-cocktail.jpg" alt="ARAMIS bar cocktail"> -->
-    </div>
-
-    <div class="bar-text fu fu-d1">
-      <div class="stag">The Bar</div>
-      <h2 class="sec-hed">From the bar<br>to your table.</h2>
-      <p class="sec-body">Morning espresso to late-night cocktails — the bar runs all day. Coffee, cold brews, fresh juices, a full spirits shelf, beers, wine, and a cocktail menu with personality. Whatever your pace, we'll match it.</p>
-      <a href="menu.html" class="btn-ghost">
-        See the drink menu
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ SPORTS VIEWING ════════════════════════
-     Primary home for sports viewing on the site.
-     Also briefly referenced in billiards.html.
-     ════════════════════════════════════════ -->
-<section class="sports">
-  <div class="sports-inner">
-
-    <div class="sports-text fu">
-      <div class="stag">Sports on the Terrace</div>
-      <h2 class="sec-hed">The match, the mountains,<br>your drink.</h2>
-      <p class="sec-body">Two large screens on the terrace show all major sports on demand — football, basketball, tennis, and whatever else is worth watching. When there's an international billiards tournament, we put that up too.</p>
-      <p class="sec-body">The White Mountains stay in the background regardless. Settle in, order something good, and watch from one of the best rooftops in Chania.</p>
-      <div class="screens-row">
-        <div class="screen-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          <span>2 large screens</span>
-        </div>
-        <div class="screen-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-          <span>All major sports</span>
-        </div>
-        <div class="screen-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>On demand</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sports-photo fu fu-d1">
-      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".7"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Terrace screens — match on, drinks on table</span>
-      </div>
-      <!-- <img src="assets/images/terrace-screens.jpg" alt="Sports viewing on the ARAMIS terrace"> -->
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ SEASONS ════════════════════════════════ -->
-<section class="seasons">
-  <div class="seasons-inner">
-    <div class="fu">
-      <div class="stag">Year-round</div>
-      <h2 class="sec-hed">The view doesn't change.<br>Neither does the welcome.</h2>
-      <p class="sec-body" style="max-width:640px;">The terrace was renovated to work in every season — not just the ones with good weather. Here's how it looks across the year.</p>
-    </div>
-    <div class="seasons-grid">
-      <div class="season-card fu">
-        <div class="season-watermark">☀</div>
-        <div class="season-name">Summer</div>
-        <div class="season-desc">The sliding glass walls open fully — both halves of the terrace become one expansive space. Open sky, mountain view, warm evenings. The terrace at its most alive.</div>
-      </div>
-      <div class="season-card fu fu-d1">
-        <div class="season-watermark">❄</div>
-        <div class="season-name">Winter</div>
-        <div class="season-desc">The enclosed side comes into its own. Heated, glass-walled, solid roof — the White Mountains look exactly the same through the glass as they do in open air. Warm inside, spectacular outside.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ FOOTER ═════════════════════════════════ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">
-        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
-      </div>
-      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
-    </div>
-    <div>
-      <div class="footer-col-hed">Navigate</div>
-      <div class="footer-links">
-        <a href="story.html">Our Story</a>
-        <a href="explore-our-venue.html">Explore our Venue</a>
-        <a href="menu.html">Our Menu</a>
-        <a href="events.html">Events</a>
-        <a href="pro-shop.html">Pro Shop</a>
-        <a href="contact.html">Find Us</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-hed">Visit</div>
-      <div class="footer-links">
-        <a href="#">Open 10:00 – 01:00 daily</a>
-        <a href="#">Chania, Crete</a>
-        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
-    <div class="footer-copy">Design · Manos Chatzakis</div>
-  </div>
-</footer>
-
-
-<script>
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-// Dropdown touch
-const venueDd = document.getElementById('nav-venue');
-if (venueDd) {
-  venueDd.addEventListener('click', e => {
-    if (window.matchMedia('(hover: none)').matches) {
-      e.preventDefault();
-      venueDd.classList.toggle('open');
-    }
-  });
-  document.addEventListener('click', e => {
-    if (!venueDd.contains(e.target)) venueDd.classList.remove('open');
-  });
+/* Main footer body */
+.footer-body {
+  max-width: 1200px; margin: 0 auto;
+  padding: 52px 72px 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
 }
 
-// Fade-up
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+/* Column 1 — brand */
+.footer-brand {}
+.footer-brand-logo { margin-bottom: 20px; }
+.footer-brand-logo img { width: 160px; object-fit: contain; }
+.footer-brand-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 20px; }
+.footer-brand-contact { display: flex; flex-direction: column; gap: 6px; }
+.footer-brand-contact a,
+.footer-brand-contact span {
+  font-size: 12px; color: rgba(200,185,164,.45);
+  text-decoration: none; transition: color .2s; line-height: 1.5;
+}
+.footer-brand-contact a:hover { color: var(--gold); }
 
+/* Columns 2–4 */
+.footer-col {}
+.footer-col-title {
+  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px; display: block;
+}
+.footer-col-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-col-links a,
+.footer-col-links span {
+  font-size: 12px; color: rgba(200,185,164,.5);
+  text-decoration: none; transition: color .2s; line-height: 1.4;
+}
+.footer-col-links a:hover { color: var(--cream); }
+.footer-col-links .footer-divider {
+  height: 1px; background: rgba(200,169,110,.07); margin: 4px 0;
+}
 
-
-// ── Overlay nav ──────────────────────────────────────────────────────
-(function() {
-  var hamburger = document.getElementById('nav-hamburger');
-  var overlay   = document.getElementById('nav-overlay');
-  var closeBtn  = document.getElementById('ov-close');
-  if (!hamburger || !overlay) return;
-
-  function openOverlay() {
-    overlay.classList.add('open');
-    hamburger.classList.add('open');
-    document.body.style.overflow = 'hidden';
+/* Bottom bar */
+.footer-bottom-bar {
+  max-width: 1200px; margin: 0 auto;
+  padding: 20px 72px 28px;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+/* Mobile footer */
+@media (max-width: 768px) {
+  .footer-map { height: 180px; }
+  .footer-body {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 40px 20px 32px;
   }
-  function closeOverlay() {
-    overlay.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  hamburger.addEventListener('click', function() {
-    overlay.classList.contains('open') ? closeOverlay() : openOverlay();
-  });
-  if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
-  overlay.querySelectorAll('.ov-link, .ov-sublink').forEach(function(l) {
-    l.addEventListener('click', closeOverlay);
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeOverlay();
-  });
-})();
-
-function toggleOvGroup(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  document.querySelectorAll('.ov-subgroup').forEach(function(g) {
-    if (g.id !== id) g.classList.remove('expanded');
-  });
-  el.classList.toggle('expanded');
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom-bar { padding: 16px 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer-body { grid-template-columns: 1fr; }
 }
 
-</script>
 
-</body>
-</html>

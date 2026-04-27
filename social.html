@@ -254,16 +254,6 @@ a { text-decoration: none; color: inherit; }
 .offseason-alt a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.3); }
 
 /* ─── FOOTER ──────────────────────────────── */
-.footer { background: #141210; padding: 72px 0 40px; border-top: 1px solid rgba(200,169,110,.1); }
-.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px; }
-.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
-.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
-.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-.footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
-.footer-links a:hover { color: var(--cream); }
-.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0; border-top: 1px solid rgba(200,169,110,.07); display: flex; justify-content: space-between; align-items: center; }
-.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
 
 /* ─── FADE-UP ─────────────────────────────── */
 .fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
@@ -279,9 +269,7 @@ a { text-decoration: none; color: inherit; }
   .expect-inner, .your-event-inner { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; gap: 12px; }
-}
+    }
 
   .nav-logo img { width: 200px; height: auto; }
   .strip { grid-template-columns: repeat(2, 1fr) !important; }
@@ -291,115 +279,6 @@ a { text-decoration: none; color: inherit; }
   .gallery-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
-
-/* ══════════════════════════════════════════════
-   ARAMIS MOBILE NAV — Two rows + centred logo
-   ══════════════════════════════════════════════ */
-
-/* Hide hamburger entirely — not needed */
-.nav-hamburger { display: none !important; }
-.mob-menu, .mob-overlay { display: none !important; }
-body.mob-open { overflow: auto; }
-
-@media (max-width: 960px) {
-
-  /* ─── Nav container ─────────────────────── */
-  .nav {
-    height: auto !important;
-    min-height: var(--nav-h);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 12px 12px !important;
-    gap: 0;
-  }
-
-  /* ─── Hide the flex left/right wrappers ─── */
-  .nav-left, .nav-right {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex: none;
-    width: 100%;
-    gap: 0;
-    flex-wrap: nowrap;
-  }
-
-  /* ─── Nav links ────────────────────────── */
-  .nav-lk {
-    font-size: 8px !important;
-    letter-spacing: 1.4px !important;
-    padding: 7px 8px !important;
-    white-space: nowrap;
-    flex: 1;
-    text-align: center;
-    max-width: none;
-  }
-
-  /* ─── Logo — centred, below both rows ─── */
-  .nav-logo {
-    order: 10;
-    padding: 8px 0 0 !important;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .nav-logo img {
-    width: 160px !important;
-    height: auto !important;
-  }
-
-  /* ─── Dropdown panels — full width ──────── */
-  .nav-dd { flex: 1; }
-  .nav-dd-trigger {
-    justify-content: center;
-  }
-  .nav-dd-panel {
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) translateY(-4px) !important;
-    min-width: 200px;
-  }
-  .nav-dd:hover .nav-dd-panel,
-  .nav-dd.open .nav-dd-panel {
-    transform: translateX(-50%) translateY(0) !important;
-  }
-  .nav-dd-panel.panel-right {
-    left: 50% !important;
-    right: auto !important;
-  }
-
-  /* ─── Hero padding to clear taller nav ─── */
-  .hero-content {
-    padding-top: calc(var(--nav-h) + 40px) !important;
-  }
-  .coming-soon {
-    padding-top: calc(var(--nav-h) + 40px) !important;
-  }
-}
-
-@media (max-width: 768px) {
-  :root { --nav-h: 115px; }
-
-  .nav { min-height: var(--nav-h); }
-
-  .nav-lk {
-    font-size: 7.5px !important;
-    letter-spacing: 1.2px !important;
-    padding: 6px 6px !important;
-  }
-
-  /* Chevrons smaller */
-  .nav-dd-trigger .chevron {
-    width: 8px; height: 8px;
-  }
-}
-
-
-/* ══════════════════════════════════════════════
-   ARAMIS MOBILE — Full-Screen Overlay Nav
-   ══════════════════════════════════════════════ */
 
 /* ─── Hamburger button ───────────────────── */
 .nav-hamburger {
@@ -553,564 +432,101 @@ body.mob-open { overflow: auto; }
 .ov-footer-ig:hover { color: var(--gold); }
 
 /* Show hamburger, fix nav height & logo on mobile */
-@media (max-width: 960px) {
-  .nav-hamburger { display: flex; }
-  .nav-left, .nav-right { display: none; }
+{ display: none; }
   .nav { height: 90px !important; justify-content: center; }
-  .nav-logo { padding: 0; }
-  .nav-logo img { width: 200px !important; height: auto !important; }
+
+  .nav { height: 90px !important; justify-content: center; }
+
+
+
+/* ── CANONICAL FOOTER ────────────────────── */
+.site-footer {
+  background: #0e0c0a;
+  border-top: 1px solid rgba(200,169,110,.12);
+  padding: 0 0 0;
 }
 
-</style>
-</head>
-<body>
+/* Map strip */
+.footer-map {
+  width: 100%; height: 220px; overflow: hidden; position: relative;
+  border-bottom: 1px solid rgba(200,169,110,.1);
+}
+.footer-map iframe {
+  width: 100%; height: 100%; border: none; display: block;
+  filter: invert(90%) hue-rotate(180deg) saturate(.55) brightness(.8);
+}
+.footer-map-cta {
+  position: absolute; bottom: 16px; right: 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(20,18,16,.9); border: 1px solid rgba(200,169,110,.3);
+  color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 8px 14px;
+  backdrop-filter: blur(8px); transition: background .2s;
+  text-decoration: none;
+}
+.footer-map-cta:hover { background: rgba(200,169,110,.12); }
+.footer-map-cta svg { flex-shrink: 0; }
 
-<!-- ══ NAV ══════════════════════════════════ -->
-<nav class="nav" id="nav">
-  <div class="nav-left">
-    <a href="story.html" class="nav-lk">Our Story</a>
-    <div class="nav-dd" id="nav-venue">
-      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
-        The Venue
-        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
-      </a>
-      <div class="nav-dd-panel">
-        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
-        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
-        <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
-        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
-        <div class="nav-dd-divider"></div>
-        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
-      </div>
-    </div>
-    <a href="menu.html" class="nav-lk">Our Menu</a>
-  </div>
-  <a href="index.html" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
-  </a>
-  <div class="nav-right">
-    <div class="nav-dd" id="nav-events">
-      <a href="social.html" class="nav-lk nav-dd-trigger active">
-        Events
-        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
-      </a>
-      <div class="nav-dd-panel panel-right">
-        <a href="tournaments.html" class="nav-dd-item"><span class="dd-dot"></span>Tournaments</a>
-        <a href="social.html"      class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>Social Events</a>
-      </div>
-    </div>
-    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
-    <a href="contact.html"  class="nav-lk">Find Us</a>
-  </div>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
-<div class="nav-overlay" id="nav-overlay">
-  <div class="ov-header">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-logo">
-    <button class="ov-close" id="ov-close" aria-label="Close menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-  </div>
-  <div class="ov-rule"></div>
-  <nav class="ov-nav">
-    <a href="story.html"    class="ov-link">Our Story</a>
-    <div class="ov-subgroup" id="ovg-venue">
-      <button class="ov-trigger" onclick="toggleOvGroup('ovg-venue')">
-        The Venue
-        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="ov-sublinks">
-        <a href="billiards.html"         class="ov-sublink"><span class="ov-dot"></span>Billiards</a>
-        <a href="darts.html"             class="ov-sublink"><span class="ov-dot"></span>Darts</a>
-        <a href="terrace.html"           class="ov-sublink"><span class="ov-dot"></span>The Terrace Cafe</a>
-        <a href="kitchen.html"           class="ov-sublink"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
-        <a href="explore-our-venue.html" class="ov-sublink"><span class="ov-dot"></span>Explore the Venue →</a>
-      </div>
-    </div>
-    <a href="menu.html"     class="ov-link">Our Menu</a>
-    <div class="ov-subgroup" id="ovg-events">
-      <button class="ov-trigger" onclick="toggleOvGroup('ovg-events')">
-        Events
-        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="ov-sublinks">
-        <a href="tournaments.html" class="ov-sublink"><span class="ov-dot"></span>Tournaments</a>
-        <a href="social.html"      class="ov-sublink"><span class="ov-dot"></span>Social Events</a>
-      </div>
-    </div>
-    <a href="pro-shop.html" class="ov-link">Pro Shop</a>
-    <a href="contact.html"  class="ov-link">Find Us</a>
-  </nav>
-  <div class="ov-footer">
-    <div>
-      <div class="ov-footer-hours">Open 10:00 – 01:00 · Every day</div>
-      <div class="ov-footer-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
-    </div>
-    <a href="https://instagram.com/aramischania" target="_blank" class="ov-footer-ig">@aramischania</a>
-  </div>
-</div>
-
-
-
-
-<!-- ══ HERO ══════════════════════════════════
-     Ideal: packed terrace, live music, crowd energy, warm light
-     Swap: <img src="assets/images/social-hero.jpg" alt="Social events at ARAMIS">
-     ════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-img">
-    <div class="hero-placeholder">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      <span>Social event hero — terrace crowd, live music, DJ night</span>
-    </div>
-    <!-- <img src="assets/images/social-hero.jpg" alt="Social events at ARAMIS"> -->
-  </div>
-  <div class="hero-ov"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Social Events · ARAMIS Chania</div>
-    <h1 class="hero-hed">There's always something<br>happening at ARAMIS.</h1>
-    <div class="hero-rule"></div>
-    <p class="hero-sub">Live music, DJ nights, themed evenings, and more — on the best rooftop in Chania.</p>
-  </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
-</section>
-
-
-<!-- ══ UPCOMING EVENTS ════════════════════════ -->
-<section class="upcoming">
-  <div class="upcoming-inner">
-    <div class="fu">
-      <div class="stag">Coming Up</div>
-      <h2 class="sec-hed">What's on.</h2>
-    </div>
-
-    <div class="event-list">
-
-      <!--
-        ═══════════════════════════════════════════════════════════
-        EVENT CARD TEMPLATE
-        Copy this block for each upcoming event.
-        The .event-poster div is the hero for the event poster/image.
-        Replace content with real event details.
-        ═══════════════════════════════════════════════════════════
-      -->
-
-      <div class="event-card fu">
-        <div class="event-poster">
-          <!-- Swap with: <img src="assets/images/social-poster-01.jpg" alt="Friday Night Live"> -->
-          <div class="event-poster-placeholder">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-            <span>Event poster</span>
-          </div>
-        </div>
-        <div class="event-body">
-          <div class="event-date">Friday 28 March · 21:00</div>
-          <div class="event-name">Friday Night Live</div>
-          <div class="event-desc">Live acoustic music on the terrace. Mountain views, cocktails, and the kind of Friday evening that makes the week worth it.</div>
-          <div class="event-tags">
-            <span class="event-tag">Live Music</span>
-            <span class="event-tag">Terrace</span>
-            <span class="event-tag">Free Entry</span>
-          </div>
-          <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost" style="align-self:flex-start;">
-            Follow for updates
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="event-card fu">
-        <div class="event-poster">
-          <div class="event-poster-placeholder">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            <span>Event poster</span>
-          </div>
-        </div>
-        <div class="event-body">
-          <div class="event-date">Saturday 5 April · 22:00</div>
-          <div class="event-name">DJ Night</div>
-          <div class="event-desc">Beats and cocktails under the stars. The terrace at its most alive — open air, mountain backdrop, the bar running all night.</div>
-          <div class="event-tags">
-            <span class="event-tag">DJ Set</span>
-            <span class="event-tag">Terrace</span>
-            <span class="event-tag">Free Entry</span>
-          </div>
-          <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost" style="align-self:flex-start;">
-            Follow for updates
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!--
-        ══════════════════════════════════════════════════════
-        QUIET PERIOD / NO UPCOMING EVENTS:
-        Remove the example cards above and uncomment this block.
-        ══════════════════════════════════════════════════════
-      -->
-      <!--
-      <div class="event-offseason">
-        <div class="offseason-inner">
-          <div class="offseason-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-          </div>
-          <div class="offseason-hed">Nothing in the calendar just yet.</div>
-          <div class="offseason-sub">Events get announced here and on Instagram first. Drop your email below and we'll let you know when something's coming up.</div>
-          <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event, 'social events')">
-            <input type="email" placeholder="Your email address" required>
-            <button type="submit">Keep me posted</button>
-          </form>
-          <div class="newsletter-success">You're in — we'll be in touch when something's coming up.</div>
-          <div class="offseason-alt">Or follow <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a> — we announce there first.</div>
-        </div>
-      </div>
-      -->
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ WHAT TO EXPECT ═════════════════════════ -->
-<section class="expect">
-  <div class="expect-inner">
-
-    <div class="expect-photo fu">
-      <div class="expect-ph">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <span>Terrace evening — live music or crowd</span>
-      </div>
-      <!-- <img src="assets/images/social-terrace-evening.jpg" alt="ARAMIS social evening"> -->
-    </div>
-
-    <div class="fu fu-d1">
-      <div class="stag">What to expect</div>
-      <h2 class="sec-hed">Not just billiards.<br>Not just a bar.</h2>
-      <p class="sec-body">ARAMIS hosts live music, DJ sets, dance groups, themed nights, and seasonal celebrations throughout the year. Some events are planned weeks in advance; others come together because the evening calls for it.</p>
-      <p class="sec-body">The terrace is the stage for most of it — mountain views, open air, and space for everyone. In winter, we bring the energy indoors. Whether it's a Friday acoustic set or a full Saturday DJ night, the spirit is the same: good company, good drinks, and a venue that knows how to set the mood.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ YOUR EVENT / PRIVATE HIRE ══════════════ -->
-<section class="your-event" id="your-event">
-  <div class="your-event-inner">
-
-    <div class="fu">
-      <div class="stag">Your Event</div>
-      <h2 class="sec-hed">Host your next<br>event at ARAMIS.</h2>
-      <p class="sec-body">Mountain views, pro billiard tables, a kitchen that delivers. ARAMIS gives you something most venues can't — a rooftop terrace and a professional billiard hall under one roof. Use one or both.</p>
-      <p class="sec-body">Every event is tailored to what you need. There's no fixed package — tell us what you're imagining and we'll make it work.</p>
-
-      <div class="occasions">
-        <div class="occasion-item">
-          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <div class="occasion-name">Birthday celebrations</div>
-        </div>
-        <div class="occasion-item">
-          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <div class="occasion-name">Corporate outings &amp; team building</div>
-        </div>
-        <div class="occasion-item">
-          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
-          <div class="occasion-name">Group billiard sessions &amp; tournaments</div>
-        </div>
-        <div class="occasion-item">
-          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 9V7H2v5a6 6 0 0 0 6 6h8a6 6 0 0 0 6-6V7"/><path d="M6 7V4M18 7V4"/></svg></div>
-          <div class="occasion-name">Graduation &amp; farewell parties</div>
-        </div>
-        <div class="occasion-item">
-          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div class="occasion-name">Reunion gatherings</div>
-        </div>
-        <div class="occasion-item">
-          <div class="occasion-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-          <div class="occasion-name">Private tournament evenings</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Enquiry form -->
-    <div class="fu fu-d1">
-      <div class="enquiry-form">
-        <div class="form-title">Let's plan it together.</div>
-        <div class="form-sub">Tell us about your event and we'll get back to you within 24 hours.</div>
-
-        <form class="form-grid" id="social-enquiry-form">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="f-name">Your name</label>
-              <input type="text" id="f-name" name="name" placeholder="Name" required>
-            </div>
-            <div class="form-field">
-              <label for="f-phone">Phone</label>
-              <input type="tel" id="f-phone" name="phone" placeholder="+30 000 000 0000">
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="f-email">Email</label>
-            <input type="email" id="f-email" name="email" placeholder="your@email.com" required>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="f-type">Type of event</label>
-              <select id="f-type" name="type">
-                <option value="">Select...</option>
-                <option>Birthday</option>
-                <option>Corporate / Team building</option>
-                <option>Group billiards</option>
-                <option>Private tournament</option>
-                <option>Graduation / Farewell</option>
-                <option>Reunion</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="f-date">Preferred date</label>
-              <input type="date" id="f-date" name="date">
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="f-guests">Estimated number of guests</label>
-            <input type="number" id="f-guests" name="guests" placeholder="e.g. 20" min="2">
-          </div>
-          <div class="form-field">
-            <label for="f-msg">Anything else we should know</label>
-            <textarea id="f-msg" name="message" placeholder="Tell us about your event..."></textarea>
-          </div>
-          <div class="form-submit">
-            <button type="submit">Send enquiry</button>
-            <p class="form-note">We'll respond within 24 hours · (+30) 28210 70307</p>
-          </div>
-        </form>
-
-        <div class="direct-contact" style="margin-top:28px; padding-top:24px; border-top:1px solid rgba(200,169,110,.1);">
-          <div class="contact-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.07 6.07l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>(+30) 28210 70307 &nbsp;·&nbsp; <a href="tel:+306975993307">6975 993 307</a></span>
-          </div>
-          <div class="contact-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-          </div>
-          <div class="contact-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ PAST EVENTS GALLERY ════════════════════ -->
-<section class="gallery-section">
-  <div class="gallery-inner">
-    <div class="fu">
-      <div class="stag">Some Nights at ARAMIS</div>
-      <h2 class="sec-hed">The photos say more<br>than we could.</h2>
-    </div>
-
-    <div class="gallery-grid">
-      <div class="gallery-item fu">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Live music night</span></div>
-      </div>
-      <div class="gallery-item fu fu-d1">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>DJ set terrace</span></div>
-      </div>
-      <div class="gallery-item fu fu-d2">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Private event</span></div>
-      </div>
-      <div class="gallery-item fu">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Crowd on terrace</span></div>
-      </div>
-      <div class="gallery-item fu fu-d1">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Themed evening</span></div>
-      </div>
-      <div class="gallery-item fu fu-d2">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Birthday celebration</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ FOLLOW US ══════════════════════════════ -->
-<div class="social-follow fu">
-  <div class="social-follow-inner">
-    <div class="social-hed">First to know.</div>
-    <p class="social-sub">We announce events on social media first. Follow us and you won't miss a thing.</p>
-    <div class="social-actions">
-      <a href="https://instagram.com/aramischania" target="_blank" class="btn-primary">
-        @aramischania on Instagram
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      </a>
-      <a href="https://facebook.com/aramischania" target="_blank" class="btn-ghost">
-        Facebook
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ FOOTER ═════════════════════════════════ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS"></div>
-      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
-    </div>
-    <div>
-      <div class="footer-col-hed">Navigate</div>
-      <div class="footer-links">
-        <a href="story.html">Our Story</a>
-        <a href="explore-our-venue.html">Explore our Venue</a>
-        <a href="tournaments.html">Tournaments</a>
-        <a href="social.html">Social Events</a>
-        <a href="menu.html">Our Menu</a>
-        <a href="contact.html">Find Us</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-hed">Plan your event</div>
-      <div class="footer-links">
-        <a href="social.html#your-event">Send an enquiry</a>
-        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-        <a href="tel:+302821070307">(+30) 28210 70307</a>
-        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
-    <div class="footer-copy">Design · Manos Chatzakis</div>
-  </div>
-</footer>
-
-
-<script>
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-
-// Dropdowns
-['nav-venue','nav-events'].forEach(id => {
-  const dd = document.getElementById(id);
-  if (!dd) return;
-  dd.addEventListener('click', e => { if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); dd.classList.toggle('open'); } });
-  document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
-});
-
-// Newsletter subscribe
-function handleNewsletterSubmit(e, list) {
-  e.preventDefault();
-  var form  = e.target;
-  var email = form.querySelector('input[type="email"]').value;
-  var suc   = form.nextElementSibling;
-  fetch('https://formspree.io/f/xeevwqjz', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({ email: email, source: 'Events newsletter: ' + list })
-  }).then(function(res) {
-    if (res.ok) {
-      form.style.display = 'none';
-      if (suc && suc.classList.contains('newsletter-success')) suc.style.display = 'block';
-    }
-  }).catch(function() {});
+/* Main footer body */
+.footer-body {
+  max-width: 1200px; margin: 0 auto;
+  padding: 52px 72px 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
 }
 
-// Your Event enquiry form
-document.addEventListener('DOMContentLoaded', function() {
-  var form = document.getElementById('social-enquiry-form');
-  if (!form) return;
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    var data = {
-      name:     form.querySelector('#f-name').value,
-      email:    form.querySelector('#f-email').value,
-      phone:    form.querySelector('#f-phone').value,
-      type:     form.querySelector('#f-type').value,
-      date:     form.querySelector('#f-date').value,
-      guests:   form.querySelector('#f-guests').value,
-      message:  form.querySelector('#f-msg').value,
-      _subject: 'Event Enquiry — ARAMIS Website'
-    };
-    fetch('https://formspree.io/f/xeevwqjz', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(function(res) {
-      // Formspree returns 200 on success
-      document.getElementById('form-wrap').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    }).catch(function() {
-      btn.textContent = 'Try again';
-      btn.disabled = false;
-    });
-  });
-});
+/* Column 1 — brand */
+.footer-brand {}
+.footer-brand-logo { margin-bottom: 20px; }
+.footer-brand-logo img { width: 160px; object-fit: contain; }
+.footer-brand-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 20px; }
+.footer-brand-contact { display: flex; flex-direction: column; gap: 6px; }
+.footer-brand-contact a,
+.footer-brand-contact span {
+  font-size: 12px; color: rgba(200,185,164,.45);
+  text-decoration: none; transition: color .2s; line-height: 1.5;
+}
+.footer-brand-contact a:hover { color: var(--gold); }
 
-// Fade-up
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+/* Columns 2–4 */
+.footer-col {}
+.footer-col-title {
+  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px; display: block;
+}
+.footer-col-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-col-links a,
+.footer-col-links span {
+  font-size: 12px; color: rgba(200,185,164,.5);
+  text-decoration: none; transition: color .2s; line-height: 1.4;
+}
+.footer-col-links a:hover { color: var(--cream); }
+.footer-col-links .footer-divider {
+  height: 1px; background: rgba(200,169,110,.07); margin: 4px 0;
+}
 
-
-
-// ── Overlay nav ──────────────────────────────────────────────────────
-(function() {
-  var hamburger = document.getElementById('nav-hamburger');
-  var overlay   = document.getElementById('nav-overlay');
-  var closeBtn  = document.getElementById('ov-close');
-  if (!hamburger || !overlay) return;
-
-  function openOverlay() {
-    overlay.classList.add('open');
-    hamburger.classList.add('open');
-    document.body.style.overflow = 'hidden';
+/* Bottom bar */
+.footer-bottom-bar {
+  max-width: 1200px; margin: 0 auto;
+  padding: 20px 72px 28px;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+/* Mobile footer */
+@media (max-width: 768px) {
+  .footer-map { height: 180px; }
+  .footer-body {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 40px 20px 32px;
   }
-  function closeOverlay() {
-    overlay.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  hamburger.addEventListener('click', function() {
-    overlay.classList.contains('open') ? closeOverlay() : openOverlay();
-  });
-  if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
-  overlay.querySelectorAll('.ov-link, .ov-sublink').forEach(function(l) {
-    l.addEventListener('click', closeOverlay);
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeOverlay();
-  });
-})();
-
-function toggleOvGroup(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  document.querySelectorAll('.ov-subgroup').forEach(function(g) {
-    if (g.id !== id) g.classList.remove('expanded');
-  });
-  el.classList.toggle('expanded');
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom-bar { padding: 16px 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer-body { grid-template-columns: 1fr; }
 }
 
-</script>
 
-</body>
-</html>

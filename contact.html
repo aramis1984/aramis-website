@@ -240,16 +240,6 @@ a { text-decoration: none; color: inherit; }
 .review-cta-sub { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
 
 /* ─── FOOTER ──────────────────────────────── */
-.footer { background: #141210; padding: 72px 0 40px; border-top: 1px solid rgba(200,169,110,.1); }
-.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px; }
-.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
-.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
-.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-.footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
-.footer-links a:hover { color: var(--cream); }
-.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0; border-top: 1px solid rgba(200,169,110,.07); display: flex; justify-content: space-between; align-items: center; }
-.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
 
 /* ─── FU ─────────────────────────────────── */
 .fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
@@ -265,9 +255,7 @@ a { text-decoration: none; color: inherit; }
   .hours-inner { grid-template-columns: 1fr; }
   .form-row-2 { grid-template-columns: 1fr; }
   .map-address-bar { flex-direction: column; align-items: flex-start; }
-  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; gap: 12px; }
-}
+    }
 
   .nav-logo img { width: 200px; height: auto; }
   .strip { grid-template-columns: repeat(2, 1fr) !important; }
@@ -277,115 +265,6 @@ a { text-decoration: none; color: inherit; }
   .gallery-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
-
-/* ══════════════════════════════════════════════
-   ARAMIS MOBILE NAV — Two rows + centred logo
-   ══════════════════════════════════════════════ */
-
-/* Hide hamburger entirely — not needed */
-.nav-hamburger { display: none !important; }
-.mob-menu, .mob-overlay { display: none !important; }
-body.mob-open { overflow: auto; }
-
-@media (max-width: 960px) {
-
-  /* ─── Nav container ─────────────────────── */
-  .nav {
-    height: auto !important;
-    min-height: var(--nav-h);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 12px 12px !important;
-    gap: 0;
-  }
-
-  /* ─── Hide the flex left/right wrappers ─── */
-  .nav-left, .nav-right {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex: none;
-    width: 100%;
-    gap: 0;
-    flex-wrap: nowrap;
-  }
-
-  /* ─── Nav links ────────────────────────── */
-  .nav-lk {
-    font-size: 8px !important;
-    letter-spacing: 1.4px !important;
-    padding: 7px 8px !important;
-    white-space: nowrap;
-    flex: 1;
-    text-align: center;
-    max-width: none;
-  }
-
-  /* ─── Logo — centred, below both rows ─── */
-  .nav-logo {
-    order: 10;
-    padding: 8px 0 0 !important;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .nav-logo img {
-    width: 160px !important;
-    height: auto !important;
-  }
-
-  /* ─── Dropdown panels — full width ──────── */
-  .nav-dd { flex: 1; }
-  .nav-dd-trigger {
-    justify-content: center;
-  }
-  .nav-dd-panel {
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) translateY(-4px) !important;
-    min-width: 200px;
-  }
-  .nav-dd:hover .nav-dd-panel,
-  .nav-dd.open .nav-dd-panel {
-    transform: translateX(-50%) translateY(0) !important;
-  }
-  .nav-dd-panel.panel-right {
-    left: 50% !important;
-    right: auto !important;
-  }
-
-  /* ─── Hero padding to clear taller nav ─── */
-  .hero-content {
-    padding-top: calc(var(--nav-h) + 40px) !important;
-  }
-  .coming-soon {
-    padding-top: calc(var(--nav-h) + 40px) !important;
-  }
-}
-
-@media (max-width: 768px) {
-  :root { --nav-h: 115px; }
-
-  .nav { min-height: var(--nav-h); }
-
-  .nav-lk {
-    font-size: 7.5px !important;
-    letter-spacing: 1.2px !important;
-    padding: 6px 6px !important;
-  }
-
-  /* Chevrons smaller */
-  .nav-dd-trigger .chevron {
-    width: 8px; height: 8px;
-  }
-}
-
-
-/* ══════════════════════════════════════════════
-   ARAMIS MOBILE — Full-Screen Overlay Nav
-   ══════════════════════════════════════════════ */
 
 /* ─── Hamburger button ───────────────────── */
 .nav-hamburger {
@@ -539,509 +418,101 @@ body.mob-open { overflow: auto; }
 .ov-footer-ig:hover { color: var(--gold); }
 
 /* Show hamburger, fix nav height & logo on mobile */
-@media (max-width: 960px) {
-  .nav-hamburger { display: flex; }
-  .nav-left, .nav-right { display: none; }
+{ display: none; }
   .nav { height: 90px !important; justify-content: center; }
-  .nav-logo { padding: 0; }
-  .nav-logo img { width: 200px !important; height: auto !important; }
+
+  .nav { height: 90px !important; justify-content: center; }
+
+
+
+/* ── CANONICAL FOOTER ────────────────────── */
+.site-footer {
+  background: #0e0c0a;
+  border-top: 1px solid rgba(200,169,110,.12);
+  padding: 0 0 0;
 }
 
-</style>
-</head>
-<body>
+/* Map strip */
+.footer-map {
+  width: 100%; height: 220px; overflow: hidden; position: relative;
+  border-bottom: 1px solid rgba(200,169,110,.1);
+}
+.footer-map iframe {
+  width: 100%; height: 100%; border: none; display: block;
+  filter: invert(90%) hue-rotate(180deg) saturate(.55) brightness(.8);
+}
+.footer-map-cta {
+  position: absolute; bottom: 16px; right: 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(20,18,16,.9); border: 1px solid rgba(200,169,110,.3);
+  color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 8px 14px;
+  backdrop-filter: blur(8px); transition: background .2s;
+  text-decoration: none;
+}
+.footer-map-cta:hover { background: rgba(200,169,110,.12); }
+.footer-map-cta svg { flex-shrink: 0; }
 
-<!-- ══ NAV ══════════════════════════════════ -->
-<nav class="nav" id="nav">
-  <div class="nav-left">
-    <a href="story.html"   class="nav-lk">Our Story</a>
-    <div class="nav-dd" id="nav-venue">
-      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
-        The Venue
-        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
-      </a>
-      <div class="nav-dd-panel">
-        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
-        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
-        <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
-        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
-        <div class="nav-dd-divider"></div>
-        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
-      </div>
-    </div>
-    <a href="menu.html" class="nav-lk">Our Menu</a>
-  </div>
-  <a href="index.html" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
-  </a>
-  <div class="nav-right">
-    <div class="nav-dd" id="nav-events">
-      <a href="social.html" class="nav-lk nav-dd-trigger">
-        Events
-        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
-      </a>
-      <div class="nav-dd-panel panel-right">
-        <a href="tournaments.html" class="nav-dd-item"><span class="dd-dot"></span>Tournaments</a>
-        <a href="social.html"      class="nav-dd-item"><span class="dd-dot"></span>Social Events</a>
-      </div>
-    </div>
-    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
-    <a href="contact.html"  class="nav-lk active">Find Us</a>
-  </div>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+/* Main footer body */
+.footer-body {
+  max-width: 1200px; margin: 0 auto;
+  padding: 52px 72px 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
 
-<!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
-<div class="nav-overlay" id="nav-overlay">
-  <div class="ov-header">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-logo">
-    <button class="ov-close" id="ov-close" aria-label="Close menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-  </div>
-  <div class="ov-rule"></div>
-  <nav class="ov-nav">
-    <a href="story.html"    class="ov-link">Our Story</a>
-    <div class="ov-subgroup" id="ovg-venue">
-      <button class="ov-trigger" onclick="toggleOvGroup('ovg-venue')">
-        The Venue
-        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="ov-sublinks">
-        <a href="billiards.html"         class="ov-sublink"><span class="ov-dot"></span>Billiards</a>
-        <a href="darts.html"             class="ov-sublink"><span class="ov-dot"></span>Darts</a>
-        <a href="terrace.html"           class="ov-sublink"><span class="ov-dot"></span>The Terrace Cafe</a>
-        <a href="kitchen.html"           class="ov-sublink"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
-        <a href="explore-our-venue.html" class="ov-sublink"><span class="ov-dot"></span>Explore the Venue →</a>
-      </div>
-    </div>
-    <a href="menu.html"     class="ov-link">Our Menu</a>
-    <div class="ov-subgroup" id="ovg-events">
-      <button class="ov-trigger" onclick="toggleOvGroup('ovg-events')">
-        Events
-        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="ov-sublinks">
-        <a href="tournaments.html" class="ov-sublink"><span class="ov-dot"></span>Tournaments</a>
-        <a href="social.html"      class="ov-sublink"><span class="ov-dot"></span>Social Events</a>
-      </div>
-    </div>
-    <a href="pro-shop.html" class="ov-link">Pro Shop</a>
-    <a href="contact.html"  class="ov-link">Find Us</a>
-  </nav>
-  <div class="ov-footer">
-    <div>
-      <div class="ov-footer-hours">Open 10:00 – 01:00 · Every day</div>
-      <div class="ov-footer-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
-    </div>
-    <a href="https://instagram.com/aramischania" target="_blank" class="ov-footer-ig">@aramischania</a>
-  </div>
-</div>
+/* Column 1 — brand */
+.footer-brand {}
+.footer-brand-logo { margin-bottom: 20px; }
+.footer-brand-logo img { width: 160px; object-fit: contain; }
+.footer-brand-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 20px; }
+.footer-brand-contact { display: flex; flex-direction: column; gap: 6px; }
+.footer-brand-contact a,
+.footer-brand-contact span {
+  font-size: 12px; color: rgba(200,185,164,.45);
+  text-decoration: none; transition: color .2s; line-height: 1.5;
+}
+.footer-brand-contact a:hover { color: var(--gold); }
 
+/* Columns 2–4 */
+.footer-col {}
+.footer-col-title {
+  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px; display: block;
+}
+.footer-col-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-col-links a,
+.footer-col-links span {
+  font-size: 12px; color: rgba(200,185,164,.5);
+  text-decoration: none; transition: color .2s; line-height: 1.4;
+}
+.footer-col-links a:hover { color: var(--cream); }
+.footer-col-links .footer-divider {
+  height: 1px; background: rgba(200,169,110,.07); margin: 4px 0;
+}
 
-
-
-<!-- ══ MAP ═══════════════════════════════════ -->
-<div class="map-hero">
-  <div class="map-embed">
-    <!--
-      Google Maps embed — Kissamou & Saridantoni 1, Chania
-      Dark-mode filter applied via CSS (invert + hue-rotate)
-      Replace the src with your verified Google Maps embed URL from:
-      Google Maps → Share → Embed a map → Copy HTML → take the src value
-    -->
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.8910094819826!2d24.003072675544388!3d35.50697313952732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149c7d882f64a033%3A0xa58664b0e378e1c2!2sARAMIS%20Billiard%20Club!5e0!3m2!1sen!2sgr!4v1777143620797!5m2!1sen!2sgr"
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      title="ARAMIS Billiard Club location">
-    </iframe>
-    <!--
-      TO GET THE CORRECT EMBED URL:
-      1. Go to Google Maps → search "ARAMIS Billiard Club Chania"
-      2. Click Share → Embed a map
-      3. Copy the full iframe src URL
-      4. Paste it as the src attribute above
-    -->
-  </div>
-
-  <div class="map-address-bar">
-    <div class="map-address-main">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <div class="map-address-text">
-        <div class="map-address-name">ARAMIS Billiard Club</div>
-        <div class="map-address-line">Kissamou &amp; Saridantoni 1 · Chania 73136 · Crete, Greece</div>
-      </div>
-    </div>
-    <a href="https://maps.google.com/?q=ARAMIS+Billiard+Club+Chania" target="_blank" class="map-directions">
-      Get directions
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-</div>
-
-
-<!-- ══ CONTACT DETAILS + FORM ════════════════ -->
-<div class="contact-main">
-
-  <!-- Left: contact details -->
-  <div class="contact-details fu">
-    <div class="stag">Contact</div>
-    <h2 class="sec-hed">Get in touch.</h2>
-    <p class="sec-body">Whether you want to reserve a table, ask about events, enquire about private hire, or just have a question — we're here.</p>
-
-    <div class="contact-rows">
-
-      <div class="contact-row">
-        <div class="contact-row-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.07 6.07l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <div>
-          <div class="contact-row-label">Phone</div>
-          <div class="contact-row-val">
-            <a href="tel:+302821070307">(+30) 28210 70307</a><br>
-            <a href="tel:+306975993307">(+30) 6975 993 307</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-row">
-        <div class="contact-row-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div>
-          <div class="contact-row-label">Email</div>
-          <div class="contact-row-val"><a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a></div>
-        </div>
-      </div>
-
-      <div class="contact-row">
-        <div class="contact-row-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="contact-row-label">Address</div>
-          <div class="contact-row-val">
-            Kissamou &amp; Saridantoni 1<br>
-            <span class="dim">Chania 73136 · Crete, Greece</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-row">
-        <div class="contact-row-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div>
-          <div class="contact-row-label">Hours</div>
-          <div class="contact-row-val">
-            Open daily · 10:00 – 01:00<br>
-            <span class="dim">Open year-round · Every day of the week</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-row">
-        <div class="contact-row-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </div>
-        <div>
-          <div class="contact-row-label">Instagram</div>
-          <div class="contact-row-val"><a href="https://instagram.com/aramischania" target="_blank">@aramischania</a></div>
-        </div>
-      </div>
-
-      <div class="contact-row">
-        <div class="contact-row-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </div>
-        <div>
-          <div class="contact-row-label">Facebook</div>
-          <div class="contact-row-val"><a href="https://facebook.com/aramischania" target="_blank">/aramischania</a></div>
-        </div>
-      </div>
-
-      <div class="contact-row">
-        <div class="contact-row-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-        </div>
-        <div>
-          <div class="contact-row-label">CueScore</div>
-          <div class="contact-row-val"><a href="https://cuescore.com/aramischania" target="_blank">cuescore.com/aramischania</a></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Right: enquiry form -->
-  <div class="enquiry-form-wrap fu fu-d1">
-    <div class="enquiry-form-box">
-      <div class="form-hed">Send us a message.</div>
-      <div class="form-sub">We respond within 24 hours. For urgent matters, call us directly.</div>
-
-      <div id="form-wrap">
-        <form class="form-grid" id="contact-form" onsubmit="handleContactForm(event)">
-          <div class="form-row-2">
-            <div class="form-field">
-              <label for="cf-name">Name</label>
-              <input type="text" id="cf-name" name="name" placeholder="Your name" required>
-            </div>
-            <div class="form-field">
-              <label for="cf-phone">Phone</label>
-              <input type="tel" id="cf-phone" name="phone" placeholder="+30 000 000 0000">
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
-          </div>
-          <div class="form-field">
-            <label for="cf-subject">Subject</label>
-            <select id="cf-subject" name="subject">
-              <option value="">Select a topic...</option>
-              <option>Table reservation</option>
-              <option>Private event enquiry</option>
-              <option>Tournament question</option>
-              <option>Pro Shop</option>
-              <option>General question</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="cf-msg">Message</label>
-            <textarea id="cf-msg" name="message" placeholder="How can we help?" required></textarea>
-          </div>
-          <div class="form-submit">
-            <button type="submit">Send message</button>
-            <p class="form-note">We'll respond within 24 hours · (+30) 6975 993 307</p>
-          </div>
-        </form>
-      </div>
-
-      <div class="form-success" id="form-success">
-        Message received — we'll be in touch within 24 hours.
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-<!-- ══ GETTING HERE ═══════════════════════════ -->
-<section class="getting-here">
-  <div class="getting-here-inner">
-
-    <div class="gh-card fu">
-      <div class="gh-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h5l3 3v5h-8V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-      </div>
-      <div class="gh-title">On-site Parking</div>
-      <div class="gh-desc">We have parking directly beneath the venue — first floor level, right below the club. Free and convenient.</div>
-    </div>
-
-    <div class="gh-card fu fu-d1">
-      <div class="gh-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      </div>
-      <div class="gh-title">Kladissos Parking</div>
-      <div class="gh-desc">The Kladissos bridge municipal car park is free and approximately a 5-minute walk from the club. A good option when on-site is full.</div>
-    </div>
-
-    <div class="gh-card fu fu-d2">
-      <div class="gh-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      </div>
-      <div class="gh-title">From the Old Town</div>
-      <div class="gh-desc">About 10–15 minutes on foot from Chania's Old Town. Frequent electric buses also connect central Chania to the area — a car-free option.</div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ HOURS ══════════════════════════════════ -->
-<section class="hours-section">
-  <div class="hours-inner">
-    <div class="fu">
-      <div class="stag">Opening Hours</div>
-      <h2 class="sec-hed">When we're open.</h2>
-      <p class="sec-body">ARAMIS is open every day of the week, year-round. While many places in Chania close for the off-season, we don't — we're here every day, every month, every season.</p>
-    </div>
-    <div class="fu fu-d1">
-      <div class="hours-grid">
-        <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">10:00 – 01:00</span></div>
-        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 – 01:00</span></div>
-        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">10:00 – 01:00</span></div>
-        <div class="hours-row" style="border-left-color:var(--gold);"><span class="hours-day" style="color:var(--gold);">Open year-round</span><span class="hours-time" style="color:var(--gold);">Every day</span></div>
-      </div>
-      <p style="font-size:12px; color:rgba(200,185,164,.4); line-height:1.7; margin-top:20px; padding-left:4px;">
-        * Hours may change during summer season (approximately June onwards). We will update this page, our Google Business profile, and our social media channels when any changes take effect.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ SOCIAL FOLLOW ══════════════════════════ -->
-<div class="social-section fu">
-  <div class="social-inner">
-    <div class="social-hed">Stay connected.</div>
-    <p class="social-sub">Follow us for event announcements, tournament news, and what's happening at ARAMIS.</p>
-    <div class="social-links">
-      <a href="https://instagram.com/aramischania" target="_blank" class="social-link social-link-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        @aramischania
-      </a>
-      <a href="https://facebook.com/aramischania" target="_blank" class="social-link social-link-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        Facebook
-      </a>
-      <a href="https://cuescore.com/aramischania" target="_blank" class="social-link social-link-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-        CueScore
-      </a>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ REVIEW CTA ═════════════════════════════ -->
-<div class="review-cta fu">
-  <div class="review-cta-inner">
-    <div class="review-cta-hed">Been to ARAMIS?</div>
-    <p class="review-cta-sub">We'd love to hear about it. Honest reviews help us grow and help others discover us.</p>
-    <a href="https://g.page/r/ARAMIS-GOOGLE-REVIEW-LINK/review" target="_blank" class="social-link social-link-primary">
-      Leave us a review on Google
-    </a>
-  </div>
-</div>
-
-
-<!-- ══ FOOTER ═════════════════════════════════ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS"></div>
-      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
-    </div>
-    <div>
-      <div class="footer-col-hed">Navigate</div>
-      <div class="footer-links">
-        <a href="story.html">Our Story</a>
-        <a href="explore-our-venue.html">Explore our Venue</a>
-        <a href="menu.html">Our Menu</a>
-        <a href="tournaments.html">Tournaments</a>
-        <a href="social.html">Social Events</a>
-        <a href="pro-shop.html">Pro Shop</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-hed">Visit</div>
-      <div class="footer-links">
-        <a href="#">Open 10:00 – 01:00 daily</a>
-        <a href="https://maps.google.com/?q=ARAMIS+Billiard+Club+Chania" target="_blank">Kissamou &amp; Saridantoni 1, Chania</a>
-        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-        <a href="tel:+306975993307">(+30) 6975 993 307</a>
-        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
-    <div class="footer-copy">Design · Manos Chatzakis</div>
-  </div>
-</footer>
-
-
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-['nav-venue','nav-events'].forEach(id => {
-  const dd = document.getElementById(id);
-  if (!dd) return;
-  dd.addEventListener('click', e => { if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); dd.classList.toggle('open'); } });
-  document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
-});
-
-// Fade-up
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fu').forEach(el => obs.observe(el));
-
-// Contact form — Formspree
-async function handleContactForm(e) {
-  e.preventDefault();
-  const f   = e.target;
-  const btn = f.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  const data = {
-    name:     f.querySelector('#cf-name').value,
-    email:    f.querySelector('#cf-email').value,
-    phone:    f.querySelector('#cf-phone').value,
-    subject:  f.querySelector('#cf-subject').value,
-    message:  f.querySelector('#cf-msg').value,
-    _subject: 'Website Enquiry — ARAMIS: ' + f.querySelector('#cf-subject').value
-  };
-  try {
-    await fetch('https://formspree.io/f/xeevwqjz', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  } catch(err) {
-    btn.textContent = 'Try again';
-    btn.disabled = false;
+/* Bottom bar */
+.footer-bottom-bar {
+  max-width: 1200px; margin: 0 auto;
+  padding: 20px 72px 28px;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+/* Mobile footer */
+@media (max-width: 768px) {
+  .footer-map { height: 180px; }
+  .footer-body {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 40px 20px 32px;
   }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom-bar { padding: 16px 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer-body { grid-template-columns: 1fr; }
 }
 
 
-
-// ── Overlay nav ──────────────────────────────────────────────────────
-(function() {
-  var hamburger = document.getElementById('nav-hamburger');
-  var overlay   = document.getElementById('nav-overlay');
-  var closeBtn  = document.getElementById('ov-close');
-  if (!hamburger || !overlay) return;
-
-  function openOverlay() {
-    overlay.classList.add('open');
-    hamburger.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeOverlay() {
-    overlay.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  hamburger.addEventListener('click', function() {
-    overlay.classList.contains('open') ? closeOverlay() : openOverlay();
-  });
-  if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
-  overlay.querySelectorAll('.ov-link, .ov-sublink').forEach(function(l) {
-    l.addEventListener('click', closeOverlay);
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeOverlay();
-  });
-})();
-
-function toggleOvGroup(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  document.querySelectorAll('.ov-subgroup').forEach(function(g) {
-    if (g.id !== id) g.classList.remove('expanded');
-  });
-  el.classList.toggle('expanded');
-}
-
-</script>
-</body>
-</html>
