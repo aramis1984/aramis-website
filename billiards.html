@@ -95,7 +95,8 @@ a { text-decoration: none; color: inherit; }
 .nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
 .nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
 .nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
-
+@media (max-width: 960px) {
+  .nav-left, .nav-right { display: none; }
   .nav { justify-content: center; }
   .nav-logo img { width: 240px; height: auto; }
 }
@@ -497,6 +498,26 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ─── FOOTER ──────────────────────────────── */
+.footer {
+  background: #141210; padding: 72px 0 40px;
+  border-top: 1px solid rgba(200,169,110,.1);
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
+  display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px;
+}
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
 
 /* ─── FADE-UP ─────────────────────────────── */
 .fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
@@ -514,7 +535,9 @@ a { text-decoration: none; color: inherit; }
   .photo-strip { grid-template-columns: 1fr 1fr; }
   .tables-intro-photo { min-height: 280px; }
   .tables-intro-photo::after { display: none; }
-    }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
 
 
 /* ─── ARAMIS CULTURE ─────────────────────── */
@@ -602,6 +625,115 @@ a { text-decoration: none; color: inherit; }
   .gallery-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
+
+/* ══════════════════════════════════════════════
+   ARAMIS MOBILE NAV — Two rows + centred logo
+   ══════════════════════════════════════════════ */
+
+/* Hide hamburger entirely — not needed */
+.nav-hamburger { display: none !important; }
+.mob-menu, .mob-overlay { display: none !important; }
+body.mob-open { overflow: auto; }
+
+@media (max-width: 960px) {
+
+  /* ─── Nav container ─────────────────────── */
+  .nav {
+    height: auto !important;
+    min-height: var(--nav-h);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px 12px !important;
+    gap: 0;
+  }
+
+  /* ─── Hide the flex left/right wrappers ─── */
+  .nav-left, .nav-right {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    width: 100%;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  /* ─── Nav links ────────────────────────── */
+  .nav-lk {
+    font-size: 8px !important;
+    letter-spacing: 1.4px !important;
+    padding: 7px 8px !important;
+    white-space: nowrap;
+    flex: 1;
+    text-align: center;
+    max-width: none;
+  }
+
+  /* ─── Logo — centred, below both rows ─── */
+  .nav-logo {
+    order: 10;
+    padding: 8px 0 0 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .nav-logo img {
+    width: 160px !important;
+    height: auto !important;
+  }
+
+  /* ─── Dropdown panels — full width ──────── */
+  .nav-dd { flex: 1; }
+  .nav-dd-trigger {
+    justify-content: center;
+  }
+  .nav-dd-panel {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(-4px) !important;
+    min-width: 200px;
+  }
+  .nav-dd:hover .nav-dd-panel,
+  .nav-dd.open .nav-dd-panel {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+  .nav-dd-panel.panel-right {
+    left: 50% !important;
+    right: auto !important;
+  }
+
+  /* ─── Hero padding to clear taller nav ─── */
+  .hero-content {
+    padding-top: calc(var(--nav-h) + 40px) !important;
+  }
+  .coming-soon {
+    padding-top: calc(var(--nav-h) + 40px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-h: 115px; }
+
+  .nav { min-height: var(--nav-h); }
+
+  .nav-lk {
+    font-size: 7.5px !important;
+    letter-spacing: 1.2px !important;
+    padding: 6px 6px !important;
+  }
+
+  /* Chevrons smaller */
+  .nav-dd-trigger .chevron {
+    width: 8px; height: 8px;
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   ARAMIS MOBILE — Full-Screen Overlay Nav
+   ══════════════════════════════════════════════ */
 
 /* ─── Hamburger button ───────────────────── */
 .nav-hamburger {
@@ -755,101 +887,610 @@ a { text-decoration: none; color: inherit; }
 .ov-footer-ig:hover { color: var(--gold); }
 
 /* Show hamburger, fix nav height & logo on mobile */
-{ display: none; }
+@media (max-width: 960px) {
+  .nav-hamburger { display: flex; }
+  .nav-left, .nav-right { display: none; }
   .nav { height: 90px !important; justify-content: center; }
-
-  .nav { height: 90px !important; justify-content: center; }
-
-
-
-/* ── CANONICAL FOOTER ────────────────────── */
-.site-footer {
-  background: #0e0c0a;
-  border-top: 1px solid rgba(200,169,110,.12);
-  padding: 0 0 0;
+  .nav-logo { padding: 0; }
+  .nav-logo img { width: 200px !important; height: auto !important; }
 }
 
-/* Map strip */
-.footer-map {
-  width: 100%; height: 220px; overflow: hidden; position: relative;
-  border-bottom: 1px solid rgba(200,169,110,.1);
-}
-.footer-map iframe {
-  width: 100%; height: 100%; border: none; display: block;
-  filter: invert(90%) hue-rotate(180deg) saturate(.55) brightness(.8);
-}
-.footer-map-cta {
-  position: absolute; bottom: 16px; right: 16px;
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(20,18,16,.9); border: 1px solid rgba(200,169,110,.3);
-  color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; padding: 8px 14px;
-  backdrop-filter: blur(8px); transition: background .2s;
-  text-decoration: none;
-}
-.footer-map-cta:hover { background: rgba(200,169,110,.12); }
-.footer-map-cta svg { flex-shrink: 0; }
+</style>
+</head>
+<body>
 
-/* Main footer body */
-.footer-body {
-  max-width: 1200px; margin: 0 auto;
-  padding: 52px 72px 40px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a href="story.html" class="nav-lk">Our Story</a>
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger active">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="billiards.html"                       class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>Billiards</a>
+        <a href="darts.html"                           class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="terrace.html"                         class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"                         class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+  <div class="nav-right">
+    <a href="events.html"   class="nav-lk">Events</a>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html"  class="nav-lk">Find Us</a>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="ov-header">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-logo">
+    <button class="ov-close" id="ov-close" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="ov-rule"></div>
+  <nav class="ov-nav">
+    <a href="story.html"    class="ov-link">Our Story</a>
+    <div class="ov-subgroup" id="ovg-venue">
+      <button class="ov-trigger" onclick="toggleOvGroup('ovg-venue')">
+        The Venue
+        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ov-sublinks">
+        <a href="billiards.html"         class="ov-sublink"><span class="ov-dot"></span>Billiards</a>
+        <a href="darts.html"             class="ov-sublink"><span class="ov-dot"></span>Darts</a>
+        <a href="terrace.html"           class="ov-sublink"><span class="ov-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="ov-sublink"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
+        <a href="explore-our-venue.html" class="ov-sublink"><span class="ov-dot"></span>Explore the Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html"     class="ov-link">Our Menu</a>
+    <div class="ov-subgroup" id="ovg-events">
+      <button class="ov-trigger" onclick="toggleOvGroup('ovg-events')">
+        Events
+        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ov-sublinks">
+        <a href="tournaments.html" class="ov-sublink"><span class="ov-dot"></span>Tournaments</a>
+        <a href="social.html"      class="ov-sublink"><span class="ov-dot"></span>Social Events</a>
+      </div>
+    </div>
+    <a href="pro-shop.html" class="ov-link">Pro Shop</a>
+    <a href="contact.html"  class="ov-link">Find Us</a>
+  </nav>
+  <div class="ov-footer">
+    <div>
+      <div class="ov-footer-hours">Open 10:00 – 01:00 · Every day</div>
+      <div class="ov-footer-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
+    </div>
+    <a href="https://instagram.com/aramischania" target="_blank" class="ov-footer-ig">@aramischania</a>
+  </div>
+</div>
+
+
+
+
+<!-- ══ HERO ══════════════════════════════════
+     Replace .hero-img-placeholder with:
+     <img src="assets/images/billiards-hero.jpg" alt="ARAMIS Billiards Hall">
+     ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-img-placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <circle cx="12" cy="12" r="2.5"/>
+        <circle cx="5" cy="8" r="1"/><circle cx="19" cy="8" r="1"/>
+        <circle cx="5" cy="16" r="1"/><circle cx="19" cy="16" r="1"/>
+      </svg>
+      <span>Wide shot — hall, all 10 tables lit</span>
+    </div>
+    <!-- <img src="assets/images/billiards-hero.jpg" alt="ARAMIS Billiards Hall"> -->
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">The Hall · ARAMIS Chania</div>
+    <h1 class="hero-hed">Crete's largest<br>billiard hall.</h1>
+    <p class="hero-sub">10 professional tables. Two heated. One game you won't forget.</p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+
+<!-- ══ TABLES INTRO ══════════════════════════ -->
+<section class="tables-intro">
+
+  <!-- Photo left: pool table in play / cloth detail -->
+  <div class="tables-intro-photo fu">
+    <div class="photo-block-placeholder">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <circle cx="12" cy="12" r="2.5"/>
+      </svg>
+      <span>Pool table in play — or cloth close-up</span>
+    </div>
+    <!-- <img src="assets/images/billiards-tables-intro.jpg" alt="ARAMIS pool table"> -->
+  </div>
+
+  <div class="tables-intro-text fu">
+    <div class="stag">The Tables</div>
+    <h2 class="sec-hed">Pro tables.<br>Properly cared for.</h2>
+    <div class="pull-quote">"When you sit down at ARAMIS, the table is ready — every time."</div>
+    <p class="sec-body">Ten professional tables: nine American pool and one French three-cushion carom. All nine pool tables are dressed in genuine IWAN SIMONIS cloth — the international championship standard — and Aramith balls throughout. Two tables are heated, one pool and one carom, keeping the cloth at optimal tension for a faster, more consistent surface.</p>
+    <p class="sec-body">Tables are vacuumed daily. Balls are polished after every game. It's the kind of maintenance most venues skip. We don't, because the game deserves it.</p>
+  </div>
+
+</section>
+
+
+<!-- ══ PHOTO STRIP 1 ══════════════════════════
+     Three close-up shots: pool table in play · Aramith ball rack · IWAN SIMONIS UV mark
+     Intentionally three — no fourth needed.
+     ════════════════════════════════════════ -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <div class="photo-block-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.2)" stroke-width=".8"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Pool table — action or wide</span>
+    </div>
+    <!-- <img src="assets/images/billiards-strip-table.jpg" alt="ARAMIS pool table in play"> -->
+    <div class="photo-strip-item-label">American Pool</div>
+  </div>
+  <div class="photo-strip-item">
+    <div class="photo-block-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.2)" stroke-width=".8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Ball rack close-up</span>
+    </div>
+    <!-- <img src="assets/images/billiards-strip-balls.jpg" alt="Aramith ball rack"> -->
+    <div class="photo-strip-item-label">Aramith Balls</div>
+  </div>
+  <div class="photo-strip-item">
+    <div class="photo-block-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.2)" stroke-width=".8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">SIMONIS cloth — UV mark or selvedge</span>
+    </div>
+    <!-- <img src="assets/images/billiards-simonis-uv.jpg" alt="IWAN SIMONIS UV authentication mark"> -->
+    <div class="photo-strip-item-label">IWAN SIMONIS</div>
+  </div>
+</div>
+
+
+<!-- ══ TABLE BRANDS ═══════════════════════════ -->
+<section class="brands-section">
+  <div class="brands-inner">
+
+    <div class="brands-header fu">
+      <div>
+        <div class="stag">Our Tables</div>
+        <h2 class="sec-hed">Ten tables.<br>Four makers.</h2>
+      </div>
+      <p class="brands-intro">Every table at ARAMIS is a professional instrument. The hall combines four of the most respected names in billiard manufacturing — Danish precision, American heritage, French craftsmanship, and Greek-made. Each brand was chosen for a reason.</p>
+    </div>
+
+    <div class="brands-grid">
+
+      <!-- Søren Søgaard -->
+      <div class="brand-card fu">
+        <div class="brand-num">5</div>
+        <div class="brand-flag">Denmark · Est. 1955</div>
+        <div class="brand-name">Søren Søgaard</div>
+        <div class="brand-count">5 tables</div>
+        <p class="brand-desc">Scandinavia's leading billiard manufacturer, founded by seven-time Danish 3-cushion champion Søren Søgaard. Known for kiln-dried oak rails, thick slate beds, and — in the ARAMIS case — their proprietary heated-slate technology. Two of our five Søgaard tables are heated: one American pool, one French carom.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">American Pool</span>
+          <span class="brand-tag">French Carom</span>
+          <span class="brand-tag">2 × Heated</span>
+        </div>
+      </div>
+
+      <!-- Brunswick -->
+      <div class="brand-card fu fu-d1">
+        <div class="brand-num">3</div>
+        <div class="brand-flag">USA · Est. 1845</div>
+        <div class="brand-name">Brunswick</div>
+        <div class="brand-count">3 tables</div>
+        <p class="brand-desc">One of the oldest names in billiards. Brunswick tables are synonymous with American pool — consistent, tournament-proven, built to exacting tolerances. The standard against which most pool tables are measured.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">American Pool</span>
+        </div>
+      </div>
+
+      <!-- Chevillotte -->
+      <div class="brand-card fu fu-d2">
+        <div class="brand-num">1</div>
+        <div class="brand-flag">France · Est. 1860</div>
+        <div class="brand-name">Chevillotte</div>
+        <div class="brand-count">1 table</div>
+        <p class="brand-desc">French-made since 1860 and widely regarded as one of the finest billiard manufacturers in the world. Chevillotte's craftsmanship sits at the intersection of precision engineering and cabinetmaking — a table that plays as well as it looks.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">American Pool</span>
+        </div>
+      </div>
+
+      <!-- Sivissidis -->
+      <div class="brand-card fu fu-d3">
+        <div class="brand-num">1</div>
+        <div class="brand-flag">Greece · Est. 1928</div>
+        <div class="brand-name">Sivissidis Bros.</div>
+        <div class="brand-count">1 table</div>
+        <p class="brand-desc">The only billiard table manufacturer in the Balkans, operating from Athens since 1928. Sivissidis has supplied professional clubs across Greece for nearly a century — a local name with international standards, and a fitting presence in a club with deep roots in Greek billiards.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">American Pool</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PHOTO STRIP 2 ══════════════════════════
+     Two photos: hall overview · table detail shot
+     ════════════════════════════════════════ -->
+<div class="photo-strip" style="grid-template-columns: 2fr 1fr;">
+  <div class="photo-strip-item" style="aspect-ratio: 16/7;">
+    <div class="photo-block-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.2)" stroke-width=".8"><rect x="2" y="5" width="20" height="14" rx="2"/></svg>
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Hall overview shot</span>
+    </div>
+    <!-- <img src="assets/images/billiards-overview.jpg" alt="ARAMIS hall overview"> -->
+    <div class="photo-strip-item-label">The Hall</div>
+  </div>
+  <div class="photo-strip-item" style="aspect-ratio: 16/7;">
+    <div class="photo-block-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.2)" stroke-width=".8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Brand detail / cue</span>
+    </div>
+    <!-- <img src="assets/images/billiards-cue-detail.jpg" alt="Cue detail"> -->
+    <div class="photo-strip-item-label">The Detail</div>
+  </div>
+</div>
+
+
+<!-- ══ SIMONIS NOTE ════════════════════════════
+     Brief inline mention — one photo of UV mark, compact callout.
+     No dedicated section needed.
+     ════════════════════════════════════════ -->
+<div style="background: var(--bg); border-top: 1px solid rgba(200,169,110,.07);">
+  <div style="max-width: var(--max-w); margin: 0 auto; padding: 64px var(--gutter);
+              display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center;">
+
+    <!-- Single photo: SIMONIS UV mark or selvedge label -->
+    <div style="aspect-ratio: 4/3; background: var(--bg-surf); position: relative; overflow: hidden;" class="fu">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.15)" stroke-width=".8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);text-align:center;">SIMONIS cloth — UV mark or selvedge logo</span>
+      </div>
+      <!-- <img src="assets/images/billiards-simonis-uv.jpg" alt="IWAN SIMONIS UV authentication mark" style="width:100%;height:100%;object-fit:cover;"> -->
+    </div>
+
+    <!-- Compact note -->
+    <div class="fu fu-d1">
+      <div class="stag">The Cloth</div>
+      <p style="font-size:15px;line-height:1.85;color:var(--muted); margin-bottom: 16px;">All nine American pool tables wear genuine <strong style="color:var(--cream);font-weight:500;">IWAN SIMONIS</strong> cloth — the championship-standard used in international competition. The French carom table wears its own purpose-built cloth for three-cushion play.</p>
+      <p style="font-size:13px;line-height:1.75;color:rgba(200,185,164,.45);">Every roll of SIMONIS cloth carries an authentic UV mark — printed every metre with the brand name and roll serial number, visible only under black light. If you'd like to check, just ask.</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ PRICING ════════════════════════════════ -->
+<section class="pricing">
+  <div class="pricing-inner">
+    <div class="fu">
+      <div class="stag">Pricing</div>
+      <h2 class="sec-hed">Straightforward rates.<br>No surprises.</h2>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Standard rates -->
+      <div class="rate-card fu">
+        <div class="rate-card-hed">Standard · Per Hour</div>
+        <div class="rate-row">
+          <span class="rate-players">1 player</span>
+          <div class="rate-price">€4 <span>/ hr</span></div>
+        </div>
+        <div class="rate-row">
+          <span class="rate-players">2 players</span>
+          <div class="rate-price">€8 <span>/ hr</span></div>
+        </div>
+        <div class="rate-row">
+          <span class="rate-players">3 players</span>
+          <div class="rate-price">€10 <span>/ hr</span></div>
+        </div>
+        <div class="rate-row">
+          <span class="rate-players">4 players</span>
+          <div class="rate-price">€12 <span>/ hr</span></div>
+        </div>
+      </div>
+
+      <!-- Happy Hour -->
+      <div class="happy-card fu fu-d1">
+        <div class="happy-time">Happy Hour · 10:00 – 17:00</div>
+        <div class="happy-hed">Two ways<br>to save.</div>
+        <div class="happy-option">
+          <div class="happy-option-label">Option A</div>
+          <div class="happy-option-val"><strong>50% off</strong> all table rates when you order any drink.</div>
+        </div>
+        <div class="happy-option">
+          <div class="happy-option-label">Option B</div>
+          <div class="happy-option-val"><strong>€5 flat rate</strong> for unlimited play — no drink required.</div>
+        </div>
+        <p class="happy-note">We apply whichever works better for you. Just ask at the bar. Terms may change seasonally — check our Offers page for the latest.</p>
+      </div>
+
+      <!-- Loyalty -->
+      <div class="loyalty-card fu fu-d2">
+        <div>
+          <div class="stag" style="margin-bottom:16px;">Loyalty Card</div>
+          <div class="sec-hed" style="font-size: clamp(22px, 2vw, 30px); margin-bottom:16px;">Play regularly.<br>Your 10th game is on us.</div>
+          <div class="loyalty-stamp-row">
+            <div class="stamp filled">✓</div>
+            <div class="stamp filled">✓</div>
+            <div class="stamp filled">✓</div>
+            <div class="stamp filled">✓</div>
+            <div class="stamp filled">✓</div>
+            <div class="stamp filled">✓</div>
+            <div class="stamp filled">✓</div>
+            <div class="stamp filled">✓</div>
+            <div class="stamp filled">✓</div>
+            <div class="stamp star">★</div>
+          </div>
+        </div>
+        <p class="loyalty-desc">Ask about our loyalty card at the bar. Every game gets a stamp — and the tenth one's free.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══ ARAMIS CULTURE ══════════════════════ -->
+<section class="culture-section" id="culture">
+  <div class="culture-inner">
+
+    <div class="fu">
+      <div class="stag">ARAMIS Culture</div>
+      <h2 class="sec-hed">The way we play<br>here.</h2>
+      <p class="sec-body">Forty years of billiards in Chania has taught us one thing above all else: the game is better when the room is right. That means a certain kind of quiet, a certain kind of respect — for the tables, for the other players, for the space.</p>
+      <p class="sec-body">These aren't rules we invented. They're what good players have always brought with them. We just ask everyone to carry them in.</p>
+    </div>
+
+    <div class="culture-rules fu fu-d1">
+
+      <div class="culture-rule">
+        <div class="culture-rule-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="culture-rule-title">Respect the players around you</div>
+          <div class="culture-rule-desc">Everyone is here to focus and enjoy the game. Keep voices low, celebrate quietly, and give the players at the next table the same space you'd want for yourself.</div>
+        </div>
+      </div>
+
+      <div class="culture-rule">
+        <div class="culture-rule-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 15s1.5-2 4-2 4 2 4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div>
+          <div class="culture-rule-title">Keep it calm</div>
+          <div class="culture-rule-desc">Language matters in a shared space. Frustration is natural — loud outbursts and swearing aren't. The game tests your patience by design. Take a breath, take your shot.</div>
+        </div>
+      </div>
+
+      <div class="culture-rule">
+        <div class="culture-rule-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div>
+          <div class="culture-rule-title">Food and drinks stay off the tables</div>
+          <div class="culture-rule-desc">The SIMONIS cloth and the Aramith balls are maintained carefully. Drinks belong on the side tables and ledges — never on the playing surface.</div>
+        </div>
+      </div>
+
+      <div class="culture-rule">
+        <div class="culture-rule-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <div class="culture-rule-title">The table is for playing, not sitting</div>
+          <div class="culture-rule-desc">Simple as it sounds — the table is the game. Please keep it that way.</div>
+        </div>
+      </div>
+
+      <div class="culture-rule priority">
+        <div class="culture-rule-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="culture-rule-title">Groups take priority when the hall is full</div>
+          <div class="culture-rule-desc">When all tables are taken and a group of two or more is waiting, solo players are kindly asked to wrap up their session and free the table. We appreciate your understanding — and we'll always find you a way back in.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TOURNAMENTS ════════════════════════════ -->
+<section class="tournaments">
+  <div class="tournaments-inner">
+
+    <div class="fu">
+      <div class="stag">Tournaments</div>
+      <h2 class="sec-hed">Where Chania<br>competes.</h2>
+      <p class="sec-body">ARAMIS hosts a regular tournament programme running through the season — roughly September to March, with events most weeks. The format is 9-ball, played under a handicap system across five divisions.</p>
+      <p class="sec-body">That means the programme isn't just for advanced players. Every level has a place — from first tournament to seasoned competitor.</p>
+      <div class="division-grid">
+        <div class="division-row"><div class="division-letter">A</div><div><div class="division-label">Elite</div><div class="division-desc">Advanced competitive players</div></div></div>
+        <div class="division-row"><div class="division-letter">B</div><div><div class="division-label">Advanced</div><div class="division-desc">Experienced players, regular competitors</div></div></div>
+        <div class="division-row"><div class="division-letter">C</div><div><div class="division-label">Intermediate</div><div class="division-desc">Developing game, tournament-ready</div></div></div>
+        <div class="division-row"><div class="division-letter">D</div><div><div class="division-label">Developing</div><div class="division-desc">Building competitive experience</div></div></div>
+        <div class="division-row"><div class="division-letter">E</div><div><div class="division-label">Entry</div><div class="division-desc">First tournaments, any level welcome</div></div></div>
+      </div>
+    </div>
+
+    <div class="fu fu-d1">
+      <div class="cuescore-block">
+        <div class="cuescore-tag">Managed via CueScore</div>
+        <h3 style="font-family:'Fraunces',serif; font-size: clamp(20px,2vw,28px); font-weight:400; color:var(--cream); line-height:1.2;">Upcoming<br>tournaments</h3>
+
+        <!-- Dynamic content — replace with CueScore feed when ready -->
+        <div class="upcoming-list">
+          <div class="upcoming-item">
+            <div class="upcoming-date">TBC</div>
+            <div><div class="upcoming-name">9-Ball Weekly — Division A/B</div><div class="upcoming-div">ARAMIS Chania · CueScore</div></div>
+          </div>
+          <div class="upcoming-item">
+            <div class="upcoming-date">TBC</div>
+            <div><div class="upcoming-name">9-Ball Weekly — Division C/D/E</div><div class="upcoming-div">ARAMIS Chania · CueScore</div></div>
+          </div>
+          <div class="upcoming-item">
+            <div class="upcoming-date">TBC</div>
+            <div><div class="upcoming-name">Open Monthly · All Divisions</div><div class="upcoming-div">ARAMIS Chania · CueScore</div></div>
+          </div>
+        </div>
+
+        <a href="https://cuescore.com/aramischania" target="_blank" class="cuescore-cta">
+          Full schedule &amp; registration at CueScore →
+        </a>
+
+        <div class="sponsor-note">
+          Our tournament programme is supported by <strong>CHANIA CAR &amp; TRUCKS</strong>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Sports viewing lives on terrace.html — see that page for the full section -->
+
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+      </div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">Explore our Venue</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="events.html">Events</a>
+        <a href="pro-shop.html">Pro Shop</a>
+        <a href="contact.html">Find Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Visit</div>
+      <div class="footer-links">
+        <a href="#">Open 10:00 – 01:00 daily</a>
+        <a href="#">Chania, Crete</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Dropdown touch
+const venueDd = document.getElementById('nav-venue');
+if (venueDd) {
+  venueDd.addEventListener('click', e => {
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      venueDd.classList.toggle('open');
+    }
+  });
+  document.addEventListener('click', e => {
+    if (!venueDd.contains(e.target)) venueDd.classList.remove('open');
+  });
 }
 
-/* Column 1 — brand */
-.footer-brand {}
-.footer-brand-logo { margin-bottom: 20px; }
-.footer-brand-logo img { width: 160px; object-fit: contain; }
-.footer-brand-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 20px; }
-.footer-brand-contact { display: flex; flex-direction: column; gap: 6px; }
-.footer-brand-contact a,
-.footer-brand-contact span {
-  font-size: 12px; color: rgba(200,185,164,.45);
-  text-decoration: none; transition: color .2s; line-height: 1.5;
-}
-.footer-brand-contact a:hover { color: var(--gold); }
+// Fade-up
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
 
-/* Columns 2–4 */
-.footer-col {}
-.footer-col-title {
-  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 18px; display: block;
-}
-.footer-col-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-col-links a,
-.footer-col-links span {
-  font-size: 12px; color: rgba(200,185,164,.5);
-  text-decoration: none; transition: color .2s; line-height: 1.4;
-}
-.footer-col-links a:hover { color: var(--cream); }
-.footer-col-links .footer-divider {
-  height: 1px; background: rgba(200,169,110,.07); margin: 4px 0;
-}
 
-/* Bottom bar */
-.footer-bottom-bar {
-  max-width: 1200px; margin: 0 auto;
-  padding: 20px 72px 28px;
-  border-top: 1px solid rgba(200,169,110,.07);
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-/* Mobile footer */
-@media (max-width: 768px) {
-  .footer-map { height: 180px; }
-  .footer-body {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    padding: 40px 20px 32px;
+
+// ── Overlay nav ──────────────────────────────────────────────────────
+(function() {
+  var hamburger = document.getElementById('nav-hamburger');
+  var overlay   = document.getElementById('nav-overlay');
+  var closeBtn  = document.getElementById('ov-close');
+  if (!hamburger || !overlay) return;
+
+  function openOverlay() {
+    overlay.classList.add('open');
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-bottom-bar { padding: 16px 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
-}
-@media (max-width: 480px) {
-  .footer-body { grid-template-columns: 1fr; }
+  function closeOverlay() {
+    overlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', function() {
+    overlay.classList.contains('open') ? closeOverlay() : openOverlay();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
+  overlay.querySelectorAll('.ov-link, .ov-sublink').forEach(function(l) {
+    l.addEventListener('click', closeOverlay);
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeOverlay();
+  });
+})();
+
+function toggleOvGroup(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  document.querySelectorAll('.ov-subgroup').forEach(function(g) {
+    if (g.id !== id) g.classList.remove('expanded');
+  });
+  el.classList.toggle('expanded');
 }
 
+</script>
 
+</body>
+</html>

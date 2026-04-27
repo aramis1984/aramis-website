@@ -512,6 +512,31 @@ a { text-decoration: none; color: inherit; }
 .btn-primary:hover { background: var(--gold-h); }
 
 /* ─── FOOTER ──────────────────────────────── */
+.footer {
+  background: #141210;
+  padding: 72px 0 40px;
+  border-top: 1px solid rgba(200,169,110,.1);
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
+  display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px;
+}
+.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
+.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
+.footer-col-hed {
+  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 40px auto 0;
+  padding: 24px var(--gutter) 0;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
 
 /* ─── FADE-UP ─────────────────────────────── */
 .fu { opacity: 0; transform: translateY(30px); transition: opacity .75s ease, transform .75s ease; }
@@ -527,7 +552,9 @@ a { text-decoration: none; color: inherit; }
   .founding-image::after { display: none; }
   .nav-left, .nav-right { display: none; }
   .nav-logo img { width: 260px; }
-    }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
 
 
   .nav-logo img { width: 200px; height: auto; }
@@ -538,6 +565,115 @@ a { text-decoration: none; color: inherit; }
   .gallery-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
+
+/* ══════════════════════════════════════════════
+   ARAMIS MOBILE NAV — Two rows + centred logo
+   ══════════════════════════════════════════════ */
+
+/* Hide hamburger entirely — not needed */
+.nav-hamburger { display: none !important; }
+.mob-menu, .mob-overlay { display: none !important; }
+body.mob-open { overflow: auto; }
+
+@media (max-width: 960px) {
+
+  /* ─── Nav container ─────────────────────── */
+  .nav {
+    height: auto !important;
+    min-height: var(--nav-h);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px 12px !important;
+    gap: 0;
+  }
+
+  /* ─── Hide the flex left/right wrappers ─── */
+  .nav-left, .nav-right {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    width: 100%;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  /* ─── Nav links ────────────────────────── */
+  .nav-lk {
+    font-size: 8px !important;
+    letter-spacing: 1.4px !important;
+    padding: 7px 8px !important;
+    white-space: nowrap;
+    flex: 1;
+    text-align: center;
+    max-width: none;
+  }
+
+  /* ─── Logo — centred, below both rows ─── */
+  .nav-logo {
+    order: 10;
+    padding: 8px 0 0 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .nav-logo img {
+    width: 160px !important;
+    height: auto !important;
+  }
+
+  /* ─── Dropdown panels — full width ──────── */
+  .nav-dd { flex: 1; }
+  .nav-dd-trigger {
+    justify-content: center;
+  }
+  .nav-dd-panel {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(-4px) !important;
+    min-width: 200px;
+  }
+  .nav-dd:hover .nav-dd-panel,
+  .nav-dd.open .nav-dd-panel {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+  .nav-dd-panel.panel-right {
+    left: 50% !important;
+    right: auto !important;
+  }
+
+  /* ─── Hero padding to clear taller nav ─── */
+  .hero-content {
+    padding-top: calc(var(--nav-h) + 40px) !important;
+  }
+  .coming-soon {
+    padding-top: calc(var(--nav-h) + 40px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-h: 115px; }
+
+  .nav { min-height: var(--nav-h); }
+
+  .nav-lk {
+    font-size: 7.5px !important;
+    letter-spacing: 1.2px !important;
+    padding: 6px 6px !important;
+  }
+
+  /* Chevrons smaller */
+  .nav-dd-trigger .chevron {
+    width: 8px; height: 8px;
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   ARAMIS MOBILE — Full-Screen Overlay Nav
+   ══════════════════════════════════════════════ */
 
 /* ─── Hamburger button ───────────────────── */
 .nav-hamburger {
@@ -691,101 +827,415 @@ a { text-decoration: none; color: inherit; }
 .ov-footer-ig:hover { color: var(--gold); }
 
 /* Show hamburger, fix nav height & logo on mobile */
-{ display: none; }
+@media (max-width: 960px) {
+  .nav-hamburger { display: flex; }
+  .nav-left, .nav-right { display: none; }
   .nav { height: 90px !important; justify-content: center; }
-
-  .nav { height: 90px !important; justify-content: center; }
-
-
-
-/* ── CANONICAL FOOTER ────────────────────── */
-.site-footer {
-  background: #0e0c0a;
-  border-top: 1px solid rgba(200,169,110,.12);
-  padding: 0 0 0;
+  .nav-logo { padding: 0; }
+  .nav-logo img { width: 200px !important; height: auto !important; }
 }
 
-/* Map strip */
-.footer-map {
-  width: 100%; height: 220px; overflow: hidden; position: relative;
-  border-bottom: 1px solid rgba(200,169,110,.1);
-}
-.footer-map iframe {
-  width: 100%; height: 100%; border: none; display: block;
-  filter: invert(90%) hue-rotate(180deg) saturate(.55) brightness(.8);
-}
-.footer-map-cta {
-  position: absolute; bottom: 16px; right: 16px;
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(20,18,16,.9); border: 1px solid rgba(200,169,110,.3);
-  color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; padding: 8px 14px;
-  backdrop-filter: blur(8px); transition: background .2s;
-  text-decoration: none;
-}
-.footer-map-cta:hover { background: rgba(200,169,110,.12); }
-.footer-map-cta svg { flex-shrink: 0; }
+</style>
+</head>
+<body>
 
-/* Main footer body */
-.footer-body {
-  max-width: 1200px; margin: 0 auto;
-  padding: 52px 72px 40px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="nav" id="nav">
+
+  <!-- LEFT -->
+  <div class="nav-left">
+    <a href="story.html" class="nav-lk active">Our Story</a>
+
+    <!-- The Venue dropdown -->
+    <div class="nav-dd" id="nav-venue">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
+        The Venue
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 3.5l3 3 3-3"/>
+        </svg>
+      </a>
+      <div class="nav-dd-panel">
+        <a href="explore-our-venue.html#billiards"   class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="explore-our-venue.html#darts"       class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="explore-our-venue.html#terrace"     class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="explore-our-venue.html#kitchen"     class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <div class="nav-dd-divider"></div>
+        <a href="explore-our-venue.html"             class="nav-dd-item" style="color:var(--gold); letter-spacing:1.4px;">
+          <span class="dd-dot" style="opacity:1;"></span>Explore our Venue →
+        </a>
+      </div>
+    </div>
+
+    <a href="menu.html" class="nav-lk">Our Menu</a>
+  </div>
+
+  <!-- LOGO -->
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png"
+         alt="ARAMIS Billiard Club" loading="eager">
+  </a>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+    <a href="events.html"  class="nav-lk">Events</a>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
+    <a href="contact.html" class="nav-lk">Find Us</a>
+  </div>
+
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="ov-header">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-logo">
+    <button class="ov-close" id="ov-close" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="ov-rule"></div>
+  <nav class="ov-nav">
+    <a href="story.html"    class="ov-link">Our Story</a>
+    <div class="ov-subgroup" id="ovg-venue">
+      <button class="ov-trigger" onclick="toggleOvGroup('ovg-venue')">
+        The Venue
+        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ov-sublinks">
+        <a href="billiards.html"         class="ov-sublink"><span class="ov-dot"></span>Billiards</a>
+        <a href="darts.html"             class="ov-sublink"><span class="ov-dot"></span>Darts</a>
+        <a href="terrace.html"           class="ov-sublink"><span class="ov-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="ov-sublink"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
+        <a href="explore-our-venue.html" class="ov-sublink"><span class="ov-dot"></span>Explore the Venue →</a>
+      </div>
+    </div>
+    <a href="menu.html"     class="ov-link">Our Menu</a>
+    <div class="ov-subgroup" id="ovg-events">
+      <button class="ov-trigger" onclick="toggleOvGroup('ovg-events')">
+        Events
+        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ov-sublinks">
+        <a href="tournaments.html" class="ov-sublink"><span class="ov-dot"></span>Tournaments</a>
+        <a href="social.html"      class="ov-sublink"><span class="ov-dot"></span>Social Events</a>
+      </div>
+    </div>
+    <a href="pro-shop.html" class="ov-link">Pro Shop</a>
+    <a href="contact.html"  class="ov-link">Find Us</a>
+  </nav>
+  <div class="ov-footer">
+    <div>
+      <div class="ov-footer-hours">Open 10:00 – 01:00 · Every day</div>
+      <div class="ov-footer-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
+    </div>
+    <a href="https://instagram.com/aramischania" target="_blank" class="ov-footer-ig">@aramischania</a>
+  </div>
+</div>
+
+
+
+
+<!-- ══ HERO ══════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Chania, Crete</div>
+    <h1 class="hero-hed">
+      A family, a game,<br>and <em>42 years</em><br>of bringing people together.
+    </h1>
+    <div class="hero-rule"></div>
+    <div class="hero-sub">Est. 1984</div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ══ FOUNDING ══════════════════════════════ -->
+<section class="founding">
+  <div class="founding-image">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/canvas_epic_%20moments_.png"
+         alt="Aris Damoulakis — ARAMIS founder" loading="lazy">
+  </div>
+  <div class="founding-text fu">
+    <div class="stag">The Founding</div>
+    <h2 class="sec-hed">It started<br>with Aris.</h2>
+    <div class="founding-pull">
+      "He didn't just open a venue —<br>he created a culture."
+    </div>
+    <p class="sec-body">In 1984, Aris Damoulakis opened a billiard hall in Chania. Not because it was a business opportunity — because it was what he loved.</p>
+    <p class="sec-body">Aris didn't just play billiards. He lived it. Over the decades, he competed in international and national tournaments, earning the respect of players across the world. But his biggest achievement wasn't on any scoreboard. It was building a community. Most billiard players in Chania today will tell you the same thing: they learned the game because of Aris.</p>
+    <p class="sec-body" style="font-size:13px; color:rgba(200,185,164,.45);">That culture is still the foundation of everything ARAMIS is today.</p>
+  </div>
+</section>
+
+
+<!-- ══ FAMILY ════════════════════════════════ -->
+<section class="family">
+  <div class="family-inner">
+    <div class="fu">
+      <div class="stag">The Family</div>
+      <h2 class="sec-hed">Two generations.<br>One table.</h2>
+      <p class="sec-body">ARAMIS has always been a family affair.</p>
+      <p class="sec-body">Aris and Dimitra built this place together. Dimitra is the silent force of ARAMIS — her presence runs through everything, from the immaculate state of the hall to the drinks behind the bar, the food from the kitchen, and the welcome at the door. She's also an accomplished billiard player herself, though she never made it her profession. She simply loves the game, the same way she loves this place.</p>
+      <p class="sec-body">Sissi — their daughter — now leads ARAMIS into its next chapter. She grew up in this club. She knows every table, every regular, every detail of what makes this place what it is. Under her direction the venue has evolved — the terrace, the bar programme, the events calendar — while staying true to what Aris and Dimitra built.</p>
+      <p class="family-pull">You'll still find Aris at the club. And you'll still find Dimitra everywhere.<br>That's not nostalgia — that's how a family business works.</p>
+    </div>
+    <div class="family-photos fu fu-d1">
+      <div class="fph">
+        <div class="fph-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Family photo</span>
+        </div>
+        <div class="fph-label">Aris · Dimitra · Sissi</div>
+      </div>
+      <div class="fph">
+        <div class="fph-placeholder">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Sissi</span>
+        </div>
+        <div class="fph-label">Sissi</div>
+      </div>
+      <div class="fph">
+        <div class="fph-placeholder">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Dimitra</span>
+        </div>
+        <div class="fph-label">Dimitra</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ VENUE ══════════════════════════════════ -->
+<section class="venue">
+  <div class="venue-inner">
+    <div class="fu">
+      <div class="stag">The Venue</div>
+      <h2 class="sec-hed">A home that has moved<br>— but never changed.</h2>
+      <p class="sec-body">Since 1984, ARAMIS has called different addresses in Chania home. Each move brought more space, better equipment, a bigger community. The current venue — open since 2021 — is the fullest expression of what Aris originally imagined: a proper billiard hall with a kitchen, a bar, and a terrace worthy of the White Mountains behind it.</p>
+      <a href="explore-the-venue.html" class="btn-ghost">
+        Explore the Venue
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="venue-timeline fu fu-d1">
+      <div class="vtl-item">
+        <div class="vtl-year">1984</div>
+        <div class="vtl-desc"><strong style="color:var(--cream); font-weight:500;">Peridou Street, 4th floor.</strong> The legendary original ARAMIS. Ten tables, one staircase, and a community that would define billiards in Chania for a generation. This is where it all began — and where most of the city's players first picked up a cue.</div>
+      </div>
+      <div class="vtl-item">
+        <div class="vtl-year">2000</div>
+        <div class="vtl-desc">After sixteen years on Peridou, ARAMIS moves on. The club finds new addresses over the following two decades, each chapter keeping the community together while the game — and the family — keeps growing.</div>
+      </div>
+      <div class="vtl-item">
+        <div class="vtl-year">2021</div>
+        <div class="vtl-desc"><strong style="color:var(--cream); font-weight:500;">The current venue opens.</strong> Ten professional tables, a rooftop terrace with White Mountains views, a full kitchen and bar. The fullest version of ARAMIS yet — and the one still running today.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MEMORY LANE INTRO ══════════════════════ -->
+<div class="ml-intro fu">
+  <div class="ml-intro-inner">
+    <div class="stag">Memory Lane</div>
+    <h2 class="sec-hed">Forty years of ARAMIS<br>means forty years of stories.</h2>
+    <p class="sec-body">Some are on the scoreboard. Most are in the memories of the people who were here.<br>This is where we keep them.</p>
+  </div>
+</div>
+
+
+<!-- ══ CANVAS GALLERY ════════════════════════ -->
+<div class="canvas-gallery">
+
+  <div class="canvas-block">
+    <div class="canvas-bar">
+      <span class="canvas-bar-title">Planet ARAMIS — The Early Years</span>
+      <span class="canvas-bar-line"></span>
+      <span class="canvas-bar-hint">Click to explore</span>
+    </div>
+    <div class="canvas-wrap" onclick="openZoom(this)">
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/canvas_aramis_%20planet_.png"
+           alt="ARAMIS through the years — Planet Aramis archive" loading="lazy">
+      <div class="canvas-ov"></div>
+    </div>
+  </div>
+
+  <div class="canvas-block" style="margin-top:3px;">
+    <div class="canvas-bar">
+      <span class="canvas-bar-title">Epic Moments — Tournaments &amp; Champions</span>
+      <span class="canvas-bar-line"></span>
+      <span class="canvas-bar-hint">Click to explore</span>
+    </div>
+    <div class="canvas-wrap" onclick="openZoom(this)">
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/canvas_epic_%20moments_.png"
+           alt="ARAMIS epic moments — tournaments and champions" loading="lazy">
+      <div class="canvas-ov"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Zoom Modal -->
+<div class="zoom-modal" id="zoom-modal" onclick="closeZoom()">
+  <button class="zoom-close" onclick="event.stopPropagation(); closeZoom()">Close &times;</button>
+  <img id="zoom-target" src="" alt="ARAMIS archive — full view">
+</div>
+
+
+<!-- ══ SHARE YOUR STORY ═══════════════════════ -->
+<section class="share">
+  <div class="share-inner">
+    <div class="fu">
+      <div class="stag">Share Your Story</div>
+      <h2 class="sec-hed">Got an ARAMIS<br>memory?</h2>
+      <p class="sec-body">Forty years means thousands of stories we don't know yet. A photo from a tournament in the nineties. A regular who played every Tuesday for fifteen years. A summer night that turned into a two-week stay.</p>
+      <p class="sec-body">Share your photos, moments, or memories with us — we'd love to add them to the wall.</p>
+    </div>
+    <div class="share-cta-block fu fu-d1">
+      <div class="share-cta-hed">Help us build the archive.</div>
+      <div class="share-cta-body">
+        Email us at <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a><br>
+        Instagram DM at <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+      </div>
+      <div class="share-italic">Or just show us at the bar.<br>We'll take it from there.</div>
+      <div class="share-actions">
+        <a href="mailto:aramischania@gmail.com" class="btn-primary">Send us your memory</a>
+        <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost" style="justify-content:center;">@aramischania on Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ═════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+      </div>
+      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Navigate</div>
+      <div class="footer-links">
+        <a href="#">Our Story</a>
+        <a href="#">Billiards &amp; Darts</a>
+        <a href="#">Kitchen &amp; Bar</a>
+        <a href="#">Terrace</a>
+        <a href="#">Events</a>
+        <a href="#">Pro Shop</a>
+        <a href="#">Find Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-hed">Visit</div>
+      <div class="footer-links">
+        <a href="#">Open 10:00 – 01:00 daily</a>
+        <a href="#">Chania, Crete</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+        <a href="#">Book a Table →</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
+    <div class="footer-copy">Design · Manos Chatzakis</div>
+  </div>
+</footer>
+
+
+<script>
+// ── Nav scroll state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ── Venue dropdown: touch/click support
+const venueDd = document.getElementById('nav-venue');
+if (venueDd) {
+  venueDd.addEventListener('click', e => {
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      venueDd.classList.toggle('open');
+    }
+  });
+  document.addEventListener('click', e => {
+    if (!venueDd.contains(e.target)) venueDd.classList.remove('open');
+  });
 }
 
-/* Column 1 — brand */
-.footer-brand {}
-.footer-brand-logo { margin-bottom: 20px; }
-.footer-brand-logo img { width: 160px; object-fit: contain; }
-.footer-brand-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 20px; }
-.footer-brand-contact { display: flex; flex-direction: column; gap: 6px; }
-.footer-brand-contact a,
-.footer-brand-contact span {
-  font-size: 12px; color: rgba(200,185,164,.45);
-  text-decoration: none; transition: color .2s; line-height: 1.5;
-}
-.footer-brand-contact a:hover { color: var(--gold); }
+// ── Fade-up on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
 
-/* Columns 2–4 */
-.footer-col {}
-.footer-col-title {
-  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 18px; display: block;
+// ── Canvas zoom
+function openZoom(wrap) {
+  const src = wrap.querySelector('img').src;
+  document.getElementById('zoom-target').src = src;
+  document.getElementById('zoom-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
-.footer-col-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-col-links a,
-.footer-col-links span {
-  font-size: 12px; color: rgba(200,185,164,.5);
-  text-decoration: none; transition: color .2s; line-height: 1.4;
+function closeZoom() {
+  document.getElementById('zoom-modal').classList.remove('open');
+  document.body.style.overflow = '';
 }
-.footer-col-links a:hover { color: var(--cream); }
-.footer-col-links .footer-divider {
-  height: 1px; background: rgba(200,169,110,.07); margin: 4px 0;
-}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeZoom(); });
 
-/* Bottom bar */
-.footer-bottom-bar {
-  max-width: 1200px; margin: 0 auto;
-  padding: 20px 72px 28px;
-  border-top: 1px solid rgba(200,169,110,.07);
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-/* Mobile footer */
-@media (max-width: 768px) {
-  .footer-map { height: 180px; }
-  .footer-body {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    padding: 40px 20px 32px;
+
+
+// ── Overlay nav ──────────────────────────────────────────────────────
+(function() {
+  var hamburger = document.getElementById('nav-hamburger');
+  var overlay   = document.getElementById('nav-overlay');
+  var closeBtn  = document.getElementById('ov-close');
+  if (!hamburger || !overlay) return;
+
+  function openOverlay() {
+    overlay.classList.add('open');
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-bottom-bar { padding: 16px 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
-}
-@media (max-width: 480px) {
-  .footer-body { grid-template-columns: 1fr; }
+  function closeOverlay() {
+    overlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', function() {
+    overlay.classList.contains('open') ? closeOverlay() : openOverlay();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
+  overlay.querySelectorAll('.ov-link, .ov-sublink').forEach(function(l) {
+    l.addEventListener('click', closeOverlay);
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeOverlay();
+  });
+})();
+
+function toggleOvGroup(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  document.querySelectorAll('.ov-subgroup').forEach(function(g) {
+    if (g.id !== id) g.classList.remove('expanded');
+  });
+  el.classList.toggle('expanded');
 }
 
+</script>
 
+</body>
+</html>
