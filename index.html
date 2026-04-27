@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARAMIS — Nav Mockup B: Scrollable Horizontal Nav</title>
+<title>ARAMIS — Nav Mockup B: Bottom Scrollable Nav</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -15,7 +15,8 @@
   --cream:   #f3e5d2;
   --muted:   #c8b9a4;
   --nav-h:   180px;
-  --mob-nav-h: 110px; /* logo row + scroll nav row */
+  --mob-top: 60px;   /* top logo bar */
+  --mob-bot: 56px;   /* bottom scroll nav */
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -45,122 +46,166 @@ a { text-decoration: none; color: inherit; }
 .nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
 
 /* ══════════════════════════════════════════════
-   MOBILE SCROLLABLE NAV
-   Two-tier: logo strip (top) + horizontal scroll nav
+   MOBILE: TOP LOGO BAR
    ══════════════════════════════════════════════ */
-
-/* Mobile nav wrapper — replaces standard nav on mobile */
-.mob-nav-wrap {
+.mob-top-bar {
   display: none;
-  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-  flex-direction: column;
-  background: rgba(26,24,20,.92);
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--mob-top);
+  z-index: 900;
+  background: rgba(26,24,20,.9);
   border-bottom: 1px solid rgba(200,169,110,.1);
   backdrop-filter: blur(14px);
+  align-items: center; justify-content: center;
   transition: background .4s;
 }
-.mob-nav-wrap.scrolled { background: rgba(26,24,20,.99); border-bottom-color: rgba(200,169,110,.2); }
+.mob-top-bar.scrolled { background: rgba(26,24,20,.99); border-bottom-color: rgba(200,169,110,.18); }
+.mob-top-bar img { height: 36px; width: auto; object-fit: contain; }
 
-/* Row 1: Logo centred */
-.mob-logo-row {
-  display: flex; align-items: center; justify-content: center;
-  padding: 10px 16px 6px;
-  height: 64px;
+/* ══════════════════════════════════════════════
+   MOBILE: BOTTOM SCROLLABLE NAV
+   ══════════════════════════════════════════════ */
+.mob-bot-nav {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 900;
+  background: rgba(20,18,16,.97);
+  border-top: 1px solid rgba(200,169,110,.15);
+  backdrop-filter: blur(16px);
+  flex-direction: column;
+  /* Safe area for notched phones */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-.mob-logo-row img { height: 40px; width: auto; object-fit: contain; }
 
-/* Row 2: Horizontal scrollable nav */
-.mob-scroll-nav {
-  display: flex; align-items: stretch;
+/* The scrollable strip */
+.mob-scroll-strip {
+  display: flex; align-items: center;
+  height: var(--mob-bot);
   overflow-x: auto; overflow-y: hidden;
   -ms-overflow-style: none; scrollbar-width: none;
-  /* Fade edges via mask */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 16px, black calc(100% - 16px), transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 16px, black calc(100% - 16px), transparent 100%);
-  padding: 0 16px;
-  border-top: 1px solid rgba(200,169,110,.07);
-  height: 46px;
-}
-.mob-scroll-nav::-webkit-scrollbar { display: none; }
-
-/* Each nav item in the scroll row */
-.mob-nav-item {
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  font-size: 9px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase;
-  color: rgba(243,229,210,.5);
-  padding: 0 14px;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
-  cursor: pointer; user-select: none;
-  transition: color .2s, border-color .2s;
-  -webkit-tap-highlight-color: transparent;
+  padding: 0 8px;
+  /* Mask: fade left edge after scroll, always fade right to hint at more */
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0px, black 24px,
+    black calc(100% - 48px), transparent 100%);
+  mask-image: linear-gradient(to right,
+    transparent 0px, black 24px,
+    black calc(100% - 48px), transparent 100%);
   position: relative;
 }
-.mob-nav-item:hover, .mob-nav-item.active {
+.mob-scroll-strip::-webkit-scrollbar { display: none; }
+
+/* Nav pill items */
+.mob-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  flex-shrink: 0;
+  height: 34px; padding: 0 14px;
+  font-size: 9.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(243,229,210,.45);
+  white-space: nowrap; cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 17px;
+  transition: color .2s, background .2s, border-color .2s;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0 2px;
+}
+.mob-pill:hover,
+.mob-pill.active {
   color: var(--gold);
-  border-bottom-color: var(--gold);
+  background: rgba(200,169,110,.08);
+  border-color: rgba(200,169,110,.2);
 }
-.mob-nav-item a {
-  color: inherit; display: flex; align-items: center; gap: 4px;
-  height: 100%; white-space: nowrap;
-}
-.mob-nav-item svg { width: 7px; height: 7px; opacity: .6; flex-shrink: 0; }
+.mob-pill svg { width: 7px; height: 7px; flex-shrink: 0; transition: transform .25s; }
+.mob-pill.active svg { transform: rotate(180deg); }
 
-/* Vertical dividers between groups */
-.mob-nav-div {
-  width: 1px; flex-shrink: 0; margin: 10px 4px;
-  background: rgba(200,169,110,.12);
+/* Divider dot */
+.mob-pill-sep {
+  flex-shrink: 0; width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(200,169,110,.15); margin: 0 4px;
 }
 
-/* ─── DROPDOWN from scroll nav ───────────── */
-/* Tapping a parent item reveals sub-items inline
-   in a drawer that slides down below the nav */
+/* ─── SCROLL INDICATOR ───────────────────── */
+/* Bouncing arrow hinting at more content to the right */
+.scroll-hint {
+  position: absolute; right: 0; top: 50%;
+  transform: translateY(-50%);
+  display: flex; align-items: center; gap: 4px;
+  padding: 4px 10px 4px 6px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity .4s ease;
+}
+.scroll-hint.hidden { opacity: 0; }
+.scroll-hint-arrows {
+  display: flex; gap: 2px;
+}
+.scroll-hint-arrows span {
+  display: block; width: 5px; height: 5px;
+  border-right: 1.5px solid var(--gold);
+  border-top: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+  opacity: 0;
+  animation: hint-bounce 1.6s ease-in-out infinite;
+}
+.scroll-hint-arrows span:nth-child(1) { animation-delay: 0s; }
+.scroll-hint-arrows span:nth-child(2) { animation-delay: .18s; }
+.scroll-hint-arrows span:nth-child(3) { animation-delay: .36s; }
+@keyframes hint-bounce {
+  0%, 100% { opacity: 0; transform: rotate(45deg) translateX(-3px); }
+  50%       { opacity: .8; transform: rotate(45deg) translateX(2px); }
+}
+.scroll-hint-label {
+  font-size: 7px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(200,169,110,.5); writing-mode: initial;
+}
+
+/* ─── SUBNAV DRAWER (opens upward) ──────── */
 .mob-subnav {
-  position: fixed; left: 0; right: 0;
-  top: calc(64px + 46px); /* logo + scroll row */
-  z-index: 899;
-  background: rgba(18,16,13,.97);
-  border-bottom: 2px solid var(--gold);
-  backdrop-filter: blur(14px);
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 1px;
+  display: flex; flex-wrap: wrap; gap: 1px;
+  background: rgba(16,14,11,.98);
+  border-top: 1px solid rgba(200,169,110,.12);
   max-height: 0; overflow: hidden;
-  transition: max-height .35s cubic-bezier(.4,0,.2,1);
+  transition: max-height .4s cubic-bezier(.4,0,.2,1);
 }
-.mob-subnav.open { max-height: 300px; }
+.mob-subnav.open { max-height: 200px; }
 .mob-subnav-item {
   display: flex; align-items: center; gap: 10px;
-  padding: 16px 20px;
-  font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(243,229,210,.55);
+  flex: 1 1 calc(50% - 1px); min-width: 140px;
+  padding: 14px 16px;
+  font-size: 9.5px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(243,229,210,.5);
   transition: color .2s, background .2s;
   -webkit-tap-highlight-color: transparent;
 }
-.mob-subnav-item:hover { color: var(--gold); background: rgba(200,169,110,.04); }
-.mob-subnav-item .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .35; flex-shrink: 0; }
+.mob-subnav-item:active { color: var(--gold); background: rgba(200,169,110,.05); }
+.mob-subnav-item .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .3; flex-shrink: 0; }
 
-/* ─── HERO (mockup) ──────────────────────── */
+/* Gold top border on open subnav */
+.mob-subnav.open { border-top: 2px solid var(--gold); }
+
+/* ─── HERO ───────────────────────────────── */
 .hero {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  text-align: center; padding: 0 40px; flex-direction: column; gap: 24px;
-  padding-top: var(--mob-nav-h);
+  text-align: center; padding: 0 32px;
+  flex-direction: column; gap: 24px;
 }
-.hero-hed { font-family: 'Fraunces', serif; font-size: clamp(36px, 7vw, 80px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.1; }
-.hero-sub { font-size: 13px; color: rgba(200,185,164,.4); letter-spacing: .5px; }
-.hero-note { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.4); background: var(--bg-card); padding: 8px 16px; border: 1px solid rgba(200,169,110,.15); white-space: nowrap; }
+.hero-hed { font-family: 'Fraunces', serif; font-size: clamp(36px, 9vw, 72px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.1; }
+.hero-sub { font-size: 12px; color: rgba(200,185,164,.35); letter-spacing: .5px; line-height: 1.7; }
+.hero-note { position: fixed; top: calc(var(--mob-top) + 12px); left: 50%; transform: translateX(-50%); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,169,110,.4); background: rgba(26,24,20,.8); padding: 5px 12px; border: 1px solid rgba(200,169,110,.12); white-space: nowrap; z-index: 800; border-radius: 2px; }
 
 /* ─── SHOW MOB NAV ON MOBILE ─────────────── */
 @media (max-width: 960px) {
-  .nav { display: none; } /* hide desktop nav */
-  .mob-nav-wrap { display: flex; }
-  .hero { padding-top: 130px; }
+  .nav { display: none; }
+  .mob-top-bar { display: flex; }
+  .mob-bot-nav { display: flex; }
+  body { padding-bottom: calc(var(--mob-bot) + env(safe-area-inset-bottom, 16px)); padding-top: var(--mob-top); }
 }
 </style>
 </head>
 <body>
 
-<!-- DESKTOP NAV (hidden on mobile) -->
+<!-- DESKTOP NAV -->
 <nav class="nav" id="nav">
   <div class="nav-left">
     <a class="nav-lk" href="story.html">Our Story</a>
@@ -172,7 +217,7 @@ a { text-decoration: none; color: inherit; }
         <a href="terrace.html" class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
         <a href="kitchen.html" class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
         <div class="nav-dd-divider"></div>
-        <a href="explore-our-venue.html" class="nav-dd-item"><span class="dd-dot"></span>Explore our Venue →</a>
+        <a href="explore-our-venue.html" class="nav-dd-item"><span class="dd-dot"></span>Explore the Venue →</a>
       </div>
     </div>
     <a class="nav-lk" href="menu.html">Our Menu</a>
@@ -193,126 +238,122 @@ a { text-decoration: none; color: inherit; }
   </div>
 </nav>
 
-<!-- MOBILE SCROLLABLE NAV -->
-<div class="mob-nav-wrap" id="mob-nav-wrap">
+<!-- MOBILE: TOP LOGO BAR -->
+<div class="mob-top-bar" id="mob-top-bar">
+  <a href="index.html">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+  </a>
+</div>
 
-  <!-- Row 1: Logo -->
-  <div class="mob-logo-row">
-    <a href="index.html">
-      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
-    </a>
+<!-- MOBILE: BOTTOM NAV -->
+<div class="mob-bot-nav" id="mob-bot-nav">
+
+  <!-- Subnav drawers — open upward above the strip -->
+  <div class="mob-subnav" id="subnav-venue">
+    <a href="billiards.html"         class="mob-subnav-item"><span class="dot"></span>Billiards</a>
+    <a href="darts.html"             class="mob-subnav-item"><span class="dot"></span>Darts</a>
+    <a href="terrace.html"           class="mob-subnav-item"><span class="dot"></span>Terrace Cafe</a>
+    <a href="kitchen.html"           class="mob-subnav-item"><span class="dot"></span>Kitchen &amp; Bar</a>
+    <a href="explore-our-venue.html" class="mob-subnav-item"><span class="dot"></span>Explore Venue →</a>
   </div>
 
-  <!-- Row 2: Horizontal scroll -->
-  <div class="mob-scroll-nav" id="mob-scroll-nav">
+  <div class="mob-subnav" id="subnav-events">
+    <a href="tournaments.html" class="mob-subnav-item"><span class="dot"></span>Tournaments</a>
+    <a href="social.html"      class="mob-subnav-item"><span class="dot"></span>Social Events</a>
+  </div>
 
-    <div class="mob-nav-item">
-      <a href="story.html">Our Story</a>
-    </div>
+  <!-- Scrollable strip -->
+  <div class="mob-scroll-strip" id="mob-scroll-strip">
 
-    <div class="mob-nav-div"></div>
+    <a href="index.html"  class="mob-pill">Home</a>
+    <a href="story.html"  class="mob-pill">Our Story</a>
 
-    <div class="mob-nav-item" id="mob-venue" onclick="toggleSubnav('subnav-venue','mob-venue')">
-      <a href="#" onclick="return false;">
-        The Venue
-        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
-      </a>
-    </div>
+    <div class="mob-pill-sep"></div>
 
-    <div class="mob-nav-item">
-      <a href="menu.html">Our Menu</a>
-    </div>
+    <button class="mob-pill" id="pill-venue" onclick="toggleSubnav('subnav-venue','pill-venue')">
+      The Venue
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+    </button>
 
-    <div class="mob-nav-div"></div>
+    <a href="menu.html"  class="mob-pill">Our Menu</a>
 
-    <div class="mob-nav-item" id="mob-events" onclick="toggleSubnav('subnav-events','mob-events')">
-      <a href="#" onclick="return false;">
-        Events
-        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
-      </a>
-    </div>
+    <div class="mob-pill-sep"></div>
 
-    <div class="mob-nav-item">
-      <a href="pro-shop.html">Pro Shop</a>
-    </div>
+    <button class="mob-pill" id="pill-events" onclick="toggleSubnav('subnav-events','pill-events')">
+      Events
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+    </button>
 
-    <div class="mob-nav-div"></div>
+    <a href="pro-shop.html" class="mob-pill">Pro Shop</a>
 
-    <div class="mob-nav-item">
-      <a href="contact.html">Find Us</a>
+    <div class="mob-pill-sep"></div>
+
+    <a href="contact.html"  class="mob-pill">Find Us</a>
+
+    <!-- Scroll hint overlay (right side) -->
+    <div class="scroll-hint" id="scroll-hint">
+      <div class="scroll-hint-arrows">
+        <span></span><span></span><span></span>
+      </div>
     </div>
 
   </div>
+
 </div>
 
-<!-- Sub-nav drawers (shared, swap content via JS) -->
-<div class="mob-subnav" id="subnav-venue">
-  <a href="billiards.html"         class="mob-subnav-item"><span class="dot"></span>Billiards</a>
-  <a href="darts.html"             class="mob-subnav-item"><span class="dot"></span>Darts</a>
-  <a href="terrace.html"           class="mob-subnav-item"><span class="dot"></span>The Terrace Cafe</a>
-  <a href="kitchen.html"           class="mob-subnav-item"><span class="dot"></span>Kitchen &amp; Bar</a>
-  <a href="explore-our-venue.html" class="mob-subnav-item"><span class="dot"></span>Explore the Venue →</a>
-</div>
-
-<div class="mob-subnav" id="subnav-events">
-  <a href="tournaments.html" class="mob-subnav-item"><span class="dot"></span>Tournaments</a>
-  <a href="social.html"      class="mob-subnav-item"><span class="dot"></span>Social Events</a>
-</div>
-
-<!-- HERO (mockup content) -->
+<!-- HERO mockup -->
 <div class="hero">
   <h1 class="hero-hed">Take your seat.<br><em>The table is ready.</em></h1>
-  <p class="hero-sub">Scroll the nav row ← → to test · Tap The Venue or Events</p>
+  <p class="hero-sub">Swipe the nav bar at the bottom →<br>Tap "The Venue" or "Events" to expand</p>
 </div>
 
-<div class="hero-note">MOCKUP B — Scrollable Horizontal Nav</div>
+<div class="hero-note">MOCKUP B — Bottom Scrollable Nav</div>
 
 <script>
 // Desktop nav scroll
 const desktopNav = document.getElementById('nav');
-const mobNav = document.getElementById('mob-nav-wrap');
+const topBar     = document.getElementById('mob-top-bar');
 window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY > 40;
-  if (desktopNav) desktopNav.classList.toggle('scrolled', scrolled);
-  if (mobNav) mobNav.classList.toggle('scrolled', scrolled);
+  const s = window.scrollY > 40;
+  if (desktopNav) desktopNav.classList.toggle('scrolled', s);
+  if (topBar)     topBar.classList.toggle('scrolled', s);
 }, { passive: true });
 
-// Scroll nav: snap active item into view on tap
-document.querySelectorAll('.mob-nav-item').forEach(item => {
-  item.addEventListener('click', () => {
-    item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  });
-});
+// Scroll hint: hide after user has scrolled the strip
+const strip = document.getElementById('mob-scroll-strip');
+const hint  = document.getElementById('scroll-hint');
+let hintHidden = false;
 
-// Sub-nav toggle
-let currentSubnav = null;
-let currentTrigger = null;
+if (strip && hint) {
+  strip.addEventListener('scroll', () => {
+    if (!hintHidden && strip.scrollLeft > 20) {
+      hint.classList.add('hidden');
+      hintHidden = true;
+    }
+  }, { passive: true });
+}
 
-function toggleSubnav(subnavId, triggerId) {
+// Subnav toggle
+function toggleSubnav(subnavId, pillId) {
   const subnav = document.getElementById(subnavId);
-  const trigger = document.getElementById(triggerId);
+  const pill   = document.getElementById(pillId);
   const isOpen = subnav.classList.contains('open');
 
-  // Close all first
+  // Close everything first
   document.querySelectorAll('.mob-subnav').forEach(s => s.classList.remove('open'));
-  document.querySelectorAll('.mob-nav-item').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.mob-pill').forEach(p => p.classList.remove('active'));
 
   if (!isOpen) {
     subnav.classList.add('open');
-    trigger.classList.add('active');
-    currentSubnav = subnav;
-    currentTrigger = trigger;
-  } else {
-    currentSubnav = null;
-    currentTrigger = null;
+    pill.classList.add('active');
   }
 }
 
 // Close subnav on outside tap
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.mob-nav-item') && !e.target.closest('.mob-subnav')) {
+document.addEventListener('click', e => {
+  if (!e.target.closest('.mob-bot-nav')) {
     document.querySelectorAll('.mob-subnav').forEach(s => s.classList.remove('open'));
-    document.querySelectorAll('.mob-nav-item').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.mob-pill').forEach(p => p.classList.remove('active'));
   }
 });
 </script>
