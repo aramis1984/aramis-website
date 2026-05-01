@@ -691,25 +691,70 @@ a { text-decoration: none; color: inherit; }
 
   .share-cta-block { padding: 36px 28px; }
 
-  /* Footer: brand full-width → Navigate | Follow side-by-side → Visit full-width
-     This gives address & parking room to breathe without wrapping */
-  .footer { padding: 48px 28px 0; }
+  /* ── MOBILE FOOTER — centered editorial stack ──────────────────
+     Brand centered + prominent · Navigate as 2-col link grid ·
+     Visit full-width · Follow centered · gold hairline separators  */
+  .footer { padding: 48px 24px 0; }
   .footer-top {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "brand  brand"
-      "nav    follow"
-      "visit  visit";
-    row-gap: 40px; column-gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
-  .ft-brand                          { grid-area: brand; }
-  .footer-top > *:nth-child(2)       { grid-area: nav; }
-  .footer-top > *:nth-child(3)       { grid-area: visit; }
-  .footer-top > *:nth-child(4)       { grid-area: follow; }
-  /* Tighten text slightly so items don't wrap */
-  .ft-col a, .ft-col p               { font-size: 12px; line-height: 1.9; }
 
-  /* Maps button compact */
+  /* Brand — centered, logo large */
+  .ft-brand {
+    text-align: center;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(200,169,110,.1);
+  }
+  .ft-brand .ft-brand-logo img {
+    margin: 0 auto 18px;
+    width: 170px;
+  }
+  .ft-brand .ft-tagline { text-align: center; }
+  .ft-brand .ft-contact p { text-align: center; }
+  .ft-brand .ft-hours { text-align: center; }
+
+  /* All col sections: padded with gold hairline below */
+  .ft-col {
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(200,169,110,.08);
+  }
+  .ft-col:last-child { border-bottom: none; padding-bottom: 0; }
+  .ft-col h4 { text-align: center; margin-bottom: 20px; }
+
+  /* Navigate — 2-col compact grid, left-aligned text */
+  .footer-top > *:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+  }
+  .footer-top > *:nth-child(2) h4 {
+    grid-column: 1 / -1;
+  }
+  .footer-top > *:nth-child(2) a {
+    font-size: 13px; line-height: 2.3;
+    color: var(--muted); text-align: left;
+  }
+  .footer-top > *:nth-child(2) a:hover { color: var(--gold); }
+
+  /* Visit — full width, left-aligned, compact */
+  .footer-top > *:nth-child(3) a,
+  .footer-top > *:nth-child(3) p {
+    font-size: 13px; line-height: 1.9; text-align: left;
+  }
+
+  /* Follow — centered */
+  .footer-top > *:nth-child(4) { text-align: center; }
+  .footer-top > *:nth-child(4) a {
+    font-size: 13px; line-height: 2.3;
+    text-align: center; display: block;
+  }
+
+  /* Bottom bar */
+  .footer-btm { flex-direction: column; gap: 6px; text-align: center; }
+
+  /* Maps strip */
   .footer-map-btn { font-size: 8px; padding: 8px 14px; bottom: 10px; right: 10px; letter-spacing: 1.5px; }
   .footer-map-wrap { height: 180px; }
 }
@@ -719,9 +764,6 @@ a { text-decoration: none; color: inherit; }
   .ml-intro { padding: 72px var(--gutter) 48px; }
   .family-photos { grid-template-columns: 1fr; }
   .fph:first-child { grid-column: auto; }
-
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .footer-btm { flex-direction: column; gap: 6px; text-align: center; }
 
   .nav-overlay-inner { padding: 0 24px 48px; }
   .ov-link { font-size: clamp(26px, 7vw, 36px); }
