@@ -92,22 +92,28 @@ a { text-decoration: none; color: inherit; }
 /* centred icon + label */
 .ph-inner {
   position: absolute;
-  inset: 0;
+  top: 12px;
+  right: 14px;
+  bottom: auto;
+  left: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 24px;
-  z-index: 0;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 0;
+  z-index: 2;
 }
+.ph-inner svg { display: none; } /* label only in corner — no icon needed */
 .ph-label {
-  font-size: 8px;
-  letter-spacing: 2px;
+  font-size: 7px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(200,169,110,.25);
-  text-align: center;
-  line-height: 1.9;
+  color: rgba(200,169,110,.3);
+  text-align: right;
+  line-height: 1.8;
+  background: rgba(16,14,11,.45);
+  padding: 4px 7px;
+  backdrop-filter: blur(4px);
 }
 
 
@@ -627,10 +633,10 @@ a { text-decoration: none; color: inherit; }
   font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
   color: rgba(200,169,110,.5); margin-top: 2px;
 }
-/* 3-column grid */
+/* 2×2 grid — 4 cards */
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2px;
 }
 .review-card {
@@ -823,16 +829,24 @@ a { text-decoration: none; color: inherit; }
   .reviews-header { flex-direction: column; align-items: flex-start; }
   .reviews-overall { align-items: flex-start; }
 
-  /* Footer → brand full-width, then 3-col */
+  /* Footer → brand full-width, then 2-col */
   .footer { padding: 48px 28px 0; }
   .footer-top {
-    grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 40px; column-gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px; column-gap: 28px;
   }
   .footer-top > .ft-brand { grid-column: 1 / -1; }
 
   /* Maps strip height */
   .footer-map-wrap { height: 180px; }
+  /* Get Directions button — compact on mobile */
+  .footer-map-btn {
+    font-size: 8px;
+    padding: 8px 14px;
+    bottom: 10px;
+    right: 10px;
+    letter-spacing: 1.5px;
+  }
 }
 
 /* ── Small mobile (≤480px) ── */
@@ -848,9 +862,8 @@ a { text-decoration: none; color: inherit; }
   /* Events */
   .events { padding: 56px 24px; }
 
-  /* Footer → single column */
-  .footer-top { grid-template-columns: 1fr; }
-  .footer-top > .ft-brand { grid-column: auto; }
+  /* Footer stays 2-col at all small sizes */
+  .footer-top { grid-template-columns: 1fr 1fr; }
   .footer-btm { flex-direction: column; gap: 6px; text-align: center; }
 
   /* Overlay nav narrower padding */
@@ -1394,6 +1407,16 @@ a { text-decoration: none; color: inherit; }
       </div>
     </div>
 
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <span class="review-topic">The atmosphere</span>
+      <div class="review-text">"Came for the billiards, stayed for the whole evening. The cocktails are excellent, the staff made us feel at home. Will absolutely return."</div>
+      <div class="review-footer">
+        <span class="review-author">— Google review</span>
+        <span class="review-platform">Google</span>
+      </div>
+    </div>
+
   </div>
 
   <div class="reviews-ctas">
@@ -1474,11 +1497,6 @@ a { text-decoration: none; color: inherit; }
       <a href="https://instagram.com/aramischania" target="_blank" rel="noopener">Instagram @aramischania</a>
       <a href="https://facebook.com/aramischania" target="_blank" rel="noopener">Facebook /aramischania</a>
       <a href="https://cuescore.com/aramischania" target="_blank" rel="noopener">CueScore /aramischania</a>
-      <a
-        href="https://search.google.com/local/writereview?placeid=ChIJM6BkL4h9nBQRwuF447BkhqU"
-        target="_blank" rel="noopener"
-        class="ft-review-cta"
-      >Leave a Google review</a>
     </div>
 
   </div>
@@ -1676,7 +1694,7 @@ function renderReviews(data) {
 
   // Shuffle 5-star pool on every page load, then append others
   const pool     = [...shuffleArray(fiveStars), ...others];
-  const selected = pool.slice(0, 3); // show exactly 3
+  const selected = pool.slice(0, 4); // show exactly 4
 
   const grid = document.getElementById('reviews-grid');
   if (!grid || !selected.length) return;
