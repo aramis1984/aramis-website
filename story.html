@@ -270,20 +270,15 @@ a { text-decoration: none; color: inherit; }
   position: relative; z-index: 2;
   display: flex; flex-direction: column;
   align-items: center; gap: 0; max-width: 880px;
+  padding-top: 64px;
 }
-.hero-eyebrow {
-  font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 32px;
-  display: flex; align-items: center; gap: 16px;
-}
-.hero-eyebrow::before,
-.hero-eyebrow::after { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: .5; }
 .hero-hed {
   font-family: 'Fraunces', serif;
   font-size: clamp(40px, 6vw, 86px);
   font-weight: 400; font-style: italic;
   line-height: 1.1; color: var(--cream);
   margin-bottom: 32px; letter-spacing: -1px;
+  overflow-wrap: break-word; word-break: break-word;
 }
 .hero-hed em { font-style: normal; color: var(--gold); }
 .hero-rule { width: 1px; height: 64px; background: linear-gradient(to bottom, rgba(200,169,110,.5), transparent); margin: 0 auto 32px; }
@@ -607,7 +602,8 @@ a { text-decoration: none; color: inherit; }
 }
 .ft-brand-logo img { width: 210px; margin-bottom: 18px; object-fit: contain; }
 .ft-tagline { font-size: 12px; font-style: italic; color: rgba(200,185,164,.38); margin-bottom: 20px; line-height: 1.65; }
-.ft-contact { font-size: 13px; line-height: 2.1; color: var(--muted); }
+.ft-contact { font-size: 13px; line-height: 2.0; color: var(--muted); }
+.ft-contact p { display: block; margin: 0; }
 .ft-contact a { color: var(--muted); transition: color .2s; }
 .ft-contact a:hover { color: var(--gold); }
 .ft-hours { margin-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(200,169,110,.45); }
@@ -678,7 +674,7 @@ a { text-decoration: none; color: inherit; }
 /* ── Mobile (≤768px) ── */
 @media (max-width: 768px) {
   .hero { padding: 0 24px; }
-  .hero-hed { font-size: clamp(36px, 9vw, 56px); }
+  .hero-hed { font-size: clamp(28px, 6.5vw, 42px); }
 
   .family-photos { grid-template-columns: 1fr 1fr; }
 
@@ -709,6 +705,7 @@ a { text-decoration: none; color: inherit; }
   .nav-overlay-inner { padding: 0 24px 48px; }
   .ov-link { font-size: clamp(26px, 7vw, 36px); }
   .nav-overlay-foot { grid-template-columns: 1fr; gap: 16px; }
+  .hero-hed { font-size: 26px; letter-spacing: -.5px; }
 
   .zoom-modal { padding: 24px 16px; }
 }
@@ -838,9 +835,11 @@ a { text-decoration: none; color: inherit; }
 ══════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Chania, Crete</div>
     <h1 class="hero-hed">
-      A family, a game,<br>and <em>42 years</em><br>of bringing people together.
+      A family, a game,<br>
+      and 42 years of<br>
+      bringing people<br>
+      <em>together.</em>
     </h1>
     <div class="hero-rule"></div>
     <div class="hero-sub">Est. 1984</div>
@@ -1052,9 +1051,8 @@ a { text-decoration: none; color: inherit; }
       </div>
       <p class="ft-tagline">Chania's finest billiard club since 1984.</p>
       <div class="ft-contact">
-        <a href="tel:+302821070307">(+30) 28210 70307</a>
-        <a href="tel:+306975993307">6975 993 307</a>
-        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+        <p>Tel: <a href="tel:+302821070307">(+30) 28210 70307</a> &nbsp;|&nbsp; <a href="tel:+306975993307">6975 993 307</a></p>
+        <p>Email: <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a></p>
       </div>
       <p class="ft-hours">Open daily 10:00 – 01:00</p>
     </div>
@@ -1076,10 +1074,10 @@ a { text-decoration: none; color: inherit; }
     <div class="ft-col">
       <h4>Visit</h4>
       <p>Kissamou &amp; Saridantoni 1<br>Chania 73136, Crete, Greece</p>
-      <p style="margin-top:20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Where to Park</p>
-      <p>On-site parking beneath venue</p>
-      <p>Kladissos bridge free parking (5 min walk)</p>
-      <p>Electric bus from central Chania</p>
+      <p style="margin-top:20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Where to Park &amp; Getting Here</p>
+      <p>• On-site parking beneath venue.</p>
+      <p>• Kladissos bridge free parking (5 min walk).</p>
+      <p>• Get here by free electric bus from central Chania.</p>
     </div>
 
     <!-- Col 4: Follow -->
