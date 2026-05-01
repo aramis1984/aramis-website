@@ -1686,7 +1686,7 @@ function renderReviews(data) {
   if (!data.reviews || !data.reviews.length) return;
 
   // Filter: exclude empty or very short reviews (< 30 chars)
-  const filtered = data.reviews.filter(r => r.text && r.text.trim().length >= 30);
+  const filtered = data.reviews.filter(r => r.text && r.text.trim().length >= 15);
   if (filtered.length < 1) return; // keep static fallback
 
   // Separate 5-star and lower-rated
@@ -1697,13 +1697,8 @@ function renderReviews(data) {
   const pool     = [...shuffleArray(fiveStars), ...others];
   const selected = pool.slice(0, 4);
 
-  // Only replace static cards when we have a full set of 4 good reviews.
-  // If the Places API returns fewer qualifying reviews, the 4 static
-  // fallback cards stay in place — the user always sees 4 cards.
-  if (selected.length < 4) return;
-
   const grid = document.getElementById('reviews-grid');
-  if (!grid) return;
+  if (!grid || !selected.length) return;
   grid.innerHTML = selected.map(buildReviewCard).join('');
 
   // Update summary stats
