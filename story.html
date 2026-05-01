@@ -39,7 +39,7 @@
   --max-w:   1200px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 16px; scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--bg); color: var(--cream);
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -272,6 +272,15 @@ a { text-decoration: none; color: inherit; }
   align-items: center; gap: 0; max-width: 880px;
   padding-top: 64px;
 }
+/* Hidden on desktop — fixed 180px nav overlaps it when hero content is centred */
+.hero-eyebrow {
+  display: none;
+  font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 32px;
+  align-items: center; gap: 16px;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: .5; }
 .hero-hed {
   font-family: 'Fraunces', serif;
   font-size: clamp(40px, 6vw, 86px);
@@ -674,7 +683,9 @@ a { text-decoration: none; color: inherit; }
 /* ── Mobile (≤768px) ── */
 @media (max-width: 768px) {
   .hero { padding: 0 24px; }
-  .hero-hed { font-size: clamp(28px, 6.5vw, 42px); }
+  /* Show eyebrow on mobile — nav is only 90px, no overlap */
+  .hero-eyebrow { display: flex; }
+  .hero-hed { font-size: clamp(32px, 8vw, 48px); }
 
   .family-photos { grid-template-columns: 1fr 1fr; }
 
@@ -705,7 +716,6 @@ a { text-decoration: none; color: inherit; }
   .nav-overlay-inner { padding: 0 24px 48px; }
   .ov-link { font-size: clamp(26px, 7vw, 36px); }
   .nav-overlay-foot { grid-template-columns: 1fr; gap: 16px; }
-  .hero-hed { font-size: 26px; letter-spacing: -.5px; }
 
   .zoom-modal { padding: 24px 16px; }
 }
@@ -835,6 +845,7 @@ a { text-decoration: none; color: inherit; }
 ══════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-inner">
+    <div class="hero-eyebrow">Chania, Crete</div>
     <h1 class="hero-hed">
       A family, a game,<br>
       and 42 years of<br>
