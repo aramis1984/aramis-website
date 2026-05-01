@@ -251,7 +251,8 @@ a { text-decoration: none; color: inherit; }
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center; position: relative;
-  padding: 0 var(--gutter);
+  /* padding-top = nav height keeps content clear of the fixed nav on all viewports */
+  padding: var(--nav-h) var(--gutter) 0;
   background:
     radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(200,169,110,.07) 0%, transparent 70%),
     radial-gradient(ellipse 60% 40% at 80% 100%,  rgba(200,169,110,.05) 0%, transparent 60%),
@@ -270,9 +271,8 @@ a { text-decoration: none; color: inherit; }
   position: relative; z-index: 2;
   display: flex; flex-direction: column;
   align-items: center; gap: 0; max-width: 880px;
-  padding-top: 64px;
 }
-/* Hidden on desktop — fixed 180px nav overlaps it when hero content is centred */
+/* Hidden on desktop — hidden behind nav; shown on mobile where nav is 90px */
 .hero-eyebrow {
   display: none;
   font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase;
@@ -682,7 +682,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── Mobile (≤768px) ── */
 @media (max-width: 768px) {
-  .hero { padding: 0 24px; }
+  .hero { padding: var(--nav-h) 24px 0; }
   /* Show eyebrow on mobile — nav is only 90px, no overlap */
   .hero-eyebrow { display: flex; }
   .hero-hed { font-size: clamp(32px, 8vw, 48px); }
@@ -691,13 +691,23 @@ a { text-decoration: none; color: inherit; }
 
   .share-cta-block { padding: 36px 28px; }
 
-  /* Footer → brand full-width, then 2-col */
+  /* Footer: brand full-width → Navigate | Follow side-by-side → Visit full-width
+     This gives address & parking room to breathe without wrapping */
   .footer { padding: 48px 28px 0; }
   .footer-top {
     grid-template-columns: 1fr 1fr;
-    row-gap: 40px; column-gap: 28px;
+    grid-template-areas:
+      "brand  brand"
+      "nav    follow"
+      "visit  visit";
+    row-gap: 40px; column-gap: 24px;
   }
-  .footer-top > .ft-brand { grid-column: 1 / -1; }
+  .ft-brand                          { grid-area: brand; }
+  .footer-top > *:nth-child(2)       { grid-area: nav; }
+  .footer-top > *:nth-child(3)       { grid-area: visit; }
+  .footer-top > *:nth-child(4)       { grid-area: follow; }
+  /* Tighten text slightly so items don't wrap */
+  .ft-col a, .ft-col p               { font-size: 12px; line-height: 1.9; }
 
   /* Maps button compact */
   .footer-map-btn { font-size: 8px; padding: 8px 14px; bottom: 10px; right: 10px; letter-spacing: 1.5px; }
@@ -848,7 +858,7 @@ a { text-decoration: none; color: inherit; }
     <div class="hero-eyebrow">Chania, Crete</div>
     <h1 class="hero-hed">
       A family, a game,<br>
-      and 42 years of<br>
+      and <em>42 years</em> of<br>
       bringing people<br>
       <em>together.</em>
     </h1>
