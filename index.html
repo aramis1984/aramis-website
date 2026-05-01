@@ -4,26 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ARAMIS Billiard Club | Chania, Crete — Est. 1984</title>
-  <!-- SEO & Open Graph -->
-  <meta name="description" content="Chania's largest billiard hall. 10 professional tables, all-day café-bar, rooftop terrace with White Mountains views. Family-owned since 1984.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.aramisbilliards.com/">
-  <!-- Open Graph (social sharing) -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ARAMIS Billiard Club">
-  <meta property="og:title" content="ARAMIS Billiard Club | Chania, Crete — Est. 1984">
-  <meta property="og:description" content="Chania's largest billiard hall. 10 professional tables, all-day café-bar, rooftop terrace with White Mountains views. Family-owned since 1984.">
-  <meta property="og:url" content="https://www.aramisbilliards.com/">
-  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
-  <meta property="og:locale" content="en_GR">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ARAMIS Billiard Club | Chania, Crete — Est. 1984">
-  <meta name="twitter:description" content="Chania's largest billiard hall. 10 professional tables, all-day café-bar, rooftop terrace with White Mountains views. Family-owned since 1984.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<!-- SEO & Open Graph -->
+<meta name="description" content="Chania's largest billiard hall. 10 professional tables, all-day café-bar, rooftop terrace with White Mountains views. Family-owned since 1984.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.aramisbilliards.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ARAMIS Billiard Club">
+<meta property="og:title" content="ARAMIS Billiard Club | Chania, Crete — Est. 1984">
+<meta property="og:description" content="Chania's largest billiard hall. 10 professional tables, all-day café-bar, rooftop terrace with White Mountains views. Family-owned since 1984.">
+<meta property="og:url" content="https://www.aramisbilliards.com/">
+<meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<meta property="og:locale" content="en_GR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ARAMIS Billiard Club | Chania, Crete — Est. 1984">
+<meta name="twitter:description" content="Chania's largest billiard hall. 10 professional tables, all-day café-bar, rooftop terrace with White Mountains views. Family-owned since 1984.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ── TOKENS ── */
+
+/* ══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   Note: --coral is intentionally set to gold (#c8a96e).
+   The site uses gold as its single warm accent throughout.
+══════════════════════════════════════════════════════════ */
 :root {
   --bg:      #1a1814;
   --bg-card: #232019;
@@ -34,7 +37,7 @@
   --muted:   #c8b9a4;
   --gold:    #c8a96e;
   --olive:   #6b7a5a;
-  --nav-h:   72px;
+  --nav-h:   180px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -42,8 +45,75 @@ body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sa
 img { display: block; }
 a { text-decoration: none; color: inherit; }
 
-/* ── NAV ── */
-:root { --nav-h: 180px; }
+
+/* ══════════════════════════════════════════════════════════
+   PHOTO PLACEHOLDER SYSTEM
+   ──────────────────────────────────────────────────────────
+   Standardised aspect ratios: 16:9 · 4:3 · 1:1 · 9:16
+   Usage:
+     <div class="ph ph-16-9">
+       <div class="ph-inner">
+         <svg …/>
+         <span class="ph-label">filename.jpg · WxH · Description</span>
+       </div>
+     </div>
+   Replace the entire .ph element with <img> or <video>
+   when real media is ready. No other markup changes needed.
+
+   For sections with a fixed height (hero, terrace, quote-band),
+   use .ph-fill instead of a ratio class — it fills the parent.
+══════════════════════════════════════════════════════════ */
+.ph {
+  position: relative;
+  background: var(--bg-surf);
+  overflow: hidden;
+  width: 100%;
+}
+.ph-16-9 { aspect-ratio: 16 / 9; }
+.ph-4-3  { aspect-ratio: 4 / 3; }
+.ph-1-1  { aspect-ratio: 1 / 1; }
+.ph-9-16 { aspect-ratio: 9 / 16; }
+/* fill the parent container (for fixed-height sections) */
+.ph-fill {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+/* dashed border frame */
+.ph::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(200,169,110,.15);
+  pointer-events: none;
+  z-index: 1;
+}
+/* centred icon + label */
+.ph-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  z-index: 0;
+}
+.ph-label {
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(200,169,110,.25);
+  text-align: center;
+  line-height: 1.9;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   NAV — desktop: centred logo, links split L/R
+══════════════════════════════════════════════════════════ */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 900;
   height: var(--nav-h);
@@ -69,6 +139,7 @@ a { text-decoration: none; color: inherit; }
   white-space: nowrap; line-height: 1; cursor: pointer; position: relative;
 }
 .nav-lk:hover, .nav-lk.active { color: var(--gold); }
+/* Dropdowns */
 .nav-dd { position: relative; display: flex; align-items: center; }
 .nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
 .nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
@@ -78,13 +149,15 @@ a { text-decoration: none; color: inherit; }
   background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15);
   border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0;
   opacity: 0; visibility: hidden; transform: translateY(-4px);
-  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s; pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s;
+  pointer-events: none;
 }
 .nav-dd-panel.panel-right { left: auto; right: 0; }
 .nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
 .nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel {
   opacity: 1; visibility: visible; transform: translateY(0);
-  transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s; pointer-events: auto;
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s;
+  pointer-events: auto;
 }
 .nav-dd-item {
   display: flex; align-items: center; gap: 12px; padding: 12px 20px;
@@ -94,25 +167,183 @@ a { text-decoration: none; color: inherit; }
 .nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
 .nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
 .nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
-@media (max-width: 960px) { .nav-left, .nav-right { display: none; } .nav { justify-content: center; } .nav-logo img { width: 240px; height: auto; } }
 
-/* ── HERO ── */
+/* Hamburger button — hidden on desktop, shown on mobile */
+.nav-hamburger {
+  display: none;
+  position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px;
+  flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: none; border: none; cursor: pointer;
+  z-index: 970; /* above overlay */
+  padding: 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: rgba(243,229,210,.75);
+  transition: all .38s cubic-bezier(.77,0,.18,1);
+  transform-origin: center;
+}
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); background: var(--cream); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); background: var(--cream); }
+
+
+/* ══════════════════════════════════════════════════════════
+   FULL-SCREEN OVERLAY NAV — mobile
+   Luxury hotel-style: clip-path sweep, Fraunces italic links,
+   staggered entrance, inline accordion for sub-menus.
+══════════════════════════════════════════════════════════ */
+.nav-overlay {
+  display: none; /* shown via media query below 960px */
+  position: fixed; inset: 0; z-index: 950;
+  background: #100e0b;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path .65s cubic-bezier(.77,0,.18,1);
+  pointer-events: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-overlay.is-open {
+  clip-path: inset(0 0 0% 0);
+  pointer-events: auto;
+}
+
+.nav-overlay-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: 0 40px 56px;
+}
+
+/* Top bar: logo + implicit close via hamburger */
+.nav-overlay-head {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(200,169,110,.08);
+  margin-bottom: 40px;
+}
+.nav-overlay-head img { width: 200px; object-fit: contain; }
+
+/* Main link list */
+.nav-overlay-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each item row */
+.ov-item {
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.nav-overlay.is-open .ov-item { opacity: 1; transform: translateY(0); }
+/* Staggered entrance delays */
+.ov-item:nth-child(1) { transition-delay: .16s; }
+.ov-item:nth-child(2) { transition-delay: .22s; }
+.ov-item:nth-child(3) { transition-delay: .28s; }
+.ov-item:nth-child(4) { transition-delay: .34s; }
+.ov-item:nth-child(5) { transition-delay: .40s; }
+.ov-item:nth-child(6) { transition-delay: .46s; }
+.ov-item:nth-child(7) { transition-delay: .52s; }
+
+/* Large Fraunces italic link */
+.ov-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 6.5vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(243,229,210,.72);
+  transition: color .22s;
+  background: none; border: none; cursor: pointer;
+  text-align: left; line-height: 1;
+}
+.ov-link:hover { color: var(--gold); }
+
+/* Accordion chevron */
+.ov-acc-chevron {
+  font-size: 20px;
+  color: rgba(200,169,110,.35);
+  transition: transform .35s cubic-bezier(.77,0,.18,1), color .2s;
+  flex-shrink: 0;
+  font-style: normal;
+  line-height: 1;
+  margin-left: 12px;
+}
+.ov-item.is-expanded .ov-acc-chevron {
+  transform: rotate(90deg);
+  color: var(--gold);
+}
+
+/* Accordion sub-links */
+.ov-sub {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .5s cubic-bezier(.77,0,.18,1);
+}
+.ov-item.is-expanded .ov-sub { max-height: 400px; }
+
+.ov-sub-link {
+  display: block;
+  padding: 11px 0 11px 16px;
+  font-size: 11px; font-weight: 500; letter-spacing: 2.2px; text-transform: uppercase;
+  color: rgba(243,229,210,.4);
+  border-left: 1px solid rgba(200,169,110,.12);
+  margin-bottom: 2px;
+  transition: color .2s, border-color .2s;
+}
+.ov-sub-link:last-child { margin-bottom: 20px; }
+.ov-sub-link:hover { color: var(--gold); border-left-color: rgba(200,169,110,.35); }
+
+/* Overlay footer */
+.nav-overlay-foot {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(200,169,110,.08);
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px 32px;
+  align-items: center;
+  opacity: 0;
+  transition: opacity .4s ease .6s;
+}
+.nav-overlay.is-open .nav-overlay-foot { opacity: 1; }
+.nav-overlay-foot img { width: 100px; object-fit: contain; opacity: .55; }
+.ov-foot-info { display: flex; flex-direction: column; gap: 5px; }
+.ov-foot-line {
+  font-size: 11px; color: rgba(200,185,164,.38); letter-spacing: .4px; line-height: 1.5;
+}
+.ov-foot-line strong { color: rgba(200,185,164,.6); font-weight: 500; }
+
+
+/* ══════════════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════════════ */
 .hero {
   position: relative;
   height: 100vh; min-height: 700px;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  overflow: hidden;
-  text-align: center;
+  overflow: hidden; text-align: center;
 }
-/* video-ready: swap <img> for <video autoplay muted loop playsinline> when reel is ready */
+/* .hero-bg works for both real img/video and the .ph placeholder div */
 .hero-bg {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; object-position: center 38%;
 }
 .hero-ov {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(
     to bottom,
     rgba(26,24,20,.52) 0%,
@@ -143,24 +374,29 @@ a { text-decoration: none; color: inherit; }
 .btn-pr:hover { background: var(--coral-h); }
 .btn-gh {
   display: inline-block; padding: 13px 32px;
-  background: rgba(26,24,20,.85); color: var(--cream-muted, var(--muted));
+  background: rgba(26,24,20,.85); color: var(--muted);
   font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
   border: 1px solid rgba(200,169,110,.35); transition: all .2s;
 }
 .btn-gh:hover { border-color: var(--gold); color: var(--gold); }
-
-/* scroll hint */
+/* Scroll hint */
 .hero-scroll {
   position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2;
 }
-.hero-scroll span { font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,185,164,.55); }
+.hero-scroll span {
+  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(200,185,164,.55);
+}
 .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(200,169,110,.5), transparent); }
 
-/* ── TICKER ── */
+
+/* ══════════════════════════════════════════════════════════
+   TICKER
+══════════════════════════════════════════════════════════ */
 .ticker { background: var(--coral); overflow: hidden; }
 .ticker-inner { display: flex; white-space: nowrap; animation: tick 28s linear infinite; }
-@keyframes tick { from { transform: translateX(0); } to { transform: translateX(var(--ticker-shift, -50%)); } }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .tick-item {
   display: inline-flex; align-items: center; gap: 14px;
   padding: 15px 28px;
@@ -169,7 +405,10 @@ a { text-decoration: none; color: inherit; }
 }
 .tick-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(26,24,20,.3); flex-shrink: 0; }
 
-/* ── IDENTITY STRIP ── */
+
+/* ══════════════════════════════════════════════════════════
+   IDENTITY STRIP
+══════════════════════════════════════════════════════════ */
 .strip {
   background: var(--bg-card);
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -182,9 +421,8 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 .strip-item:first-child { border-left: none; }
-.strip-icon svg { display: block; margin: 0 auto; }
 .strip-icon { color: var(--gold); }
-.strip-icon svg { display: block; }
+.strip-icon svg { display: block; margin: 0 auto; }
 .strip-num {
   font-family: 'Fraunces', serif; font-size: 58px; font-weight: 400;
   color: var(--gold); line-height: 1;
@@ -195,17 +433,27 @@ a { text-decoration: none; color: inherit; }
 }
 .strip-desc { font-size: 13px; line-height: 1.65; color: rgba(200,185,164,.65); }
 
-/* ── SECTION TAG ── */
+
+/* ══════════════════════════════════════════════════════════
+   SECTION TAG
+══════════════════════════════════════════════════════════ */
 .stag {
   font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 22px;
 }
 .stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
 
-/* ── EXPERIENCE (split) ── */
-.exp { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
-.exp-ph { overflow: hidden; }
-.exp-ph img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+
+/* ══════════════════════════════════════════════════════════
+   EXPERIENCE — split layout
+   Image: 4:3 left panel · Text: right
+══════════════════════════════════════════════════════════ */
+.exp { display: grid; grid-template-columns: 1fr 1fr; }
+.exp-ph {
+  overflow: hidden; position: relative;
+  min-height: 480px;
+}
+.exp-ph img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; position: absolute; inset: 0; }
 .exp-tx {
   background: var(--bg); padding: 80px 72px;
   display: flex; flex-direction: column; justify-content: center;
@@ -217,15 +465,20 @@ a { text-decoration: none; color: inherit; }
 }
 .exp-body { font-size: 15px; line-height: 1.83; color: var(--muted); margin-bottom: 36px; max-width: 480px; }
 
-/* ── TERRACE (full-bleed) ── */
+
+/* ══════════════════════════════════════════════════════════
+   TERRACE — full-bleed cinematic panel
+   Image: 16:9 crop (section constrained to 68vh)
+══════════════════════════════════════════════════════════ */
 .terrace { position: relative; height: 68vh; min-height: 500px; overflow: hidden; }
-.terrace img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+.terrace img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; position: absolute; inset: 0; }
 .terrace-ov {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; z-index: 2;
   background: linear-gradient(to right, rgba(26,24,20,.9) 0%, rgba(26,24,20,.55) 45%, rgba(26,24,20,.1) 75%, transparent 100%);
 }
 .terrace-ct {
-  position: absolute; inset: 0; display: flex; flex-direction: column;
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column;
   justify-content: center; padding: 0 80px; max-width: 580px;
 }
 .terrace-hed {
@@ -234,20 +487,52 @@ a { text-decoration: none; color: inherit; }
 }
 .terrace-body { font-size: 14px; line-height: 1.82; color: var(--muted); margin-bottom: 32px; max-width: 420px; }
 
-/* ── CARDS ROW ── */
+
+/* ══════════════════════════════════════════════════════════
+   QUOTE BAND — atmospheric full-bleed
+   Image: 16:9 crop (section constrained to 44vh)
+══════════════════════════════════════════════════════════ */
+.quote-band {
+  position: relative;
+  height: 44vh; min-height: 320px;
+  overflow: hidden;
+}
+.quote-band img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.quote-band-ov {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to right, rgba(26,24,20,.75) 0%, transparent 40%, transparent 60%, rgba(26,24,20,.75) 100%);
+}
+.quote-band-text {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+}
+.quote-band-text p {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(20px, 2.4vw, 34px);
+  font-weight: 400; font-style: italic;
+  color: var(--cream); text-align: center;
+  max-width: 620px; padding: 0 32px; line-height: 1.45;
+  text-shadow: 0 2px 16px rgba(0,0,0,.5);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   CARDS ROW
+══════════════════════════════════════════════════════════ */
 .cards-section { background: var(--bg-card); padding: 2px; }
 .cards-row { display: grid; grid-template-columns: 1fr 1fr 1.55fr; gap: 2px; }
-
-/* featured coral card */
+/* Featured gold card */
 .card-feat {
   background: var(--coral); padding: 56px 48px;
   display: flex; flex-direction: column; justify-content: space-between;
-  align-items: center; text-align: center;
-  min-height: 380px;
+  align-items: center; text-align: center; min-height: 380px;
 }
 .card-feat-icon { color: rgba(26,24,20,.55); margin-bottom: 32px; }
 .card-feat-icon svg { display: block; }
-.card-feat-tag { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(26,24,20,.6); margin-bottom: 10px; }
+.card-feat-tag {
+  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(26,24,20,.6); margin-bottom: 10px;
+}
 .card-feat-hed {
   font-family: 'Fraunces', serif; font-size: 28px;
   font-weight: 400; color: rgba(26,24,20,.88); line-height: 1.2;
@@ -260,12 +545,10 @@ a { text-decoration: none; color: inherit; }
 }
 .card-feat-lk:hover { gap: 16px; }
 .card-feat-lk::after { content: '→'; font-size: 14px; }
-
-/* side cards */
+/* Side cards */
 .card-side {
   background: var(--bg-surf); padding: 48px 40px;
-  display: flex; flex-direction: column;
-  align-items: center; text-align: center;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
   border-top: 3px solid transparent; transition: border-color .25s;
 }
 .card-side:hover { border-top-color: var(--coral); }
@@ -288,7 +571,10 @@ a { text-decoration: none; color: inherit; }
 .card-lk:hover { gap: 14px; }
 .card-lk::after { content: '→'; font-size: 13px; }
 
-/* ── EVENTS BAND ── */
+
+/* ══════════════════════════════════════════════════════════
+   EVENTS BAND
+══════════════════════════════════════════════════════════ */
 .events {
   padding: 88px 80px;
   display: grid; grid-template-columns: 1fr 1px 1fr; gap: 72px;
@@ -303,47 +589,12 @@ a { text-decoration: none; color: inherit; }
 }
 .ev-body { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 32px; }
 
-/* ── FOOTER ── */
-.footer {
-  background: #110f0c; padding: 64px 80px 0;
-  border-top: 1px solid rgba(200,169,110,.08);
-}
-.footer-top {
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px;
-  padding-bottom: 56px; border-bottom: 1px solid rgba(200,169,110,.07);
-}
-.ft-brand-logo img { width: 210px; margin-bottom: 22px; object-fit: fill; }
-.ft-addr { font-size: 13px; line-height: 1.9; color: var(--muted); }
-.ft-col h4 {
-  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 16px;
-}
-.ft-col a, .ft-col p {
-  display: block; font-size: 13px; color: var(--muted); line-height: 2.1;
-  transition: color .2s;
-}
-.ft-col a:hover { color: var(--coral); }
-.footer-btm {
-  padding: 20px 0;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.footer-btm span { font-size: 11px; color: rgba(200,185,164,.3); }
 
-/* ── TWEAKS ── */
-.tweaks-panel {
-  position: fixed; bottom: 24px; right: 24px; z-index: 2000;
-  background: rgba(35,32,25,.97); border: 1px solid rgba(200,169,110,.22);
-  padding: 22px 24px; width: 240px; backdrop-filter: blur(10px);
-  display: none;
-}
-.tweaks-panel.visible { display: block; }
-.tw-title { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-.tw-row { margin-bottom: 14px; }
-.tw-lbl { font-size: 10px; font-weight: 500; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
-.tw-sel { background: rgba(26,24,20,.9); border: 1px solid rgba(200,169,110,.2); color: var(--cream); font-family: 'Plus Jakarta Sans'; font-size: 12px; padding: 7px 10px; width: 100%; cursor: pointer; }
-.tw-range { width: 100%; accent-color: var(--coral); margin-top: 4px; }
-
-/* ── REVIEWS SECTION ── */
+/* ══════════════════════════════════════════════════════════
+   REVIEWS — 3 cards
+   Live data via /api/reviews (Vercel serverless → Places API)
+   Static cards shown as fallback when API is unavailable
+══════════════════════════════════════════════════════════ */
 .reviews-section {
   background: var(--bg-card);
   border-top: 1px solid rgba(200,169,110,.07);
@@ -353,7 +604,6 @@ a { text-decoration: none; color: inherit; }
   display: flex; align-items: flex-end; justify-content: space-between;
   gap: 32px; margin-bottom: 56px; flex-wrap: wrap;
 }
-.reviews-header-left {}
 .reviews-stag {
   font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
@@ -373,9 +623,11 @@ a { text-decoration: none; color: inherit; }
   color: var(--cream); line-height: 1;
 }
 .reviews-count { font-size: 12px; color: rgba(200,185,164,.45); letter-spacing: .5px; }
-.reviews-source { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.5); margin-top: 2px; }
-
-/* Review card grid */
+.reviews-source {
+  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,169,110,.5); margin-top: 2px;
+}
+/* 3-column grid */
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -384,13 +636,14 @@ a { text-decoration: none; color: inherit; }
 .review-card {
   background: var(--bg-surf); padding: 40px 36px;
   border: 1px solid rgba(200,169,110,.06);
-  display: flex; flex-direction: column; gap: 0;
+  display: flex; flex-direction: column;
   position: relative; overflow: hidden;
   transition: border-color .3s;
 }
 .review-card:hover { border-color: rgba(200,169,110,.18); }
+/* Decorative opening quote */
 .review-card::before {
-  content: 'C';
+  content: '\201C';
   position: absolute; top: -12px; right: 20px;
   font-family: 'Fraunces', serif; font-size: 120px; font-weight: 400;
   color: rgba(200,169,110,.05); line-height: 1; pointer-events: none;
@@ -411,23 +664,214 @@ a { text-decoration: none; color: inherit; }
   font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
   color: rgba(200,169,110,.35);
 }
+.reviews-ctas { display: flex; align-items: center; gap: 16px; margin-top: 48px; flex-wrap: wrap; }
 
-/* CTA row below grid */
-.reviews-ctas {
-  display: flex; align-items: center; gap: 16px; margin-top: 48px; flex-wrap: wrap;
+
+/* ══════════════════════════════════════════════════════════
+   GOOGLE MAPS STRIP — dark-filtered, 220px
+══════════════════════════════════════════════════════════ */
+.footer-map-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-top: 1px solid rgba(200,169,110,.06);
 }
-.reviews-note {
-  font-size: 12px; color: rgba(200,185,164,.3); line-height: 1.6; margin-top: 24px;
+.footer-map-wrap iframe {
+  width: 100%; height: 100%;
+  border: 0; display: block;
+  /* Dark-mode aesthetic filter */
+  filter: grayscale(80%) invert(90%) sepia(25%) brightness(0.82) contrast(1.08);
 }
-.reviews-note a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.25); }
+.footer-map-btn {
+  position: absolute; bottom: 16px; right: 20px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px;
+  background: rgba(16,14,11,.88);
+  color: var(--gold);
+  font-size: 9.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid rgba(200,169,110,.28);
+  backdrop-filter: blur(10px);
+  transition: background .2s, border-color .2s;
+}
+.footer-map-btn:hover { background: rgba(200,169,110,.12); border-color: var(--gold); }
+.footer-map-btn::after { content: '→'; font-size: 13px; margin-left: 2px; }
+
+
+/* ══════════════════════════════════════════════════════════
+   FOOTER — 4 columns
+   Col 1: Brand  Col 2: Navigate  Col 3: Visit  Col 4: Follow
+══════════════════════════════════════════════════════════ */
+.footer {
+  background: #110f0c;
+  padding: 64px 80px 0;
+  border-top: 1px solid rgba(200,169,110,.08);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+/* Col 1 — Brand */
+.ft-brand-logo img { width: 210px; margin-bottom: 18px; object-fit: contain; }
+.ft-tagline {
+  font-size: 12px; font-style: italic; color: rgba(200,185,164,.38);
+  margin-bottom: 20px; line-height: 1.65;
+}
+.ft-contact { font-size: 13px; line-height: 2.1; color: var(--muted); }
+.ft-contact a { color: var(--muted); transition: color .2s; }
+.ft-contact a:hover { color: var(--gold); }
+.ft-hours {
+  margin-top: 12px;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(200,169,110,.45);
+}
+/* Cols 2–4 */
+.ft-col h4 {
+  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.ft-col a, .ft-col p {
+  display: block; font-size: 13px; color: var(--muted); line-height: 2.1;
+  transition: color .2s;
+}
+.ft-col a:hover { color: var(--coral); }
+/* Google review CTA in follow col */
+.ft-review-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 20px;
+  font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(200,169,110,.22);
+  padding-bottom: 2px;
+  transition: border-color .2s;
+}
+.ft-review-cta:hover { border-color: var(--gold); }
+.ft-review-cta::after { content: ' →'; }
+/* Footer bottom bar */
+.footer-btm {
+  padding: 20px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px;
+}
+.footer-btm span { font-size: 11px; color: rgba(200,185,164,.3); }
+
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════════════════════ */
+
+/* ── Large tablet (≤1100px) ── */
+@media (max-width: 1100px) {
+  .footer { padding: 56px 48px 0; }
+  .footer-top { gap: 40px; }
+  .reviews-section { padding: 80px 48px; }
+  .events { padding: 72px 48px; gap: 48px; }
+}
+
+/* ── Mobile nav (≤960px) — hamburger replaces desktop links ── */
+@media (max-width: 960px) {
+  :root { --nav-h: 90px; }
+  .nav { justify-content: center; padding: 0 24px; }
+  .nav-left, .nav-right { display: none; }
+  .nav-logo { padding: 0; }
+  .nav-logo img { width: 200px; height: auto; }
+  .nav-hamburger { display: flex; }
+  .nav-overlay { display: block; }
+
+  /* Identity strip → 2×2 */
+  .strip { grid-template-columns: repeat(2, 1fr); }
+  .strip-item:nth-child(3) { border-left: none; }
+  .strip-item { padding: 40px 28px; }
+
+  /* Cards → 2-up, featured full-width */
+  .cards-row { grid-template-columns: 1fr 1fr; }
+  .card-feat { grid-column: 1 / -1; }
+
+  /* Terrace text panel */
+  .terrace-ct { padding: 0 40px; max-width: none; }
+}
+
+/* ── Tablet / small desktop (≤860px) ── */
+@media (max-width: 860px) {
+  .exp { grid-template-columns: 1fr; }
+  .exp-ph { min-height: 320px; }
+  .exp-tx { padding: 56px 40px; }
+  .exp-body { max-width: 100%; }
+
+  .events {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    padding: 64px 40px;
+  }
+  .events-divider { display: none; }
+}
+
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+  /* Hero */
+  .hero { min-height: 600px; }
+  .hero-hed { font-size: clamp(34px, 9vw, 52px); }
+
+  /* Terrace */
+  .terrace-ct { padding: 0 28px; }
+
+  /* Reviews → single column */
+  .reviews-section { padding: 64px 28px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .reviews-header { flex-direction: column; align-items: flex-start; }
+  .reviews-overall { align-items: flex-start; }
+
+  /* Footer → brand full-width, then 3-col */
+  .footer { padding: 48px 28px 0; }
+  .footer-top {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 40px; column-gap: 24px;
+  }
+  .footer-top > .ft-brand { grid-column: 1 / -1; }
+
+  /* Maps strip height */
+  .footer-map-wrap { height: 180px; }
+}
+
+/* ── Small mobile (≤480px) ── */
+@media (max-width: 480px) {
+  /* Strip → single column */
+  .strip { grid-template-columns: 1fr; }
+  .strip-item { border-left: none; border-top: 1px solid rgba(200,169,110,.1); }
+  .strip-item:first-child { border-top: none; }
+
+  /* Cards → single column */
+  .cards-row { grid-template-columns: 1fr; }
+
+  /* Events */
+  .events { padding: 56px 24px; }
+
+  /* Footer → single column */
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-top > .ft-brand { grid-column: auto; }
+  .footer-btm { flex-direction: column; gap: 6px; text-align: center; }
+
+  /* Overlay nav narrower padding */
+  .nav-overlay-inner { padding: 0 24px 48px; }
+  .ov-link { font-size: clamp(26px, 7vw, 36px); }
+  .nav-overlay-foot { grid-template-columns: 1fr; gap: 16px; }
+}
+
 </style>
 </head>
 <body>
 
+
 <!-- ══════════════════════════════════════
-     NAV — logo centred, links split L/R
+     NAV
+     Desktop: centred logo, links split L/R with dropdowns
+     Mobile (≤960px): centred logo + hamburger → overlay
 ══════════════════════════════════════ -->
 <nav class="nav" id="nav">
+
+  <!-- Desktop left -->
   <div class="nav-left">
     <a class="nav-lk" href="story.html">Our Story</a>
     <div class="nav-dd" id="nav-venue">
@@ -441,14 +885,18 @@ a { text-decoration: none; color: inherit; }
         <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
         <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
         <div class="nav-dd-divider"></div>
-        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6"></span>Explore our Venue →</a>
       </div>
     </div>
     <a class="nav-lk" href="menu.html">Our Menu</a>
   </div>
+
+  <!-- Logo -->
   <a class="nav-logo" href="index.html">
     <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
   </a>
+
+  <!-- Desktop right -->
   <div class="nav-right">
     <div class="nav-dd" id="nav-events">
       <a href="social.html" class="nav-lk nav-dd-trigger">
@@ -463,21 +911,122 @@ a { text-decoration: none; color: inherit; }
     <a class="nav-lk" href="pro-shop.html">Pro Shop</a>
     <a class="nav-lk" href="contact.html">Find Us</a>
   </div>
+
+  <!-- Mobile hamburger -->
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
 </nav>
 
 
 <!-- ══════════════════════════════════════
+     FULL-SCREEN OVERLAY NAV (mobile only)
+     Luxury editorial style — Fraunces italic links, clip-path
+     sweep, staggered entrance, accordion sub-menus.
+══════════════════════════════════════ -->
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <div class="nav-overlay-inner">
+
+    <!-- Top: logo (mirrors nav position) -->
+    <div class="nav-overlay-head">
+      <a href="index.html" id="overlayLogoLink">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club">
+      </a>
+    </div>
+
+    <!-- Main links -->
+    <nav class="nav-overlay-links" aria-label="Primary navigation">
+
+      <div class="ov-item">
+        <a href="index.html" class="ov-link ov-plain-link">Home</a>
+      </div>
+
+      <div class="ov-item">
+        <a href="story.html" class="ov-link ov-plain-link">Our Story</a>
+      </div>
+
+      <!-- The Venue — accordion -->
+      <div class="ov-item" id="ov-venue">
+        <button class="ov-link" aria-expanded="false">
+          The Venue <span class="ov-acc-chevron">›</span>
+        </button>
+        <div class="ov-sub">
+          <a href="billiards.html" class="ov-sub-link ov-plain-link">Billiards</a>
+          <a href="darts.html"     class="ov-sub-link ov-plain-link">Darts</a>
+          <a href="terrace.html"   class="ov-sub-link ov-plain-link">The Terrace Cafe</a>
+          <a href="kitchen.html"   class="ov-sub-link ov-plain-link">Kitchen &amp; Bar</a>
+        </div>
+      </div>
+
+      <div class="ov-item">
+        <a href="menu.html" class="ov-link ov-plain-link">Our Menu</a>
+      </div>
+
+      <!-- Events — accordion -->
+      <div class="ov-item" id="ov-events">
+        <button class="ov-link" aria-expanded="false">
+          Events <span class="ov-acc-chevron">›</span>
+        </button>
+        <div class="ov-sub">
+          <a href="tournaments.html"      class="ov-sub-link ov-plain-link">Tournaments</a>
+          <a href="social.html"           class="ov-sub-link ov-plain-link">Social Events</a>
+          <a href="social.html#your-event" class="ov-sub-link ov-plain-link">Your Event</a>
+        </div>
+      </div>
+
+      <div class="ov-item">
+        <a href="pro-shop.html" class="ov-link ov-plain-link">Pro Shop</a>
+      </div>
+
+      <div class="ov-item">
+        <a href="contact.html" class="ov-link ov-plain-link">Find Us</a>
+      </div>
+
+    </nav>
+
+    <!-- Overlay footer: logo + key info -->
+    <div class="nav-overlay-foot">
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+      <div class="ov-foot-info">
+        <p class="ov-foot-line"><strong>Open daily</strong> 10:00 – 01:00</p>
+        <p class="ov-foot-line">Kissamou &amp; Saridantoni 1, Chania 73136</p>
+        <p class="ov-foot-line"><strong>(+30)</strong> 28210 70307 · 6975 993 307</p>
+        <p class="ov-foot-line">@aramischania</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
      HERO
-     Structure is video-ready:
-     swap <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" style="width:210px;object-fit:contain;"> for
-     <video class="hero-bg" autoplay muted loop playsinline>
-     when the reel is ready.
+     Replace .ph div with real media when ready:
+       <img class="hero-bg" src="assets/images/home-hero.jpg" alt="ARAMIS Billiard Club">
+     or video:
+       <video class="hero-bg" autoplay muted loop playsinline>
+         <source src="assets/video/aramis-reel.mp4" type="video/mp4">
+       </video>
 ══════════════════════════════════════ -->
 <section class="hero">
-  <!-- HERO: add class="has-media" to .hero when ready, then uncomment:
-     <img class="hero-bg" src="assets/images/home-hero.jpg" alt="ARAMIS Billiard Club">
-     OR: <video class="hero-bg" autoplay muted loop playsinline><source src="assets/video/aramis-reel.mp4" type="video/mp4"></video>
-     -->
+  <!-- Placeholder — swap this entire div for <img> or <video> when media is ready -->
+  <div class="hero-bg ph ph-fill">
+    <div class="ph-inner">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.2)" stroke-width=".8">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="m21 15-5-5L5 21"/>
+      </svg>
+      <span class="ph-label">
+        home-hero.jpg · 1920×1080px<br>
+        Hall lit at night · Terrace with mountains · Players in action
+      </span>
+    </div>
+  </div>
+
   <div class="hero-ov"></div>
 
   <div class="hero-content">
@@ -521,19 +1070,15 @@ a { text-decoration: none; color: inherit; }
   <!-- 10 Pro Tables -->
   <div class="strip-item">
     <div class="strip-icon">
-      <!-- Top-down billiard table -->
       <svg width="52" height="34" viewBox="0 0 52 34" fill="none" stroke="currentColor" stroke-width="1.5">
         <rect x="5" y="5" width="42" height="24" rx="2"/>
-        <!-- cushions -->
-        <rect x="8" y="7" width="36" height="20" rx="1" stroke-dasharray="0" stroke-opacity=".35"/>
-        <!-- 6 pockets -->
+        <rect x="8" y="7" width="36" height="20" rx="1" stroke-opacity=".35"/>
         <circle cx="5" cy="5" r="3" fill="currentColor" stroke="none"/>
         <circle cx="47" cy="5" r="3" fill="currentColor" stroke="none"/>
         <circle cx="5" cy="29" r="3" fill="currentColor" stroke="none"/>
         <circle cx="47" cy="29" r="3" fill="currentColor" stroke="none"/>
         <circle cx="26" cy="5" r="2.5" fill="currentColor" stroke="none"/>
         <circle cx="26" cy="29" r="2.5" fill="currentColor" stroke="none"/>
-        <!-- balls -->
         <circle cx="26" cy="17" r="2.2" stroke-width="1.2"/>
         <circle cx="20" cy="13" r="1.8" stroke-width="1.2"/>
         <circle cx="32" cy="13" r="1.8" stroke-width="1.2"/>
@@ -563,14 +1108,12 @@ a { text-decoration: none; color: inherit; }
   <!-- All Day Food & Drinks -->
   <div class="strip-item">
     <div class="strip-icon" style="display:flex;gap:10px;align-items:center;justify-content:center">
-      <!-- Fork -->
       <svg width="26" height="38" viewBox="0 0 28 40" fill="none" stroke="currentColor" stroke-width="1.5">
         <line x1="14" y1="4" x2="14" y2="36"/>
         <line x1="10" y1="4" x2="10" y2="16"/>
         <line x1="18" y1="4" x2="18" y2="16"/>
         <path d="M10 16 Q14 21 18 16"/>
       </svg>
-      <!-- Cocktail -->
       <svg width="26" height="38" viewBox="0 0 32 40" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M4 6 L16 22 L28 6 Z"/>
         <line x1="16" y1="22" x2="16" y2="34"/>
@@ -588,10 +1131,8 @@ a { text-decoration: none; color: inherit; }
   <div class="strip-item">
     <div class="strip-icon">
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
-        <!-- mountain -->
         <polyline points="4,34 20,10 36,34"/>
         <polyline points="14,34 24,18 34,34" stroke-dasharray="2 2" opacity=".5"/>
-        <!-- sun rays -->
         <circle cx="30" cy="8" r="3"/>
         <line x1="30" y1="2" x2="30" y2="0"/>
         <line x1="36" y1="8" x2="38" y2="8"/>
@@ -608,33 +1149,49 @@ a { text-decoration: none; color: inherit; }
 
 <!-- ══════════════════════════════════════
      EXPERIENCE — split layout
+     Photo: 4:3  |  Text: right panel
+     Replace .ph div with:
+       <img src="assets/images/home-experience.jpg" alt="ARAMIS billiard hall"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;">
 ══════════════════════════════════════ -->
 <section class="exp">
-  <div class="exp-ph" style="background:var(--bg-surf);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.15)" stroke-width=".8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.18);">Billiard hall — wide atmospheric shot</span>
+  <div class="exp-ph">
+    <!-- Placeholder: 4:3 image — billiard hall wide atmospheric shot -->
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.15)" stroke-width=".8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="m21 15-5-5L5 21"/>
+        </svg>
+        <span class="ph-label">home-experience.jpg · 4:3<br>Billiard hall — wide atmospheric shot</span>
+      </div>
     </div>
-    <!-- <img src="assets/images/home-experience.jpg" alt="ARAMIS hall" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"> -->
   </div>
   <div class="exp-tx">
     <div class="stag">The Club</div>
     <h2 class="exp-hed">More than billiards.<br>An all day entertainment for all.</h2>
     <p class="exp-body">ARAMIS is where a serious game of pool meets a great kitchen and a bar that knows what it's doing. You come for the tables — you stay for everything else.<br><br>Crete's largest billiard hall. Ten professional tables. A kitchen with soul and a bar with personality — open from 10am to 1am. A terrace with a view worth the drive.</p>
-    <a href="#" class="btn-pr" href="story.html">Discover ARAMIS</a>
+    <a href="story.html" class="btn-pr">Discover ARAMIS</a>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════
-     TERRACE — full-bleed with left panel
+     TERRACE — full-bleed cinematic panel
+     Replace .ph div with:
+       <img src="assets/images/home-terrace.jpg" alt="ARAMIS Terrace"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;">
 ══════════════════════════════════════ -->
-<section class="terrace" style="">
-  <!-- <img src="assets/images/home-terrace.jpg" alt="ARAMIS Terrace" style="width:100%;height:100%;object-fit:cover;object-position:center 28%;"> -->
-  <div style="position:absolute;inset:0;background:var(--bg-surf);display:flex;align-items:center;justify-content:center;">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.15);">Terrace — golden hour, White Mountains</span>
+<section class="terrace">
+  <!-- Placeholder: 16:9 image — terrace golden hour, White Mountains -->
+  <div class="ph ph-fill">
+    <div class="ph-inner">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".8">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span class="ph-label">home-terrace.jpg · 16:9<br>Terrace — golden hour, White Mountains</span>
     </div>
   </div>
   <div class="terrace-ov"></div>
@@ -643,40 +1200,48 @@ a { text-decoration: none; color: inherit; }
     <h2 class="terrace-hed">A view worth<br>sitting down for.</h2>
     <p class="terrace-body">Newly renovated and open year-round. Half-enclosed with sliding windows and heating — so the White Mountains are always in reach. Two large screens for every match that matters.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap">
-      <a href="#" class="btn-pr">See the Terrace</a>
-      <a href="#" class="btn-gh">Book Your Event</a>
+      <a href="terrace.html" class="btn-pr">See the Terrace</a>
+      <a href="social.html#your-event" class="btn-gh">Book Your Event</a>
     </div>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════
-     PLAYERS PHOTO — atmospheric band
-     (cropped tight to portrait, landscape feel)
+     QUOTE BAND — atmospheric
+     Replace .ph div with:
+       <img src="assets/images/home-quote.jpg" alt="ARAMIS atmosphere"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
 ══════════════════════════════════════ -->
-<div style="height:44vh;overflow:hidden;position:relative">
-  <!-- <img src="assets/images/home-quote.jpg" alt="ARAMIS atmosphere"> -->
-  <div style="width:100%;height:100%;background:var(--bg-surf);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-    <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.15);">Atmospheric quote photo</span>
+<div class="quote-band">
+  <!-- Placeholder: 16:9 atmospheric — players in action, warm lighting -->
+  <div class="ph ph-fill">
+    <div class="ph-inner">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".8">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="m21 15-5-5L5 21"/>
+      </svg>
+      <span class="ph-label">home-quote.jpg · 16:9<br>Atmospheric — players, warm light, felt texture</span>
+    </div>
   </div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(26,24,20,.75) 0%,transparent 40%,transparent 60%,rgba(26,24,20,.75) 100%)"></div>
-  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
-    <p style="font-family:'Fraunces',serif;font-size:clamp(20px,2.4vw,34px);font-weight:400;font-style:italic;color:var(--cream);text-align:center;max-width:620px;padding:0 32px;line-height:1.45;text-shadow:0 2px 16px rgba(0,0,0,.5)">"40 years on the felt — and still the best game in Crete."</p>
+  <div class="quote-band-ov"></div>
+  <div class="quote-band-text">
+    <p>"40 years on the felt — and still the best game in Crete."</p>
   </div>
 </div>
 
 
 <!-- ══════════════════════════════════════
-     CARDS — Billiards (coral) / Kitchen & Bar / Pro Shop
+     CARDS — Billiards & Darts / Kitchen & Bar / Pro Shop
 ══════════════════════════════════════ -->
 <section class="cards-section">
   <div class="cards-row">
 
-    <!-- Billiards -->
+    <!-- Billiards & Darts -->
     <div class="card-side">
       <div>
         <div class="card-side-icon" style="display:flex;gap:20px;align-items:center;justify-content:center;margin-bottom:28px">
-          <!-- Billiard table top-down -->
           <svg width="48" height="32" viewBox="0 0 52 34" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="5" y="5" width="42" height="24" rx="2"/>
             <rect x="8" y="7" width="36" height="20" rx="1" stroke-opacity=".4"/>
@@ -690,7 +1255,6 @@ a { text-decoration: none; color: inherit; }
             <circle cx="20" cy="13" r="1.8" stroke-width="1.2"/>
             <circle cx="32" cy="13" r="1.8" stroke-width="1.2"/>
           </svg>
-          <!-- Dartboard -->
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4">
             <circle cx="18" cy="18" r="16"/>
             <circle cx="18" cy="18" r="11"/>
@@ -709,14 +1273,12 @@ a { text-decoration: none; color: inherit; }
     <!-- Kitchen & Bar -->
     <div class="card-side">
       <div class="card-side-icon" style="display:flex;gap:14px;align-items:center;justify-content:center">
-        <!-- Fork -->
         <svg width="24" height="32" viewBox="0 0 28 40" fill="none" stroke="currentColor" stroke-width="1.5">
           <line x1="14" y1="4" x2="14" y2="36"/>
           <line x1="10" y1="4" x2="10" y2="16"/>
           <line x1="18" y1="4" x2="18" y2="16"/>
           <path d="M10 16 Q14 21 18 16"/>
         </svg>
-        <!-- Cocktail -->
         <svg width="24" height="32" viewBox="0 0 32 40" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M4 6 L16 22 L28 6 Z"/>
           <line x1="16" y1="22" x2="16" y2="34"/>
@@ -735,11 +1297,8 @@ a { text-decoration: none; color: inherit; }
     <div class="card-feat">
       <div class="card-feat-icon">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
-          <!-- cue stick -->
           <line x1="4" y1="28" x2="26" y2="6" stroke-width="2"/>
-          <!-- tip -->
           <circle cx="27" cy="5" r="2" fill="currentColor" stroke="none"/>
-          <!-- ball -->
           <circle cx="8" cy="24" r="4"/>
           <path d="M6 22 Q8 20 10 22" stroke-width="1" opacity=".6"/>
         </svg>
@@ -753,7 +1312,9 @@ a { text-decoration: none; color: inherit; }
   </div>
 </section>
 
-<!-- EVENTS + YOUR EVENT — two-panel band
+
+<!-- ══════════════════════════════════════
+     EVENTS + YOUR EVENT — two-panel band
 ══════════════════════════════════════ -->
 <section class="events">
   <div>
@@ -777,9 +1338,13 @@ a { text-decoration: none; color: inherit; }
 </section>
 
 
-
 <!-- ══════════════════════════════════════
-     REVIEWS — What our customers say
+     REVIEWS — 3 cards
+     Live: fetched from /api/reviews (Vercel → Places API)
+       - Reviews < 30 chars filtered out
+       - 5-star reviews shuffled on each page load
+       - 3 shown at a time
+     Fallback: 3 static cards shown if API is unavailable
 ══════════════════════════════════════ -->
 <section class="reviews-section">
 
@@ -792,26 +1357,17 @@ a { text-decoration: none; color: inherit; }
       <div class="reviews-stars-large" id="reviews-stars">★★★★★</div>
       <div class="reviews-score" id="reviews-score">5.0</div>
       <div class="reviews-count" id="reviews-count">Based on Google reviews</div>
-      <div class="reviews-source">Google · Facebook</div>
+      <div class="reviews-source">Google</div>
     </div>
   </div>
 
+  <!-- 3 static fallback cards (replaced by live data when API responds) -->
   <div class="reviews-grid" id="reviews-grid">
 
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
       <span class="review-topic">The tables</span>
       <div class="review-text">"The tables are immaculate. You can tell these people actually care about the game — and that makes all the difference."</div>
-      <div class="review-footer">
-        <span class="review-author">— Google review</span>
-        <span class="review-platform">Google</span>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <span class="review-topic">The welcome</span>
-      <div class="review-text">"Felt like a regular from the very first visit. The warmth here is genuine — the kind of place you keep coming back to."</div>
       <div class="review-footer">
         <span class="review-author">— Google review</span>
         <span class="review-platform">Google</span>
@@ -838,103 +1394,206 @@ a { text-decoration: none; color: inherit; }
       </div>
     </div>
 
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <span class="review-topic">The atmosphere</span>
-      <div class="review-text">"Came for the billiards, stayed for the whole evening. The cocktails are excellent, the staff made us feel at home. Will absolutely return."</div>
-      <div class="review-footer">
-        <span class="review-author">— Google review</span>
-        <span class="review-platform">Google</span>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <span class="review-topic">Overall experience</span>
-      <div class="review-text">"A complete experience — great billiards, stunning terrace, brilliant food and a really welcoming atmosphere. This is what a proper club looks like."</div>
-      <div class="review-footer">
-        <span class="review-author">— Google review</span>
-        <span class="review-platform">Google</span>
-      </div>
-    </div>
-
   </div>
 
   <div class="reviews-ctas">
-    <a href="https://g.page/r/ARAMIS-GOOGLE-REVIEW-LINK/review" target="_blank" class="btn-pr">Leave us a review on Google</a>
+    <a href="https://search.google.com/local/writereview?placeid=ChIJM6BkL4h9nBQRwuF447BkhqU" target="_blank" rel="noopener" class="btn-pr">Leave us a review on Google</a>
   </div>
 
 </section>
 
 
 <!-- ══════════════════════════════════════
-     FOOTER
+     GOOGLE MAPS STRIP — dark-filtered, 220px
+     Same Place ID as contact.html: ChIJM6BkL4h9nBQRwuF447BkhqU
+══════════════════════════════════════ -->
+<div class="footer-map-wrap">
+  <iframe
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAZPfqwiQ7bGbgxfWhVFWsV5JPv7oCdHUA&q=place_id:ChIJM6BkL4h9nBQRwuF447BkhqU"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="ARAMIS Billiard Club location map"
+  ></iframe>
+  <a
+    href="https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJM6BkL4h9nBQRwuF447BkhqU"
+    target="_blank"
+    rel="noopener"
+    class="footer-map-btn"
+  >Get Directions</a>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER — 4 columns
+     Col 1 Brand · Col 2 Navigate · Col 3 Visit · Col 4 Follow
 ══════════════════════════════════════ -->
 <footer class="footer">
   <div class="footer-top">
-    <div>
-      <div class="ft-brand-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" style="width:210px;object-fit:contain;margin-bottom:22px;"></div>
-      <p class="ft-addr">
-        Kissamou &amp; Saridantoni 1<br>
-        Chania 73136, Crete, Greece<br><br>
-        (+30) 28210 70307<br>
-        6975 993 307<br>
-        aramischania@gmail.com
-      </p>
+
+    <!-- Col 1: Brand -->
+    <div class="ft-brand">
+      <div class="ft-brand-logo">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club">
+      </div>
+      <p class="ft-tagline">Chania's finest billiard club since 1984.</p>
+      <div class="ft-contact">
+        <a href="tel:+302821070307">(+30) 28210 70307</a>
+        <a href="tel:+306975993307">6975 993 307</a>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+      </div>
+      <p class="ft-hours">Open daily 10:00 – 01:00</p>
     </div>
+
+    <!-- Col 2: Navigate -->
     <div class="ft-col">
       <h4>Navigate</h4>
+      <a href="index.html">Home</a>
       <a href="story.html">Our Story</a>
-      <a href="#">Billiards</a>
-      <a href="#">Darts</a>
-      <a href="kitchen.html">Kitchen &amp; Bar</a>
-      <a href="terrace.html">Terrace</a>
-      <a href="#">Offers</a>
-      <a href="social.html">Events</a>
-      <a href="social.html#your-event">Your Event</a>
+      <a href="explore-our-venue.html">The Venue</a>
+      <a href="menu.html">Our Menu</a>
+      <a href="tournaments.html">Tournaments</a>
+      <a href="social.html">Social Events</a>
       <a href="pro-shop.html">Pro Shop</a>
+      <a href="contact.html">Find Us</a>
     </div>
+
+    <!-- Col 3: Visit -->
     <div class="ft-col">
-      <h4>Find Us</h4>
-      <p>On-site parking beneath venue</p>
+      <h4>Visit</h4>
+      <p>Kissamou &amp; Saridantoni 1<br>Chania 73136, Crete, Greece</p>
+      <p style="margin-top:12px">On-site parking beneath venue</p>
       <p>Kladissos bridge free parking (5 min walk)</p>
       <p>Electric bus from central Chania</p>
     </div>
+
+    <!-- Col 4: Follow -->
     <div class="ft-col">
       <h4>Follow</h4>
-      <a href="https://instagram.com/aramischania" target="_blank">Instagram @aramischania</a>
-      <a href="https://facebook.com/aramischania" target="_blank">Facebook /aramischania</a>
-      <a href="https://cuescore.com/aramischania" target="_blank">CueScore /aramischania</a>
+      <a href="https://instagram.com/aramischania" target="_blank" rel="noopener">Instagram @aramischania</a>
+      <a href="https://facebook.com/aramischania" target="_blank" rel="noopener">Facebook /aramischania</a>
+      <a href="https://cuescore.com/aramischania" target="_blank" rel="noopener">CueScore /aramischania</a>
+      <a
+        href="https://search.google.com/local/writereview?placeid=ChIJM6BkL4h9nBQRwuF447BkhqU"
+        target="_blank" rel="noopener"
+        class="ft-review-cta"
+      >Leave a Google review</a>
     </div>
+
   </div>
+
   <div class="footer-btm">
-    <span>© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</span>
-    <span>Est. 1984</span>
+    <span>© 2026 ARAMIS Billiard Club · Chania, Crete · Est. 1984</span>
+    <span>Family-owned since 1984</span>
   </div>
 </footer>
 
 
-
-
 <script>
-// Nav scroll
+/* ══════════════════════════════════════════════════════════
+   NAV — scroll state
+══════════════════════════════════════════════════════════ */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-// Dropdown touch support
-['nav-venue','nav-events'].forEach(id => {
+
+/* ══════════════════════════════════════════════════════════
+   DESKTOP DROPDOWNS — touch device support
+══════════════════════════════════════════════════════════ */
+['nav-venue', 'nav-events'].forEach(id => {
   const dd = document.getElementById(id);
   if (!dd) return;
   dd.addEventListener('click', e => {
-    if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); dd.classList.toggle('open'); }
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      dd.classList.toggle('open');
+    }
   });
-  document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
+  document.addEventListener('click', e => {
+    if (!dd.contains(e.target)) dd.classList.remove('open');
+  });
 });
 
-// Seamless ticker
-(function() {
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE OVERLAY NAV
+══════════════════════════════════════════════════════════ */
+const hamburger = document.getElementById('navHamburger');
+const overlay   = document.getElementById('navOverlay');
+let overlayOpen = false;
+
+function openOverlay() {
+  overlayOpen = true;
+  overlay.classList.add('is-open');
+  hamburger.classList.add('is-open');
+  hamburger.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeOverlay() {
+  overlayOpen = false;
+  // Remove stagger delays so items fade instantly on close
+  overlay.querySelectorAll('.ov-item').forEach(el => {
+    el.style.transitionDelay = '0s';
+  });
+  overlay.classList.remove('is-open');
+  hamburger.classList.remove('is-open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  // Restore CSS stagger delays after animation completes
+  setTimeout(() => {
+    overlay.querySelectorAll('.ov-item').forEach(el => {
+      el.style.transitionDelay = '';
+    });
+    // Also reset expanded accordions
+    overlay.querySelectorAll('.ov-item.is-expanded').forEach(el => {
+      el.classList.remove('is-expanded');
+      const btn = el.querySelector('button.ov-link');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }, 700);
+}
+
+hamburger.addEventListener('click', () => overlayOpen ? closeOverlay() : openOverlay());
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && overlayOpen) closeOverlay();
+});
+
+// Close when a plain link is clicked
+overlay.querySelectorAll('.ov-plain-link').forEach(link => {
+  link.addEventListener('click', closeOverlay);
+});
+
+// Logo link in overlay also closes
+document.getElementById('overlayLogoLink').addEventListener('click', closeOverlay);
+
+// Accordion toggles for The Venue and Events
+overlay.querySelectorAll('button.ov-link').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.ov-item');
+    const isExpanded = item.classList.contains('is-expanded');
+    // Close any other open accordion
+    overlay.querySelectorAll('.ov-item.is-expanded').forEach(el => {
+      if (el !== item) {
+        el.classList.remove('is-expanded');
+        const b = el.querySelector('button.ov-link');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      }
+    });
+    item.classList.toggle('is-expanded', !isExpanded);
+    btn.setAttribute('aria-expanded', String(!isExpanded));
+  });
+});
+
+
+/* ══════════════════════════════════════════════════════════
+   TICKER — seamless loop
+══════════════════════════════════════════════════════════ */
+(function () {
   const inner = document.getElementById('ticker-inner');
   if (!inner) return;
   const original = inner.innerHTML;
@@ -946,21 +1605,33 @@ window.addEventListener('scroll', () => {
     if (copies > 12) break;
   }
   const oneWidth = inner.scrollWidth / copies;
-  const style = document.createElement('style');
-  style.textContent = '@keyframes tick { from { transform:translateX(0) } to { transform:translateX(-' + oneWidth + 'px) } }';
+  const style    = document.createElement('style');
+  style.textContent = `@keyframes tick { from { transform:translateX(0) } to { transform:translateX(-${oneWidth}px) } }`;
   document.head.appendChild(style);
 })();
 
-// ══════════════════════════════════════════════════════════
-// GOOGLE REVIEWS INTEGRATION
-// API key lives server-side in Vercel environment variables.
-// See: api/reviews.js — the browser calls /api/reviews only.
-// ══════════════════════════════════════════════════════════
 
-// ── Helpers ──────────────────────────────────────────────
+/* ══════════════════════════════════════════════════════════
+   GOOGLE REVIEWS — /api/reviews (Vercel → Places API)
+   Rules:
+   • Filter out reviews with < 30 characters of text
+   • Shuffle 5-star reviews on every page load
+   • Display exactly 3 cards
+   • Static fallback cards remain if API fails or returns < 1 good review
+══════════════════════════════════════════════════════════ */
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 function starsHTML(rating) {
   return Array.from({ length: 5 }, (_, i) =>
-    `<span style="color:${i < rating ? 'var(--gold)' : 'rgba(200,185,164,.2)'}"}>★</span>`
+    `<span style="color:${i < rating ? 'var(--gold)' : 'rgba(200,185,164,.2)'}">★</span>`
   ).join('');
 }
 
@@ -978,67 +1649,70 @@ function buildReviewCard(review) {
   const text    = review.text || '';
   const time    = review.time ? timeAgo(review.time) : '';
   const topic   = rating === 5 ? 'Five stars' : 'Four stars';
-  // Trim long reviews
-  const display = text.length > 220 ? text.slice(0, 220).trimEnd() + '…' : text;
+  const display = text.length > 240 ? text.slice(0, 240).trimEnd() + '…' : text;
 
   return `<div class="review-card">
-      <div class="review-stars">${starsHTML(rating)}</div>
-      <span class="review-topic">${topic}</span>
-      <div class="review-text">"${display}"</div>
-      <div class="review-footer">
-        <span class="review-author">— ${name}${time ? ', ' + time : ''}</span>
-        <span class="review-platform">Google</span>
-      </div>
-    </div>`;
+    <div class="review-stars">${starsHTML(rating)}</div>
+    <span class="review-topic">${topic}</span>
+    <div class="review-text">"${display}"</div>
+    <div class="review-footer">
+      <span class="review-author">— ${name}${time ? ', ' + time : ''}</span>
+      <span class="review-platform">Google</span>
+    </div>
+  </div>`;
 }
 
-// ── Fetch & render ───────────────────────────────────────
+function renderReviews(data) {
+  if (!data.reviews || !data.reviews.length) return;
+
+  // Filter: exclude empty or very short reviews (< 30 chars)
+  const filtered = data.reviews.filter(r => r.text && r.text.trim().length >= 30);
+  if (filtered.length < 1) return; // keep static fallback
+
+  // Separate 5-star and lower-rated
+  const fiveStars = filtered.filter(r => r.rating === 5);
+  const others    = filtered.filter(r => r.rating < 5);
+
+  // Shuffle 5-star pool on every page load, then append others
+  const pool     = [...shuffleArray(fiveStars), ...others];
+  const selected = pool.slice(0, 3); // show exactly 3
+
+  const grid = document.getElementById('reviews-grid');
+  if (!grid || !selected.length) return;
+  grid.innerHTML = selected.map(buildReviewCard).join('');
+
+  // Update summary stats
+  const scoreEl = document.getElementById('reviews-score');
+  const countEl = document.getElementById('reviews-count');
+  const starsEl = document.getElementById('reviews-stars');
+  if (scoreEl && data.rating) scoreEl.textContent = data.rating.toFixed(1);
+  if (countEl && data.total)  countEl.textContent  = `Based on ${data.total.toLocaleString()} Google reviews`;
+  if (starsEl && data.rating) {
+    const full = Math.round(data.rating);
+    starsEl.innerHTML = Array.from({ length: 5 }, (_, i) =>
+      `<span style="color:${i < full ? 'var(--gold)' : 'rgba(200,185,164,.2)'}">★</span>`
+    ).join('');
+  }
+}
+
 async function loadGoogleReviews() {
-  // Fetch fresh on every page load — server shuffles the order each time
   try {
     const res  = await fetch('/api/reviews');
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     if (!data.reviews) throw new Error('No reviews in response');
     renderReviews(data);
-
-  } catch(err) {
+  } catch (err) {
     console.info('ARAMIS Reviews: using static fallback —', err.message);
-    // Static cards remain — no action needed
+    // Static cards already in DOM — no action needed
   }
 }
 
-function renderReviews(data) {
-  if (!data.reviews || data.reviews.length < 3) return; // Need at least 3 good reviews
-
-  const grid = document.getElementById('reviews-grid');
-  if (!grid) return;
-
-  // Replace static cards with live ones
-  grid.innerHTML = data.reviews.slice(0, 6).map(buildReviewCard).join('');
-
-  // Update overall score
-  const scoreEl = document.getElementById('reviews-score');
-  const countEl = document.getElementById('reviews-count');
-  const starsEl = document.getElementById('reviews-stars');
-  if (scoreEl && data.rating) scoreEl.textContent = data.rating.toFixed(1);
-  if (countEl && data.total) countEl.textContent = `Based on ${data.total.toLocaleString()} Google reviews`;
-  if (starsEl && data.rating) {
-    const full = Math.round(data.rating);
-    starsEl.innerHTML = Array.from({length:5},(_,i) =>
-      `<span style="color:${i<full?'var(--gold)':'rgba(200,185,164,.2)'}">★</span>`
-    ).join('');
-  }
-}
-
-// Run when page is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', loadGoogleReviews);
 } else {
   loadGoogleReviews();
 }
-// ══════════════════════════════════════════════════════════
-
 </script>
 </body>
 </html>
