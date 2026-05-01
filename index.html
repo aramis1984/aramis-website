@@ -1486,7 +1486,8 @@ a { text-decoration: none; color: inherit; }
     <div class="ft-col">
       <h4>Visit</h4>
       <p>Kissamou &amp; Saridantoni 1<br>Chania 73136, Crete, Greece</p>
-      <p style="margin-top:12px">On-site parking beneath venue</p>
+      <p style="margin-top:20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Where to Park</p>
+      <p>On-site parking beneath venue</p>
       <p>Kladissos bridge free parking (5 min walk)</p>
       <p>Electric bus from central Chania</p>
     </div>
@@ -1694,10 +1695,15 @@ function renderReviews(data) {
 
   // Shuffle 5-star pool on every page load, then append others
   const pool     = [...shuffleArray(fiveStars), ...others];
-  const selected = pool.slice(0, 4); // show exactly 4
+  const selected = pool.slice(0, 4);
+
+  // Only replace static cards when we have a full set of 4 good reviews.
+  // If the Places API returns fewer qualifying reviews, the 4 static
+  // fallback cards stay in place — the user always sees 4 cards.
+  if (selected.length < 4) return;
 
   const grid = document.getElementById('reviews-grid');
-  if (!grid || !selected.length) return;
+  if (!grid) return;
   grid.innerHTML = selected.map(buildReviewCard).join('');
 
   // Update summary stats
