@@ -247,13 +247,13 @@ a{text-decoration:none;color:inherit}
   .nav-hamburger{display:flex}
   .nav-overlay{display:block}
   .tables-intro{grid-template-columns:1fr}
-  .tables-intro-photo{min-height:280px}
+  .tables-intro-photo{min-height:240px;max-height:320px}
   .tables-intro-photo::after{display:none}
   .brands-header,.brands-grid{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
   .photo-strip{grid-template-columns:1fr 1fr}
-  .culture-inner{grid-template-columns:1fr;gap:48px}
-  .tournaments-inner{grid-template-columns:1fr;gap:48px}
+  .culture-inner{grid-template-columns:1fr;gap:36px}
+  .tournaments-inner{grid-template-columns:1fr;gap:40px}
   .simonis-note-inner{grid-template-columns:1fr}
 }
 @media(max-width:768px){
@@ -262,7 +262,36 @@ a{text-decoration:none;color:inherit}
   .hero-content{padding-bottom:60px}
   .hero-hed{font-size:clamp(36px,9vw,52px)}
   .hero-scroll{right:24px}
-  .brands-section,.pricing,.culture-section,.tournaments{padding:64px var(--gutter)}
+
+  /* Section padding — tighter on mobile */
+  .brands-section,.culture-section,.tournaments{padding:48px var(--gutter)}
+  .pricing{padding:40px var(--gutter)}
+
+  /* Tables intro: cap photo height on mobile */
+  .tables-intro-photo{min-height:200px;max-height:260px}
+
+  /* Simonis: hide photo on mobile, text only */
+  .simonis-note-inner{grid-template-columns:1fr}
+  .simonis-photo{display:none}
+
+  /* Pricing: compact cards */
+  .rate-card,.happy-card,.loyalty-card{padding:32px 24px}
+  .rate-card-hed{margin-bottom:20px}
+  .rate-price{font-size:24px}
+  .happy-hed{font-size:22px;margin-bottom:20px}
+  .happy-option{padding:12px 0}
+  .loyalty-stamp-row{margin:16px 0;gap:8px}
+  .stamp{width:32px;height:32px;font-size:12px}
+
+  /* Culture: less padding between rules */
+  .culture-inner{padding:48px var(--gutter)}
+  .culture-rule{padding:16px 18px;gap:14px}
+
+  /* Photo strip 2: equal cols on mobile */
+  .photo-strip[style*="2fr 1fr"]{grid-template-columns:1fr 1fr!important}
+  .photo-strip-item[style*="16/7"]{aspect-ratio:4/3!important}
+
+  /* Footer */
   .footer{padding:40px 28px 0}
   .footer-top{display:flex;flex-direction:column;gap:0}
   .ft-brand{text-align:center;padding-bottom:28px;border-bottom:1px solid rgba(200,169,110,.1)}
@@ -285,7 +314,8 @@ a{text-decoration:none;color:inherit}
   .footer-map-btn{font-size:8px;padding:8px 14px;bottom:10px;right:10px;letter-spacing:1.5px}
 }
 @media(max-width:480px){
-  .photo-strip{grid-template-columns:1fr}
+  /* Photo strips: keep 2 cols — never stack to 1 */
+  .photo-strip{grid-template-columns:1fr 1fr}
   .nav-overlay-inner{padding:0 24px 48px}
   .ov-link{font-size:clamp(26px,7vw,36px)}
   .nav-overlay-foot{grid-template-columns:1fr;gap:16px}
