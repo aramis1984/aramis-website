@@ -126,16 +126,24 @@ a{text-decoration:none;color:inherit}
 .brands-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:72px}
 .brands-intro{font-size:15px;line-height:1.85;color:var(--muted)}
 .brands-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.brand-card{background:var(--bg-surf);padding:48px 44px;border:1px solid rgba(200,169,110,.06);position:relative;overflow:hidden;transition:border-color .3s}
+.brand-card{background:var(--bg-surf);padding:32px 36px;border:1px solid rgba(200,169,110,.06);position:relative;overflow:hidden;transition:border-color .3s;cursor:pointer}
 .brand-card:hover{border-color:rgba(200,169,110,.18)}
-.brand-num{position:absolute;top:-8px;right:16px;font-family:'Fraunces',serif;font-size:110px;font-weight:300;color:rgba(200,169,110,.04);line-height:1;pointer-events:none;transition:color .4s}
+.brand-num{position:absolute;top:-8px;right:16px;font-family:'Fraunces',serif;font-size:90px;font-weight:300;color:rgba(200,169,110,.04);line-height:1;pointer-events:none;transition:color .4s}
 .brand-card:hover .brand-num{color:rgba(200,169,110,.07)}
-.brand-flag{font-size:8px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(200,169,110,.45);margin-bottom:12px}
-.brand-name{font-family:'Fraunces',serif;font-size:clamp(22px,2.2vw,30px);font-weight:400;color:var(--cream);margin-bottom:10px;line-height:1.2}
-.brand-count{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.brand-desc{font-size:13px;line-height:1.75;color:var(--muted)}
-.brand-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.brand-flag{font-size:8px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(200,169,110,.45);margin-bottom:8px}
+.brand-name{font-family:'Fraunces',serif;font-size:clamp(18px,1.8vw,26px);font-weight:400;color:var(--cream);margin-bottom:6px;line-height:1.2}
+.brand-count{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0}
+/* Description — visible on desktop, tap-to-expand on mobile */
+.brand-desc-wrap{max-height:400px;overflow:hidden;opacity:1;transition:max-height .4s cubic-bezier(.77,0,.18,1),opacity .3s ease}
+.brand-expand-hint{display:none} /* hidden on desktop */
+.brand-desc{font-size:13px;line-height:1.75;color:var(--muted);padding-top:16px}
+.brand-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .brand-tag{font-size:8.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:5px 10px;border:1px solid rgba(200,169,110,.15);color:rgba(200,169,110,.6)}
+/* Expand indicator */
+.brand-expand-hint{font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.35);margin-top:12px;display:flex;align-items:center;gap:6px;transition:color .2s}
+.brand-card.expanded .brand-expand-hint{color:rgba(200,169,110,.5)}
+.brand-expand-hint::after{content:'›';font-size:14px;transition:transform .3s;display:inline-block}
+.brand-card.expanded .brand-expand-hint::after{transform:rotate(90deg)}
 
 /* PHOTO STRIPS */
 .photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:2px 0}
@@ -170,7 +178,9 @@ a{text-decoration:none;color:inherit}
 .happy-option-val strong{color:var(--cream);font-weight:500}
 .happy-note{font-size:11px;color:rgba(200,185,164,.4);margin-top:24px;font-style:italic;line-height:1.6}
 .loyalty-card{background:var(--bg-surf);padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between}
-.loyalty-stamp-row{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0}
+/* Two rows of 5 stamps */
+.loyalty-stamp-row{display:flex;gap:8px;margin:16px 0}
+.loyalty-stamp-row+.loyalty-stamp-row{margin-top:0}
 .stamp{width:36px;height:36px;border-radius:50%;border:1px solid rgba(200,169,110,.25);display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(200,169,110,.3)}
 .stamp.filled{background:rgba(200,169,110,.08);border-color:rgba(200,169,110,.35);color:var(--gold)}
 .stamp.star{background:var(--gold);border-color:var(--gold);color:var(--bg);font-size:16px}
@@ -250,7 +260,11 @@ a{text-decoration:none;color:inherit}
   .tables-intro-photo{min-height:240px;max-height:320px}
   .tables-intro-photo::after{display:none}
   .brands-header,.brands-grid{grid-template-columns:1fr}
-  .pricing-grid{grid-template-columns:1fr}
+  /* Brand cards: collapse descriptions on mobile, tap to expand */
+  .brand-expand-hint{display:flex}
+  .brand-desc-wrap{max-height:0;opacity:0}
+  .brand-card.expanded .brand-desc-wrap{max-height:220px;opacity:1}
+  .brands-grid{gap:2px}
   .photo-strip{grid-template-columns:1fr 1fr}
   .culture-inner{grid-template-columns:1fr;gap:36px}
   .tournaments-inner{grid-template-columns:1fr;gap:40px}
@@ -263,9 +277,12 @@ a{text-decoration:none;color:inherit}
   .hero-hed{font-size:clamp(36px,9vw,52px)}
   .hero-scroll{right:24px}
 
-  /* Section padding — tighter on mobile */
-  .brands-section,.culture-section,.tournaments{padding:48px var(--gutter)}
+  /* Section padding — all match pricing (40px) */
+  .brands-section,.culture-section,.tournaments{padding:40px var(--gutter)}
   .pricing{padding:40px var(--gutter)}
+  .tables-intro-text{padding:40px var(--gutter)}
+  .simonis-note-inner{padding:40px var(--gutter)!important}
+  .culture-inner{padding:40px var(--gutter)}
 
   /* Tables intro: cap photo height on mobile */
   .tables-intro-photo{min-height:200px;max-height:260px}
@@ -284,7 +301,6 @@ a{text-decoration:none;color:inherit}
   .stamp{width:32px;height:32px;font-size:12px}
 
   /* Culture: less padding between rules */
-  .culture-inner{padding:48px var(--gutter)}
   .culture-rule{padding:16px 18px;gap:14px}
 
   /* Photo strip 2: equal cols on mobile */
@@ -468,32 +484,44 @@ a{text-decoration:none;color:inherit}
         <div class="brand-flag">Denmark &middot; Est. 1955</div>
         <div class="brand-name">S&oslash;ren S&oslash;gaard</div>
         <div class="brand-count">5 tables</div>
-        <p class="brand-desc">Scandinavia&rsquo;s leading billiard manufacturer, founded by seven-time Danish 3-cushion champion S&oslash;ren S&oslash;gaard. Known for kiln-dried oak rails, thick slate beds, and &mdash; in the ARAMIS case &mdash; their proprietary heated-slate technology. Two of our five S&oslash;gaard tables are heated: one American pool, one French carom.</p>
-        <div class="brand-tags"><span class="brand-tag">American Pool</span><span class="brand-tag">French Carom</span><span class="brand-tag">2 &times; Heated</span></div>
+        <div class="brand-expand-hint">More</div>
+        <div class="brand-desc-wrap">
+          <p class="brand-desc">Scandinavia&rsquo;s leading billiard manufacturer, founded by seven-time Danish 3-cushion champion S&oslash;ren S&oslash;gaard. Known for kiln-dried oak rails, thick slate beds, and &mdash; in the ARAMIS case &mdash; their proprietary heated-slate technology. Two of our five S&oslash;gaard tables are heated: one American pool, one French carom.</p>
+          <div class="brand-tags"><span class="brand-tag">American Pool</span><span class="brand-tag">French Carom</span><span class="brand-tag">2 &times; Heated</span></div>
+        </div>
       </div>
       <div class="brand-card fu fu-d1">
         <div class="brand-num">3</div>
         <div class="brand-flag">USA &middot; Est. 1845</div>
         <div class="brand-name">Brunswick</div>
         <div class="brand-count">3 tables</div>
-        <p class="brand-desc">One of the oldest names in billiards. Brunswick tables are synonymous with American pool &mdash; consistent, tournament-proven, built to exacting tolerances. The standard against which most pool tables are measured.</p>
-        <div class="brand-tags"><span class="brand-tag">American Pool</span></div>
+        <div class="brand-expand-hint">More</div>
+        <div class="brand-desc-wrap">
+          <p class="brand-desc">One of the oldest names in billiards. Brunswick tables are synonymous with American pool &mdash; consistent, tournament-proven, built to exacting tolerances. The standard against which most pool tables are measured.</p>
+          <div class="brand-tags"><span class="brand-tag">American Pool</span></div>
+        </div>
       </div>
       <div class="brand-card fu fu-d2">
         <div class="brand-num">1</div>
         <div class="brand-flag">France &middot; Est. 1860</div>
         <div class="brand-name">Chevillotte</div>
         <div class="brand-count">1 table</div>
-        <p class="brand-desc">French-made since 1860 and widely regarded as one of the finest billiard manufacturers in the world. Chevillotte&rsquo;s craftsmanship sits at the intersection of precision engineering and cabinetmaking &mdash; a table that plays as well as it looks.</p>
-        <div class="brand-tags"><span class="brand-tag">American Pool</span></div>
+        <div class="brand-expand-hint">More</div>
+        <div class="brand-desc-wrap">
+          <p class="brand-desc">French-made since 1860 and widely regarded as one of the finest billiard manufacturers in the world. Chevillotte&rsquo;s craftsmanship sits at the intersection of precision engineering and cabinetmaking &mdash; a table that plays as well as it looks.</p>
+          <div class="brand-tags"><span class="brand-tag">American Pool</span></div>
+        </div>
       </div>
       <div class="brand-card fu fu-d3">
         <div class="brand-num">1</div>
         <div class="brand-flag">Greece &middot; Est. 1928</div>
         <div class="brand-name">Sivissidis Bros.</div>
         <div class="brand-count">1 table</div>
-        <p class="brand-desc">The only billiard table manufacturer in the Balkans, operating from Athens since 1928. Sivissidis has supplied professional clubs across Greece for nearly a century &mdash; a local name with international standards, and a fitting presence in a club with deep roots in Greek billiards.</p>
-        <div class="brand-tags"><span class="brand-tag">American Pool</span></div>
+        <div class="brand-expand-hint">More</div>
+        <div class="brand-desc-wrap">
+          <p class="brand-desc">The only billiard table manufacturer in the Balkans, operating from Athens since 1928. Sivissidis has supplied professional clubs across Greece for nearly a century &mdash; a local name with international standards, and a fitting presence in a club with deep roots in Greek billiards.</p>
+          <div class="brand-tags"><span class="brand-tag">American Pool</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -558,10 +586,10 @@ a{text-decoration:none;color:inherit}
           <div class="stag" style="margin-bottom:16px">Loyalty Card</div>
           <div class="sec-hed" style="font-size:clamp(22px,2vw,30px);margin-bottom:16px">Play regularly.<br>Your 10th game is on us.</div>
           <div class="loyalty-stamp-row">
-            <div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div>
-            <div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div>
-            <div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div>
-            <div class="stamp star">&#9733;</div>
+            <div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div>
+          </div>
+          <div class="loyalty-stamp-row" style="margin-top:0">
+            <div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp filled">&#10003;</div><div class="stamp star">&#9733;</div>
           </div>
         </div>
         <p class="loyalty-desc">Ask about our loyalty card at the bar. Every game gets a stamp &mdash; and the tenth one&rsquo;s free.</p>
@@ -702,6 +730,21 @@ overlay.querySelectorAll('button.ov-link').forEach(btn=>{
 });
 const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+/* ── Brand card tap/click expand ── */
+document.querySelectorAll('.brand-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const isExpanded = card.classList.contains('expanded');
+    // Close others
+    document.querySelectorAll('.brand-card.expanded').forEach(c => {
+      if (c !== card) {
+        c.classList.remove('expanded');
+        c.querySelector('.brand-expand-hint').textContent = 'More';
+      }
+    });
+    card.classList.toggle('expanded', !isExpanded);
+    card.querySelector('.brand-expand-hint').textContent = isExpanded ? 'More' : 'Less';
+  });
+});
 </script>
 </body>
 </html>
