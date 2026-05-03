@@ -906,9 +906,9 @@ a { text-decoration: none; color: inherit; }
 
   <!-- Desktop left -->
   <div class="nav-left">
-    <a class="nav-lk" href="story.html">Our Story</a>
+    <a href="story.html" class="nav-lk" id="dnav-story">Our Story</a>
     <div class="nav-dd" id="nav-venue">
-      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
+      <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger" id="dnav-venue">
         The Venue
         <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
       </a>
@@ -918,10 +918,10 @@ a { text-decoration: none; color: inherit; }
         <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
         <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
         <div class="nav-dd-divider"></div>
-        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6"></span>Explore our Venue →</a>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6"></span>Explore our Venue &rarr;</a>
       </div>
     </div>
-    <a class="nav-lk" href="menu.html">Our Menu</a>
+    <a href="pro-shop.html" class="nav-lk" id="dnav-proshop">Pro Shop</a>
   </div>
 
   <!-- Logo -->
@@ -932,7 +932,7 @@ a { text-decoration: none; color: inherit; }
   <!-- Desktop right -->
   <div class="nav-right">
     <div class="nav-dd" id="nav-events">
-      <a href="social.html" class="nav-lk nav-dd-trigger">
+      <a href="social.html" class="nav-lk nav-dd-trigger" id="dnav-events">
         Events
         <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
       </a>
@@ -941,8 +941,8 @@ a { text-decoration: none; color: inherit; }
         <a href="social.html"      class="nav-dd-item"><span class="dd-dot"></span>Social Events</a>
       </div>
     </div>
-    <a class="nav-lk" href="pro-shop.html">Pro Shop</a>
-    <a class="nav-lk" href="contact.html">Find Us</a>
+    <a href="your-event.html" class="nav-lk" id="dnav-yourevent">Your Event</a>
+    <a href="contact.html"    class="nav-lk" id="dnav-findus">Find Us</a>
   </div>
 
   <!-- Mobile hamburger -->
@@ -973,50 +973,37 @@ a { text-decoration: none; color: inherit; }
     <!-- Main links -->
     <nav class="nav-overlay-links" aria-label="Primary navigation">
 
-      <div class="ov-item">
-        <a href="index.html" class="ov-link ov-plain-link">Home</a>
-      </div>
-
-      <div class="ov-item">
-        <a href="story.html" class="ov-link ov-plain-link">Our Story</a>
-      </div>
+      <div class="ov-item"><a href="index.html"   class="ov-link ov-plain-link" id="onav-home">Home</a></div>
+      <div class="ov-item"><a href="story.html"   class="ov-link ov-plain-link" id="onav-story">Our Story</a></div>
 
       <!-- The Venue — accordion -->
       <div class="ov-item" id="ov-venue">
         <button class="ov-link" aria-expanded="false">
-          The Venue <span class="ov-acc-chevron">›</span>
+          The Venue <span class="ov-acc-chevron">&#8250;</span>
         </button>
         <div class="ov-sub">
-          <a href="billiards.html" class="ov-sub-link ov-plain-link">Billiards</a>
-          <a href="darts.html"     class="ov-sub-link ov-plain-link">Darts</a>
-          <a href="terrace.html"   class="ov-sub-link ov-plain-link">The Terrace Cafe</a>
-          <a href="kitchen.html"   class="ov-sub-link ov-plain-link">Kitchen &amp; Bar</a>
+          <a href="explore-our-venue.html" class="ov-sub-link ov-plain-link" style="color:rgba(200,169,110,.6);">Explore our Venue &rarr;</a>
+          <a href="billiards.html"         class="ov-sub-link ov-plain-link">Billiards</a>
+          <a href="darts.html"             class="ov-sub-link ov-plain-link">Darts</a>
+          <a href="terrace.html"           class="ov-sub-link ov-plain-link">The Terrace Cafe</a>
+          <a href="kitchen.html"           class="ov-sub-link ov-plain-link">Kitchen &amp; Bar</a>
         </div>
-      </div>
-
-      <div class="ov-item">
-        <a href="menu.html" class="ov-link ov-plain-link">Our Menu</a>
       </div>
 
       <!-- Events — accordion -->
       <div class="ov-item" id="ov-events">
         <button class="ov-link" aria-expanded="false">
-          Events <span class="ov-acc-chevron">›</span>
+          Events <span class="ov-acc-chevron">&#8250;</span>
         </button>
         <div class="ov-sub">
-          <a href="tournaments.html"      class="ov-sub-link ov-plain-link">Tournaments</a>
-          <a href="social.html"           class="ov-sub-link ov-plain-link">Social Events</a>
-          <a href="social.html#your-event" class="ov-sub-link ov-plain-link">Your Event</a>
+          <a href="tournaments.html" class="ov-sub-link ov-plain-link">Tournaments</a>
+          <a href="social.html"      class="ov-sub-link ov-plain-link">Social Events</a>
         </div>
       </div>
 
-      <div class="ov-item">
-        <a href="pro-shop.html" class="ov-link ov-plain-link">Pro Shop</a>
-      </div>
-
-      <div class="ov-item">
-        <a href="contact.html" class="ov-link ov-plain-link">Find Us</a>
-      </div>
+      <div class="ov-item"><a href="your-event.html" class="ov-link ov-plain-link" id="onav-yourevent">Your Event</a></div>
+      <div class="ov-item"><a href="pro-shop.html"   class="ov-link ov-plain-link" id="onav-proshop">Pro Shop</a></div>
+      <div class="ov-item"><a href="contact.html"    class="ov-link ov-plain-link" id="onav-findus">Find Us</a></div>
 
     </nav>
 
