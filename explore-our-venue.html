@@ -4,53 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Explore our Venue | ARAMIS Billiard Club, Chania</title>
-  <!-- SEO & Open Graph -->
-  <meta name="description" content="Billiards, darts, a rooftop terrace with White Mountains views, and an all-day kitchen and bar. Discover every space at ARAMIS Chania.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.aramisbilliards.com/explore-our-venue">
-  <!-- Open Graph (social sharing) -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ARAMIS Billiard Club">
-  <meta property="og:title" content="Explore our Venue | ARAMIS Billiard Club, Chania">
-  <meta property="og:description" content="Billiards, darts, a rooftop terrace with White Mountains views, and an all-day kitchen and bar. Discover every space at ARAMIS Chania.">
-  <meta property="og:url" content="https://www.aramisbilliards.com/explore-our-venue">
-  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
-  <meta property="og:locale" content="en_GR">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Explore our Venue | ARAMIS Billiard Club, Chania">
-  <meta name="twitter:description" content="Billiards, darts, a rooftop terrace with White Mountains views, and an all-day kitchen and bar. Discover every space at ARAMIS Chania.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<meta name="description" content="Billiards, darts, a rooftop terrace with White Mountains views, and an all-day kitchen and bar. Discover every space at ARAMIS Chania.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.aramisbilliards.com/explore-our-venue">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ARAMIS Billiard Club">
+<meta property="og:title" content="Explore our Venue | ARAMIS Billiard Club, Chania">
+<meta property="og:description" content="Billiards, darts, a rooftop terrace with White Mountains views, and an all-day kitchen and bar. Discover every space at ARAMIS Chania.">
+<meta property="og:url" content="https://www.aramisbilliards.com/explore-our-venue">
+<meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<meta property="og:locale" content="en_GR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Explore our Venue | ARAMIS Billiard Club, Chania">
+<meta name="twitter:description" content="Billiards, darts, a rooftop terrace with White Mountains views, and an all-day kitchen and bar. Discover every space at ARAMIS Chania.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 
-/* ─── TOKENS ─────────────────────────────── */
+/* ══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════════════════════════════ */
 :root {
-  --bg:       #1a1814;
-  --bg-card:  #232019;
-  --bg-surf:  #2a2620;
-  --gold:     #c8a96e;
-  --gold-h:   #dcc48e;
-  --cream:    #f3e5d2;
-  --muted:    #c8b9a4;
-  --nav-h:    180px;
-  --gutter:   72px;
-  --max-w:    1200px;
+  --bg:      #1a1814;
+  --bg-card: #232019;
+  --bg-surf: #2a2620;
+  --gold:    #c8a96e;
+  --gold-h:  #dcc48e;
+  --cream:   #f3e5d2;
+  --muted:   #c8b9a4;
+  --nav-h:   180px;
+  --gutter:  72px;
+  --max-w:   1200px;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--cream);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-}
+html { font-size: 16px; scroll-behavior: smooth; overflow-x: hidden; }
+body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 
-/* ─── NAV ────────────────────────────────── */
+
+/* ══════════════════════════════════════════════════════════
+   PHOTO PLACEHOLDER SYSTEM
+══════════════════════════════════════════════════════════ */
+.ph { position: relative; background: var(--bg-surf); overflow: hidden; width: 100%; }
+.ph-16-9 { aspect-ratio: 16 / 9; }
+.ph-4-3  { aspect-ratio: 4 / 3; }
+.ph-1-1  { aspect-ratio: 1 / 1; }
+.ph-9-16 { aspect-ratio: 9 / 16; }
+.ph-fill { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; }
+.ph::after { content: ''; position: absolute; inset: 12px; border: 1px dashed rgba(200,169,110,.15); pointer-events: none; z-index: 1; }
+.ph-inner { position: absolute; top: 12px; right: 14px; bottom: auto; left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; z-index: 2; }
+.ph-inner svg { display: none; }
+.ph-label { font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,169,110,.3); text-align: right; line-height: 1.8; background: rgba(16,14,11,.45); padding: 4px 7px; backdrop-filter: blur(4px); }
+
+
+/* ══════════════════════════════════════════════════════════
+   NAV — desktop
+══════════════════════════════════════════════════════════ */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 900;
   height: var(--nav-h);
@@ -60,46 +70,32 @@ a { text-decoration: none; color: inherit; }
   transition: background .4s, border-color .4s;
   border-bottom: 1px solid transparent;
 }
-.nav.scrolled {
-  background: rgba(26,24,20,.97);
-  border-bottom-color: rgba(200,169,110,.12);
-  backdrop-filter: blur(12px);
-}
-.nav-left {
-  display: flex; align-items: center; justify-content: flex-end;
-  flex: 1; gap: 2px;
-}
-.nav-right {
-  display: flex; align-items: center; justify-content: flex-start;
-  flex: 1; gap: 2px;
-}
-.nav-logo { padding: 0 28px; flex-shrink: 0; }
-.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
+.nav.scrolled { background: rgba(26,24,20,.97); border-bottom-color: rgba(200,169,110,.12); backdrop-filter: blur(12px); }
+.nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
+.nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
+.nav-logo  { padding: 0 28px; flex-shrink: 0; }
+.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; transition: opacity .2s; }
+.nav-logo img:hover { opacity: .85; }
 .nav-lk {
-  font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px;
-  text-transform: uppercase; color: rgba(243,229,210,.65);
-  padding: 10px 22px; transition: color .2s;
+  font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase;
+  color: rgba(243,229,210,.65); padding: 10px 22px; transition: color .2s;
   white-space: nowrap; line-height: 1; cursor: pointer; position: relative;
 }
 .nav-lk:hover, .nav-lk.active { color: var(--gold); }
 .nav-dd { position: relative; display: flex; align-items: center; }
 .nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
-.nav-dd-trigger .chevron {
-  width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0;
-}
+.nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
 .nav-dd:hover .chevron, .nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
 .nav-dd-panel {
   position: absolute; top: calc(100% + 8px); left: 0; min-width: 220px;
-  background: rgba(22,20,17,.98);
-  border: 1px solid rgba(200,169,110,.15); border-top: 2px solid var(--gold);
-  backdrop-filter: blur(16px); padding: 8px 0;
+  background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15);
+  border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0;
   opacity: 0; visibility: hidden; transform: translateY(-4px);
   transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s;
   pointer-events: none;
 }
-.nav-dd-panel::before {
-  content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px;
-}
+.nav-dd-panel.panel-right { left: auto; right: 0; }
+.nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
 .nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel {
   opacity: 1; visibility: visible; transform: translateY(0);
   transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s;
@@ -107,123 +103,163 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-dd-item {
   display: flex; align-items: center; gap: 12px; padding: 12px 20px;
-  font-size: 10px; font-weight: 500; letter-spacing: 1.8px;
-  text-transform: uppercase; color: rgba(243,229,210,.6);
-  transition: color .18s, background .18s; white-space: nowrap;
+  font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase;
+  color: rgba(243,229,210,.6); transition: color .18s, background .18s; white-space: nowrap;
 }
 .nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
-.nav-dd-item .dd-dot {
-  width: 3px; height: 3px; border-radius: 50%;
-  background: var(--gold); opacity: .4; flex-shrink: 0;
-}
+.nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
 .nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
-@media (max-width: 960px) {
-  .nav-left, .nav-right { display: none; }
-  .nav { justify-content: center; }
-  .nav-logo img { width: 240px; height: auto; }
-}
 
-/* ─── HERO ───────────────────────────────── */
+/* Hamburger — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px;
+  flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: none; border: none; cursor: pointer; z-index: 970; padding: 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: rgba(243,229,210,.75);
+  transition: all .38s cubic-bezier(.77,0,.18,1); transform-origin: center;
+}
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); background: var(--cream); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); background: var(--cream); }
+
+
+/* ══════════════════════════════════════════════════════════
+   FULL-SCREEN OVERLAY NAV — mobile
+══════════════════════════════════════════════════════════ */
+.nav-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 950;
+  background: #100e0b;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path .65s cubic-bezier(.77,0,.18,1);
+  pointer-events: none;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+.nav-overlay.is-open { clip-path: inset(0 0 0% 0); pointer-events: auto; }
+.nav-overlay-inner { display: flex; flex-direction: column; min-height: 100dvh; padding: 0 40px 56px; }
+.nav-overlay-head {
+  height: 90px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; border-bottom: 1px solid rgba(200,169,110,.08); margin-bottom: 40px;
+}
+.nav-overlay-head img { width: 200px; object-fit: contain; }
+.nav-overlay-links { flex: 1; display: flex; flex-direction: column; }
+.ov-item {
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.nav-overlay.is-open .ov-item { opacity: 1; transform: translateY(0); }
+.ov-item:nth-child(1) { transition-delay: .16s; }
+.ov-item:nth-child(2) { transition-delay: .22s; }
+.ov-item:nth-child(3) { transition-delay: .28s; }
+.ov-item:nth-child(4) { transition-delay: .34s; }
+.ov-item:nth-child(5) { transition-delay: .40s; }
+.ov-item:nth-child(6) { transition-delay: .46s; }
+.ov-item:nth-child(7) { transition-delay: .52s; }
+.ov-link {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 20px 0;
+  font-family: 'Fraunces', serif; font-size: clamp(28px, 6.5vw, 48px);
+  font-weight: 400; font-style: italic; color: rgba(243,229,210,.72);
+  transition: color .22s; background: none; border: none; cursor: pointer;
+  text-align: left; line-height: 1;
+}
+.ov-link:hover { color: var(--gold); }
+.ov-acc-chevron {
+  font-size: 20px; color: rgba(200,169,110,.35);
+  transition: transform .35s cubic-bezier(.77,0,.18,1), color .2s;
+  flex-shrink: 0; font-style: normal; line-height: 1; margin-left: 12px;
+}
+.ov-item.is-expanded .ov-acc-chevron { transform: rotate(90deg); color: var(--gold); }
+.ov-sub { overflow: hidden; max-height: 0; transition: max-height .5s cubic-bezier(.77,0,.18,1); }
+.ov-item.is-expanded .ov-sub { max-height: 400px; }
+.ov-sub-link {
+  display: block; padding: 11px 0 11px 16px;
+  font-size: 11px; font-weight: 500; letter-spacing: 2.2px; text-transform: uppercase;
+  color: rgba(243,229,210,.4); border-left: 1px solid rgba(200,169,110,.12);
+  margin-bottom: 2px; transition: color .2s, border-color .2s;
+}
+.ov-sub-link:last-child { margin-bottom: 20px; }
+.ov-sub-link:hover { color: var(--gold); border-left-color: rgba(200,169,110,.35); }
+.nav-overlay-foot {
+  margin-top: 48px; padding-top: 32px;
+  border-top: 1px solid rgba(200,169,110,.08);
+  display: grid; grid-template-columns: 100px 1fr;
+  gap: 20px 32px; align-items: center;
+  opacity: 0; transition: opacity .4s ease .6s;
+}
+.nav-overlay.is-open .nav-overlay-foot { opacity: 1; }
+.nav-overlay-foot img { width: 100px; object-fit: contain; opacity: .55; }
+.ov-foot-info { display: flex; flex-direction: column; gap: 5px; }
+.ov-foot-line { font-size: 11px; color: rgba(200,185,164,.38); letter-spacing: .4px; line-height: 1.5; }
+.ov-foot-line strong { color: rgba(200,185,164,.6); font-weight: 500; }
+
+
+/* ══════════════════════════════════════════════════════════
+   HERO — image/video placeholder
+   Replace .ph div with <img class="hero-bg"> or <video> when ready
+══════════════════════════════════════════════════════════ */
 .hero {
   position: relative;
   height: 100vh; min-height: 680px;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  text-align: center;
-  overflow: hidden;
+  text-align: center; overflow: hidden;
+  padding-top: var(--nav-h);
 }
-
-/* Placeholder — visible when no image/video */
-.hero-placeholder {
+.hero-bg {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(200,169,110,.06) 0%, transparent 65%),
-    linear-gradient(160deg, #1e1b16 0%, #141210 60%, #1a1814 100%);
-}
-.hero-placeholder-grid {
-  position: absolute; inset: 0;
-  background-image:
-    repeating-linear-gradient(0deg,  transparent, transparent 59px, rgba(200,169,110,.02) 60px),
-    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(200,169,110,.02) 60px);
-}
-.hero-placeholder-badge {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.hero-placeholder-badge-inner {
-  border: 1px dashed rgba(200,169,110,.15);
-  padding: 28px 44px;
-  display: flex; flex-direction: column; align-items: center; gap: 14px;
-}
-.hero-placeholder-badge-inner svg { color: rgba(200,169,110,.2); }
-.hero-placeholder-badge-inner span {
-  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(200,169,110,.25);
-}
-
-/* Live media — uncomment the element and add .has-media to .hero */
-.hero-media {
-  position: absolute; inset: 0; width: 100%; height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover; object-position: center 40%;
-  display: none;
 }
-.hero.has-media .hero-media     { display: block; }
-.hero.has-media .hero-placeholder { display: none; }
-
 .hero-ov {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(26,24,20,.5)  0%,
-    rgba(26,24,20,.08) 30%,
-    rgba(26,24,20,.08) 55%,
-    rgba(26,24,20,.9)  100%
-  );
+  background: linear-gradient(to bottom, rgba(26,24,20,.5) 0%, rgba(26,24,20,.08) 30%, rgba(26,24,20,.08) 55%, rgba(26,24,20,.9) 100%);
 }
 .hero-content {
   position: relative; z-index: 2;
-  display: flex; flex-direction: column;
-  align-items: center;
-  padding: 0 var(--gutter);
-  max-width: 800px;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0 var(--gutter); max-width: 800px;
 }
 .hero-eyebrow {
   font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 28px;
-  display: flex; align-items: center; gap: 16px;
+  color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 16px;
 }
 .hero-eyebrow::before,
 .hero-eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
 .hero-hed {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(44px, 7vw, 96px);
-  font-weight: 400; font-style: italic;
-  line-height: 1.07; color: var(--cream);
-  margin-bottom: 28px; letter-spacing: -1px;
+  font-family: 'Fraunces', serif; font-size: clamp(44px, 7vw, 96px);
+  font-weight: 400; font-style: italic; line-height: 1.07; color: var(--cream);
+  margin-bottom: 28px; letter-spacing: -1px; overflow-wrap: break-word; word-break: break-word;
 }
-.hero-rule {
-  width: 1px; height: 52px;
-  background: linear-gradient(to bottom, rgba(200,169,110,.45), transparent);
-  margin: 0 auto 22px;
-}
-.hero-sub {
-  font-size: 12px; font-weight: 400; letter-spacing: 2px;
-  color: rgba(200,185,164,.45); line-height: 1.8;
-}
+.hero-rule { width: 1px; height: 52px; background: linear-gradient(to bottom, rgba(200,169,110,.45), transparent); margin: 0 auto 22px; }
+.hero-sub { font-size: 12px; font-weight: 400; letter-spacing: 2px; color: rgba(200,185,164,.45); line-height: 1.8; }
 .hero-scroll {
   position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 2;
 }
-.hero-scroll span {
-  font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(200,185,164,.35);
-}
-.scroll-line {
-  width: 1px; height: 44px;
-  background: linear-gradient(to bottom, rgba(200,169,110,.4), transparent);
-}
+.hero-scroll span { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,185,164,.35); }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(200,169,110,.4), transparent); }
 
-/* ─── INTRO STRIP ────────────────────────── */
+
+/* ══════════════════════════════════════════════════════════
+   SHARED HELPERS
+══════════════════════════════════════════════════════════ */
+.stag {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; gap: 14px;
+}
+.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+
+/* ══════════════════════════════════════════════════════════
+   INTRO STRIP
+══════════════════════════════════════════════════════════ */
 .intro-strip {
   background: var(--bg-card);
   border-top: 1px solid rgba(200,169,110,.07);
@@ -232,21 +268,52 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 .intro-strip-inner { max-width: 720px; margin: 0 auto; }
-.stag {
-  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold); display: flex; align-items: center; gap: 14px;
-  justify-content: center; margin-bottom: 24px;
+.intro-strip .stag { justify-content: center; margin-bottom: 24px; }
+.intro-strip .stag::before { display: none; }
+.intro-strip p { font-size: 16px; line-height: 1.85; color: var(--muted); }
+
+
+/* ══════════════════════════════════════════════════════════
+   CULTURE TEASER
+══════════════════════════════════════════════════════════ */
+.culture-teaser {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(200,169,110,.07);
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  padding: 64px var(--gutter);
+  text-align: center;
 }
-.stag::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
-.intro-strip p {
-  font-size: 16px; line-height: 1.85; color: var(--muted);
+.culture-teaser-inner { max-width: 680px; margin: 0 auto; }
+.culture-teaser-stag {
+  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin-bottom: 24px;
+}
+.culture-teaser-stag::before,
+.culture-teaser-stag::after { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
+.culture-teaser-hed {
+  font-family: 'Fraunces', serif; font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 400; font-style: italic; color: var(--cream);
+  line-height: 1.2; margin-bottom: 20px;
+}
+.culture-teaser-body { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 28px; }
+.culture-teaser-pillars { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.culture-pillar {
+  font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 6px 14px; border: 1px solid rgba(200,169,110,.18); color: rgba(200,169,110,.6);
 }
 
-/* ─── CARDS ──────────────────────────────── */
+
+/* ══════════════════════════════════════════════════════════
+   VENUE CARDS — 2×2 grid, 4:3 aspect ratio
+   Each card links to its dedicated sub-page.
+   Replace .card-photo-placeholder with:
+     <img class="card-photo" src="assets/images/..." alt="...">
+   when photos are ready — no other markup changes needed.
+══════════════════════════════════════════════════════════ */
 .cards-section {
   padding: 80px var(--gutter) 120px;
-  max-width: var(--max-w);
-  margin: 0 auto;
+  max-width: var(--max-w); margin: 0 auto;
 }
 .cards-label {
   font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
@@ -254,12 +321,7 @@ a { text-decoration: none; color: inherit; }
   display: flex; align-items: center; gap: 14px;
 }
 .cards-label::before { content: ''; width: 28px; height: 1px; background: rgba(200,169,110,.25); }
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-}
+.cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
 
 .venue-card {
   position: relative; overflow: hidden;
@@ -273,238 +335,221 @@ a { text-decoration: none; color: inherit; }
   position: absolute; top: -16px; right: 20px; z-index: 1;
   font-family: 'Fraunces', serif; font-size: 148px; font-weight: 300;
   color: rgba(200,169,110,.04); line-height: 1; pointer-events: none;
-  transition: color .5s ease;
-  user-select: none;
+  transition: color .5s ease; user-select: none;
 }
 .venue-card:hover::before { color: rgba(200,169,110,.09); }
 
-/* Photo */
+/* Real photo (uncomment img when ready) */
 .card-photo {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover;
   transition: transform .75s cubic-bezier(.25,.46,.45,.94), filter .5s;
   filter: saturate(.75) brightness(.65);
 }
-.venue-card:hover .card-photo {
-  transform: scale(1.07);
-  filter: saturate(.95) brightness(.72);
-}
+.venue-card:hover .card-photo { transform: scale(1.07); filter: saturate(.95) brightness(.72); }
 
-/* Placeholder (no photo yet) */
+/* Placeholder */
 .card-photo-placeholder {
   position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 14px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
   background: linear-gradient(135deg, var(--bg-surf) 0%, #1f1c18 100%);
   transition: background .4s;
 }
-.venue-card:hover .card-photo-placeholder {
-  background: linear-gradient(135deg, #2a2620 0%, #232019 100%);
-}
+.venue-card:hover .card-photo-placeholder { background: linear-gradient(135deg, #2a2620 0%, #232019 100%); }
 .card-photo-placeholder svg { color: rgba(200,169,110,.1); transition: color .4s; }
 .venue-card:hover .card-photo-placeholder svg { color: rgba(200,169,110,.18); }
-.card-photo-placeholder span {
-  font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(200,169,110,.18);
-}
+.card-photo-placeholder span { font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,169,110,.18); }
 
 /* Gradient overlay */
 .card-ov {
   position: absolute; inset: 0; z-index: 2;
-  background: linear-gradient(
-    to bottom,
-    transparent        0%,
-    transparent        30%,
-    rgba(26,24,20,.5)  62%,
-    rgba(26,24,20,.93) 100%
-  );
+  background: linear-gradient(to bottom, transparent 0%, transparent 30%, rgba(26,24,20,.5) 62%, rgba(26,24,20,.93) 100%);
   transition: background .4s;
 }
 .venue-card:hover .card-ov {
-  background: linear-gradient(
-    to bottom,
-    transparent        0%,
-    transparent        18%,
-    rgba(26,24,20,.45) 58%,
-    rgba(26,24,20,.96) 100%
-  );
+  background: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(26,24,20,.45) 58%, rgba(26,24,20,.96) 100%);
 }
 
 /* Text body */
-.card-body {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
-  padding: 36px 40px 44px;
-}
+.card-body { position: absolute; bottom: 0; left: 0; right: 0; z-index: 3; padding: 36px 40px 44px; }
 .card-tag {
   font-size: 8px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 10px; opacity: .75;
-  transition: opacity .3s;
+  color: var(--gold); margin-bottom: 10px; opacity: .75; transition: opacity .3s;
 }
 .venue-card:hover .card-tag { opacity: 1; }
 .card-title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(26px, 2.6vw, 38px);
-  font-weight: 400; line-height: 1.12; color: var(--cream);
-  margin-bottom: 14px;
+  font-family: 'Fraunces', serif; font-size: clamp(26px, 2.6vw, 38px);
+  font-weight: 400; line-height: 1.12; color: var(--cream); margin-bottom: 14px;
 }
 .card-desc {
-  font-size: 13px; line-height: 1.72; color: rgba(200,185,164,.7);
-  max-width: 380px;
-  max-height: 0; overflow: hidden;
-  opacity: 0;
+  font-size: 13px; line-height: 1.72; color: rgba(200,185,164,.7); max-width: 380px;
+  max-height: 0; overflow: hidden; opacity: 0;
   transition: max-height .45s ease, opacity .4s ease;
 }
 .venue-card:hover .card-desc { max-height: 100px; opacity: 1; }
-
 .card-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 20px;
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
   font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0; transform: translateY(8px);
+  color: var(--gold); opacity: 0; transform: translateY(8px);
   transition: opacity .35s ease .08s, transform .35s ease .08s;
 }
 .venue-card:hover .card-cta { opacity: 1; transform: translateY(0); }
 .card-cta svg { transition: transform .25s; }
 .venue-card:hover .card-cta svg { transform: translateX(5px); }
 
-/* ─── FOOTER ──────────────────────────────── */
-.footer {
-  background: #141210;
-  padding: 72px 0 40px;
-  border-top: 1px solid rgba(200,169,110,.1);
-}
-.footer-inner {
-  max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
-  display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px;
-}
-.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
-.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
-.footer-col-hed {
-  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 20px;
-}
-.footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
-.footer-links a:hover { color: var(--cream); }
-.footer-bottom {
-  max-width: var(--max-w); margin: 40px auto 0;
-  padding: 24px var(--gutter) 0;
-  border-top: 1px solid rgba(200,169,110,.07);
-  display: flex; justify-content: space-between; align-items: center;
-}
-.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
 
-/* ─── FADE-UP ─────────────────────────────── */
+/* ══════════════════════════════════════════════════════════
+   FADE-UP ON SCROLL
+══════════════════════════════════════════════════════════ */
 .fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
 .fu.vis { opacity: 1; transform: none; }
 .fu-d1 { transition-delay: .12s; }
 .fu-d2 { transition-delay: .22s; }
 .fu-d3 { transition-delay: .32s; }
 
-/* ─── RESPONSIVE ──────────────────────────── */
-@media (max-width: 900px) {
-  :root { --gutter: 36px; }
+
+/* ══════════════════════════════════════════════════════════
+   GOOGLE MAPS STRIP
+══════════════════════════════════════════════════════════ */
+.footer-map-wrap {
+  position: relative; height: 220px; overflow: hidden;
+  border-top: 1px solid rgba(200,169,110,.06);
+}
+.footer-map-wrap iframe {
+  width: 100%; height: 100%; border: 0; display: block;
+  filter: grayscale(80%) invert(90%) sepia(25%) brightness(0.82) contrast(1.08);
+}
+.footer-map-btn {
+  position: absolute; bottom: 16px; right: 20px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px; background: rgba(16,14,11,.88); color: var(--gold);
+  font-size: 9.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid rgba(200,169,110,.28); backdrop-filter: blur(10px);
+  transition: background .2s, border-color .2s;
+}
+.footer-map-btn:hover { background: rgba(200,169,110,.12); border-color: var(--gold); }
+.footer-map-btn::after { content: '→'; font-size: 13px; margin-left: 2px; }
+
+
+/* ══════════════════════════════════════════════════════════
+   FOOTER — 3 columns: Brand · Navigate · Follow
+══════════════════════════════════════════════════════════ */
+.footer { background: #110f0c; padding: 64px 80px 0; border-top: 1px solid rgba(200,169,110,.08); }
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px; padding-bottom: 56px;
+  border-bottom: 1px solid rgba(200,169,110,.07);
+}
+.ft-brand-logo img { width: 210px; margin-bottom: 18px; object-fit: contain; }
+.ft-tagline { font-size: 12px; font-style: italic; color: rgba(200,185,164,.38); margin-bottom: 8px; line-height: 1.65; }
+.ft-address { font-size: 12px; color: rgba(200,185,164,.35); margin-bottom: 16px; line-height: 1.5; }
+.ft-contact { font-size: 13px; line-height: 2.0; color: var(--muted); }
+.ft-contact p { display: block; margin: 0; }
+.ft-contact a { color: var(--muted); transition: color .2s; }
+.ft-contact a:hover { color: var(--gold); }
+.ft-hours { margin-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(200,169,110,.45); }
+.ft-col h4 { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.ft-col a, .ft-col p, .ft-nav-grid a {
+  display: block; font-size: 13px; color: var(--muted); line-height: 2.1; transition: color .2s;
+}
+.ft-col a:hover, .ft-nav-grid a:hover { color: var(--gold); }
+.footer-btm { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.footer-btm span { font-size: 11px; color: rgba(200,185,164,.3); }
+
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════════════════════ */
+
+/* ── Large tablet (≤1100px) ── */
+@media (max-width: 1100px) {
+  :root { --gutter: 48px; }
+  .footer { padding: 56px 48px 0; }
+  .footer-top { gap: 40px; }
+}
+
+/* ── Mobile nav (≤960px) ── */
+@media (max-width: 960px) {
+  :root { --nav-h: 90px; --gutter: 36px; }
+  .nav { justify-content: center; padding: 0 24px; }
+  .nav-left, .nav-right { display: none; }
+  .nav-logo { padding: 0; }
+  .nav-logo img { width: 200px; height: auto; }
+  .nav-hamburger { display: flex; }
+  .nav-overlay { display: block; }
+
+  /* Cards: single column */
   .cards-grid { grid-template-columns: 1fr; }
   .venue-card { aspect-ratio: 3 / 2; }
+  /* Show desc + cta on mobile (no hover) */
   .card-desc  { max-height: 120px; opacity: 1; }
   .card-cta   { opacity: 1; transform: none; }
-  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; gap: 12px; }
+
+  /* Culture teaser */
+  .culture-teaser-pillars { gap: 6px; }
 }
 
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+  .hero { min-height: 100svh; }
+  .hero-hed { font-size: clamp(36px, 9vw, 52px); }
+  .hero-content { padding: 0 24px; }
 
-/* ─── ARAMIS CULTURE ─────────────────────── */
-.culture-section {
-  background: var(--bg-card);
-  border-top: 1px solid rgba(200,169,110,.07);
-  border-bottom: 1px solid rgba(200,169,110,.07);
-}
-.culture-inner {
-  max-width: var(--max-w); margin: 0 auto;
-  padding: 100px var(--gutter);
-  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
-}
-.culture-intro {}
-.culture-rules { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
-.culture-rule {
-  display: flex; align-items: flex-start; gap: 20px;
-  padding: 22px 24px; background: var(--bg-surf);
-  border-left: 2px solid transparent;
-  transition: border-color .3s;
-}
-.culture-rule:hover { border-left-color: var(--gold); }
-.culture-rule-icon { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
-.culture-rule-title { font-size: 13px; font-weight: 500; color: var(--cream); margin-bottom: 4px; }
-.culture-rule-desc { font-size: 12px; line-height: 1.65; color: rgba(200,185,164,.55); }
-/* Priority rule — slightly highlighted */
-.culture-rule.priority { border-left-color: rgba(200,169,110,.2); background: rgba(200,169,110,.04); }
-.culture-rule.priority:hover { border-left-color: var(--gold); }
-/* Venue teaser — compact version */
-.culture-teaser {
-  background: var(--bg-card);
-  border-top: 1px solid rgba(200,169,110,.07);
-  border-bottom: 1px solid rgba(200,169,110,.07);
-  padding: 64px var(--gutter);
-  text-align: center;
-}
-.culture-teaser-inner { max-width: 680px; margin: 0 auto; }
-.culture-teaser-stag {
-  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold); display: flex; align-items: center; gap: 14px;
-  justify-content: center; margin-bottom: 20px;
-}
-.culture-teaser-stag::before, .culture-teaser-stag::after { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
-.culture-teaser-hed {
-  font-family: 'Fraunces', serif; font-size: clamp(22px, 2.8vw, 36px);
-  font-weight: 400; font-style: italic; color: var(--cream);
-  line-height: 1.2; margin-bottom: 20px;
-}
-.culture-teaser-body { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 28px; }
-.culture-teaser-pillars {
-  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
-}
-.culture-pillar {
-  font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-  padding: 6px 14px; border: 1px solid rgba(200,169,110,.18);
-  color: rgba(200,169,110,.6);
-}
-/* Darts compact reference */
-.culture-ref {
-  background: var(--bg-card);
-  border-top: 1px solid rgba(200,169,110,.07);
-  border-bottom: 1px solid rgba(200,169,110,.07);
-  padding: 48px var(--gutter);
-  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
-}
-.culture-ref-icon { color: rgba(200,169,110,.3); flex-shrink: 0; }
-.culture-ref-text {}
-.culture-ref-title {
-  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 8px;
-}
-.culture-ref-body { font-size: 14px; line-height: 1.75; color: var(--muted); }
-.culture-ref-body a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.25); transition: border-color .2s; }
-.culture-ref-body a:hover { border-color: var(--gold); }
+  .intro-strip { padding: 48px 24px; }
+  .culture-teaser { padding: 48px 24px; }
+  .cards-section { padding: 56px 24px 80px; }
 
-@media (max-width: 960px) {
-  .culture-inner { grid-template-columns: 1fr; gap: 48px; }
+  /* ── MOBILE FOOTER — full center alignment ── */
+  .footer { padding: 40px 28px 0; }
+  .footer-top { display: flex; flex-direction: column; gap: 0; }
+  .ft-brand { text-align: center; padding-bottom: 28px; border-bottom: 1px solid rgba(200,169,110,.1); }
+  .ft-brand .ft-brand-logo img { margin: 0 auto 14px; width: 150px; }
+  .ft-brand .ft-tagline        { text-align: center; margin-bottom: 4px; }
+  .ft-brand .ft-address        { text-align: center; }
+  .ft-brand .ft-contact p      { text-align: center; }
+  .ft-brand .ft-hours          { text-align: center; margin-top: 8px; }
+  .ft-col { padding: 24px 0; border-bottom: 1px solid rgba(200,169,110,.08); text-align: center; }
+  .ft-col:last-child { border-bottom: none; padding-bottom: 8px; }
+  .ft-col h4 { text-align: center; margin-bottom: 16px; }
+  .footer-top > *:nth-child(2) { display: flex; flex-direction: column; align-items: center; }
+  .footer-top > *:nth-child(2) h4 { width: 100%; }
+  .footer-top > *:nth-child(2) .ft-nav-grid {
+    display: grid; grid-template-columns: auto auto;
+    column-gap: 40px; justify-content: center;
+  }
+  .footer-top > *:nth-child(2) .ft-nav-grid a { font-size: 13px; line-height: 2.1; color: var(--muted); text-align: left; display: block; }
+  .footer-top > *:nth-child(2) .ft-nav-grid a:hover { color: var(--gold); }
+  .footer-top > *:nth-child(3) a { font-size: 13px; line-height: 2.2; text-align: center; display: block; color: var(--muted); }
+  .footer-top > *:nth-child(3) a:hover { color: var(--gold); }
+  .footer-btm { flex-direction: column; gap: 4px; text-align: center; padding: 16px 0; }
+  .footer-map-wrap { height: 180px; }
+  .footer-map-btn { font-size: 8px; padding: 8px 14px; bottom: 10px; right: 10px; letter-spacing: 1.5px; }
 }
+
+/* ── Small mobile (≤480px) ── */
+@media (max-width: 480px) {
+  .nav-overlay-inner { padding: 0 24px 48px; }
+  .ov-link { font-size: clamp(26px, 7vw, 36px); }
+  .nav-overlay-foot { grid-template-columns: 1fr; gap: 16px; }
+  .card-body { padding: 24px 24px 32px; }
+}
+
 </style>
 </head>
 <body>
 
 
-<!-- ══ NAV ══════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
 <nav class="nav" id="nav">
+
   <div class="nav-left">
     <a href="story.html" class="nav-lk">Our Story</a>
     <div class="nav-dd" id="nav-venue">
       <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger active">
         The Venue
-        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M2 3.5l3 3 3-3"/>
-        </svg>
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
       </a>
       <div class="nav-dd-panel">
         <a href="explore-our-venue.html#billiards" class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
@@ -512,58 +557,114 @@ a { text-decoration: none; color: inherit; }
         <a href="explore-our-venue.html#terrace"   class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
         <a href="explore-our-venue.html#kitchen"   class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
         <div class="nav-dd-divider"></div>
-        <a href="explore-our-venue.html" class="nav-dd-item" style="color:var(--gold);letter-spacing:1.4px;">
-          <span class="dd-dot" style="opacity:1;"></span>Explore our Venue →
-        </a>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="color:var(--gold);letter-spacing:1.4px;"><span class="dd-dot" style="opacity:1"></span>Explore our Venue →</a>
       </div>
     </div>
     <a href="menu.html" class="nav-lk">Our Menu</a>
   </div>
+
   <a href="index.html" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png"
-         alt="ARAMIS Billiard Club" loading="eager">
+    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
   </a>
+
   <div class="nav-right">
-    <a href="events.html"   class="nav-lk">Events</a>
+    <div class="nav-dd" id="nav-events">
+      <a href="social.html" class="nav-lk nav-dd-trigger">
+        Events
+        <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
+      </a>
+      <div class="nav-dd-panel panel-right">
+        <a href="tournaments.html" class="nav-dd-item"><span class="dd-dot"></span>Tournaments</a>
+        <a href="social.html"      class="nav-dd-item"><span class="dd-dot"></span>Social Events</a>
+      </div>
+    </div>
     <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
     <a href="contact.html"  class="nav-lk">Find Us</a>
   </div>
+
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
 </nav>
 
 
-<!-- ══ HERO ══════════════════════════════════
-     WHEN MEDIA IS READY:
-     1. Add class "has-media" to the <section> tag
-     2. Uncomment the <img> OR <video> element below
-     3. Set the correct src path
-     ════════════════════════════════════════ -->
-<section class="hero" id="hero">
+<!-- ══════════════════════════════════════
+     FULL-SCREEN OVERLAY NAV (mobile)
+══════════════════════════════════════ -->
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <div class="nav-overlay-inner">
 
-  <!-- Placeholder (remove when media is live) -->
-  <div class="hero-placeholder">
-    <div class="hero-placeholder-grid"></div>
-    <div class="hero-placeholder-badge">
-      <div class="hero-placeholder-badge-inner">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-          <rect x="2" y="3" width="20" height="14" rx="2"/>
-          <path d="M8 21h8M12 17v4"/>
-        </svg>
-        <span>Venue exterior — photo or reel</span>
+    <div class="nav-overlay-head">
+      <a href="index.html" id="overlayLogoLink">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club">
+      </a>
+    </div>
+
+    <nav class="nav-overlay-links" aria-label="Primary navigation">
+      <div class="ov-item"><a href="index.html"   class="ov-link ov-plain-link">Home</a></div>
+      <div class="ov-item"><a href="story.html"   class="ov-link ov-plain-link">Our Story</a></div>
+
+      <div class="ov-item" id="ov-venue">
+        <button class="ov-link" aria-expanded="false">
+          The Venue <span class="ov-acc-chevron">›</span>
+        </button>
+        <div class="ov-sub">
+          <a href="explore-our-venue.html#billiards" class="ov-sub-link ov-plain-link">Billiards</a>
+          <a href="explore-our-venue.html#darts"     class="ov-sub-link ov-plain-link">Darts</a>
+          <a href="explore-our-venue.html#terrace"   class="ov-sub-link ov-plain-link">The Terrace Cafe</a>
+          <a href="explore-our-venue.html#kitchen"   class="ov-sub-link ov-plain-link">Kitchen &amp; Bar</a>
+        </div>
+      </div>
+
+      <div class="ov-item"><a href="menu.html"     class="ov-link ov-plain-link">Our Menu</a></div>
+
+      <div class="ov-item" id="ov-events">
+        <button class="ov-link" aria-expanded="false">
+          Events <span class="ov-acc-chevron">›</span>
+        </button>
+        <div class="ov-sub">
+          <a href="tournaments.html"       class="ov-sub-link ov-plain-link">Tournaments</a>
+          <a href="social.html"            class="ov-sub-link ov-plain-link">Social Events</a>
+          <a href="social.html#your-event" class="ov-sub-link ov-plain-link">Your Event</a>
+        </div>
+      </div>
+
+      <div class="ov-item"><a href="pro-shop.html" class="ov-link ov-plain-link">Pro Shop</a></div>
+      <div class="ov-item"><a href="contact.html"  class="ov-link ov-plain-link">Find Us</a></div>
+    </nav>
+
+    <div class="nav-overlay-foot">
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+      <div class="ov-foot-info">
+        <p class="ov-foot-line"><strong>Open daily</strong> 10:00 – 01:00</p>
+        <p class="ov-foot-line">Kissamou &amp; Saridantoni 1, Chania 73136</p>
+        <p class="ov-foot-line"><strong>(+30)</strong> 28210 70307 · 6975 993 307</p>
+        <p class="ov-foot-line">@aramischania</p>
       </div>
     </div>
+
   </div>
+</div>
 
-  <!-- Photo — uncomment when ready:
-  <img class="hero-media"
-       src="assets/images/venue-exterior.jpg"
-       alt="ARAMIS Billiard Club — Chania, Crete">
-  -->
 
-  <!-- Video reel — uncomment when ready:
-  <video class="hero-media" autoplay muted loop playsinline>
-    <source src="assets/video/aramis-exterior-reel.mp4" type="video/mp4">
-  </video>
-  -->
+<!-- ══════════════════════════════════════
+     HERO
+     Replace .ph div with:
+       <img class="hero-bg" src="assets/images/venue-exterior.jpg" alt="ARAMIS">
+     or:
+       <video class="hero-bg" autoplay muted loop playsinline>
+         <source src="assets/video/aramis-exterior-reel.mp4" type="video/mp4">
+       </video>
+══════════════════════════════════════ -->
+<section class="hero" id="hero">
+
+  <!-- Placeholder — remove when real media is in place -->
+  <div class="hero-bg ph ph-fill">
+    <div class="ph-inner">
+      <span class="ph-label">venue-exterior.jpg · 1920×1080px<br>Venue exterior · Street entrance · Staircase</span>
+    </div>
+  </div>
 
   <div class="hero-ov"></div>
 
@@ -582,7 +683,9 @@ a { text-decoration: none; color: inherit; }
 </section>
 
 
-<!-- ══ INTRO STRIP ═══════════════════════════ -->
+<!-- ══════════════════════════════════════
+     INTRO STRIP
+══════════════════════════════════════ -->
 <div class="intro-strip fu">
   <div class="intro-strip-inner">
     <div class="stag">The Venue</div>
@@ -591,8 +694,9 @@ a { text-decoration: none; color: inherit; }
 </div>
 
 
-
-<!-- ══ ARAMIS CULTURE — teaser ════════════ -->
+<!-- ══════════════════════════════════════
+     CULTURE TEASER
+══════════════════════════════════════ -->
 <div class="culture-teaser fu">
   <div class="culture-teaser-inner">
     <div class="culture-teaser-stag">ARAMIS Culture</div>
@@ -608,20 +712,26 @@ a { text-decoration: none; color: inherit; }
       <span class="culture-pillar">Care for the tables</span>
       <span class="culture-pillar">Fair play</span>
     </div>
-    <p style="margin-top:28px; font-size:12px; color:rgba(200,185,164,.35);">
-      <a href="billiards.html#culture" style="color:var(--gold); border-bottom:1px solid rgba(200,169,110,.25); transition:border-color .2s;">Read the full ARAMIS Culture →</a>
+    <p style="margin-top:28px;font-size:12px;color:rgba(200,185,164,.35);">
+      <a href="billiards.html#culture" style="color:var(--gold);border-bottom:1px solid rgba(200,169,110,.25);transition:border-color .2s;">Read the full ARAMIS Culture →</a>
     </p>
   </div>
 </div>
 
-<!-- ══ CARDS ══════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════
+     VENUE CARDS — 4 spaces, 2×2 grid
+     Photos: 4:3 aspect ratio per card
+     Swap .card-photo-placeholder for:
+       <img class="card-photo" src="assets/images/venue-card-billiards.jpg" alt="...">
+══════════════════════════════════════ -->
 <section class="cards-section">
 
   <div class="cards-label fu">Inside ARAMIS</div>
 
   <div class="cards-grid">
 
-    <!-- 01 BILLIARDS ─────────────────────── -->
+    <!-- 01 BILLIARDS -->
     <a href="billiards.html" class="venue-card fu" data-num="01" id="billiards">
       <div class="card-photo-placeholder">
         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
@@ -647,7 +757,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </a>
 
-    <!-- 02 DARTS ─────────────────────────── -->
+    <!-- 02 DARTS -->
     <a href="darts.html" class="venue-card fu fu-d1" data-num="02" id="darts">
       <div class="card-photo-placeholder">
         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
@@ -656,7 +766,7 @@ a { text-decoration: none; color: inherit; }
           <circle cx="12" cy="12" r="2.5"/>
           <line x1="12" y1="1" x2="12" y2="4"/>
           <line x1="12" y1="20" x2="12" y2="23"/>
-          <line x1="1" y1="12" x2="4" y2="12"/>
+          <line x1="1"  y1="12" x2="4"  y2="12"/>
           <line x1="20" y1="12" x2="23" y2="12"/>
         </svg>
         <span>Darts area — add photo</span>
@@ -674,7 +784,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </a>
 
-    <!-- 03 TERRACE CAFE ──────────────────── -->
+    <!-- 03 TERRACE CAFE -->
     <a href="terrace.html" class="venue-card fu fu-d2" data-num="03" id="terrace">
       <div class="card-photo-placeholder">
         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
@@ -684,7 +794,7 @@ a { text-decoration: none; color: inherit; }
         </svg>
         <span>Terrace — add photo</span>
       </div>
-      <!-- <img class="card-photo" src="assets/images/terrace.jpg" alt="ARAMIS Terrace Cafe"> -->
+      <!-- <img class="card-photo" src="assets/images/venue-card-terrace.jpg" alt="ARAMIS Terrace Cafe"> -->
       <div class="card-ov"></div>
       <div class="card-body">
         <div class="card-tag">The View</div>
@@ -697,7 +807,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </a>
 
-    <!-- 04 KITCHEN & BAR ─────────────────── -->
+    <!-- 04 KITCHEN & BAR -->
     <a href="kitchen.html" class="venue-card fu fu-d3" data-num="04" id="kitchen">
       <div class="card-photo-placeholder">
         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7">
@@ -707,9 +817,9 @@ a { text-decoration: none; color: inherit; }
           <line x1="10" y1="1" x2="10" y2="4"/>
           <line x1="14" y1="1" x2="14" y2="4"/>
         </svg>
-        <span>Kitchen & Bar — add photo</span>
+        <span>Kitchen &amp; Bar — add photo</span>
       </div>
-      <!-- <img class="card-photo" src="assets/images/kitchen-bar.jpg" alt="ARAMIS Kitchen and Bar"> -->
+      <!-- <img class="card-photo" src="assets/images/venue-card-kitchen.jpg" alt="ARAMIS Kitchen and Bar"> -->
       <div class="card-ov"></div>
       <div class="card-body">
         <div class="card-tag">The Kitchen &amp; Bar</div>
@@ -726,65 +836,137 @@ a { text-decoration: none; color: inherit; }
 </section>
 
 
-<!-- ══ FOOTER ═════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     GOOGLE MAPS STRIP
+══════════════════════════════════════ -->
+<div class="footer-map-wrap">
+  <iframe
+    src="https://maps.google.com/maps?q=ARAMIS+Billiard+Club+Chania+Greece&output=embed&z=16"
+    allowfullscreen loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="ARAMIS Billiard Club location map"
+  ></iframe>
+  <a href="https://www.google.com/maps/search/ARAMIS+Billiard+Club+Chania+Greece"
+     target="_blank" rel="noopener" class="footer-map-btn">Get Directions</a>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER — 3 columns: Brand · Navigate · Follow
+══════════════════════════════════════ -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">
-        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+  <div class="footer-top">
+
+    <!-- Col 1: Brand -->
+    <div class="ft-brand">
+      <div class="ft-brand-logo">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club">
       </div>
-      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+      <p class="ft-tagline">Chania's finest billiard club since 1984.</p>
+      <p class="ft-address">Kissamou &amp; Saridantoni 1, Chania 73136, Crete, Greece</p>
+      <div class="ft-contact">
+        <p>Tel: <a href="tel:+302821070307">(+30) 28210 70307</a> &nbsp;|&nbsp; <a href="tel:+306975993307">6975 993 307</a></p>
+        <p>Email: <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a></p>
+      </div>
+      <p class="ft-hours">Open daily 10:00 – 01:00</p>
     </div>
-    <div>
-      <div class="footer-col-hed">Navigate</div>
-      <div class="footer-links">
+
+    <!-- Col 2: Navigate -->
+    <div class="ft-col">
+      <h4>Navigate</h4>
+      <div class="ft-nav-grid">
+        <a href="index.html">Home</a>
         <a href="story.html">Our Story</a>
-        <a href="explore-our-venue.html">Explore our Venue</a>
+        <a href="explore-our-venue.html">The Venue</a>
         <a href="menu.html">Our Menu</a>
-        <a href="events.html">Events</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="social.html">Social Events</a>
         <a href="pro-shop.html">Pro Shop</a>
         <a href="contact.html">Find Us</a>
       </div>
     </div>
-    <div>
-      <div class="footer-col-hed">Visit</div>
-      <div class="footer-links">
-        <a href="#">Open 10:00 – 01:00 daily</a>
-        <a href="#">Chania, Crete</a>
-        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
-      </div>
+
+    <!-- Col 3: Follow -->
+    <div class="ft-col">
+      <h4>Follow</h4>
+      <a href="https://instagram.com/aramischania" target="_blank" rel="noopener">Instagram @aramischania</a>
+      <a href="https://facebook.com/aramischania"  target="_blank" rel="noopener">Facebook /aramischania</a>
+      <a href="https://cuescore.com/aramischania"  target="_blank" rel="noopener">CueScore /aramischania</a>
     </div>
+
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
-    <div class="footer-copy">Design · Manos Chatzakis</div>
+
+  <div class="footer-btm">
+    <span>All Rights Reserved © 2026 ARAMIS Billiard Club</span>
+    <span>Design &amp; Development by Locus Design + Innovation</span>
   </div>
 </footer>
 
 
 <script>
-// Nav scroll
+/* ── Nav scroll state ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-// Dropdown touch support
-const venueDd = document.getElementById('nav-venue');
-if (venueDd) {
-  venueDd.addEventListener('click', e => {
-    if (window.matchMedia('(hover: none)').matches) {
-      e.preventDefault();
-      venueDd.classList.toggle('open');
-    }
+/* ── Desktop dropdowns: touch support ── */
+['nav-venue', 'nav-events'].forEach(id => {
+  const dd = document.getElementById(id);
+  if (!dd) return;
+  dd.addEventListener('click', e => {
+    if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); dd.classList.toggle('open'); }
   });
-  document.addEventListener('click', e => {
-    if (!venueDd.contains(e.target)) venueDd.classList.remove('open');
-  });
+  document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
+});
+
+/* ── Mobile overlay nav ── */
+const hamburger = document.getElementById('navHamburger');
+const overlay   = document.getElementById('navOverlay');
+let overlayOpen = false;
+
+function openOverlay() {
+  overlayOpen = true;
+  overlay.classList.add('is-open');
+  hamburger.classList.add('is-open');
+  hamburger.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+function closeOverlay() {
+  overlayOpen = false;
+  overlay.querySelectorAll('.ov-item').forEach(el => { el.style.transitionDelay = '0s'; });
+  overlay.classList.remove('is-open');
+  hamburger.classList.remove('is-open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    overlay.querySelectorAll('.ov-item').forEach(el => { el.style.transitionDelay = ''; });
+    overlay.querySelectorAll('.ov-item.is-expanded').forEach(el => {
+      el.classList.remove('is-expanded');
+      const btn = el.querySelector('button.ov-link');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }, 700);
 }
 
-// Fade-up
+hamburger.addEventListener('click', () => overlayOpen ? closeOverlay() : openOverlay());
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlayOpen) closeOverlay(); });
+overlay.querySelectorAll('.ov-plain-link').forEach(link => link.addEventListener('click', closeOverlay));
+document.getElementById('overlayLogoLink').addEventListener('click', closeOverlay);
+
+overlay.querySelectorAll('button.ov-link').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.ov-item');
+    const isExpanded = item.classList.contains('is-expanded');
+    overlay.querySelectorAll('.ov-item.is-expanded').forEach(el => {
+      if (el !== item) { el.classList.remove('is-expanded'); const b = el.querySelector('button.ov-link'); if (b) b.setAttribute('aria-expanded', 'false'); }
+    });
+    item.classList.toggle('is-expanded', !isExpanded);
+    btn.setAttribute('aria-expanded', String(!isExpanded));
+  });
+});
+
+/* ── Fade-up on scroll ── */
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
 }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
