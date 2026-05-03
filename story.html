@@ -692,67 +692,75 @@ a { text-decoration: none; color: inherit; }
   .share-cta-block { padding: 36px 28px; }
 
   /* ── MOBILE FOOTER — centered editorial stack ──────────────────
-     Brand centered + prominent · Navigate as 2-col link grid ·
-     Visit full-width · Follow centered · gold hairline separators  */
-  .footer { padding: 48px 24px 0; }
+     Brand centered · Navigate 2-col left-aligned · Visit left ·
+     Follow centered · gold hairline separators                   */
+  .footer { padding: 40px 28px 0; }
   .footer-top {
     display: flex;
     flex-direction: column;
     gap: 0;
   }
 
-  /* Brand — centered, logo large */
+  /* Brand — centered, compact */
   .ft-brand {
     text-align: center;
-    padding-bottom: 36px;
+    padding-bottom: 28px;
+    margin-bottom: 0;
     border-bottom: 1px solid rgba(200,169,110,.1);
   }
-  .ft-brand .ft-brand-logo img {
-    margin: 0 auto 18px;
-    width: 170px;
-  }
-  .ft-brand .ft-tagline { text-align: center; }
-  .ft-brand .ft-contact p { text-align: center; }
-  .ft-brand .ft-hours { text-align: center; }
+  .ft-brand .ft-brand-logo img { margin: 0 auto 14px; width: 150px; }
+  .ft-brand .ft-tagline        { text-align: center; margin-bottom: 14px; }
+  .ft-brand .ft-contact p      { text-align: center; }
+  .ft-brand .ft-hours          { text-align: center; margin-top: 8px; }
 
-  /* All col sections: padded with gold hairline below */
+  /* All col sections: uniform padding + gold hairline */
   .ft-col {
-    padding: 32px 0;
+    padding: 24px 0;
     border-bottom: 1px solid rgba(200,169,110,.08);
   }
-  .ft-col:last-child { border-bottom: none; padding-bottom: 0; }
-  .ft-col h4 { text-align: center; margin-bottom: 20px; }
+  .ft-col:last-child { border-bottom: none; padding-bottom: 8px; }
 
-  /* Navigate — 2-col compact grid, left-aligned text */
+  /* All section headings: left-aligned, consistent */
+  .ft-col h4 { text-align: left; margin-bottom: 14px; }
+
+  /* Navigate — 2-col compact grid, strictly left-aligned */
   .footer-top > *:nth-child(2) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 12px;
+    column-gap: 8px;
+    row-gap: 0;
   }
   .footer-top > *:nth-child(2) h4 {
     grid-column: 1 / -1;
+    text-align: left;
   }
   .footer-top > *:nth-child(2) a {
-    font-size: 13px; line-height: 2.3;
+    font-size: 13px; line-height: 2.1;
     color: var(--muted); text-align: left;
+    display: block;
   }
   .footer-top > *:nth-child(2) a:hover { color: var(--gold); }
 
-  /* Visit — full width, left-aligned, compact */
+  /* Visit — full width, everything left-aligned */
   .footer-top > *:nth-child(3) a,
   .footer-top > *:nth-child(3) p {
-    font-size: 13px; line-height: 1.9; text-align: left;
+    font-size: 13px; line-height: 1.85; text-align: left;
   }
 
   /* Follow — centered */
-  .footer-top > *:nth-child(4) { text-align: center; }
+  .footer-top > *:nth-child(4) h4 { text-align: center; }
   .footer-top > *:nth-child(4) a {
-    font-size: 13px; line-height: 2.3;
+    font-size: 13px; line-height: 2.2;
     text-align: center; display: block;
+    color: var(--muted);
   }
+  .footer-top > *:nth-child(4) a:hover { color: var(--gold); }
 
-  /* Bottom bar */
-  .footer-btm { flex-direction: column; gap: 6px; text-align: center; }
+  /* Bottom bar — stacked, centered */
+  .footer-btm {
+    flex-direction: column; gap: 4px; text-align: center;
+    padding: 16px 0;
+  }
 
   /* Maps strip */
   .footer-map-btn { font-size: 8px; padding: 8px 14px; bottom: 10px; right: 10px; letter-spacing: 1.5px; }
@@ -1154,8 +1162,8 @@ a { text-decoration: none; color: inherit; }
   </div>
 
   <div class="footer-btm">
-    <span>© 2026 ARAMIS Billiard Club · Chania, Crete · Est. 1984</span>
-    <span>Family-owned since 1984</span>
+    <span>All Rights Reserved © 2026 ARAMIS Billiard Club</span>
+    <span>Design &amp; Development by Locus Design + Innovation</span>
   </div>
 </footer>
 
