@@ -1381,50 +1381,8 @@ a { text-decoration: none; color: inherit; }
     </div>
   </div>
 
-  <!-- 3 static fallback cards (replaced by live data when API responds) -->
-  <div class="reviews-grid" id="reviews-grid">
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <span class="review-topic">The tables</span>
-      <div class="review-text">"The tables are immaculate. You can tell these people actually care about the game — and that makes all the difference."</div>
-      <div class="review-footer">
-        <span class="review-author">— Google review</span>
-        <span class="review-platform">Google</span>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <span class="review-topic">The terrace</span>
-      <div class="review-text">"The view of the White Mountains with a coffee in hand — I genuinely didn't want to leave. One of the best spots in Chania."</div>
-      <div class="review-footer">
-        <span class="review-author">— Google review</span>
-        <span class="review-platform">Google</span>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <span class="review-topic">The food</span>
-      <div class="review-text">"Best pizza in Chania. Not an exaggeration — and I tried a lot of places. The kitchen at ARAMIS is something else entirely."</div>
-      <div class="review-footer">
-        <span class="review-author">— Google review</span>
-        <span class="review-platform">Google</span>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <span class="review-topic">The atmosphere</span>
-      <div class="review-text">"Came for the billiards, stayed for the whole evening. The cocktails are excellent, the staff made us feel at home. Will absolutely return."</div>
-      <div class="review-footer">
-        <span class="review-author">— Google review</span>
-        <span class="review-platform">Google</span>
-      </div>
-    </div>
-
-  </div>
+  <!-- Cards rendered by JS on load — shuffled from merged live+static pool -->
+  <div class="reviews-grid" id="reviews-grid"></div>
 
   <div class="reviews-ctas">
     <a href="https://search.google.com/local/writereview?placeid=ChIJM6BkL4h9nBQRwuF447BkhqU" target="_blank" rel="noopener" class="btn-pr">Leave us a review on Google</a>
@@ -1632,11 +1590,10 @@ overlay.querySelectorAll('button.ov-link').forEach(btn => {
 
 /* ══════════════════════════════════════════════════════════
    GOOGLE REVIEWS — /api/reviews (Vercel → Places API)
-   Rules:
-   • Filter out reviews with < 30 characters of text
-   • Shuffle 5-star reviews on every page load
-   • Display exactly 3 cards
-   • Static fallback cards remain if API fails or returns < 1 good review
+   • Filters reviews with text < 15 chars
+   • Shuffles all qualifying reviews on every page load
+   • Shows up to 4 cards — fewer shown if API returns fewer qualifying reviews
+   • Grid stays empty if API fails
 ══════════════════════════════════════════════════════════ */
 
 function shuffleArray(arr) {
@@ -1681,37 +1638,16 @@ function buildReviewCard(review) {
   </div>`;
 }
 
-function renderReviews(data) {
-  if (!data.reviews || !data.reviews.length) return;
+function renderReviews(liveReviews) {
+  const filtered = (liveReviews || []).filter(r => r.text && r.text.trim().length >= 15);
+  if (!filtered.length) return;
 
-  // Filter: exclude empty or very short reviews (< 30 chars)
-  const filtered = data.reviews.filter(r => r.text && r.text.trim().length >= 15);
-  if (filtered.length < 1) return; // keep static fallback
-
-  // Separate 5-star and lower-rated
-  const fiveStars = filtered.filter(r => r.rating === 5);
-  const others    = filtered.filter(r => r.rating < 5);
-
-  // Shuffle 5-star pool on every page load, then append others
-  const pool     = [...shuffleArray(fiveStars), ...others];
+  const pool     = shuffleArray(filtered);
   const selected = pool.slice(0, 4);
 
   const grid = document.getElementById('reviews-grid');
-  if (!grid || !selected.length) return;
+  if (!grid) return;
   grid.innerHTML = selected.map(buildReviewCard).join('');
-
-  // Update summary stats
-  const scoreEl = document.getElementById('reviews-score');
-  const countEl = document.getElementById('reviews-count');
-  const starsEl = document.getElementById('reviews-stars');
-  if (scoreEl && data.rating) scoreEl.textContent = data.rating.toFixed(1);
-  if (countEl && data.total)  countEl.textContent  = `Based on ${data.total.toLocaleString()} Google reviews`;
-  if (starsEl && data.rating) {
-    const full = Math.round(data.rating);
-    starsEl.innerHTML = Array.from({ length: 5 }, (_, i) =>
-      `<span style="color:${i < full ? 'var(--gold)' : 'rgba(200,185,164,.2)'}">★</span>`
-    ).join('');
-  }
 }
 
 async function loadGoogleReviews() {
@@ -1720,10 +1656,22 @@ async function loadGoogleReviews() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     if (!data.reviews) throw new Error('No reviews in response');
-    renderReviews(data);
+
+    renderReviews(data.reviews);
+
+    const scoreEl = document.getElementById('reviews-score');
+    const countEl = document.getElementById('reviews-count');
+    const starsEl = document.getElementById('reviews-stars');
+    if (scoreEl && data.rating) scoreEl.textContent = data.rating.toFixed(1);
+    if (countEl && data.total)  countEl.textContent  = `Based on ${data.total.toLocaleString()} Google reviews`;
+    if (starsEl && data.rating) {
+      const full = Math.round(data.rating);
+      starsEl.innerHTML = Array.from({ length: 5 }, (_, i) =>
+        `<span style="color:${i < full ? 'var(--gold)' : 'rgba(200,185,164,.2)'}">★</span>`
+      ).join('');
+    }
   } catch (err) {
-    console.info('ARAMIS Reviews: using static fallback —', err.message);
-    // Static cards already in DOM — no action needed
+    console.info('ARAMIS Reviews: API unavailable —', err.message);
   }
 }
 
