@@ -153,7 +153,7 @@ a{text-decoration:none;color:inherit}
 
 /* SIMONIS NOTE */
 .simonis-note{background:var(--bg);border-top:1px solid rgba(200,169,110,.07)}
-.simonis-note-inner{max-width:var(--max-w);margin:0 auto;padding:64px var(--gutter);display:block} /* single col always until real photo ready */
+.simonis-note-inner{max-width:680px;margin:0 auto;padding:64px var(--gutter);display:block} /* constrained width for readability */
 .simonis-photo{display:none} /* hidden until real photo added — remove this line when adding the image */
 
 /* PRICING */
@@ -280,10 +280,13 @@ a{text-decoration:none;color:inherit}
   .hero-scroll{right:24px}
 
   /* Section padding — all match (40px) */
-  .brands-section,.culture-section,.tournaments{padding:40px var(--gutter)}
+  .brands-section,.culture-section,.tournaments{padding:0}
   .pricing{padding:40px var(--gutter)}
   .tables-intro-text{padding:40px var(--gutter)}
   .simonis-note-inner{padding:40px var(--gutter)!important}
+  /* These have padding on their inner divs — must override directly */
+  .culture-inner{padding:40px var(--gutter)!important}
+  .tournaments-inner{padding:40px var(--gutter)!important}
   /* Reduce paragraph gaps on mobile */
   .sec-body{font-size:14px;margin-bottom:14px}
   .brands-header{margin-bottom:24px}
