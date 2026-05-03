@@ -152,9 +152,9 @@ a{text-decoration:none;color:inherit}
 .photo-strip-item:hover img{transform:scale(1.05);filter:saturate(.9) brightness(.75)}
 
 /* SIMONIS NOTE */
-.simonis-note{background:var(--bg);border-top:1px solid rgba(200,169,110,.07)}
-.simonis-note-inner{max-width:680px;margin:0;padding:64px var(--gutter);display:block}
-.simonis-photo{display:none} /* hidden until real photo added — remove this line when adding the image */
+.simonis-note{background:var(--bg);border-top:1px solid rgba(200,169,110,.07);padding:64px var(--gutter)}
+.simonis-note-inner{max-width:680px;margin:0;padding:0}
+.simonis-photo{display:none}
 
 /* PRICING */
 .pricing{background:var(--bg-card);border-top:1px solid rgba(200,169,110,.07);border-bottom:1px solid rgba(200,169,110,.07);padding:100px var(--gutter)}
@@ -280,10 +280,11 @@ a{text-decoration:none;color:inherit}
   .hero-scroll{right:24px}
 
   /* Section padding — all match (40px) */
-  .brands-section,.culture-section,.tournaments{padding:0}
+  .brands-section{padding:40px var(--gutter)}
+  .culture-section,.tournaments{padding:0}
   .pricing{padding:40px var(--gutter)}
   .tables-intro-text{padding:40px var(--gutter)}
-  .simonis-note-inner{padding:40px var(--gutter)!important}
+  .simonis-note{padding:40px var(--gutter)}
   /* These have padding on their inner divs — must override directly */
   .culture-inner{padding:40px var(--gutter)!important}
   .tournaments-inner{padding:40px var(--gutter)!important}
