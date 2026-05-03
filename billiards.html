@@ -153,8 +153,8 @@ a{text-decoration:none;color:inherit}
 
 /* SIMONIS NOTE */
 .simonis-note{background:var(--bg);border-top:1px solid rgba(200,169,110,.07)}
-.simonis-note-inner{max-width:var(--max-w);margin:0 auto;padding:64px var(--gutter);display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
-.simonis-photo{aspect-ratio:4/3;background:var(--bg-surf);position:relative;overflow:hidden}
+.simonis-note-inner{max-width:var(--max-w);margin:0 auto;padding:64px var(--gutter);display:block} /* single col always until real photo ready */
+.simonis-photo{display:none} /* hidden until real photo added — remove this line when adding the image */
 
 /* PRICING */
 .pricing{background:var(--bg-card);border-top:1px solid rgba(200,169,110,.07);border-bottom:1px solid rgba(200,169,110,.07);padding:100px var(--gutter)}
@@ -259,15 +259,17 @@ a{text-decoration:none;color:inherit}
   .tables-intro{grid-template-columns:1fr}
   .tables-intro-photo{min-height:240px;max-height:320px}
   .tables-intro-photo::after{display:none}
-  .brands-header,.brands-grid{grid-template-columns:1fr}
+  .brands-header{grid-template-columns:1fr;gap:20px;margin-bottom:28px}
+  .brands-grid{grid-template-columns:1fr;gap:2px}
   /* Brand cards: collapse descriptions on mobile, tap to expand */
   .brand-expand-hint{display:flex}
   .brand-desc-wrap{max-height:0;opacity:0}
   .brand-card.expanded .brand-desc-wrap{max-height:220px;opacity:1}
-  .brands-grid{gap:2px}
+  /* Pricing: single column */
+  .pricing-grid{grid-template-columns:1fr}
   .photo-strip{grid-template-columns:1fr 1fr}
-  .culture-inner{grid-template-columns:1fr;gap:36px}
-  .tournaments-inner{grid-template-columns:1fr;gap:40px}
+  .culture-inner{grid-template-columns:1fr;gap:28px}
+  .tournaments-inner{grid-template-columns:1fr;gap:32px}
   .simonis-note-inner{grid-template-columns:1fr}
 }
 @media(max-width:768px){
@@ -277,19 +279,18 @@ a{text-decoration:none;color:inherit}
   .hero-hed{font-size:clamp(36px,9vw,52px)}
   .hero-scroll{right:24px}
 
-  /* Section padding — all match pricing (40px) */
+  /* Section padding — all match (40px) */
   .brands-section,.culture-section,.tournaments{padding:40px var(--gutter)}
   .pricing{padding:40px var(--gutter)}
   .tables-intro-text{padding:40px var(--gutter)}
   .simonis-note-inner{padding:40px var(--gutter)!important}
-  .culture-inner{padding:40px var(--gutter)}
+  /* Reduce paragraph gaps on mobile */
+  .sec-body{font-size:14px;margin-bottom:14px}
+  .brands-header{margin-bottom:24px}
+  .pricing-grid{margin-top:32px}
 
   /* Tables intro: cap photo height on mobile */
   .tables-intro-photo{min-height:200px;max-height:260px}
-
-  /* Simonis: hide photo on mobile, text only */
-  .simonis-note-inner{grid-template-columns:1fr}
-  .simonis-photo{display:none}
 
   /* Pricing: compact cards */
   .rate-card,.happy-card,.loyalty-card{padding:32px 24px}
