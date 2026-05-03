@@ -1,8 +1,9 @@
-// Vercel Serverless Function — Google Business Profile Reviews
-// Uses OAuth 2.0 to access the full review pool (not capped at 5).
-// Shuffles server-side on every request — no CDN caching.
+// Vercel Serverless Function — Google Places Reviews (dual fetch)
+// Calls Places API twice: newest + most_relevant sort orders.
+// Merges, deduplicates, shuffles — up to 10 reviews per request.
+// No OAuth needed. Swap for Business Profile API when access is approved.
 
-const PLACE_ID = 'ChIJM6BkL4h9nBQRwuF447BkhqU'; // ARAMIS Billiard Club
+const PLACE_ID = 'ChIJM6BkL4h9nBQRwuF447BkhqU';
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -13,71 +14,18 @@ function shuffle(arr) {
   return a;
 }
 
-// Exchange refresh token for a fresh access token
-async function getAccessToken(clientId, clientSecret, refreshToken) {
-  const res = await fetch('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      client_id:     clientId,
-      client_secret: clientSecret,
-      refresh_token: refreshToken,
-      grant_type:    'refresh_token',
-    }),
-  });
+async function fetchReviews(apiKey, sort) {
+  const url =
+    `https://maps.googleapis.com/maps/api/place/details/json` +
+    `?place_id=${PLACE_ID}` +
+    `&fields=name,rating,user_ratings_total,reviews` +
+    `&reviews_sort=${sort}` +
+    `&language=en` +
+    `&key=${apiKey}`;
+  const res  = await fetch(url);
   const data = await res.json();
-  if (!data.access_token) throw new Error('Failed to get access token: ' + JSON.stringify(data));
-  return data.access_token;
-}
-
-// Discover account name (e.g. "accounts/123456789")
-async function getAccountName(accessToken) {
-  const res  = await fetch('https://mybusinessaccountmanagement.googleapis.com/v1/accounts', {
-    headers: { Authorization: `Bearer ${accessToken}` },
-  });
-  const data = await res.json();
-  if (!data.accounts || !data.accounts.length) throw new Error('No accounts found');
-  return data.accounts[0].name;
-}
-
-// Discover location name (e.g. "accounts/123/locations/456")
-async function getLocationName(accessToken, accountName) {
-  const res  = await fetch(
-    `https://mybusinessbusinessinformation.googleapis.com/v1/${accountName}/locations?readMask=name`,
-    { headers: { Authorization: `Bearer ${accessToken}` } }
-  );
-  const data = await res.json();
-  if (!data.locations || !data.locations.length) throw new Error('No locations found');
-  return data.locations[0].name;
-}
-
-// Fetch all reviews via pagination
-async function getAllReviews(accessToken, locationName) {
-  const allReviews = [];
-  let pageToken    = null;
-  let pages        = 0;
-  const maxPages   = 10; // safety cap — 10 pages x 50 = up to 500 reviews
-
-  do {
-    const url = new URL(
-      `https://mybusiness.googleapis.com/v4/${locationName}/reviews`
-    );
-    url.searchParams.set('pageSize', '50');
-    if (pageToken) url.searchParams.set('pageToken', pageToken);
-
-    const res  = await fetch(url.toString(), {
-      headers: { Authorization: `Bearer ${accessToken}` },
-    });
-    const data = await res.json();
-
-    if (data.error) throw new Error('Reviews API error: ' + JSON.stringify(data.error));
-
-    (data.reviews || []).forEach(r => allReviews.push(r));
-    pageToken = data.nextPageToken || null;
-    pages++;
-  } while (pageToken && pages < maxPages);
-
-  return allReviews;
+  if (data.status !== 'OK') throw new Error(`Places API error (${sort}): ${data.status}`);
+  return data;
 }
 
 module.exports = async function handler(req, res) {
@@ -85,57 +33,38 @@ module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Cache-Control', 'no-store');
 
-  const clientId     = process.env.GBP_CLIENT_ID;
-  const clientSecret = process.env.GBP_CLIENT_SECRET;
-  const refreshToken = process.env.GBP_REFRESH_TOKEN;
-
-  if (!clientId || !clientSecret || !refreshToken) {
-    return res.status(500).json({ error: 'OAuth credentials not configured' });
-  }
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
 
   try {
-    const accessToken  = await getAccessToken(clientId, clientSecret, refreshToken);
-    const accountName  = await getAccountName(accessToken);
-    const locationName = await getLocationName(accessToken, accountName);
-    const raw          = await getAllReviews(accessToken, locationName);
+    const [newest, relevant] = await Promise.all([
+      fetchReviews(apiKey, 'newest'),
+      fetchReviews(apiKey, 'most_relevant'),
+    ]);
 
-    // Filter: 4 or 5 stars, text >= 15 chars
-    const filtered = raw.filter(r =>
-      r.starRating &&
-      ['FOUR', 'FIVE'].includes(r.starRating) &&
-      r.comment &&
-      r.comment.trim().length >= 15
-    );
+    // Merge and deduplicate by author + first 40 chars of text
+    const seen   = new Set();
+    const merged = [];
+    for (const r of [...(newest.result.reviews || []), ...(relevant.result.reviews || [])]) {
+      const key = (r.author_name + r.text.slice(0, 40)).toLowerCase();
+      if (!seen.has(key)) { seen.add(key); merged.push(r); }
+    }
 
-    // Shuffle full pool — different order every request
-    const pool = shuffle(filtered);
-
-    // Map to shape the frontend expects
-    const reviews = pool.map(r => ({
-      author_name: r.reviewer ? r.reviewer.displayName : 'Google reviewer',
-      rating:      r.starRating === 'FIVE' ? 5 : 4,
-      text:        r.comment,
-      time:        r.createTime ? Math.floor(new Date(r.createTime).getTime() / 1000) : null,
+    // Filter: 4★+ and text ≥ 15 chars, then shuffle
+    const reviews = shuffle(
+      merged.filter(r => r.rating >= 4 && r.text && r.text.trim().length >= 15)
+    ).map(r => ({
+      author_name: r.author_name,
+      rating:      r.rating,
+      text:        r.text,
+      time:        r.time,
     }));
 
-    // Fetch overall rating from Places API for the summary stat
-    let rating = null;
-    let total  = null;
-    try {
-      const placesKey = process.env.GOOGLE_PLACES_API_KEY;
-      if (placesKey) {
-        const pRes  = await fetch(
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=rating,user_ratings_total&key=${placesKey}`
-        );
-        const pData = await pRes.json();
-        if (pData.result) {
-          rating = pData.result.rating;
-          total  = pData.result.user_ratings_total;
-        }
-      }
-    } catch (_) { /* non-critical */ }
-
-    return res.status(200).json({ rating, total, reviews });
+    return res.status(200).json({
+      rating:  newest.result.rating,
+      total:   newest.result.user_ratings_total,
+      reviews,
+    });
 
   } catch (err) {
     console.error('ARAMIS Reviews error:', err.message);
