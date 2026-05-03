@@ -714,7 +714,7 @@ a { text-decoration: none; color: inherit; }
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 56px;
   padding-bottom: 56px;
   border-bottom: 1px solid rgba(200,169,110,.07);
@@ -723,8 +723,9 @@ a { text-decoration: none; color: inherit; }
 .ft-brand-logo img { width: 210px; margin-bottom: 18px; object-fit: contain; }
 .ft-tagline {
   font-size: 12px; font-style: italic; color: rgba(200,185,164,.38);
-  margin-bottom: 20px; line-height: 1.65;
+  margin-bottom: 8px; line-height: 1.65;
 }
+.ft-address { font-size: 12px; color: rgba(200,185,164,.35); margin-bottom: 16px; line-height: 1.5; }
 .ft-contact { font-size: 13px; line-height: 2.0; color: var(--muted); }
 .ft-contact p { display: block; margin: 0; }
 .ft-contact a { color: var(--muted); transition: color .2s; }
@@ -734,28 +735,16 @@ a { text-decoration: none; color: inherit; }
   font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
   color: rgba(200,169,110,.45);
 }
-/* Cols 2–4 */
+/* Cols 2–3 */
 .ft-col h4 {
   font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--gold); margin-bottom: 16px;
 }
-.ft-col a, .ft-col p {
+.ft-col a, .ft-col p, .ft-nav-grid a {
   display: block; font-size: 13px; color: var(--muted); line-height: 2.1;
   transition: color .2s;
 }
-.ft-col a:hover { color: var(--coral); }
-/* Google review CTA in follow col */
-.ft-review-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  margin-top: 20px;
-  font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--gold);
-  border-bottom: 1px solid rgba(200,169,110,.22);
-  padding-bottom: 2px;
-  transition: border-color .2s;
-}
-.ft-review-cta:hover { border-color: var(--gold); }
-.ft-review-cta::after { content: ' →'; }
+.ft-col a:hover, .ft-nav-grid a:hover { color: var(--gold); }
 /* Footer bottom bar */
 .footer-btm {
   padding: 20px 0;
@@ -830,24 +819,55 @@ a { text-decoration: none; color: inherit; }
   .reviews-header { flex-direction: column; align-items: flex-start; }
   .reviews-overall { align-items: flex-start; }
 
-  /* Footer → brand full-width, then 2-col */
-  .footer { padding: 48px 28px 0; }
+  /* ── MOBILE FOOTER — full center alignment ─────────────────── */
+  .footer { padding: 40px 28px 0; }
   .footer-top {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 40px; column-gap: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
-  .footer-top > .ft-brand { grid-column: 1 / -1; }
-
-  /* Maps strip height */
+  .ft-brand {
+    text-align: center;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(200,169,110,.1);
+  }
+  .ft-brand .ft-brand-logo img { margin: 0 auto 14px; width: 150px; }
+  .ft-brand .ft-tagline        { text-align: center; margin-bottom: 4px; }
+  .ft-brand .ft-address        { text-align: center; }
+  .ft-brand .ft-contact p      { text-align: center; }
+  .ft-brand .ft-hours          { text-align: center; margin-top: 8px; }
+  .ft-col {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(200,169,110,.08);
+    text-align: center;
+  }
+  .ft-col:last-child { border-bottom: none; padding-bottom: 8px; }
+  .ft-col h4 { text-align: center; margin-bottom: 16px; }
+  .footer-top > *:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-top > *:nth-child(2) h4 { width: 100%; }
+  .footer-top > *:nth-child(2) .ft-nav-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 40px;
+    justify-content: center;
+  }
+  .footer-top > *:nth-child(2) .ft-nav-grid a {
+    font-size: 13px; line-height: 2.1;
+    color: var(--muted); text-align: left; display: block;
+  }
+  .footer-top > *:nth-child(2) .ft-nav-grid a:hover { color: var(--gold); }
+  .footer-top > *:nth-child(3) a {
+    font-size: 13px; line-height: 2.2;
+    text-align: center; display: block; color: var(--muted);
+  }
+  .footer-top > *:nth-child(3) a:hover { color: var(--gold); }
+  .footer-btm { flex-direction: column; gap: 4px; text-align: center; padding: 16px 0; }
   .footer-map-wrap { height: 180px; }
-  /* Get Directions button — compact on mobile */
-  .footer-map-btn {
-    font-size: 8px;
-    padding: 8px 14px;
-    bottom: 10px;
-    right: 10px;
-    letter-spacing: 1.5px;
-  }
+  .footer-map-btn { font-size: 8px; padding: 8px 14px; bottom: 10px; right: 10px; letter-spacing: 1.5px; }
 }
 
 /* ── Small mobile (≤480px) ── */
@@ -863,8 +883,7 @@ a { text-decoration: none; color: inherit; }
   /* Events */
   .events { padding: 56px 24px; }
 
-  /* Footer stays 2-col at all small sizes */
-  .footer-top { grid-template-columns: 1fr 1fr; }
+  /* Footer stays centered at small sizes — handled by 768px block */
   .footer-btm { flex-direction: column; gap: 6px; text-align: center; }
 
   /* Overlay nav narrower padding */
@@ -1451,7 +1470,7 @@ a { text-decoration: none; color: inherit; }
 
 <!-- ══════════════════════════════════════
      FOOTER — 4 columns
-     Col 1 Brand · Col 2 Navigate · Col 3 Visit · Col 4 Follow
+     Col 1 Brand · Col 2 Navigate · Col 3 Follow
 ══════════════════════════════════════ -->
 <footer class="footer">
   <div class="footer-top">
@@ -1462,6 +1481,7 @@ a { text-decoration: none; color: inherit; }
         <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club">
       </div>
       <p class="ft-tagline">Chania's finest billiard club since 1984.</p>
+      <p class="ft-address">Kissamou &amp; Saridantoni 1, Chania 73136, Crete, Greece</p>
       <div class="ft-contact">
         <p>Tel: <a href="tel:+302821070307">(+30) 28210 70307</a> &nbsp;|&nbsp; <a href="tel:+306975993307">6975 993 307</a></p>
         <p>Email: <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a></p>
@@ -1472,39 +1492,31 @@ a { text-decoration: none; color: inherit; }
     <!-- Col 2: Navigate -->
     <div class="ft-col">
       <h4>Navigate</h4>
-      <a href="index.html">Home</a>
-      <a href="story.html">Our Story</a>
-      <a href="explore-our-venue.html">The Venue</a>
-      <a href="menu.html">Our Menu</a>
-      <a href="tournaments.html">Tournaments</a>
-      <a href="social.html">Social Events</a>
-      <a href="pro-shop.html">Pro Shop</a>
-      <a href="contact.html">Find Us</a>
+      <div class="ft-nav-grid">
+        <a href="index.html">Home</a>
+        <a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">The Venue</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="social.html">Social Events</a>
+        <a href="pro-shop.html">Pro Shop</a>
+        <a href="contact.html">Find Us</a>
+      </div>
     </div>
 
-    <!-- Col 3: Visit -->
-    <div class="ft-col">
-      <h4>Visit</h4>
-      <p>Kissamou &amp; Saridantoni 1<br>Chania 73136, Crete, Greece</p>
-      <p style="margin-top:20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Where to Park &amp; Getting Here</p>
-      <p>• On-site parking beneath venue.</p>
-      <p>• Kladissos bridge free parking (5 min walk).</p>
-      <p>• Get here by free electric bus from central Chania.</p>
-    </div>
-
-    <!-- Col 4: Follow -->
+    <!-- Col 3: Follow -->
     <div class="ft-col">
       <h4>Follow</h4>
       <a href="https://instagram.com/aramischania" target="_blank" rel="noopener">Instagram @aramischania</a>
-      <a href="https://facebook.com/aramischania" target="_blank" rel="noopener">Facebook /aramischania</a>
-      <a href="https://cuescore.com/aramischania" target="_blank" rel="noopener">CueScore /aramischania</a>
+      <a href="https://facebook.com/aramischania"  target="_blank" rel="noopener">Facebook /aramischania</a>
+      <a href="https://cuescore.com/aramischania"  target="_blank" rel="noopener">CueScore /aramischania</a>
     </div>
 
   </div>
 
   <div class="footer-btm">
-    <span>© 2026 ARAMIS Billiard Club · Chania, Crete · Est. 1984</span>
-    <span>Family-owned since 1984</span>
+    <span>All Rights Reserved © 2026 ARAMIS Billiard Club</span>
+    <span>Design &amp; Development by Locus Design + Innovation</span>
   </div>
 </footer>
 
