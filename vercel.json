@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "functions": {
     "api/reviews.js": {
-      "runtime": "nodejs20.x"
+      "maxDuration": 30
     }
   }
 }
