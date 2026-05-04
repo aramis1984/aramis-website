@@ -38,7 +38,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 16px; scroll-behavior: smooth; overflow-x: hidden; }
 body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
@@ -64,15 +64,12 @@ a { text-decoration: none; color: inherit; }
 .nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
 .nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
 .nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
-@media (max-width: 960px) { .nav-left, .nav-right { display: none; } .nav { justify-content: center; } .nav-logo img { width: 240px; height: auto; } }
+ }
 
 /* ─── HERO ───────────────────────────────── */
 .hero { position: relative; height: 100vh; min-height: 680px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
 .hero-img { position: absolute; inset: 0; background: #141210; }
 .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: saturate(.75) brightness(.45); }
-.hero-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border: 1px dashed rgba(200,169,110,.1); margin: 80px var(--gutter); }
-.hero-placeholder svg { color: rgba(200,169,110,.15); }
-.hero-placeholder span { font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,169,110,.2); }
 .hero-ov { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(26,24,20,.5) 0%, rgba(26,24,20,.1) 30%, rgba(26,24,20,.1) 55%, rgba(26,24,20,.88) 100%); }
 .hero-content { position: relative; z-index: 2; padding: calc(var(--nav-h) + 20px) var(--gutter) 40px; max-width: 860px; }
 .hero-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; justify-content: center; }
@@ -92,10 +89,21 @@ a { text-decoration: none; color: inherit; }
 .sec-body:last-child { margin-bottom: 0; }
 .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; background: var(--gold); color: var(--bg); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: background .2s; }
 .btn-primary:hover { background: var(--gold-h); }
-.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: rgba(26,24,20,.85); color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(200,169,110,.3); transition: all .25s; }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-.btn-ghost svg, .btn-primary svg { transition: transform .25s; }
-.btn-ghost:hover svg, .btn-primary:hover svg { transform: translateX(4px); }
+.btn-text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(200,169,110,.35); padding-bottom: 2px; transition: color .2s, border-color .2s; }
+.btn-text-link:hover { color: var(--gold-h); border-color: var(--gold-h); }
+.btn-primary svg, .btn-text-link svg { transition: transform .25s; }
+.btn-primary:hover svg, .btn-text-link:hover svg { transform: translateX(4px); }
+
+/* ─── PHOTO PLACEHOLDER SYSTEM ──────────── */
+.ph { position: relative; background: var(--bg-surf); overflow: hidden; }
+.ph-fill { position: absolute; inset: 0; }
+.ph-inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; border: 1px dashed rgba(200,169,110,.1); }
+.ph-label { font-size: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.25); text-align: center; line-height: 1.9; }
+.ph-16-9 { aspect-ratio: 16/9; }
+.ph-4-3  { aspect-ratio: 4/3; }
+.ph-1-1  { aspect-ratio: 1; }
+.ph-9-16 { aspect-ratio: 9/16; }
+.ph-psl  { position: absolute; bottom: 12px; left: 14px; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.45); pointer-events: none; z-index: 2; }
 
 /* ─── UPCOMING EVENTS ────────────────────── */
 .upcoming { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); }
@@ -117,11 +125,6 @@ a { text-decoration: none; color: inherit; }
 .event-poster { position: relative; overflow: hidden; background: #0e0d0b; min-height: 320px; }
 .event-poster img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.85) brightness(.85); transition: transform .5s ease; }
 .event-card:hover .event-poster img { transform: scale(1.04); }
-.event-poster-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
-.event-poster-placeholder svg { color: rgba(200,169,110,.1); }
-.event-poster-placeholder span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
-
-/* Event info */
 .event-body { padding: 44px 52px; display: flex; flex-direction: column; justify-content: center; border-left: 2px solid rgba(200,169,110,.08); transition: border-color .3s; }
 .event-card:hover .event-body { border-left-color: var(--gold); }
 .event-date { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
@@ -142,10 +145,6 @@ a { text-decoration: none; color: inherit; }
 .expect-photo { position: relative; overflow: hidden; background: var(--bg-surf); aspect-ratio: 4/3; }
 .expect-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform 8s ease; }
 .expect-photo:hover img { transform: scale(1.04); }
-.expect-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-.expect-ph svg { color: rgba(200,169,110,.12); }
-.expect-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
-
 /* ─── YOUR EVENT / PRIVATE HIRE ──────────── */
 .your-event { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); }
 .your-event-inner { max-width: var(--max-w); margin: 0 auto; padding: 100px var(--gutter); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -203,10 +202,6 @@ a { text-decoration: none; color: inherit; }
 .gallery-item { aspect-ratio: 4/3; position: relative; overflow: hidden; background: var(--bg-surf); cursor: pointer; }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.75) brightness(.65); transition: transform .5s ease, filter .35s; }
 .gallery-item:hover img { transform: scale(1.06); filter: saturate(.95) brightness(.75); }
-.gallery-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-.gallery-ph svg { color: rgba(200,169,110,.1); }
-.gallery-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); }
-
 /* ─── SOCIAL FOLLOW ──────────────────────── */
 .social-follow { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); padding: 80px var(--gutter); text-align: center; }
 .social-follow-inner { max-width: 580px; margin: 0 auto; }
@@ -254,16 +249,6 @@ a { text-decoration: none; color: inherit; }
 .offseason-alt a { color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.3); }
 
 /* ─── FOOTER ──────────────────────────────── */
-.footer { background: #141210; padding: 72px 0 40px; border-top: 1px solid rgba(200,169,110,.1); }
-.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px; }
-.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
-.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
-.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-.footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
-.footer-links a:hover { color: var(--cream); }
-.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0; border-top: 1px solid rgba(200,169,110,.07); display: flex; justify-content: space-between; align-items: center; }
-.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
 
 /* ─── FADE-UP ─────────────────────────────── */
 .fu { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
@@ -279,9 +264,230 @@ a { text-decoration: none; color: inherit; }
   .expect-inner, .your-event-inner { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; gap: 12px; }
+  .nav-logo img { width: 200px; height: auto; }
+  .strip { grid-template-columns: repeat(2, 1fr) !important; }
+  .cards-row { grid-template-columns: 1fr 1fr !important; }
+  .reviews-grid { grid-template-columns: 1fr 1fr !important; }
+  .upcoming-grid { grid-template-columns: 1fr 1fr !important; }
+  .gallery-grid { grid-template-columns: 1fr 1fr !important; }
 }
+
+
+/* ─── Hamburger button ───────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 48px; height: 48px; padding: 12px;
+  cursor: pointer; background: none; border: none;
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  z-index: 1001; -webkit-tap-highlight-color: transparent;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: rgba(243,229,210,.8);
+  transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .3s ease;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ─── Overlay ────────────────────────────── */
+.nav-overlay {
+  position: fixed; inset: 0; z-index: 999;
+  background: #141210;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path .5s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  display: flex; flex-direction: column;
+}
+.nav-overlay.open { clip-path: inset(0 0 0% 0); pointer-events: all; }
+.ov-inner { flex: 1; display: flex; flex-direction: column; padding: 100px 36px 24px; }
+.ov-item {
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.ov-item:last-child { border-bottom: none; }
+.nav-overlay.open .ov-item { opacity: 1; transform: translateY(0); }
+.nav-overlay.open .ov-item:nth-child(1) { transition-delay: .10s; }
+.nav-overlay.open .ov-item:nth-child(2) { transition-delay: .17s; }
+.nav-overlay.open .ov-item:nth-child(3) { transition-delay: .24s; }
+.nav-overlay.open .ov-item:nth-child(4) { transition-delay: .31s; }
+.nav-overlay.open .ov-item:nth-child(5) { transition-delay: .38s; }
+.nav-overlay.open .ov-item:nth-child(6) { transition-delay: .45s; }
+.nav-overlay.open .ov-item:nth-child(7) { transition-delay: .52s; }
+.ov-link {
+  display: block; font-family: 'Fraunces', serif;
+  font-size: clamp(34px, 9vw, 52px); font-weight: 400; font-style: italic;
+  color: rgba(243,229,210,.5); line-height: 1; padding: 14px 0;
+  transition: color .2s, transform .25s; -webkit-tap-highlight-color: transparent;
+}
+.ov-link:hover, .ov-link:active { color: var(--cream); transform: translateX(8px); }
+.ov-sub-trigger {
+  width: 100%; background: none; border: none;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: 'Fraunces', serif; font-size: clamp(34px, 9vw, 52px);
+  font-weight: 400; font-style: italic; color: rgba(243,229,210,.5);
+  padding: 14px 0; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: color .2s;
+}
+.ov-sub-trigger:hover, .ov-sub-trigger:active { color: var(--cream); }
+.ov-acc-chevron { width: 18px; height: 18px; color: rgba(200,169,110,.35); transition: transform .3s, color .2s; flex-shrink: 0; }
+.ov-item.expanded .ov-acc-chevron { transform: rotate(90deg); color: var(--gold); }
+.ov-item.expanded .ov-sub-trigger { color: var(--cream); }
+.ov-sub { max-height: 0; overflow: hidden; transition: max-height .35s cubic-bezier(.4,0,.2,1); padding-left: 4px; }
+.ov-item.expanded .ov-sub { max-height: 320px; }
+.ov-sub-link {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,185,164,.4); padding: 10px 0;
+  transition: color .2s; -webkit-tap-highlight-color: transparent;
+}
+.ov-sub-link:hover, .ov-sub-link:active { color: var(--gold); }
+.ov-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .3; flex-shrink: 0; }
+.ov-ft { padding: 24px 36px 40px; border-top: 1px solid rgba(200,169,110,.08); flex-shrink: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.ov-ft-logo { height: 44px; width: auto; object-fit: contain; display: block; margin-bottom: 10px; }
+.ov-ft-hours { font-size: 11px; color: rgba(200,185,164,.3); margin-bottom: 3px; }
+.ov-ft-addr  { font-size: 11px; color: rgba(200,185,164,.2); }
+.ov-ft-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+.ov-ft-phone { font-size: 11px; color: rgba(200,185,164,.3); }
+.ov-ft-ig { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,169,110,.4); transition: color .2s; }
+.ov-ft-ig:hover { color: var(--gold); }
+
+/* Show hamburger, fix nav height & logo on mobile */
+@media (max-width: 960px) {
+  .nav-hamburger { display: flex; }
+  .nav-left, .nav-right { display: none; }
+  .nav { height: 90px !important; justify-content: center; }
+  .nav-logo { padding: 0; }
+  .nav-logo img { width: 200px !important; height: auto !important; }
+}
+
+
+/* ── FOOTER ──────────────────────────────── */
+.footer { background: #0e0c0a; border-top: 1px solid rgba(200,169,110,.12); }
+.footer-map-wrap { width: 100%; height: 220px; overflow: hidden; position: relative; border-bottom: 1px solid rgba(200,169,110,.1); }
+.footer-map-wrap iframe { width: 100%; height: 100%; border: none; display: block; filter: invert(90%) hue-rotate(180deg) saturate(.55) brightness(.8); }
+.footer-map-btn {
+  position: absolute; bottom: 16px; right: 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(20,18,16,.9); border: 1px solid rgba(200,169,110,.3);
+  color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 8px 14px;
+  backdrop-filter: blur(8px); transition: background .2s; text-decoration: none;
+}
+.footer-map-btn::after { content: ' →'; }
+.footer-map-btn:hover { background: rgba(200,169,110,.12); }
+.footer-top {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 56px var(--gutter) 40px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px; align-items: start;
+}
+.ft-brand-logo { margin-bottom: 18px; }
+.ft-brand-logo img { width: 210px; object-fit: fill; }
+.ft-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 16px; }
+.ft-address { font-size: 12px; color: rgba(200,185,164,.4); line-height: 1.7; margin-bottom: 10px; }
+.ft-contact { display: flex; flex-direction: column; gap: 4px; }
+.ft-contact a, .ft-contact span { font-size: 12px; color: rgba(200,185,164,.45); text-decoration: none; transition: color .2s; line-height: 1.5; }
+.ft-contact a:hover { color: var(--gold); }
+.ft-hours { font-size: 12px; color: rgba(200,185,164,.35); margin-top: 8px; }
+.ft-col-title { font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: block; }
+.ft-nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+.ft-nav-grid a { font-size: 12px; color: rgba(200,185,164,.5); text-decoration: none; transition: color .2s; line-height: 1.9; display: block; }
+.ft-nav-grid a:hover { color: var(--cream); }
+.ft-col-links { display: flex; flex-direction: column; gap: 4px; }
+.ft-col-links a, .ft-col-links span { font-size: 12px; color: rgba(200,185,164,.5); text-decoration: none; transition: color .2s; line-height: 1.8; display: block; }
+.ft-col-links a:hover { color: var(--cream); }
+.ft-divider { height: 1px; background: rgba(200,169,110,.07); margin: 6px 0; }
+.footer-btm {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 20px var(--gutter) 28px;
+  border-top: 1px solid rgba(200,169,110,.07);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); letter-spacing: .3px; }
+@media (max-width: 768px) {
+  .footer-map-wrap { height: 180px; }
+  .footer-top { grid-template-columns: 1fr; padding: 40px 24px 32px; gap: 0; }
+  .ft-brand { text-align: center; padding-bottom: 28px; border-bottom: 1px solid rgba(200,169,110,.1); }
+  .ft-brand-logo img { margin: 0 auto 14px; width: 150px; }
+  .ft-tagline, .ft-address, .ft-hours { text-align: center; }
+  .ft-contact { align-items: center; }
+  .ft-col { padding: 24px 0; border-bottom: 1px solid rgba(200,169,110,.08); text-align: center; }
+  .ft-col:last-child { border-bottom: none; padding-bottom: 8px; }
+  .ft-col-title { text-align: center; }
+  .ft-nav-grid { justify-content: center; column-gap: 40px; }
+  .ft-nav-grid a { text-align: left; }
+  .ft-col-links { align-items: center; }
+  .footer-btm { flex-direction: column; gap: 4px; text-align: center; padding: 16px 24px 24px; }
+}
+
+
+/* ── Mobile layout fixes (phone) ─────────── */
+@media (max-width: 768px) {
+  :root { --gutter: 20px; }
+
+  /* Hero — clear the 90px mobile nav */
+  .hero { min-height: 100svh; }
+  .hero-content { padding-top: calc(90px + 24px) !important; }
+  .hero-hed { font-size: clamp(36px, 10vw, 56px) !important; }
+
+  /* Common */
+  .inner { padding: 60px var(--gutter) !important; }
+  section { overflow-x: hidden; }
+
+  /* Grids → single column */
+  .strip                { grid-template-columns: 1fr 1fr !important; }
+  .exp                  { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .cards-row            { grid-template-columns: 1fr !important; }
+  .events               { grid-template-columns: 1fr !important; gap: 40px !important; padding: 60px var(--gutter) !important; }
+  .events-divider       { display: none; }
+  .reviews-section      { padding: 60px var(--gutter); }
+  .reviews-header       { flex-direction: column !important; align-items: flex-start !important; gap: 24px; }
+  .reviews-overall      { align-items: flex-start !important; }
+  .reviews-grid         { grid-template-columns: 1fr !important; }
+  .reviews-ctas         { flex-direction: column; }
+  .tables-intro,
+  .equipment-inner,
+  .divisions-inner,
+  .culture-inner,
+  .live-banner-inner    { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .upcoming-grid        { grid-template-columns: 1fr !important; }
+  .gallery-grid         { grid-template-columns: 1fr 1fr !important; }
+  .event-card           { grid-template-columns: 1fr !important; }
+  .event-body           { padding: 28px 24px !important; }
+  .expect-inner,
+  .your-event-inner     { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .enquiry-form-box     { padding: 32px 24px !important; }
+  .form-row-2,
+  .form-row             { grid-template-columns: 1fr !important; }
+  .contact-main         { grid-template-columns: 1fr !important; gap: 40px; padding: 48px var(--gutter) !important; }
+  .getting-here-inner   { grid-template-columns: 1fr !important; }
+  .hours-inner          { grid-template-columns: 1fr !important; gap: 40px; }
+  .coming-strip-grid    { grid-template-columns: 1fr 1fr !important; }
+  .coming-soon          { padding-top: calc(90px + 40px) !important; }
+  .founding,
+  .venue-inner          { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .family-photos        { grid-template-columns: 1fr 1fr !important; }
+  [class*="-inner"]     { padding-left: var(--gutter) !important; padding-right: var(--gutter) !important; }
+  .btn-primary,
+  .btn-text-link        { width: 100%; justify-content: center; }
+  .social-links         { flex-direction: column; align-items: center; }
+  .map-embed            { height: 240px; }
+  .map-address-bar      { flex-direction: column !important; gap: 16px; padding: 20px var(--gutter) !important; }
+}
+@media (min-width: 769px) and (max-width: 960px) {
+  :root { --gutter: 36px; }
+  .strip        { grid-template-columns: repeat(2, 1fr) !important; }
+  .reviews-grid { grid-template-columns: 1fr 1fr !important; }
+  .upcoming-grid{ grid-template-columns: 1fr 1fr !important; }
+  .gallery-grid { grid-template-columns: 1fr 1fr !important; }
+  .cards-row    { grid-template-columns: 1fr 1fr !important; }
+}
+
 </style>
 </head>
 <body>
@@ -304,7 +510,7 @@ a { text-decoration: none; color: inherit; }
         <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
       </div>
     </div>
-    <a href="menu.html" class="nav-lk">Our Menu</a>
+    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
   </div>
   <a href="index.html" class="nav-logo">
     <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
@@ -320,10 +526,61 @@ a { text-decoration: none; color: inherit; }
         <a href="social.html"      class="nav-dd-item" style="color:var(--gold);"><span class="dd-dot" style="opacity:1;"></span>Social Events</a>
       </div>
     </div>
-    <a href="pro-shop.html" class="nav-lk">Pro Shop</a>
-    <a href="contact.html"  class="nav-lk">Find Us</a>
+    <a href="your-event.html" class="nav-lk">Your Event</a>
+    <a href="contact.html"    class="nav-lk">Find Us</a>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="ov-inner">
+    <div class="ov-item"><a href="index.html"      class="ov-link">Home</a></div>
+    <div class="ov-item"><a href="story.html"      class="ov-link">Our Story</a></div>
+    <div class="ov-item" id="ovg-venue">
+      <button class="ov-sub-trigger" onclick="toggleOv('ovg-venue')">
+        The Venue
+        <svg class="ov-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ov-sub">
+        <a href="explore-our-venue.html" class="ov-sub-link" style="color:var(--gold)"><span class="ov-dot"></span>Explore our Venue →</a>
+        <a href="billiards.html"         class="ov-sub-link"><span class="ov-dot"></span>Billiards</a>
+        <a href="darts.html"             class="ov-sub-link"><span class="ov-dot"></span>Darts</a>
+        <a href="terrace.html"           class="ov-sub-link"><span class="ov-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="ov-sub-link"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
+      </div>
+    </div>
+    <div class="ov-item" id="ovg-events">
+      <button class="ov-sub-trigger" onclick="toggleOv('ovg-events')">
+        Events
+        <svg class="ov-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ov-sub">
+        <a href="tournaments.html" class="ov-sub-link"><span class="ov-dot"></span>Tournaments</a>
+        <a href="social.html"      class="ov-sub-link" style="color:var(--gold)"><span class="ov-dot"></span>Social Events</a>
+      </div>
+    </div>
+    <div class="ov-item"><a href="your-event.html" class="ov-link">Your Event</a></div>
+    <div class="ov-item"><a href="pro-shop.html"   class="ov-link">Pro Shop</a></div>
+    <div class="ov-item"><a href="contact.html"    class="ov-link">Find Us</a></div>
+  </div>
+  <div class="ov-ft">
+    <div>
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-ft-logo">
+      <div class="ov-ft-hours">Open daily 10:00–01:00</div>
+      <div class="ov-ft-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
+    </div>
+    <div class="ov-ft-right">
+      <span class="ov-ft-phone">(+30) 28210 70307</span>
+      <span class="ov-ft-phone">(+30) 6975 993 307</span>
+      <a href="https://instagram.com/aramischania" target="_blank" class="ov-ft-ig">@aramischania</a>
+    </div>
+  </div>
+</div>
+
+
 
 
 <!-- ══ HERO ══════════════════════════════════
@@ -332,9 +589,10 @@ a { text-decoration: none; color: inherit; }
      ════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-img">
-    <div class="hero-placeholder">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      <span>Social event hero — terrace crowd, live music, DJ night</span>
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <span class="ph-label">social-hero.jpg · 1920×1080px<br>Terrace crowd, live music or DJ night — warm light</span>
+      </div>
     </div>
     <!-- <img src="assets/images/social-hero.jpg" alt="Social events at ARAMIS"> -->
   </div>
@@ -370,11 +628,12 @@ a { text-decoration: none; color: inherit; }
 
       <div class="event-card fu">
         <div class="event-poster">
-          <!-- Swap with: <img src="assets/images/social-poster-01.jpg" alt="Friday Night Live"> -->
-          <div class="event-poster-placeholder">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-            <span>Event poster</span>
+          <div class="ph ph-fill">
+            <div class="ph-inner">
+              <span class="ph-label">social-poster-01.jpg<br>Event poster — Friday Night Live</span>
+            </div>
           </div>
+          <!-- <img src="assets/images/social-poster-01.jpg" alt="Friday Night Live"> -->
         </div>
         <div class="event-body">
           <div class="event-date">Friday 28 March · 21:00</div>
@@ -385,7 +644,7 @@ a { text-decoration: none; color: inherit; }
             <span class="event-tag">Terrace</span>
             <span class="event-tag">Free Entry</span>
           </div>
-          <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost" style="align-self:flex-start;">
+          <a href="https://instagram.com/aramischania" target="_blank" class="btn-text-link" style="align-self:flex-start;">
             Follow for updates
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -394,10 +653,12 @@ a { text-decoration: none; color: inherit; }
 
       <div class="event-card fu">
         <div class="event-poster">
-          <div class="event-poster-placeholder">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            <span>Event poster</span>
+          <div class="ph ph-fill">
+            <div class="ph-inner">
+              <span class="ph-label">social-poster-02.jpg<br>Event poster — DJ Night</span>
+            </div>
           </div>
+          <!-- <img src="assets/images/social-poster-02.jpg" alt="DJ Night"> -->
         </div>
         <div class="event-body">
           <div class="event-date">Saturday 5 April · 22:00</div>
@@ -408,7 +669,7 @@ a { text-decoration: none; color: inherit; }
             <span class="event-tag">Terrace</span>
             <span class="event-tag">Free Entry</span>
           </div>
-          <a href="https://instagram.com/aramischania" target="_blank" class="btn-ghost" style="align-self:flex-start;">
+          <a href="https://instagram.com/aramischania" target="_blank" class="btn-text-link" style="align-self:flex-start;">
             Follow for updates
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -449,9 +710,10 @@ a { text-decoration: none; color: inherit; }
   <div class="expect-inner">
 
     <div class="expect-photo fu">
-      <div class="expect-ph">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <span>Terrace evening — live music or crowd</span>
+      <div class="ph ph-fill">
+        <div class="ph-inner">
+          <span class="ph-label">social-terrace-evening.jpg · 4:3<br>Terrace evening — live music or crowd</span>
+        </div>
       </div>
       <!-- <img src="assets/images/social-terrace-evening.jpg" alt="ARAMIS social evening"> -->
     </div>
@@ -507,7 +769,7 @@ a { text-decoration: none; color: inherit; }
 
     <!-- Enquiry form -->
     <div class="fu fu-d1">
-      <div class="enquiry-form">
+      <div class="enquiry-form-box">
         <div class="form-title">Let's plan it together.</div>
         <div class="form-sub">Tell us about your event and we'll get back to you within 24 hours.</div>
 
@@ -590,22 +852,22 @@ a { text-decoration: none; color: inherit; }
 
     <div class="gallery-grid">
       <div class="gallery-item fu">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Live music night</span></div>
+        <div class="ph ph-fill"><div class="ph-inner"><span class="ph-label">social-gallery-01.jpg<br>Live music night</span></div></div>
       </div>
       <div class="gallery-item fu fu-d1">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>DJ set terrace</span></div>
+        <div class="ph ph-fill"><div class="ph-inner"><span class="ph-label">social-gallery-02.jpg<br>DJ set terrace</span></div></div>
       </div>
       <div class="gallery-item fu fu-d2">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Private event</span></div>
+        <div class="ph ph-fill"><div class="ph-inner"><span class="ph-label">social-gallery-03.jpg<br>Private event</span></div></div>
       </div>
       <div class="gallery-item fu">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Crowd on terrace</span></div>
+        <div class="ph ph-fill"><div class="ph-inner"><span class="ph-label">social-gallery-04.jpg<br>Crowd on terrace</span></div></div>
       </div>
       <div class="gallery-item fu fu-d1">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Themed evening</span></div>
+        <div class="ph ph-fill"><div class="ph-inner"><span class="ph-label">social-gallery-05.jpg<br>Themed evening</span></div></div>
       </div>
       <div class="gallery-item fu fu-d2">
-        <div class="gallery-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Birthday celebration</span></div>
+        <div class="ph ph-fill"><div class="ph-inner"><span class="ph-label">social-gallery-06.jpg<br>Birthday celebration</span></div></div>
       </div>
     </div>
   </div>
@@ -622,7 +884,7 @@ a { text-decoration: none; color: inherit; }
         @aramischania on Instagram
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
-      <a href="https://facebook.com/aramischania" target="_blank" class="btn-ghost">
+      <a href="https://facebook.com/aramischania" target="_blank" class="btn-text-link">
         Facebook
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </a>
@@ -633,36 +895,63 @@ a { text-decoration: none; color: inherit; }
 
 <!-- ══ FOOTER ═════════════════════════════════ -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS"></div>
-      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+
+  <div class="footer-map-wrap">
+    <iframe
+      src="https://maps.google.com/maps?q=ARAMIS+Billiard+Club+Chania+Greece&output=embed&z=16"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="ARAMIS Billiard Club — Kissamou &amp; Saridantoni 1, Chania">
+    </iframe>
+    <a href="https://maps.google.com/?q=ARAMIS+Billiard+Club+Chania" target="_blank" class="footer-map-btn">Get Directions</a>
+  </div>
+
+  <div class="footer-top">
+
+    <div class="ft-brand">
+      <div class="ft-brand-logo">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club">
+      </div>
+      <p class="ft-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</p>
+      <div class="ft-address">Kissamou &amp; Saridantoni 1<br>Chania 73136, Crete, Greece</div>
+      <div class="ft-contact">
+        <span><a href="tel:+302821070307">(+30) 28210 70307</a> | <a href="tel:+306975993307">6975 993 307</a></span>
+        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
+      </div>
+      <div class="ft-hours">Open daily 10:00 – 01:00</div>
     </div>
-    <div>
-      <div class="footer-col-hed">Navigate</div>
-      <div class="footer-links">
-        <a href="story.html">Our Story</a>
-        <a href="explore-our-venue.html">Explore our Venue</a>
+
+    <div class="ft-col">
+      <span class="ft-col-title">Navigate</span>
+      <div class="ft-nav-grid">
+        <a href="index.html">Home</a>
         <a href="tournaments.html">Tournaments</a>
+        <a href="story.html">Our Story</a>
         <a href="social.html">Social Events</a>
+        <a href="explore-our-venue.html">The Venue</a>
+        <a href="pro-shop.html">Pro Shop</a>
         <a href="menu.html">Our Menu</a>
         <a href="contact.html">Find Us</a>
       </div>
     </div>
-    <div>
-      <div class="footer-col-hed">Plan your event</div>
-      <div class="footer-links">
-        <a href="social.html#your-event">Send an enquiry</a>
-        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-        <a href="tel:+302821070307">(+30) 28210 70307</a>
-        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
+
+    <div class="ft-col">
+      <span class="ft-col-title">Follow</span>
+      <div class="ft-col-links">
+        <a href="https://instagram.com/aramischania" target="_blank">Instagram @aramischania</a>
+        <a href="https://facebook.com/aramischania" target="_blank">Facebook /aramischania</a>
+        <a href="https://cuescore.com/aramischania" target="_blank">CueScore /aramischania</a>
+        <div class="ft-divider"></div>
+        <a href="https://g.page/r/ARAMIS-GOOGLE-REVIEW-LINK/review" target="_blank">Leave us a Google review</a>
       </div>
     </div>
+
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
-    <div class="footer-copy">Design · Manos Chatzakis</div>
+
+  <div class="footer-btm">
+    <span class="footer-copy">All Rights Reserved © 2026 ARAMIS Billiard Club</span>
+    <span class="footer-copy">Design &amp; Development by Locus Design + Innovation</span>
   </div>
+
 </footer>
 
 
@@ -721,13 +1010,9 @@ document.addEventListener('DOMContentLoaded', function() {
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
     }).then(function(res) {
-      if (res.ok) {
-        document.getElementById('form-wrap').style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-      } else {
-        btn.textContent = 'Try again';
-        btn.disabled = false;
-      }
+      // Formspree returns 200 on success
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
     }).catch(function() {
       btn.textContent = 'Try again';
       btn.disabled = false;
@@ -740,6 +1025,28 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
 }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+
+
+// ── Overlay nav ──────────────────────────────────────────────────────
+(function() {
+  var hamburger = document.getElementById('nav-hamburger');
+  var overlay   = document.getElementById('nav-overlay');
+  if (!hamburger || !overlay) return;
+  function openOverlay()  { overlay.classList.add('open'); hamburger.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeOverlay() { overlay.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', function() { overlay.classList.contains('open') ? closeOverlay() : openOverlay(); });
+  overlay.querySelectorAll('.ov-link, .ov-sub-link').forEach(function(l) { l.addEventListener('click', closeOverlay); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeOverlay(); });
+})();
+
+function toggleOv(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  document.querySelectorAll('.ov-item[id]').forEach(function(g) { if (g.id !== id) g.classList.remove('expanded'); });
+  el.classList.toggle('expanded');
+}
+
 </script>
 
 </body>

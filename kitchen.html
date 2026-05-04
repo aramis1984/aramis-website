@@ -75,9 +75,6 @@ a { text-decoration: none; color: inherit; }
 .hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: flex-end; overflow: hidden; }
 .hero-img { position: absolute; inset: 0; background: #141210; }
 .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; filter: saturate(.8) brightness(.5); }
-.hero-img-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border: 1px dashed rgba(200,169,110,.1); margin: 80px var(--gutter); }
-.hero-img-placeholder svg { color: rgba(200,169,110,.15); }
-.hero-img-placeholder span { font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(200,169,110,.2); }
 .hero-ov { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(26,24,20,.3) 0%, rgba(26,24,20,.05) 25%, rgba(26,24,20,.05) 50%, rgba(26,24,20,.88) 100%); }
 .hero-content { position: relative; z-index: 2; padding: 0 var(--gutter) 80px; max-width: var(--max-w); margin: 0 auto; width: 100%; }
 .hero-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
@@ -110,9 +107,17 @@ a { text-decoration: none; color: inherit; }
 .kitchen-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform 8s ease; }
 .kitchen-photo:hover img { transform: scale(1.04); }
 .kitchen-photo::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 80px; background: linear-gradient(to right, transparent, var(--bg)); pointer-events: none; }
-.kitchen-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
-.kitchen-ph svg { color: rgba(200,169,110,.12); }
-.kitchen-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
+/* ─── PHOTO PLACEHOLDER SYSTEM ──────────── */
+.ph { position: relative; background: var(--bg-surf); overflow: hidden; }
+.ph-fill { position: absolute; inset: 0; }
+.ph-inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; border: 1px dashed rgba(200,169,110,.1); }
+.ph-label { font-size: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.25); text-align: center; line-height: 1.9; }
+.ph-16-9 { aspect-ratio: 16/9; }
+.ph-4-3  { aspect-ratio: 4/3; }
+.ph-1-1  { aspect-ratio: 1; }
+.ph-9-16 { aspect-ratio: 9/16; }
+.ph-psl  { position: absolute; bottom: 12px; left: 14px; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.45); pointer-events: none; z-index: 2; }
+
 .kitchen-text { background: var(--bg); padding: 80px var(--gutter); display: flex; flex-direction: column; justify-content: center; }
 
 /* ─── FOOD CATEGORY GRID ─────────────────── */
@@ -140,9 +145,6 @@ a { text-decoration: none; color: inherit; }
 .ps-item:not(:first-child) { aspect-ratio: 3/4; }
 .ps-item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform .6s ease, filter .4s; }
 .ps-item:hover img { transform: scale(1.05); filter: saturate(.95) brightness(.75); }
-.ps-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-.ps-ph svg { color: rgba(200,169,110,.12); }
-.ps-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; padding: 0 12px; }
 .ps-label { position: absolute; bottom: 14px; left: 16px; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.5); pointer-events: none; }
 
 /* ─── BAR INTRO — split (reversed) ──────── */
@@ -152,10 +154,6 @@ a { text-decoration: none; color: inherit; }
 .bar-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.6); transition: transform 8s ease; }
 .bar-photo:hover img { transform: scale(1.04); }
 .bar-photo::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 80px; z-index: 1; background: linear-gradient(to left, transparent, var(--bg)); pointer-events: none; }
-.bar-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; z-index: 2; }
-.bar-ph svg { color: rgba(200,169,110,.12); }
-.bar-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; }
-
 /* ─── COCKTAIL SPOTLIGHT ─────────────────── */
 .cocktails-section { background: var(--bg-card); border-top: 1px solid rgba(200,169,110,.07); border-bottom: 1px solid rgba(200,169,110,.07); padding: 100px var(--gutter); }
 .cocktails-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -174,9 +172,6 @@ a { text-decoration: none; color: inherit; }
 .cph:not(:first-child) { aspect-ratio: 1; }
 .cph img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.65); transition: transform .6s ease; }
 .cph:hover img { transform: scale(1.05); }
-.cph-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-.cph-ph svg { color: rgba(200,169,110,.12); }
-.cph-ph span { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.18); text-align: center; padding: 0 12px; }
 .cph-label { position: absolute; bottom: 12px; left: 14px; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,.45); pointer-events: none; }
 
 /* ─── MENU CTA ───────────────────────────── */
@@ -234,95 +229,71 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── Overlay ────────────────────────────── */
 .nav-overlay {
-  position: fixed; inset: 0; z-index: 998;
+  position: fixed; inset: 0; z-index: 999;
   background: #141210;
-  display: flex; flex-direction: column;
   clip-path: inset(0 0 100% 0);
   transition: clip-path .5s cubic-bezier(.4,0,.2,1);
   pointer-events: none;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  display: flex; flex-direction: column;
 }
-.nav-overlay.open {
-  clip-path: inset(0 0 0% 0);
-  pointer-events: all;
+.nav-overlay.open { clip-path: inset(0 0 0% 0); pointer-events: all; }
+.ov-inner {
+  flex: 1; display: flex; flex-direction: column;
+  padding: 100px 36px 24px;
 }
-
-/* Overlay header */
-.ov-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 16px 24px;
-  flex-shrink: 0;
-  border-bottom: 1px solid rgba(200,169,110,.1);
+.ov-item {
+  border-bottom: 1px solid rgba(200,169,110,.07);
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .4s ease, transform .4s ease;
 }
-.ov-logo { height: 52px; width: auto; object-fit: contain; }
-.ov-close {
-  width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
-  background: none; border: none; cursor: pointer;
-  color: rgba(200,185,164,.5);
-  -webkit-tap-highlight-color: transparent;
-  transition: color .2s;
-}
-.ov-close:hover { color: var(--cream); }
-
-/* Gold rule */
-.ov-rule {
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(200,169,110,.25), transparent);
-  margin: 0 24px;
-  flex-shrink: 0;
-}
-
-/* Nav links */
-.ov-nav {
-  flex: 1; display: flex; flex-direction: column; justify-content: center;
-  padding: 12px 36px 24px;
-}
+.ov-item:last-child { border-bottom: none; }
+.nav-overlay.open .ov-item { opacity: 1; transform: translateY(0); }
+.nav-overlay.open .ov-item:nth-child(1) { transition-delay: .10s; }
+.nav-overlay.open .ov-item:nth-child(2) { transition-delay: .17s; }
+.nav-overlay.open .ov-item:nth-child(3) { transition-delay: .24s; }
+.nav-overlay.open .ov-item:nth-child(4) { transition-delay: .31s; }
+.nav-overlay.open .ov-item:nth-child(5) { transition-delay: .38s; }
+.nav-overlay.open .ov-item:nth-child(6) { transition-delay: .45s; }
+.nav-overlay.open .ov-item:nth-child(7) { transition-delay: .52s; }
 .ov-link {
   display: block;
   font-family: 'Fraunces', serif;
-  font-size: clamp(36px, 10vw, 56px);
+  font-size: clamp(34px, 9vw, 52px);
   font-weight: 400; font-style: italic;
   color: rgba(243,229,210,.5);
-  line-height: 1;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(200,169,110,.07);
+  line-height: 1; padding: 14px 0;
   transition: color .2s, transform .25s;
   -webkit-tap-highlight-color: transparent;
 }
-.ov-link:last-child { border-bottom: none; }
-.ov-link:hover, .ov-link:active { color: var(--cream); transform: translateX(10px); }
-
-/* Sub-group */
-.ov-subgroup { border-bottom: 1px solid rgba(200,169,110,.07); }
-.ov-subgroup:last-child { border-bottom: none; }
-.ov-trigger {
+.ov-link:hover, .ov-link:active { color: var(--cream); transform: translateX(8px); }
+.ov-sub-trigger {
+  width: 100%; background: none; border: none;
+  display: flex; align-items: center; justify-content: space-between;
   font-family: 'Fraunces', serif;
-  font-size: clamp(36px, 10vw, 56px);
+  font-size: clamp(34px, 9vw, 52px);
   font-weight: 400; font-style: italic;
   color: rgba(243,229,210,.5);
-  line-height: 1;
-  padding: 16px 0 12px;
-  display: flex; align-items: center; justify-content: space-between;
-  width: 100%; background: none; border: none;
+  padding: 14px 0;
   cursor: pointer; -webkit-tap-highlight-color: transparent;
   transition: color .2s;
 }
-.ov-trigger:hover, .ov-trigger:active { color: var(--cream); }
-.ov-trigger-arrow {
-  width: 16px; height: 16px; color: rgba(200,169,110,.35);
-  transition: transform .3s, color .2s; flex-shrink: 0; margin-top: 4px;
+.ov-sub-trigger:hover, .ov-sub-trigger:active { color: var(--cream); }
+.ov-acc-chevron {
+  width: 18px; height: 18px;
+  color: rgba(200,169,110,.35);
+  transition: transform .3s, color .2s; flex-shrink: 0;
 }
-.ov-subgroup.expanded .ov-trigger-arrow { transform: rotate(90deg); color: var(--gold); }
-.ov-subgroup.expanded .ov-trigger { color: var(--cream); }
-
-.ov-sublinks {
+.ov-item.expanded .ov-acc-chevron { transform: rotate(90deg); color: var(--gold); }
+.ov-item.expanded .ov-sub-trigger { color: var(--cream); }
+.ov-sub {
   max-height: 0; overflow: hidden;
   transition: max-height .35s cubic-bezier(.4,0,.2,1);
   padding-left: 4px;
 }
-.ov-subgroup.expanded .ov-sublinks { max-height: 300px; }
-.ov-sublink {
+.ov-item.expanded .ov-sub { max-height: 320px; }
+.ov-sub-link {
   display: flex; align-items: center; gap: 10px;
   font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
   color: rgba(200,185,164,.4);
@@ -330,39 +301,23 @@ a { text-decoration: none; color: inherit; }
   transition: color .2s;
   -webkit-tap-highlight-color: transparent;
 }
-.ov-sublink:hover, .ov-sublink:active { color: var(--gold); }
-.ov-sublink .ov-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .3; flex-shrink: 0; }
-
-/* Stagger animation */
-.ov-link, .ov-trigger {
-  opacity: 0; transform: translateY(16px);
-  transition: opacity .4s ease, transform .4s ease, color .2s;
-}
-.nav-overlay.open .ov-link,
-.nav-overlay.open .ov-trigger { opacity: 1; transform: translateY(0); }
-.nav-overlay.open .ov-nav > *:nth-child(1) .ov-trigger,
-.nav-overlay.open .ov-nav > *:nth-child(1).ov-link { transition-delay: .12s; }
-.nav-overlay.open .ov-nav > *:nth-child(2) .ov-trigger,
-.nav-overlay.open .ov-nav > *:nth-child(2).ov-link { transition-delay: .19s; }
-.nav-overlay.open .ov-nav > *:nth-child(3) .ov-trigger,
-.nav-overlay.open .ov-nav > *:nth-child(3).ov-link { transition-delay: .26s; }
-.nav-overlay.open .ov-nav > *:nth-child(4) .ov-trigger,
-.nav-overlay.open .ov-nav > *:nth-child(4).ov-link { transition-delay: .33s; }
-.nav-overlay.open .ov-nav > *:nth-child(5) .ov-trigger,
-.nav-overlay.open .ov-nav > *:nth-child(5).ov-link { transition-delay: .40s; }
-.nav-overlay.open .ov-nav > *:nth-child(6).ov-link { transition-delay: .47s; }
+.ov-sub-link:hover, .ov-sub-link:active { color: var(--gold); }
+.ov-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .3; flex-shrink: 0; }
 
 /* Overlay footer */
-.ov-footer {
-  padding: 20px 36px 40px;
+.ov-ft {
+  padding: 24px 36px 40px;
   border-top: 1px solid rgba(200,169,110,.08);
   flex-shrink: 0;
   display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
 }
-.ov-footer-hours { font-size: 11px; color: rgba(200,185,164,.3); margin-bottom: 3px; }
-.ov-footer-addr  { font-size: 11px; color: rgba(200,185,164,.2); }
-.ov-footer-ig { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,169,110,.4); transition: color .2s; }
-.ov-footer-ig:hover { color: var(--gold); }
+.ov-ft-logo { height: 44px; width: auto; object-fit: contain; display: block; margin-bottom: 10px; }
+.ov-ft-hours { font-size: 11px; color: rgba(200,185,164,.3); margin-bottom: 3px; }
+.ov-ft-addr  { font-size: 11px; color: rgba(200,185,164,.2); }
+.ov-ft-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+.ov-ft-phone { font-size: 11px; color: rgba(200,185,164,.3); }
+.ov-ft-ig { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,169,110,.4); transition: color .2s; }
+.ov-ft-ig:hover { color: var(--gold); }
 
 /* Show hamburger, fix nav height & logo on mobile */
 @media (max-width: 960px) {
@@ -374,94 +329,73 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* ── CANONICAL FOOTER ────────────────────── */
-.site-footer {
-  background: #0e0c0a;
-  border-top: 1px solid rgba(200,169,110,.12);
-  padding: 0 0 0;
-}
+/* ── FOOTER ──────────────────────────────── */
+.footer { background: #0e0c0a; border-top: 1px solid rgba(200,169,110,.12); }
 
-/* Map strip */
-.footer-map {
+.footer-map-wrap {
   width: 100%; height: 220px; overflow: hidden; position: relative;
   border-bottom: 1px solid rgba(200,169,110,.1);
 }
-.footer-map iframe {
+.footer-map-wrap iframe {
   width: 100%; height: 100%; border: none; display: block;
   filter: invert(90%) hue-rotate(180deg) saturate(.55) brightness(.8);
 }
-.footer-map-cta {
+.footer-map-btn {
   position: absolute; bottom: 16px; right: 16px;
   display: inline-flex; align-items: center; gap: 8px;
   background: rgba(20,18,16,.9); border: 1px solid rgba(200,169,110,.3);
   color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
   text-transform: uppercase; padding: 8px 14px;
-  backdrop-filter: blur(8px); transition: background .2s;
-  text-decoration: none;
+  backdrop-filter: blur(8px); transition: background .2s; text-decoration: none;
 }
-.footer-map-cta:hover { background: rgba(200,169,110,.12); }
-.footer-map-cta svg { flex-shrink: 0; }
+.footer-map-btn::after { content: ' →'; }
+.footer-map-btn:hover { background: rgba(200,169,110,.12); }
 
-/* Main footer body */
-.footer-body {
-  max-width: 1200px; margin: 0 auto;
-  padding: 52px 72px 40px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+.footer-top {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 56px var(--gutter) 40px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px; align-items: start;
 }
-
-/* Column 1 — brand */
-.footer-brand {}
-.footer-brand-logo { margin-bottom: 20px; }
-.footer-brand-logo img { width: 160px; object-fit: contain; }
-.footer-brand-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 20px; }
-.footer-brand-contact { display: flex; flex-direction: column; gap: 6px; }
-.footer-brand-contact a,
-.footer-brand-contact span {
-  font-size: 12px; color: rgba(200,185,164,.45);
-  text-decoration: none; transition: color .2s; line-height: 1.5;
-}
-.footer-brand-contact a:hover { color: var(--gold); }
-
-/* Columns 2–4 */
-.footer-col {}
-.footer-col-title {
-  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 18px; display: block;
-}
-.footer-col-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-col-links a,
-.footer-col-links span {
-  font-size: 12px; color: rgba(200,185,164,.5);
-  text-decoration: none; transition: color .2s; line-height: 1.4;
-}
-.footer-col-links a:hover { color: var(--cream); }
-.footer-col-links .footer-divider {
-  height: 1px; background: rgba(200,169,110,.07); margin: 4px 0;
-}
-
-/* Bottom bar */
-.footer-bottom-bar {
-  max-width: 1200px; margin: 0 auto;
-  padding: 20px 72px 28px;
+.ft-brand-logo { margin-bottom: 18px; }
+.ft-brand-logo img { width: 210px; object-fit: fill; }
+.ft-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 16px; }
+.ft-address { font-size: 12px; color: rgba(200,185,164,.4); line-height: 1.7; margin-bottom: 10px; }
+.ft-contact { display: flex; flex-direction: column; gap: 4px; }
+.ft-contact a, .ft-contact span { font-size: 12px; color: rgba(200,185,164,.45); text-decoration: none; transition: color .2s; line-height: 1.5; }
+.ft-contact a:hover { color: var(--gold); }
+.ft-hours { font-size: 12px; color: rgba(200,185,164,.35); margin-top: 8px; }
+.ft-col-title { font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: block; }
+.ft-nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+.ft-nav-grid a { font-size: 12px; color: rgba(200,185,164,.5); text-decoration: none; transition: color .2s; line-height: 1.9; display: block; }
+.ft-nav-grid a:hover { color: var(--cream); }
+.ft-col-links { display: flex; flex-direction: column; gap: 4px; }
+.ft-col-links a, .ft-col-links span { font-size: 12px; color: rgba(200,185,164,.5); text-decoration: none; transition: color .2s; line-height: 1.8; display: block; }
+.ft-col-links a:hover { color: var(--cream); }
+.ft-divider { height: 1px; background: rgba(200,169,110,.07); margin: 6px 0; }
+.footer-btm {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 20px var(--gutter) 28px;
   border-top: 1px solid rgba(200,169,110,.07);
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
+.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); letter-spacing: .3px; }
+
 /* Mobile footer */
 @media (max-width: 768px) {
-  .footer-map { height: 180px; }
-  .footer-body {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    padding: 40px 20px 32px;
-  }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-bottom-bar { padding: 16px 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
-}
-@media (max-width: 480px) {
-  .footer-body { grid-template-columns: 1fr; }
+  .footer-map-wrap { height: 180px; }
+  .footer-top { grid-template-columns: 1fr; padding: 40px 24px 32px; gap: 0; }
+  .ft-brand { text-align: center; padding-bottom: 28px; border-bottom: 1px solid rgba(200,169,110,.1); }
+  .ft-brand-logo img { margin: 0 auto 14px; width: 150px; }
+  .ft-tagline, .ft-address, .ft-hours { text-align: center; }
+  .ft-contact { align-items: center; }
+  .ft-col { padding: 24px 0; border-bottom: 1px solid rgba(200,169,110,.08); text-align: center; }
+  .ft-col:last-child { border-bottom: none; padding-bottom: 8px; }
+  .ft-col-title { text-align: center; }
+  .ft-nav-grid { justify-content: center; column-gap: 40px; }
+  .ft-nav-grid a { text-align: left; }
+  .ft-col-links { align-items: center; }
+  .footer-btm { flex-direction: column; gap: 4px; text-align: center; padding: 16px 24px 24px; }
 }
 
 
@@ -576,50 +510,47 @@ a { text-decoration: none; color: inherit; }
 
 <!-- ══ MOBILE OVERLAY NAV ════════════════════ -->
 <div class="nav-overlay" id="nav-overlay">
-  <div class="ov-header">
-    <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-logo">
-    <button class="ov-close" id="ov-close" aria-label="Close menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-  </div>
-  <div class="ov-rule"></div>
-  <nav class="ov-nav">
-    <a href="story.html"    class="ov-link">Our Story</a>
-    <div class="ov-subgroup" id="ovg-venue">
-      <button class="ov-trigger" onclick="toggleOvGroup('ovg-venue')">
+  <div class="ov-inner">
+    <div class="ov-item"><a href="index.html"      class="ov-link">Home</a></div>
+    <div class="ov-item"><a href="story.html"      class="ov-link">Our Story</a></div>
+    <div class="ov-item" id="ovg-venue">
+      <button class="ov-sub-trigger" onclick="toggleOv('ovg-venue')">
         The Venue
-        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+        <svg class="ov-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
       </button>
-      <div class="ov-sublinks">
-        <a href="explore-our-venue.html" class="ov-sublink"><span class="ov-dot"></span>Explore the Venue →</a>
-        <a href="billiards.html"         class="ov-sublink"><span class="ov-dot"></span>Billiards</a>
-        <a href="darts.html"             class="ov-sublink"><span class="ov-dot"></span>Darts</a>
-        <a href="terrace.html"           class="ov-sublink"><span class="ov-dot"></span>The Terrace Cafe</a>
-        <a href="kitchen.html"           class="ov-sublink" style="color:var(--gold)"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
+      <div class="ov-sub">
+        <a href="explore-our-venue.html" class="ov-sub-link" style="color:var(--gold)"><span class="ov-dot"></span>Explore our Venue →</a>
+        <a href="billiards.html"         class="ov-sub-link"><span class="ov-dot"></span>Billiards</a>
+        <a href="darts.html"             class="ov-sub-link"><span class="ov-dot"></span>Darts</a>
+        <a href="terrace.html"           class="ov-sub-link"><span class="ov-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html"           class="ov-sub-link" style="color:var(--gold)"><span class="ov-dot"></span>Kitchen &amp; Bar</a>
       </div>
     </div>
-    <div class="ov-subgroup" id="ovg-events">
-      <button class="ov-trigger" onclick="toggleOvGroup('ovg-events')">
+    <div class="ov-item" id="ovg-events">
+      <button class="ov-sub-trigger" onclick="toggleOv('ovg-events')">
         Events
-        <svg class="ov-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+        <svg class="ov-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
       </button>
-      <div class="ov-sublinks">
-        <a href="tournaments.html" class="ov-sublink"><span class="ov-dot"></span>Tournaments</a>
-        <a href="social.html"      class="ov-sublink"><span class="ov-dot"></span>Social Events</a>
+      <div class="ov-sub">
+        <a href="tournaments.html" class="ov-sub-link"><span class="ov-dot"></span>Tournaments</a>
+        <a href="social.html"      class="ov-sub-link"><span class="ov-dot"></span>Social Events</a>
       </div>
     </div>
-    <a href="your-event.html" class="ov-link">Your Event</a>
-    <a href="pro-shop.html"   class="ov-link">Pro Shop</a>
-    <a href="contact.html"    class="ov-link">Find Us</a>
-  </nav>
-  <div class="ov-footer">
+    <div class="ov-item"><a href="your-event.html" class="ov-link">Your Event</a></div>
+    <div class="ov-item"><a href="pro-shop.html"   class="ov-link">Pro Shop</a></div>
+    <div class="ov-item"><a href="contact.html"    class="ov-link">Find Us</a></div>
+  </div>
+  <div class="ov-ft">
     <div>
-      <div class="ov-footer-hours">Open 10:00 – 01:00 · Every day</div>
-      <div class="ov-footer-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS" class="ov-ft-logo">
+      <div class="ov-ft-hours">Open daily 10:00–01:00</div>
+      <div class="ov-ft-addr">Kissamou &amp; Saridantoni 1 · Chania, Crete</div>
     </div>
-    <a href="https://instagram.com/aramischania" target="_blank" class="ov-footer-ig">@aramischania</a>
+    <div class="ov-ft-right">
+      <span class="ov-ft-phone">(+30) 28210 70307</span>
+      <span class="ov-ft-phone">(+30) 6975 993 307</span>
+      <a href="https://instagram.com/aramischania" target="_blank" class="ov-ft-ig">@aramischania</a>
+    </div>
   </div>
 </div>
 
@@ -632,11 +563,12 @@ a { text-decoration: none; color: inherit; }
      ════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-img">
-    <div class="hero-img-placeholder">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-      <span>Pizza + cocktail on terrace table — warm light</span>
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <span class="ph-label">kitchen-hero.jpg · 1920×1080px<br>Pizza + cocktail on terrace table — warm light</span>
+      </div>
     </div>
-    <!-- <img src="assets/images/kitchen-food.jpg" alt="ARAMIS Kitchen and Bar"> -->
+    <!-- <img src="assets/images/kitchen-hero.jpg" alt="ARAMIS Kitchen and Bar"> -->
   </div>
   <div class="hero-ov"></div>
   <div class="hero-content">
@@ -652,9 +584,10 @@ a { text-decoration: none; color: inherit; }
 <section class="kitchen-split">
 
   <div class="kitchen-photo fu">
-    <div class="kitchen-ph">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-      <span>Pizza close-up — or Sissi / Dimitra in the kitchen</span>
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <span class="ph-label">kitchen-food.jpg · 800×900px<br>Pizza close-up — or Sissi / Dimitra in the kitchen</span>
+      </div>
     </div>
     <!-- <img src="assets/images/kitchen-food.jpg" alt="ARAMIS kitchen"> -->
   </div>
@@ -719,19 +652,31 @@ a { text-decoration: none; color: inherit; }
 <!-- ══ FOOD PHOTO STRIP ═══════════════════════ -->
 <div class="photo-strip">
   <div class="ps-item">
-    <div class="ps-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><circle cx="12" cy="12" r="10"/></svg><span>Hero food — pizza or full table spread</span></div>
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <span class="ph-label">kitchen-strip-pizza.jpg<br>Hero food — pizza or full table spread</span>
+      </div>
+    </div>
     <!-- <img src="assets/images/kitchen-strip-pizza.jpg" alt="ARAMIS pizza"> -->
-    <div class="ps-label">From the kitchen</div>
+    <span class="ph-psl">From the kitchen</span>
   </div>
   <div class="ps-item">
-    <div class="ps-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg><span>Burger or club sandwich</span></div>
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <span class="ph-label">kitchen-strip-burger.jpg<br>Burger or club sandwich</span>
+      </div>
+    </div>
     <!-- <img src="assets/images/kitchen-strip-burger.jpg" alt="ARAMIS burger"> -->
-    <div class="ps-label">Burgers</div>
+    <span class="ph-psl">Burgers</span>
   </div>
   <div class="ps-item">
-    <div class="ps-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12z"/></svg><span>Sweet treat or salad detail</span></div>
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <span class="ph-label">kitchen-strip-sweet.jpg<br>Sweet treat or salad detail</span>
+      </div>
+    </div>
     <!-- <img src="assets/images/kitchen-strip-sweet.jpg" alt="ARAMIS sweet treats"> -->
-    <div class="ps-label">Sweet treats</div>
+    <span class="ph-psl">Sweet treats</span>
   </div>
 </div>
 
@@ -748,9 +693,10 @@ a { text-decoration: none; color: inherit; }
   </div>
 
   <div class="bar-photo fu fu-d1">
-    <div class="bar-ph">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-      <span>Bar — cocktail being prepared or bar counter shot</span>
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <span class="ph-label">kitchen-bar.jpg · 800×900px<br>Bar — cocktail being prepared or bar counter shot</span>
+      </div>
     </div>
     <!-- <img src="assets/images/kitchen-bar.jpg" alt="ARAMIS bar"> -->
   </div>
@@ -813,19 +759,31 @@ a { text-decoration: none; color: inherit; }
     <!-- Cocktail photo grid -->
     <div class="cocktail-photos fu fu-d1">
       <div class="cph">
-        <div class="cph-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg><span>Cocktail — presented, lit well</span></div>
+        <div class="ph ph-fill">
+          <div class="ph-inner">
+            <span class="ph-label">kitchen-cocktail-main.jpg<br>Cocktail — presented, lit well</span>
+          </div>
+        </div>
         <!-- <img src="assets/images/kitchen-cocktail-main.jpg" alt="ARAMIS signature cocktail"> -->
-        <div class="cph-label">House cocktail</div>
+        <span class="ph-psl">House cocktail</span>
       </div>
       <div class="cph">
-        <div class="cph-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M5 3h14l-7 9-7-9z"/><path d="M12 12v9"/></svg><span>Spirits shelf or bar detail</span></div>
+        <div class="ph ph-fill">
+          <div class="ph-inner">
+            <span class="ph-label">kitchen-spirits.jpg<br>Spirits shelf or bar detail</span>
+          </div>
+        </div>
         <!-- <img src="assets/images/kitchen-spirits.jpg" alt="ARAMIS spirits"> -->
-        <div class="cph-label">Spirits</div>
+        <span class="ph-psl">Spirits</span>
       </div>
       <div class="cph">
-        <div class="cph-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg><span>Coffee — morning service</span></div>
+        <div class="ph ph-fill">
+          <div class="ph-inner">
+            <span class="ph-label">kitchen-coffee.jpg<br>Coffee — morning service</span>
+          </div>
+        </div>
         <!-- <img src="assets/images/kitchen-coffee.jpg" alt="ARAMIS coffee"> -->
-        <div class="cph-label">Coffee</div>
+        <span class="ph-psl">Coffee</span>
       </div>
     </div>
 
@@ -854,62 +812,58 @@ a { text-decoration: none; color: inherit; }
 
 
 <!-- ══ FOOTER ═════════════════════════════════ -->
-<footer class="site-footer">
+<footer class="footer">
 
-  <!-- Embedded Google Map -->
-  <div class="footer-map">
+  <!-- Maps strip -->
+  <div class="footer-map-wrap">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.8910094819826!2d24.003072675544388!3d35.50697313952732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149c7d882f64a033%3A0xa58664b0e378e1c2!2sARAMIS%20Billiard%20Club!5e0!3m2!1sen!2sgr!4v1777143620797!5m2!1sen!2sgr"
+      src="https://maps.google.com/maps?q=ARAMIS+Billiard+Club+Chania+Greece&output=embed&z=16"
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
       title="ARAMIS Billiard Club — Kissamou &amp; Saridantoni 1, Chania">
     </iframe>
-    <a href="https://maps.google.com/?q=ARAMIS+Billiard+Club+Chania" target="_blank" class="footer-map-cta">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Get directions
-    </a>
+    <a href="https://maps.google.com/?q=ARAMIS+Billiard+Club+Chania" target="_blank" class="footer-map-btn">Get Directions</a>
   </div>
 
   <!-- Footer columns -->
-  <div class="footer-body">
+  <div class="footer-top">
 
-    <!-- Brand + contact -->
-    <div class="footer-brand">
-      <div class="footer-brand-logo">
+    <!-- Brand -->
+    <div class="ft-brand">
+      <div class="ft-brand-logo">
         <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club">
       </div>
-      <div class="footer-brand-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
-      <div class="footer-brand-contact">
-        <a href="tel:+302821070307">(+30) 28210 70307</a>
-        <a href="tel:+306975993307">(+30) 6975 993 307</a>
+      <p class="ft-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</p>
+      <div class="ft-address">Kissamou &amp; Saridantoni 1<br>Chania 73136, Crete, Greece</div>
+      <div class="ft-contact">
+        <span><a href="tel:+302821070307">(+30) 28210 70307</a> | <a href="tel:+306975993307">6975 993 307</a></span>
         <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-        <span>Open 10:00 – 01:00 daily*</span>
       </div>
+      <div class="ft-hours">Open daily 10:00 – 01:00</div>
     </div>
 
     <!-- Navigate -->
-    <div class="footer-col">
-      <span class="footer-col-title">Navigate</span>
-      <div class="footer-col-links">
+    <div class="ft-col">
+      <span class="ft-col-title">Navigate</span>
+      <div class="ft-nav-grid">
         <a href="index.html">Home</a>
-        <a href="story.html">Our Story</a>
-        <a href="explore-our-venue.html">The Venue</a>
-        <a href="menu.html">Our Menu</a>
-        <div class="footer-divider"></div>
         <a href="tournaments.html">Tournaments</a>
+        <a href="story.html">Our Story</a>
         <a href="social.html">Social Events</a>
+        <a href="explore-our-venue.html">The Venue</a>
         <a href="pro-shop.html">Pro Shop</a>
+        <a href="menu.html">Our Menu</a>
         <a href="contact.html">Find Us</a>
       </div>
     </div>
 
     <!-- Follow -->
-    <div class="footer-col">
-      <span class="footer-col-title">Follow</span>
-      <div class="footer-col-links">
+    <div class="ft-col">
+      <span class="ft-col-title">Follow</span>
+      <div class="ft-col-links">
         <a href="https://instagram.com/aramischania" target="_blank">Instagram @aramischania</a>
         <a href="https://facebook.com/aramischania" target="_blank">Facebook /aramischania</a>
         <a href="https://cuescore.com/aramischania" target="_blank">CueScore /aramischania</a>
-        <div class="footer-divider"></div>
+        <div class="ft-divider"></div>
         <a href="https://g.page/r/ARAMIS-GOOGLE-REVIEW-LINK/review" target="_blank">Leave us a Google review</a>
       </div>
     </div>
@@ -917,8 +871,8 @@ a { text-decoration: none; color: inherit; }
   </div>
 
   <!-- Bottom bar -->
-  <div class="footer-bottom-bar">
-    <span class="footer-copy">All Rights Reserved © 2026 ARAMIS Billiard Club · Chania, Crete · Est. 1984</span>
+  <div class="footer-btm">
+    <span class="footer-copy">All Rights Reserved © 2026 ARAMIS Billiard Club</span>
     <span class="footer-copy">Design &amp; Development by Locus Design + Innovation</span>
   </div>
 
@@ -947,7 +901,6 @@ document.querySelectorAll('.fu').forEach(el => obs.observe(el));
 (function() {
   var hamburger = document.getElementById('nav-hamburger');
   var overlay   = document.getElementById('nav-overlay');
-  var closeBtn  = document.getElementById('ov-close');
   if (!hamburger || !overlay) return;
 
   function openOverlay() {
@@ -963,8 +916,7 @@ document.querySelectorAll('.fu').forEach(el => obs.observe(el));
   hamburger.addEventListener('click', function() {
     overlay.classList.contains('open') ? closeOverlay() : openOverlay();
   });
-  if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
-  overlay.querySelectorAll('.ov-link, .ov-sublink').forEach(function(l) {
+  overlay.querySelectorAll('.ov-link, .ov-sub-link').forEach(function(l) {
     l.addEventListener('click', closeOverlay);
   });
   document.addEventListener('keydown', function(e) {
@@ -972,10 +924,10 @@ document.querySelectorAll('.fu').forEach(el => obs.observe(el));
   });
 })();
 
-function toggleOvGroup(id) {
+function toggleOv(id) {
   var el = document.getElementById(id);
   if (!el) return;
-  document.querySelectorAll('.ov-subgroup').forEach(function(g) {
+  document.querySelectorAll('.ov-item[id]').forEach(function(g) {
     if (g.id !== id) g.classList.remove('expanded');
   });
   el.classList.toggle('expanded');
