@@ -4,241 +4,216 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pro Shop | ARAMIS Billiard Club, Chania</title>
-  <!-- SEO & Open Graph -->
-  <meta name="description" content="Billiard and dart equipment at ARAMIS Chania — gloves, chalk, tips, accessories and expert cue sourcing. Honest advice from players who know the game.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.aramisbilliards.com/pro-shop">
-  <!-- Open Graph (social sharing) -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ARAMIS Billiard Club">
-  <meta property="og:title" content="Pro Shop | ARAMIS Billiard Club, Chania">
-  <meta property="og:description" content="Billiard and dart equipment at ARAMIS Chania — gloves, chalk, tips, accessories and expert cue sourcing. Honest advice from players who know the game.">
-  <meta property="og:url" content="https://www.aramisbilliards.com/pro-shop">
-  <meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
-  <meta property="og:locale" content="en_GR">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pro Shop | ARAMIS Billiard Club, Chania">
-  <meta name="twitter:description" content="Billiard and dart equipment at ARAMIS Chania — gloves, chalk, tips, accessories and expert cue sourcing. Honest advice from players who know the game.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<meta name="description" content="Billiard and dart equipment at ARAMIS Chania — gloves, chalk, tips, accessories and expert cue sourcing. Honest advice from players who know the game.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.aramisbilliards.com/pro-shop">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ARAMIS Billiard Club">
+<meta property="og:title" content="Pro Shop | ARAMIS Billiard Club, Chania">
+<meta property="og:description" content="Billiard and dart equipment at ARAMIS Chania — gloves, chalk, tips, accessories and expert cue sourcing. Honest advice from players who know the game.">
+<meta property="og:url" content="https://www.aramisbilliards.com/pro-shop">
+<meta property="og:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
+<meta property="og:locale" content="en_GR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pro Shop | ARAMIS Billiard Club, Chania">
+<meta name="twitter:description" content="Billiard and dart equipment at ARAMIS Chania — gloves, chalk, tips, accessories and expert cue sourcing. Honest advice from players who know the game.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:      #1a1814;
-  --bg-card: #232019;
-  --bg-surf: #2a2620;
-  --gold:    #c8a96e;
-  --gold-h:  #dcc48e;
-  --cream:   #f3e5d2;
-  --muted:   #c8b9a4;
-  --nav-h:   180px;
-  --gutter:  72px;
-  --max-w:   1200px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; overflow-x: hidden; min-height: 100vh; }
-img { display: block; max-width: 100%; }
-a { text-decoration: none; color: inherit; }
+:root{--bg:#1a1814;--bg-card:#232019;--bg-surf:#2a2620;--gold:#c8a96e;--gold-h:#dcc48e;--cream:#f3e5d2;--muted:#c8b9a4;--nav-h:180px;--gutter:72px;--max-w:1200px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--cream);font-family:'Plus Jakarta Sans',sans-serif;font-weight:300;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
 
-/* ─── NAV ────────────────────────────────── */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); display: flex; align-items: center; padding: 0 40px; background: rgba(26,24,20,.85); transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
-.nav.scrolled { background: rgba(26,24,20,.99); border-bottom-color: rgba(200,169,110,.18); backdrop-filter: blur(16px); }
-.nav-left  { display: flex; align-items: center; justify-content: flex-end;  flex: 1; gap: 2px; }
-.nav-right { display: flex; align-items: center; justify-content: flex-start; flex: 1; gap: 2px; }
-.nav-logo  { padding: 0 28px; flex-shrink: 0; }
-.nav-logo img { width: 340px; height: 104px; object-fit: contain; display: block; }
-.nav-lk { font-size: 10.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(243,229,210,.65); padding: 10px 22px; transition: color .2s; white-space: nowrap; line-height: 1; cursor: pointer; position: relative; }
-.nav-lk:hover, .nav-lk.active { color: var(--gold); }
-.nav-dd { position: relative; display: flex; align-items: center; }
-.nav-dd-trigger { display: flex; align-items: center; gap: 5px; }
-.nav-dd-trigger .chevron { width: 10px; height: 10px; transition: transform .25s; opacity: .5; flex-shrink: 0; }
-.nav-dd:hover .chevron, .nav-dd.open .chevron { transform: rotate(180deg); opacity: 1; }
-.nav-dd-panel { position: absolute; top: calc(100% + 8px); left: 0; min-width: 220px; background: rgba(22,20,17,.98); border: 1px solid rgba(200,169,110,.15); border-top: 2px solid var(--gold); backdrop-filter: blur(16px); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility 0s linear .35s; pointer-events: none; }
-.nav-dd-panel.panel-right { left: auto; right: 0; }
-.nav-dd-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 12px; }
-.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity .18s ease, transform .18s ease, visibility 0s linear 0s; pointer-events: auto; }
-.nav-dd-item { display: flex; align-items: center; gap: 12px; padding: 12px 20px; font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(243,229,210,.6); transition: color .18s, background .18s; white-space: nowrap; }
-.nav-dd-item:hover { color: var(--gold); background: rgba(200,169,110,.05); }
-.nav-dd-item .dd-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: .4; flex-shrink: 0; }
-.nav-dd-divider { height: 1px; background: rgba(200,169,110,.08); margin: 6px 0; }
-@media (max-width: 960px) { .nav-left, .nav-right { display: none; } .nav { justify-content: center; } .nav-logo img { width: 240px; height: auto; } }
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav-h);display:flex;align-items:center;padding:0 40px;background:rgba(26,24,20,.85);transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(26,24,20,.97);border-bottom-color:rgba(200,169,110,.12);backdrop-filter:blur(12px)}
+.nav-left{display:flex;align-items:center;justify-content:flex-end;flex:1;gap:2px}
+.nav-right{display:flex;align-items:center;justify-content:flex-start;flex:1;gap:2px}
+.nav-logo{padding:0 28px;flex-shrink:0}
+.nav-logo img{width:340px;height:104px;object-fit:contain;display:block;transition:opacity .2s}
+.nav-logo img:hover{opacity:.85}
+.nav-lk{font-size:10.5px;font-weight:500;letter-spacing:1.6px;text-transform:uppercase;color:rgba(243,229,210,.65);padding:10px 22px;transition:color .2s;white-space:nowrap;line-height:1;cursor:pointer}
+.nav-lk:hover,.nav-lk.active{color:var(--gold)}
+.nav-dd{position:relative;display:flex;align-items:center}
+.nav-dd-trigger{display:flex;align-items:center;gap:5px}
+.nav-dd-trigger .chevron{width:10px;height:10px;transition:transform .25s;opacity:.5;flex-shrink:0}
+.nav-dd:hover .chevron,.nav-dd.open .chevron{transform:rotate(180deg);opacity:1}
+.nav-dd-panel{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:rgba(22,20,17,.98);border:1px solid rgba(200,169,110,.15);border-top:2px solid var(--gold);backdrop-filter:blur(16px);padding:8px 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s ease,transform .18s ease,visibility 0s linear .35s;pointer-events:none}
+.nav-dd-panel.panel-right{left:auto;right:0}
+.nav-dd-panel::before{content:'';position:absolute;bottom:100%;left:0;right:0;height:12px}
+.nav-dd:hover .nav-dd-panel,.nav-dd.open .nav-dd-panel{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .18s ease,transform .18s ease,visibility 0s linear 0s;pointer-events:auto}
+.nav-dd-item{display:flex;align-items:center;gap:12px;padding:12px 20px;font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:rgba(243,229,210,.6);transition:color .18s,background .18s;white-space:nowrap}
+.nav-dd-item:hover{color:var(--gold);background:rgba(200,169,110,.05)}
+.nav-dd-item .dd-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.4;flex-shrink:0}
+.nav-dd-divider{height:1px;background:rgba(200,169,110,.08);margin:6px 0}
+.nav-hamburger{display:none;position:absolute;right:24px;top:50%;transform:translateY(-50%);width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:none;border:none;cursor:pointer;z-index:970;padding:8px}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:rgba(243,229,210,.75);transition:all .38s cubic-bezier(.77,0,.18,1);transform-origin:center}
+.nav-hamburger.is-open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);background:var(--cream)}
+.nav-hamburger.is-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.is-open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);background:var(--cream)}
 
-/* ─── COMING SOON HERO ───────────────────── */
-.coming-soon {
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  padding: calc(var(--nav-h) + 40px) var(--gutter) 80px;
-  position: relative;
-}
-/* Subtle background grid */
-.coming-soon::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    repeating-linear-gradient(0deg,  transparent, transparent 79px, rgba(200,169,110,.018) 80px),
-    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(200,169,110,.018) 80px);
-  pointer-events: none;
-}
-/* Large ghost watermark */
-.coming-soon::after {
-  content: 'PRO\ASHOP';
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  font-family: 'Fraunces', serif; font-size: clamp(120px, 18vw, 280px);
-  font-weight: 300; color: rgba(200,169,110,.03);
-  white-space: pre; line-height: 1; pointer-events: none;
-  letter-spacing: -8px; text-align: center;
-  user-select: none;
-}
-.cs-inner { position: relative; z-index: 2; max-width: 680px; }
-.cs-eyebrow {
-  font-size: 9px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 32px;
-  display: flex; align-items: center; gap: 16px; justify-content: center;
-}
-.cs-eyebrow::before, .cs-eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
-.cs-hed {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(36px, 5vw, 72px);
-  font-weight: 400; font-style: italic;
-  line-height: 1.1; color: var(--cream);
-  margin-bottom: 28px; letter-spacing: -1px;
-}
-.cs-rule { width: 1px; height: 52px; background: linear-gradient(to bottom, rgba(200,169,110,.4), transparent); margin: 0 auto 28px; }
-.cs-body {
-  font-size: 16px; line-height: 1.85; color: var(--muted);
-  margin-bottom: 48px;
-}
-.cs-body strong { color: var(--cream); font-weight: 500; }
+/* OVERLAY */
+.nav-overlay{display:none;position:fixed;inset:0;z-index:950;background:#100e0b;clip-path:inset(0 0 100% 0);transition:clip-path .65s cubic-bezier(.77,0,.18,1);pointer-events:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.nav-overlay.is-open{clip-path:inset(0 0 0% 0);pointer-events:auto}
+.nav-overlay-inner{display:flex;flex-direction:column;min-height:100dvh;padding:0 40px 56px}
+.nav-overlay-head{height:90px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-bottom:1px solid rgba(200,169,110,.08);margin-bottom:40px}
+.nav-overlay-head img{width:200px;object-fit:contain}
+.nav-overlay-links{flex:1;display:flex;flex-direction:column}
+.ov-item{border-bottom:1px solid rgba(200,169,110,.07);opacity:0;transform:translateY(22px);transition:opacity .45s ease,transform .45s ease}
+.nav-overlay.is-open .ov-item{opacity:1;transform:translateY(0)}
+.ov-item:nth-child(1){transition-delay:.16s}.ov-item:nth-child(2){transition-delay:.22s}.ov-item:nth-child(3){transition-delay:.28s}.ov-item:nth-child(4){transition-delay:.34s}.ov-item:nth-child(5){transition-delay:.40s}.ov-item:nth-child(6){transition-delay:.46s}.ov-item:nth-child(7){transition-delay:.52s}
+.ov-link{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;font-family:'Fraunces',serif;font-size:clamp(28px,6.5vw,48px);font-weight:400;font-style:italic;color:rgba(243,229,210,.72);transition:color .22s;background:none;border:none;cursor:pointer;text-align:left;line-height:1}
+.ov-link:hover{color:var(--gold)}
+.ov-acc-chevron{font-size:20px;color:rgba(200,169,110,.35);transition:transform .35s cubic-bezier(.77,0,.18,1),color .2s;flex-shrink:0;font-style:normal;line-height:1;margin-left:12px}
+.ov-item.is-expanded .ov-acc-chevron{transform:rotate(90deg);color:var(--gold)}
+.ov-sub{overflow:hidden;max-height:0;transition:max-height .5s cubic-bezier(.77,0,.18,1)}
+.ov-item.is-expanded .ov-sub{max-height:400px}
+.ov-sub-link{display:block;padding:11px 0 11px 16px;font-size:11px;font-weight:500;letter-spacing:2.2px;text-transform:uppercase;color:rgba(243,229,210,.4);border-left:1px solid rgba(200,169,110,.12);margin-bottom:2px;transition:color .2s,border-color .2s}
+.ov-sub-link:last-child{margin-bottom:20px}
+.ov-sub-link:hover{color:var(--gold);border-left-color:rgba(200,169,110,.35)}
+.nav-overlay-foot{margin-top:48px;padding-top:32px;border-top:1px solid rgba(200,169,110,.08);display:grid;grid-template-columns:100px 1fr;gap:20px 32px;align-items:center;opacity:0;transition:opacity .4s ease .6s}
+.nav-overlay.is-open .nav-overlay-foot{opacity:1}
+.nav-overlay-foot img{width:100px;object-fit:contain;opacity:.55}
+.ov-foot-info{display:flex;flex-direction:column;gap:5px}
+.ov-foot-line{font-size:11px;color:rgba(200,185,164,.38);letter-spacing:.4px;line-height:1.5}
+.ov-foot-line strong{color:rgba(200,185,164,.6);font-weight:500}
 
-/* Newsletter form */
-.cs-form {
-  display: flex; gap: 0; max-width: 440px; margin: 0 auto 16px;
-  border: 1px solid rgba(200,169,110,.25);
-}
-.cs-form input[type="email"] {
-  flex: 1; background: var(--bg-card); border: none;
-  color: var(--cream); padding: 14px 20px;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 300;
-  outline: none; min-width: 0;
-}
-.cs-form input[type="email"]::placeholder { color: rgba(200,185,164,.3); }
-.cs-form input[type="email"]:focus { background: var(--bg-surf); }
-.cs-form button {
-  background: var(--gold); color: var(--bg); border: none;
-  padding: 14px 28px; font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-  cursor: pointer; flex-shrink: 0; transition: background .2s; white-space: nowrap;
-}
-.cs-form button:hover { background: var(--gold-h); }
-.cs-form-note { font-size: 11px; color: rgba(200,185,164,.3); margin-top: 10px; }
-.cs-success {
-  display: none; font-size: 14px; color: var(--gold); font-style: italic;
-  font-family: 'Fraunces', serif; padding: 16px 0;
-}
+/* COMING SOON */
+.coming-soon{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(var(--nav-h) + 40px) var(--gutter) 80px;position:relative}
+.coming-soon::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(200,169,110,.018) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(200,169,110,.018) 80px);pointer-events:none}
+.coming-soon::after{content:'PRO\ASHOP';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-size:clamp(120px,18vw,280px);font-weight:300;color:rgba(200,169,110,.03);white-space:pre;line-height:1;pointer-events:none;letter-spacing:-8px;text-align:center;user-select:none}
+.cs-inner{position:relative;z-index:2;max-width:680px}
+.cs-eyebrow{font-size:9px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:32px;display:flex;align-items:center;gap:16px;justify-content:center}
+.cs-eyebrow::before,.cs-eyebrow::after{content:'';width:28px;height:1px;background:var(--gold);opacity:.5}
+.cs-hed{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,72px);font-weight:400;font-style:italic;line-height:1.1;color:var(--cream);margin-bottom:28px;letter-spacing:-1px}
+.cs-rule{width:1px;height:52px;background:linear-gradient(to bottom,rgba(200,169,110,.4),transparent);margin:0 auto 28px}
+.cs-body{font-size:16px;line-height:1.85;color:var(--muted);margin-bottom:48px}
+.cs-body strong{color:var(--cream);font-weight:500}
+.cs-form{display:flex;gap:0;max-width:440px;margin:0 auto 16px;border:1px solid rgba(200,169,110,.25)}
+.cs-form input[type="email"]{flex:1;background:var(--bg-card);border:none;color:var(--cream);padding:14px 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:300;outline:none;min-width:0}
+.cs-form input[type="email"]::placeholder{color:rgba(200,185,164,.3)}
+.cs-form input[type="email"]:focus{background:var(--bg-surf)}
+.cs-form button{background:var(--gold);color:var(--bg);border:none;padding:14px 28px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;flex-shrink:0;transition:background .2s;white-space:nowrap}
+.cs-form button:hover{background:var(--gold-h)}
+.cs-form-note{font-size:11px;color:rgba(200,185,164,.3);margin-top:10px}
+.cs-success{display:none;font-size:14px;color:var(--gold);font-style:italic;font-family:'Fraunces',serif;padding:16px 0}
+.cs-divider{width:48px;height:1px;background:rgba(200,169,110,.2);margin:48px auto}
+.cs-contact{background:var(--bg-card);border:1px solid rgba(200,169,110,.1);padding:40px 48px;max-width:540px;margin:0 auto;text-align:left}
+.cs-contact-label{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(200,169,110,.5);margin-bottom:16px}
+.cs-contact-hed{font-family:'Fraunces',serif;font-size:clamp(18px,2vw,24px);font-weight:400;color:var(--cream);margin-bottom:14px;line-height:1.25}
+.cs-contact-body{font-size:14px;line-height:1.75;color:var(--muted);margin-bottom:24px}
+.cs-contact-rows{display:flex;flex-direction:column;gap:12px}
+.cs-contact-row{display:flex;align-items:center;gap:12px}
+.cs-contact-row svg{color:var(--gold);flex-shrink:0}
+.cs-contact-row a{font-size:14px;color:var(--gold);border-bottom:1px solid rgba(200,169,110,.25);transition:border-color .2s}
+.cs-contact-row a:hover{border-color:var(--gold)}
+.cs-contact-row span{font-size:14px;color:var(--muted)}
 
-/* Divider */
-.cs-divider {
-  width: 48px; height: 1px; background: rgba(200,169,110,.2);
-  margin: 48px auto;
-}
+/* COMING STRIP */
+.coming-strip{background:var(--bg-card);border-top:1px solid rgba(200,169,110,.07);border-bottom:1px solid rgba(200,169,110,.07);padding:64px var(--gutter)}
+.coming-strip-inner{max-width:var(--max-w);margin:0 auto}
+.coming-strip-label{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:48px}
+.coming-strip-label::before,.coming-strip-label::after{content:'';width:28px;height:1px;background:var(--gold);opacity:.5}
+.coming-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.coming-item{background:var(--bg-surf);padding:36px 28px;border:1px solid rgba(200,169,110,.06);display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.coming-item-icon{color:rgba(200,169,110,.3)}
+.coming-item-name{font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--cream)}
+.coming-item-desc{font-size:12px;line-height:1.65;color:rgba(200,185,164,.5)}
+.coming-item-tag{font-size:8px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(200,169,110,.4);margin-top:auto;padding-top:8px;border-top:1px solid rgba(200,169,110,.08)}
 
-/* Urgent contact block */
-.cs-contact {
-  background: var(--bg-card); border: 1px solid rgba(200,169,110,.1);
-  padding: 40px 48px; max-width: 540px; margin: 0 auto;
-  text-align: left;
-}
-.cs-contact-label {
-  font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(200,169,110,.5); margin-bottom: 16px;
-}
-.cs-contact-hed {
-  font-family: 'Fraunces', serif; font-size: clamp(18px, 2vw, 24px);
-  font-weight: 400; color: var(--cream); margin-bottom: 14px; line-height: 1.25;
-}
-.cs-contact-body { font-size: 14px; line-height: 1.75; color: var(--muted); margin-bottom: 24px; }
-.cs-contact-rows { display: flex; flex-direction: column; gap: 12px; }
-.cs-contact-row { display: flex; align-items: center; gap: 12px; }
-.cs-contact-row svg { color: var(--gold); flex-shrink: 0; }
-.cs-contact-row a { font-size: 14px; color: var(--gold); border-bottom: 1px solid rgba(200,169,110,.25); transition: border-color .2s; }
-.cs-contact-row a:hover { border-color: var(--gold); }
-.cs-contact-row span { font-size: 14px; color: var(--muted); }
+/* MAPS + FOOTER */
+.footer-map-wrap{position:relative;height:220px;overflow:hidden;border-top:1px solid rgba(200,169,110,.06)}
+.footer-map-wrap iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(80%) invert(90%) sepia(25%) brightness(0.82) contrast(1.08)}
+.footer-map-btn{position:absolute;bottom:16px;right:20px;display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:rgba(16,14,11,.88);color:var(--gold);font-size:9.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(200,169,110,.28);backdrop-filter:blur(10px);transition:background .2s,border-color .2s}
+.footer-map-btn:hover{background:rgba(200,169,110,.12);border-color:var(--gold)}
+.footer-map-btn::after{content:'→';font-size:13px;margin-left:2px}
+.footer{background:#110f0c;padding:64px 80px 0;border-top:1px solid rgba(200,169,110,.08)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(200,169,110,.07)}
+.ft-brand-logo img{width:210px;margin-bottom:18px;object-fit:contain}
+.ft-tagline{font-size:12px;font-style:italic;color:rgba(200,185,164,.38);margin-bottom:8px;line-height:1.65}
+.ft-address{font-size:12px;color:rgba(200,185,164,.35);margin-bottom:16px;line-height:1.5}
+.ft-contact{font-size:13px;line-height:2.0;color:var(--muted)}
+.ft-contact p{display:block;margin:0}
+.ft-contact a{color:var(--muted);transition:color .2s}
+.ft-contact a:hover{color:var(--gold)}
+.ft-hours{margin-top:12px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(200,169,110,.45)}
+.ft-col h4{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.ft-col a,.ft-col p,.ft-nav-grid a{display:block;font-size:13px;color:var(--muted);line-height:2.1;transition:color .2s}
+.ft-col a:hover,.ft-nav-grid a:hover{color:var(--gold)}
+.footer-btm{padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.footer-btm span{font-size:11px;color:rgba(200,185,164,.3)}
 
-/* What's coming strip */
-.coming-strip {
-  background: var(--bg-card);
-  border-top: 1px solid rgba(200,169,110,.07);
-  border-bottom: 1px solid rgba(200,169,110,.07);
-  padding: 64px var(--gutter);
+/* RESPONSIVE */
+@media(max-width:1100px){:root{--gutter:48px}.footer{padding:56px 48px 0}.footer-top{gap:40px}}
+@media(max-width:960px){
+  :root{--nav-h:90px;--gutter:36px}
+  .nav{justify-content:center;padding:0 24px}
+  .nav-left,.nav-right{display:none}
+  .nav-logo{padding:0}
+  .nav-logo img{width:200px;height:auto}
+  .nav-hamburger{display:flex}
+  .nav-overlay{display:block}
+  .coming-strip-grid{grid-template-columns:1fr 1fr}
+  .cs-form{flex-direction:column}
+  .cs-form button{padding:14px}
 }
-.coming-strip-inner { max-width: var(--max-w); margin: 0 auto; }
-.coming-strip-label {
-  font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold); display: flex; align-items: center; gap: 14px;
-  justify-content: center; margin-bottom: 48px;
+@media(max-width:768px){
+  :root{--gutter:24px}
+  .coming-soon{padding:calc(90px + 40px) var(--gutter) 60px}
+  .coming-strip{padding:40px var(--gutter)}
+  .cs-contact{padding:28px 24px}
+  .footer{padding:40px 28px 0}
+  .footer-top{display:flex;flex-direction:column;gap:0}
+  .ft-brand{text-align:center;padding-bottom:28px;border-bottom:1px solid rgba(200,169,110,.1)}
+  .ft-brand .ft-brand-logo img{margin:0 auto 14px;width:150px}
+  .ft-brand .ft-tagline,.ft-brand .ft-address,.ft-brand .ft-contact p,.ft-brand .ft-hours{text-align:center}
+  .ft-brand .ft-tagline{margin-bottom:4px}
+  .ft-brand .ft-hours{margin-top:8px}
+  .ft-col{padding:24px 0;border-bottom:1px solid rgba(200,169,110,.08);text-align:center}
+  .ft-col:last-child{border-bottom:none;padding-bottom:8px}
+  .ft-col h4{text-align:center;margin-bottom:16px}
+  .footer-top>*:nth-child(2){display:flex;flex-direction:column;align-items:center}
+  .footer-top>*:nth-child(2) h4{width:100%}
+  .footer-top>*:nth-child(2) .ft-nav-grid{display:grid;grid-template-columns:auto auto;column-gap:40px;justify-content:center}
+  .footer-top>*:nth-child(2) .ft-nav-grid a{font-size:13px;line-height:2.1;color:var(--muted);text-align:left;display:block}
+  .footer-top>*:nth-child(2) .ft-nav-grid a:hover{color:var(--gold)}
+  .footer-top>*:nth-child(3) a{font-size:13px;line-height:2.2;text-align:center;display:block;color:var(--muted)}
+  .footer-top>*:nth-child(3) a:hover{color:var(--gold)}
+  .footer-btm{flex-direction:column;gap:4px;text-align:center;padding:16px 0}
+  .footer-map-wrap{height:180px}
+  .footer-map-btn{font-size:8px;padding:8px 14px;bottom:10px;right:10px;letter-spacing:1.5px}
 }
-.coming-strip-label::before, .coming-strip-label::after { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .5; }
-.coming-strip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-.coming-item {
-  background: var(--bg-surf); padding: 36px 28px;
-  border: 1px solid rgba(200,169,110,.06);
-  display: flex; flex-direction: column; gap: 12px;
-  position: relative; overflow: hidden;
-}
-.coming-item-icon { color: rgba(200,169,110,.3); }
-.coming-item-name { font-size: 12px; font-weight: 600; letter-spacing: .5px; color: var(--cream); }
-.coming-item-desc { font-size: 12px; line-height: 1.65; color: rgba(200,185,164,.5); }
-.coming-item-tag {
-  font-size: 8px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(200,169,110,.4); margin-top: auto; padding-top: 8px;
-  border-top: 1px solid rgba(200,169,110,.08);
-}
-
-/* ─── FOOTER ──────────────────────────────── */
-.footer { background: #141210; padding: 72px 0 40px; border-top: 1px solid rgba(200,169,110,.1); }
-.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 220px 1fr 1fr; gap: 64px; }
-.footer-logo img { width: 200px; object-fit: contain; margin-bottom: 20px; }
-.footer-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.4); }
-.footer-col-hed { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-.footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 13px; color: rgba(200,185,164,.55); transition: color .2s; }
-.footer-links a:hover { color: var(--cream); }
-.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding: 24px var(--gutter) 0; border-top: 1px solid rgba(200,169,110,.07); display: flex; justify-content: space-between; align-items: center; }
-.footer-copy { font-size: 11px; color: rgba(200,185,164,.3); }
-@media (max-width: 960px) {
-  :root { --gutter: 36px; }
-  .coming-strip-grid { grid-template-columns: 1fr 1fr; }
-  .cs-form { flex-direction: column; }
-  .cs-form button { padding: 14px; }
-  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; gap: 12px; }
+@media(max-width:480px){
+  .nav-overlay-inner{padding:0 24px 48px}
+  .ov-link{font-size:clamp(26px,7vw,36px)}
+  .nav-overlay-foot{grid-template-columns:1fr;gap:16px}
+  .coming-strip-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════ -->
 <nav class="nav" id="nav">
   <div class="nav-left">
-    <a href="story.html"   class="nav-lk">Our Story</a>
+    <a href="story.html" class="nav-lk">Our Story</a>
     <div class="nav-dd" id="nav-venue">
       <a href="explore-our-venue.html" class="nav-lk nav-dd-trigger">
         The Venue
         <svg class="chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>
       </a>
       <div class="nav-dd-panel">
-        <a href="billiards.html"         class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
-        <a href="darts.html"             class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
-        <a href="terrace.html"           class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
-        <a href="kitchen.html"           class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
+        <a href="billiards.html" class="nav-dd-item"><span class="dd-dot"></span>Billiards</a>
+        <a href="darts.html" class="nav-dd-item"><span class="dd-dot"></span>Darts</a>
+        <a href="terrace.html" class="nav-dd-item"><span class="dd-dot"></span>The Terrace Cafe</a>
+        <a href="kitchen.html" class="nav-dd-item"><span class="dd-dot"></span>Kitchen &amp; Bar</a>
         <div class="nav-dd-divider"></div>
-        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px;"><span class="dd-dot" style="opacity:.6;"></span>Explore our Venue →</a>
+        <a href="explore-our-venue.html" class="nav-dd-item" style="letter-spacing:1.4px"><span class="dd-dot" style="opacity:.6"></span>Explore our Venue &rarr;</a>
       </div>
     </div>
-    <a href="menu.html"    class="nav-lk">Our Menu</a>
+    <a href="pro-shop.html" class="nav-lk active">Pro Shop</a>
   </div>
   <a href="index.html" class="nav-logo">
     <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" loading="eager">
@@ -251,49 +226,78 @@ a { text-decoration: none; color: inherit; }
       </a>
       <div class="nav-dd-panel panel-right">
         <a href="tournaments.html" class="nav-dd-item"><span class="dd-dot"></span>Tournaments</a>
-        <a href="social.html"      class="nav-dd-item"><span class="dd-dot"></span>Social Events</a>
+        <a href="social.html" class="nav-dd-item"><span class="dd-dot"></span>Social Events</a>
       </div>
     </div>
-    <a href="pro-shop.html" class="nav-lk active">Pro Shop</a>
-    <a href="contact.html"  class="nav-lk">Find Us</a>
+    <a href="your-event.html" class="nav-lk">Your Event</a>
+    <a href="contact.html" class="nav-lk">Find Us</a>
   </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <div class="nav-overlay-inner">
+    <div class="nav-overlay-head">
+      <a href="index.html" id="overlayLogoLink">
+        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club">
+      </a>
+    </div>
+    <nav class="nav-overlay-links" aria-label="Primary navigation">
+      <div class="ov-item"><a href="index.html" class="ov-link ov-plain-link">Home</a></div>
+      <div class="ov-item"><a href="story.html" class="ov-link ov-plain-link">Our Story</a></div>
+      <div class="ov-item" id="ov-venue">
+        <button class="ov-link" aria-expanded="false">The Venue <span class="ov-acc-chevron">&rsaquo;</span></button>
+        <div class="ov-sub">
+          <a href="explore-our-venue.html" class="ov-sub-link ov-plain-link" style="color:rgba(200,169,110,.6)">Explore our Venue &rarr;</a>
+          <a href="billiards.html" class="ov-sub-link ov-plain-link">Billiards</a>
+          <a href="darts.html" class="ov-sub-link ov-plain-link">Darts</a>
+          <a href="terrace.html" class="ov-sub-link ov-plain-link">The Terrace Cafe</a>
+          <a href="kitchen.html" class="ov-sub-link ov-plain-link">Kitchen &amp; Bar</a>
+        </div>
+      </div>
+      <div class="ov-item" id="ov-events">
+        <button class="ov-link" aria-expanded="false">Events <span class="ov-acc-chevron">&rsaquo;</span></button>
+        <div class="ov-sub">
+          <a href="tournaments.html" class="ov-sub-link ov-plain-link">Tournaments</a>
+          <a href="social.html" class="ov-sub-link ov-plain-link">Social Events</a>
+        </div>
+      </div>
+      <div class="ov-item"><a href="your-event.html" class="ov-link ov-plain-link">Your Event</a></div>
+      <div class="ov-item"><a href="pro-shop.html" class="ov-link ov-plain-link" style="color:var(--gold)">Pro Shop</a></div>
+      <div class="ov-item"><a href="contact.html" class="ov-link ov-plain-link">Find Us</a></div>
+    </nav>
+    <div class="nav-overlay-foot">
+      <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS">
+      <div class="ov-foot-info">
+        <p class="ov-foot-line"><strong>Open daily</strong> 10:00 &ndash; 01:00</p>
+        <p class="ov-foot-line">Kissamou &amp; Saridantoni 1, Chania 73136</p>
+        <p class="ov-foot-line"><strong>(+30)</strong> 28210 70307 &middot; 6975 993 307</p>
+        <p class="ov-foot-line">@aramischania</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- ══ COMING SOON ════════════════════════════ -->
+<!-- COMING SOON -->
 <main class="coming-soon">
   <div class="cs-inner">
-
-    <div class="cs-eyebrow">Pro Shop · ARAMIS Chania</div>
-
+    <div class="cs-eyebrow">Pro Shop &middot; ARAMIS Chania</div>
     <h1 class="cs-hed">Your gear.<br>Coming soon.</h1>
-
     <div class="cs-rule"></div>
-
-    <p class="cs-body">
-      We're building the ARAMIS Pro Shop — billiard and dart equipment,
-      sourced by people who play every day. Gloves, chalk, tips, accessories,
-      cue sourcing, and more. <strong>Keep an eye on this space.</strong>
-    </p>
-
-    <!-- Newsletter -->
+    <p class="cs-body">We&rsquo;re building the ARAMIS Pro Shop &mdash; billiard and dart equipment, sourced by people who play every day. Gloves, chalk, tips, accessories, cue sourcing, and more. <strong>Keep an eye on this space.</strong></p>
     <form class="cs-form" id="cs-newsletter" onsubmit="handleSignup(event)">
-      <input type="email" placeholder="Your email — be first to know" required>
+      <input type="email" placeholder="Your email &mdash; be first to know" required>
       <button type="submit">Notify me</button>
     </form>
-    <div class="cs-success" id="cs-success">You're on the list — we'll be in touch when we launch.</div>
+    <div class="cs-success" id="cs-success">You&rsquo;re on the list &mdash; we&rsquo;ll be in touch when we launch.</div>
     <p class="cs-form-note">No spam. Just a single message when the shop goes live.</p>
-
     <div class="cs-divider"></div>
-
-    <!-- Urgent contact -->
     <div class="cs-contact">
       <div class="cs-contact-label">Need something now?</div>
       <div class="cs-contact-hed">Give us a call or visit us at the club.</div>
-      <p class="cs-contact-body">
-        If you have an urgent need for supplies — a replacement tip, chalk, a glove before a tournament —
-        call us or come in and ask for Sissi or Aris. We'll do our best to help.
-      </p>
+      <p class="cs-contact-body">If you have an urgent need for supplies &mdash; a replacement tip, chalk, a glove before a tournament &mdash; call us or come in and ask for Sissi or Aris. We&rsquo;ll do our best to help.</p>
       <div class="cs-contact-rows">
         <div class="cs-contact-row">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.07 6.07l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -305,7 +309,7 @@ a { text-decoration: none; color: inherit; }
         </div>
         <div class="cs-contact-row">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Visit us · Ask for Sissi or Aris at the bar</span>
+          <span>Visit us &middot; Ask for Sissi or Aris at the bar</span>
         </div>
         <div class="cs-contact-row">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -313,127 +317,118 @@ a { text-decoration: none; color: inherit; }
         </div>
       </div>
     </div>
-
   </div>
 </main>
 
-
-<!-- ══ WHAT'S COMING ══════════════════════════ -->
+<!-- WHAT'S COMING -->
 <div class="coming-strip">
   <div class="coming-strip-inner">
-    <div class="coming-strip-label">What's coming to the Pro Shop</div>
+    <div class="coming-strip-label">What&rsquo;s coming to the Pro Shop</div>
     <div class="coming-strip-grid">
-
       <div class="coming-item">
-        <div class="coming-item-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
-        </div>
+        <div class="coming-item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
         <div class="coming-item-name">Billiard Accessories</div>
-        <div class="coming-item-desc">Gloves, chalk, tips, bridge heads, cue cases — the essentials, in stock and ready.</div>
-        <div class="coming-item-tag">Available now — ask in store</div>
+        <div class="coming-item-desc">Gloves, chalk, tips, bridge heads, cue cases &mdash; the essentials, in stock and ready.</div>
+        <div class="coming-item-tag">Available now &mdash; ask in store</div>
       </div>
-
       <div class="coming-item">
-        <div class="coming-item-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><line x1="3" y1="12" x2="21" y2="12"/><path d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9-9-4.03-9-9z"/><path d="M12 3c2.5 2.5 4 6 4 9s-1.5 6.5-4 9"/><path d="M12 3c-2.5 2.5-4 6-4 9s1.5 6.5 4 9"/></svg>
-        </div>
+        <div class="coming-item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><line x1="3" y1="12" x2="21" y2="12"/><path d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9-9-4.03-9-9z"/><path d="M12 3c2.5 2.5 4 6 4 9s-1.5 6.5-4 9"/><path d="M12 3c-2.5 2.5-4 6-4 9s1.5 6.5 4 9"/></svg></div>
         <div class="coming-item-name">Cue Sourcing</div>
         <div class="coming-item-desc">Tell us your level, budget, and style. We source the right cue from suppliers across Europe.</div>
-        <div class="coming-item-tag">Available now — call or visit</div>
+        <div class="coming-item-tag">Available now &mdash; call or visit</div>
       </div>
-
       <div class="coming-item">
-        <div class="coming-item-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/></svg>
-        </div>
+        <div class="coming-item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/></svg></div>
         <div class="coming-item-name">Dart Equipment</div>
-        <div class="coming-item-desc">Boards, darts, flights, shafts, and cases — for the serious darts player.</div>
+        <div class="coming-item-desc">Boards, darts, flights, shafts, and cases &mdash; for the serious darts player.</div>
         <div class="coming-item-tag">Coming soon</div>
       </div>
-
       <div class="coming-item">
-        <div class="coming-item-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        </div>
+        <div class="coming-item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
         <div class="coming-item-name">Online Shop &amp; ARAMIS Merch</div>
-        <div class="coming-item-desc">Online ordering across Greece, ARAMIS branded gear, and an expanded catalogue — all on the way.</div>
+        <div class="coming-item-desc">Online ordering across Greece, ARAMIS branded gear, and an expanded catalogue &mdash; all on the way.</div>
         <div class="coming-item-tag">Coming soon</div>
       </div>
-
     </div>
   </div>
 </div>
 
+<!-- MAPS -->
+<div class="footer-map-wrap">
+  <iframe src="https://maps.google.com/maps?q=ARAMIS+Billiard+Club+Chania+Greece&output=embed&z=16" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ARAMIS location"></iframe>
+  <a href="https://www.google.com/maps/search/ARAMIS+Billiard+Club+Chania+Greece" target="_blank" rel="noopener" class="footer-map-btn">Get Directions</a>
+</div>
 
-<!-- ══ FOOTER ═════════════════════════════════ -->
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS"></div>
-      <div class="footer-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
+  <div class="footer-top">
+    <div class="ft-brand">
+      <div class="ft-brand-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club"></div>
+      <p class="ft-tagline">Chania&rsquo;s finest billiard club since 1984.</p>
+      <p class="ft-address">Kissamou &amp; Saridantoni 1, Chania 73136, Crete, Greece</p>
+      <div class="ft-contact">
+        <p>Tel: <a href="tel:+302821070307">(+30) 28210 70307</a> &nbsp;|&nbsp; <a href="tel:+306975993307">6975 993 307</a></p>
+        <p>Email: <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a></p>
+      </div>
+      <p class="ft-hours">Open daily 10:00 &ndash; 01:00</p>
     </div>
-    <div>
-      <div class="footer-col-hed">Navigate</div>
-      <div class="footer-links">
-        <a href="story.html">Our Story</a>
-        <a href="explore-our-venue.html">Explore our Venue</a>
-        <a href="menu.html">Our Menu</a>
-        <a href="tournaments.html">Tournaments</a>
-        <a href="social.html">Social Events</a>
-        <a href="contact.html">Find Us</a>
+    <div class="ft-col">
+      <h4>Navigate</h4>
+      <div class="ft-nav-grid">
+        <a href="index.html">Home</a><a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">The Venue</a><a href="menu.html">Our Menu</a>
+        <a href="tournaments.html">Tournaments</a><a href="social.html">Social Events</a>
+        <a href="pro-shop.html">Pro Shop</a><a href="contact.html">Find Us</a>
       </div>
     </div>
-    <div>
-      <div class="footer-col-hed">Visit</div>
-      <div class="footer-links">
-        <a href="#">Open 10:00 – 01:00 daily</a>
-        <a href="contact.html">Kissamou &amp; Saridantoni 1, Chania</a>
-        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-        <a href="tel:+306975993307">(+30) 6975 993 307</a>
-        <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a>
-      </div>
+    <div class="ft-col">
+      <h4>Follow</h4>
+      <a href="https://instagram.com/aramischania" target="_blank" rel="noopener">Instagram @aramischania</a>
+      <a href="https://facebook.com/aramischania" target="_blank" rel="noopener">Facebook /aramischania</a>
+      <a href="https://cuescore.com/aramischania" target="_blank" rel="noopener">CueScore /aramischania</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 ARAMIS Billiard Club · Chania, Crete · Est. 1984</div>
-    <div class="footer-copy">Design · Manos Chatzakis</div>
+  <div class="footer-btm">
+    <span>All Rights Reserved &copy; 2026 ARAMIS Billiard Club</span>
+    <span>Design &amp; Development by Locus Design + Innovation</span>
   </div>
 </footer>
 
 <script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-['nav-venue','nav-events'].forEach(id => {
-  const dd = document.getElementById(id);
-  if (!dd) return;
-  dd.addEventListener('click', e => { if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); dd.classList.toggle('open'); } });
-  document.addEventListener('click', e => { if (!dd.contains(e.target)) dd.classList.remove('open'); });
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+['nav-venue','nav-events'].forEach(id=>{
+  const dd=document.getElementById(id);if(!dd)return;
+  dd.addEventListener('click',e=>{if(window.matchMedia('(hover: none)').matches){e.preventDefault();dd.classList.toggle('open')}});
+  document.addEventListener('click',e=>{if(!dd.contains(e.target))dd.classList.remove('open')});
 });
+const hamburger=document.getElementById('navHamburger'),overlay=document.getElementById('navOverlay');
+let overlayOpen=false;
+function openOverlay(){overlayOpen=true;overlay.classList.add('is-open');hamburger.classList.add('is-open');hamburger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+function closeOverlay(){overlayOpen=false;overlay.querySelectorAll('.ov-item').forEach(el=>{el.style.transitionDelay='0s'});overlay.classList.remove('is-open');hamburger.classList.remove('is-open');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{overlay.querySelectorAll('.ov-item').forEach(el=>{el.style.transitionDelay=''});overlay.querySelectorAll('.ov-item.is-expanded').forEach(el=>{el.classList.remove('is-expanded');const b=el.querySelector('button.ov-link');if(b)b.setAttribute('aria-expanded','false')})},700)}
+hamburger.addEventListener('click',()=>overlayOpen?closeOverlay():openOverlay());
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlayOpen)closeOverlay()});
+overlay.querySelectorAll('.ov-plain-link').forEach(link=>link.addEventListener('click',closeOverlay));
+document.getElementById('overlayLogoLink').addEventListener('click',closeOverlay);
+overlay.querySelectorAll('button.ov-link').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.ov-item'),isExpanded=item.classList.contains('is-expanded');
+    overlay.querySelectorAll('.ov-item.is-expanded').forEach(el=>{if(el!==item){el.classList.remove('is-expanded');const b=el.querySelector('button.ov-link');if(b)b.setAttribute('aria-expanded','false')}});
+    item.classList.toggle('is-expanded',!isExpanded);btn.setAttribute('aria-expanded',String(!isExpanded));
+  });
+});
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 
-async function handleSignup(e) {
+async function handleSignup(e){
   e.preventDefault();
-  const form  = e.target;
-  const email = form.querySelector('input[type="email"]').value;
-  const btn   = form.querySelector('button');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  try {
-    const res = await fetch('https://formspree.io/f/xeevwqjz', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email, source: 'Pro Shop signup' })
-    });
-    if (res.ok) {
-      document.getElementById('cs-newsletter').style.display = 'none';
-      document.getElementById('cs-success').style.display = 'block';
-    } else {
-      btn.textContent = 'Try again';
-      btn.disabled = false;
-    }
-  } catch(err) {
-    btn.textContent = 'Try again';
-    btn.disabled = false;
-  }
+  const form=e.target,email=form.querySelector('input[type="email"]').value,btn=form.querySelector('button');
+  btn.textContent='Sending...';btn.disabled=true;
+  try{
+    await fetch('https://formspree.io/f/xeevwqjz',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:email,source:'Pro Shop signup'})});
+    document.getElementById('cs-newsletter').style.display='none';
+    document.getElementById('cs-success').style.display='block';
+  }catch(err){btn.textContent='Try again';btn.disabled=false;}
 }
 </script>
 </body>
