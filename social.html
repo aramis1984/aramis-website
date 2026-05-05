@@ -646,86 +646,43 @@ a { text-decoration: none; color: inherit; }
 
       <!--
         ═══════════════════════════════════════════════════════════
-        EVENT CARD TEMPLATE
-        Copy this block for each upcoming event.
-        The .event-poster div is the hero for the event poster/image.
-        Replace content with real event details.
+        EVENT CARD TEMPLATE — paste one per upcoming event
         ═══════════════════════════════════════════════════════════
-      -->
-
-      <div class="event-card fu">
-        <div class="event-poster">
-          <div class="ph ph-fill">
-            <div class="ph-inner">
-              <span class="ph-label">social-poster-01.jpg<br>Event poster — Friday Night Live</span>
+        <div class="event-card fu">
+          <div class="event-poster">
+            <img src="assets/images/social-poster-01.jpg" alt="Event name">
+          </div>
+          <div class="event-body">
+            <div class="event-date">Day DD Month · HH:MM</div>
+            <div class="event-name">Event Name</div>
+            <div class="event-desc">Short description of the event.</div>
+            <div class="event-tags">
+              <span class="event-tag">Tag</span>
             </div>
+            <a href="https://instagram.com/aramischania" target="_blank" class="btn-text-link" style="align-self:flex-start;">
+              Follow for updates
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </div>
-          <!-- <img src="assets/images/social-poster-01.jpg" alt="Friday Night Live"> -->
         </div>
-        <div class="event-body">
-          <div class="event-date">Friday 28 March · 21:00</div>
-          <div class="event-name">Friday Night Live</div>
-          <div class="event-desc">Live acoustic music on the terrace. Mountain views, cocktails, and the kind of Friday evening that makes the week worth it.</div>
-          <div class="event-tags">
-            <span class="event-tag">Live Music</span>
-            <span class="event-tag">Terrace</span>
-            <span class="event-tag">Free Entry</span>
-          </div>
-          <a href="https://instagram.com/aramischania" target="_blank" class="btn-text-link" style="align-self:flex-start;">
-            Follow for updates
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
+        ═══════════════════════════════════════════════════════════ -->
 
-      <div class="event-card fu">
-        <div class="event-poster">
-          <div class="ph ph-fill">
-            <div class="ph-inner">
-              <span class="ph-label">social-poster-02.jpg<br>Event poster — DJ Night</span>
-            </div>
-          </div>
-          <!-- <img src="assets/images/social-poster-02.jpg" alt="DJ Night"> -->
-        </div>
-        <div class="event-body">
-          <div class="event-date">Saturday 5 April · 22:00</div>
-          <div class="event-name">DJ Night</div>
-          <div class="event-desc">Beats and cocktails under the stars. The terrace at its most alive — open air, mountain backdrop, the bar running all night.</div>
-          <div class="event-tags">
-            <span class="event-tag">DJ Set</span>
-            <span class="event-tag">Terrace</span>
-            <span class="event-tag">Free Entry</span>
-          </div>
-          <a href="https://instagram.com/aramischania" target="_blank" class="btn-text-link" style="align-self:flex-start;">
-            Follow for updates
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!--
-        ══════════════════════════════════════════════════════
-        QUIET PERIOD / NO UPCOMING EVENTS:
-        Remove the example cards above and uncomment this block.
-        ══════════════════════════════════════════════════════
-      -->
-      <!--
-      <div class="event-offseason">
+      <!-- NO UPCOMING EVENTS — remove this block and paste event cards above when something is scheduled -->
+      <div class="event-offseason fu">
         <div class="offseason-inner">
           <div class="offseason-icon">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
           </div>
-          <div class="offseason-hed">Nothing in the calendar just yet.</div>
-          <div class="offseason-sub">Events get announced here and on Instagram first. Drop your email below and we'll let you know when something's coming up.</div>
+          <div class="offseason-hed">Nothing confirmed just yet.</div>
+          <p class="offseason-sub">We host live music, DJ nights, themed evenings, and more throughout the year — we just haven't locked in the next date yet. Follow us on Instagram and you'll be the first to know when something's coming up.</p>
           <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event, 'social events')">
             <input type="email" placeholder="Your email address" required>
             <button type="submit">Keep me posted</button>
           </form>
-          <div class="newsletter-success">You're in — we'll be in touch when something's coming up.</div>
-          <div class="offseason-alt">Or follow <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a> — we announce there first.</div>
+          <div class="newsletter-success">You're in — we'll let you know when something's coming up.</div>
+          <p class="offseason-alt">Or follow <a href="https://instagram.com/aramischania" target="_blank">@aramischania</a> — we always announce there first.</p>
         </div>
       </div>
-      -->
 
     </div>
   </div>
