@@ -415,93 +415,49 @@ a { text-decoration: none; color: inherit; }
 
 
 /* ── CANONICAL FOOTER ────────────────────── */
-.site-footer {
-  background: #0e0c0a;
-  border-top: 1px solid rgba(200,169,110,.12);
-  padding: 0 0 0;
-}
-
-/* Map strip */
-.footer-map {
-  width: 100%; height: 220px; overflow: hidden; position: relative;
-  border-bottom: 1px solid rgba(200,169,110,.1);
-}
-.footer-map iframe {
-  width: 100%; height: 100%; border: none; display: block;
-  filter: invert(90%) hue-rotate(180deg) saturate(.55) brightness(.8);
-}
-.footer-map-cta {
-  position: absolute; bottom: 16px; right: 16px;
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(20,18,16,.9); border: 1px solid rgba(200,169,110,.3);
-  color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; padding: 8px 14px;
-  backdrop-filter: blur(8px); transition: background .2s;
-  text-decoration: none;
-}
-.footer-map-cta:hover { background: rgba(200,169,110,.12); }
-.footer-map-cta svg { flex-shrink: 0; }
-
-/* Main footer body */
-.footer-body {
-  max-width: 1200px; margin: 0 auto;
-  padding: 52px 72px 40px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-}
-
-/* Column 1 — brand */
-.footer-brand {}
-.footer-brand-logo { margin-bottom: 20px; }
-.footer-brand-logo img { width: 160px; object-fit: contain; }
-.footer-brand-tagline { font-size: 12px; line-height: 1.8; color: rgba(200,185,164,.35); margin-bottom: 20px; }
-.footer-brand-contact { display: flex; flex-direction: column; gap: 6px; }
-.footer-brand-contact a,
-.footer-brand-contact span {
-  font-size: 12px; color: rgba(200,185,164,.45);
-  text-decoration: none; transition: color .2s; line-height: 1.5;
-}
-.footer-brand-contact a:hover { color: var(--gold); }
-
-/* Columns 2–4 */
-.footer-col {}
-.footer-col-title {
-  font-size: 8.5px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 18px; display: block;
-}
-.footer-col-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-col-links a,
-.footer-col-links span {
-  font-size: 12px; color: rgba(200,185,164,.5);
-  text-decoration: none; transition: color .2s; line-height: 1.4;
-}
-.footer-col-links a:hover { color: var(--cream); }
-.footer-col-links .footer-divider {
-  height: 1px; background: rgba(200,169,110,.07); margin: 4px 0;
-}
-
-/* Bottom bar */
-.footer-bottom-bar {
-  max-width: 1200px; margin: 0 auto;
-  padding: 20px 72px 28px;
-  border-top: 1px solid rgba(200,169,110,.07);
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-/* Mobile footer */
-@media (max-width: 768px) {
-  .footer-map { height: 180px; }
-  .footer-body {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    padding: 40px 20px 32px;
-  }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-bottom-bar { padding: 16px 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
-}
-@media (max-width: 480px) {
-  .footer-body { grid-template-columns: 1fr; }
+/* MAPS + FOOTER */
+.footer-map-wrap{position:relative;height:220px;overflow:hidden;border-top:1px solid rgba(200,169,110,.06)}
+.footer-map-wrap iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(80%) invert(90%) sepia(25%) brightness(0.82) contrast(1.08)}
+.footer-map-btn{position:absolute;bottom:16px;right:20px;display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:rgba(16,14,11,.88);color:var(--gold);font-size:9.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(200,169,110,.28);backdrop-filter:blur(10px);transition:background .2s,border-color .2s}
+.footer-map-btn:hover{background:rgba(200,169,110,.12);border-color:var(--gold)}
+.footer-map-btn::after{content:'→';font-size:13px;margin-left:2px}
+.footer{background:#110f0c;padding:64px 80px 0;border-top:1px solid rgba(200,169,110,.08)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(200,169,110,.07)}
+.ft-brand-logo img{width:210px;margin-bottom:18px;object-fit:contain}
+.ft-tagline{font-size:12px;font-style:italic;color:rgba(200,185,164,.38);margin-bottom:8px;line-height:1.65}
+.ft-address{font-size:12px;color:rgba(200,185,164,.35);margin-bottom:16px;line-height:1.5}
+.ft-contact{font-size:13px;line-height:2.0;color:var(--muted)}
+.ft-contact p{display:block;margin:0}
+.ft-contact a{color:var(--muted);transition:color .2s}
+.ft-contact a:hover{color:var(--gold)}
+.ft-hours{margin-top:12px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(200,169,110,.45)}
+.ft-col h4{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.ft-col a,.ft-col p,.ft-nav-grid a{display:block;font-size:13px;color:var(--muted);line-height:2.1;transition:color .2s}
+.ft-col a:hover,.ft-nav-grid a:hover{color:var(--gold)}
+.footer-btm{padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.footer-btm span{font-size:11px;color:rgba(200,185,164,.3)}
+@media(max-width:1100px){.footer{padding:56px 48px 0}.footer-top{gap:40px}}
+@media(max-width:768px){
+  .footer{padding:40px 28px 0}
+  .footer-top{display:flex;flex-direction:column;gap:0}
+  .ft-brand{text-align:center;padding-bottom:28px;border-bottom:1px solid rgba(200,169,110,.1)}
+  .ft-brand .ft-brand-logo img{margin:0 auto 14px;width:150px}
+  .ft-brand .ft-tagline,.ft-brand .ft-address,.ft-brand .ft-contact p,.ft-brand .ft-hours{text-align:center}
+  .ft-brand .ft-tagline{margin-bottom:4px}
+  .ft-brand .ft-hours{margin-top:8px}
+  .ft-col{padding:24px 0;border-bottom:1px solid rgba(200,169,110,.08);text-align:center}
+  .ft-col:last-child{border-bottom:none;padding-bottom:8px}
+  .ft-col h4{text-align:center;margin-bottom:16px}
+  .footer-top>*:nth-child(2){display:flex;flex-direction:column;align-items:center}
+  .footer-top>*:nth-child(2) h4{width:100%}
+  .footer-top>*:nth-child(2) .ft-nav-grid{display:grid;grid-template-columns:auto auto;column-gap:40px;justify-content:center}
+  .footer-top>*:nth-child(2) .ft-nav-grid a{font-size:13px;line-height:2.1;color:var(--muted);text-align:left;display:block}
+  .footer-top>*:nth-child(2) .ft-nav-grid a:hover{color:var(--gold)}
+  .footer-top>*:nth-child(3) a{font-size:13px;line-height:2.2;text-align:center;display:block;color:var(--muted)}
+  .footer-top>*:nth-child(3) a:hover{color:var(--gold)}
+  .footer-btm{flex-direction:column;gap:4px;text-align:center;padding:16px 0}
+  .footer-map-wrap{height:180px}
+  .footer-map-btn{font-size:8px;padding:8px 14px;bottom:10px;right:10px;letter-spacing:1.5px}
 }
 
 
@@ -863,71 +819,43 @@ a { text-decoration: none; color: inherit; }
 
 
 <!-- ══ FOOTER ═════════════════════════════════ -->
-<footer class="site-footer">
+<div class="footer-map-wrap">
+  <iframe src="https://maps.google.com/maps?q=ARAMIS+Billiard+Club+Chania+Greece&output=embed&z=16" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ARAMIS location"></iframe>
+  <a href="https://www.google.com/maps/search/ARAMIS+Billiard+Club+Chania+Greece" target="_blank" rel="noopener" class="footer-map-btn">Get Directions</a>
+</div>
 
-  <!-- Embedded Google Map -->
-  <div class="footer-map">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.8910094819826!2d24.003072675544388!3d35.50697313952732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149c7d882f64a033%3A0xa58664b0e378e1c2!2sARAMIS%20Billiard%20Club!5e0!3m2!1sen!2sgr!4v1777143620797!5m2!1sen!2sgr"
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      title="ARAMIS Billiard Club — Kissamou &amp; Saridantoni 1, Chania">
-    </iframe>
-    <a href="https://maps.google.com/?q=ARAMIS+Billiard+Club+Chania" target="_blank" class="footer-map-cta">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Get directions
-    </a>
-  </div>
-
-  <!-- Footer columns -->
-  <div class="footer-body">
-
-    <!-- Col 1 — Brand + contact (2fr) -->
-    <div class="footer-brand">
-      <div class="footer-brand-logo">
-        <img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club" style="width:210px;">
+<footer class="footer">
+  <div class="footer-top">
+    <div class="ft-brand">
+      <div class="ft-brand-logo"><img src="https://raw.githubusercontent.com/aramis1984/aramis-website/main/AR_logo.png" alt="ARAMIS Billiard Club"></div>
+      <p class="ft-tagline">Chania&rsquo;s finest billiard club since 1984.</p>
+      <p class="ft-address">Kissamou &amp; Saridantoni 1, Chania 73136, Crete, Greece</p>
+      <div class="ft-contact">
+        <p>Tel: <a href="tel:+302821070307">(+30) 28210 70307</a> &nbsp;|&nbsp; <a href="tel:+306975993307">6975 993 307</a></p>
+        <p>Email: <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a></p>
       </div>
-      <div class="footer-brand-tagline">Chania's largest billiard hall.<br>Family-owned since 1984.<br>Crete, Greece.</div>
-      <div class="footer-brand-contact">
-        <span>Kissamou &amp; Saridantoni 1, Chania 73136, Crete, Greece</span>
-        <a href="tel:+302821070307">(+30) 28210 70307</a> | <a href="tel:+306975993307">(+30) 6975 993 307</a>
-        <a href="mailto:aramischania@gmail.com">aramischania@gmail.com</a>
-        <span>Open 10:00 – 01:00 daily</span>
+      <p class="ft-hours">Open daily 10:00 &ndash; 01:00</p>
+    </div>
+    <div class="ft-col">
+      <h4>Navigate</h4>
+      <div class="ft-nav-grid">
+        <a href="index.html">Home</a><a href="story.html">Our Story</a>
+        <a href="explore-our-venue.html">The Venue</a><a href="menu.html">Our Menu</a>
+        <a href="tournaments.html">Tournaments</a><a href="social.html">Social Events</a>
+        <a href="pro-shop.html">Pro Shop</a><a href="contact.html">Find Us</a>
       </div>
     </div>
-
-    <!-- Col 2 — Navigate (1fr) -->
-    <div class="footer-col">
-      <span class="footer-col-title">Navigate</span>
-      <div class="footer-col-links" style="display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;">
-        <a href="index.html">Home</a>
-        <a href="tournaments.html">Tournaments</a>
-        <a href="story.html">Our Story</a>
-        <a href="social.html">Social Events</a>
-        <a href="explore-our-venue.html">The Venue</a>
-        <a href="your-event.html">Your Event</a>
-        <a href="pro-shop.html">Pro Shop</a>
-        <a href="contact.html">Find Us</a>
-      </div>
+    <div class="ft-col">
+      <h4>Follow</h4>
+      <a href="https://instagram.com/aramischania" target="_blank" rel="noopener">Instagram @aramischania</a>
+      <a href="https://facebook.com/aramischania" target="_blank" rel="noopener">Facebook /aramischania</a>
+      <a href="https://cuescore.com/aramischania" target="_blank" rel="noopener">CueScore /aramischania</a>
     </div>
-
-    <!-- Col 3 — Follow (1fr) -->
-    <div class="footer-col">
-      <span class="footer-col-title">Follow</span>
-      <div class="footer-col-links">
-        <a href="https://instagram.com/aramischania" target="_blank">Instagram @aramischania</a>
-        <a href="https://facebook.com/aramischania" target="_blank">Facebook /aramischania</a>
-        <a href="https://cuescore.com/aramischania" target="_blank">CueScore /aramischania</a>
-      </div>
-    </div>
-
   </div>
-
-  <!-- Bottom bar -->
-  <div class="footer-bottom-bar">
-    <span class="footer-copy">All Rights Reserved &copy; 2026 ARAMIS Billiard Club</span>
-    <span class="footer-copy">Design &amp; Development by Locus Design + Innovation</span>
+  <div class="footer-btm">
+    <span>All Rights Reserved &copy; 2026 ARAMIS Billiard Club</span>
+    <span>Design &amp; Development by Locus Design + Innovation</span>
   </div>
-
 </footer>
 
 
