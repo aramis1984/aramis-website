@@ -872,10 +872,13 @@ a { text-decoration: none; color: inherit; }
 
 /* ── Small mobile (≤480px) ── */
 @media (max-width: 480px) {
-  /* Strip → single column */
-  .strip { grid-template-columns: 1fr; }
+  /* Strip → stays 2×2 on small mobile */
+  .strip { grid-template-columns: repeat(2, 1fr); }
   .strip-item { border-left: none; border-top: 1px solid rgba(200,169,110,.1); }
-  .strip-item:first-child { border-top: none; }
+  .strip-item:first-child,
+  .strip-item:nth-child(2) { border-top: none; }
+  .strip-item:nth-child(odd) { border-left: none; }
+  .strip-item:nth-child(even) { border-left: 1px solid rgba(200,169,110,.1); }
 
   /* Cards → single column */
   .cards-row { grid-template-columns: 1fr; }
@@ -1033,8 +1036,20 @@ a { text-decoration: none; color: inherit; }
 ══════════════════════════════════════ -->
 <section class="hero">
   <!-- Placeholder — swap this entire div for <img> or <video> when media is ready -->
- <img class="hero-bg" src="images/home-hero.jpg" alt="Billiard hall lit at night, tables view ready to play"
+  <div class="hero-bg ph ph-fill">
+    <div class="ph-inner">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.2)" stroke-width=".8">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="m21 15-5-5L5 21"/>
+      </svg>
+      <span class="ph-label">
+        home-hero.jpg · 1920×1080px<br>
+        Hall lit at night · Terrace with mountains · Players in action
+      </span>
+    </div>
   </div>
+
   <div class="hero-ov"></div>
 
   <div class="hero-content">
@@ -1165,7 +1180,14 @@ a { text-decoration: none; color: inherit; }
 <section class="exp">
   <div class="exp-ph">
     <!-- Placeholder: 4:3 image — billiard hall wide atmospheric shot -->
-   <img src="images/home-experience.jpg" alt="Billiard hall wide atmospheric shot" class="hero-bg">
+    <div class="ph ph-fill">
+      <div class="ph-inner">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.15)" stroke-width=".8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="m21 15-5-5L5 21"/>
+        </svg>
+        <span class="ph-label">home-experience.jpg · 4:3<br>Billiard hall — wide atmospheric shot</span>
       </div>
     </div>
   </div>
@@ -1186,8 +1208,14 @@ a { text-decoration: none; color: inherit; }
 ══════════════════════════════════════ -->
 <section class="terrace">
   <!-- Placeholder: 16:9 image — terrace golden hour, White Mountains -->
-  <img src="images/home-terrace.jpg" alt="ARAMIS Terrace"
-            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;">
+  <div class="ph ph-fill">
+    <div class="ph-inner">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,.12)" stroke-width=".8">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span class="ph-label">home-terrace.jpg · 16:9<br>Terrace — golden hour, White Mountains</span>
+    </div>
   </div>
   <div class="terrace-ov"></div>
   <div class="terrace-ct">
